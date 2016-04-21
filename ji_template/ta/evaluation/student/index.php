@@ -10,9 +10,9 @@
     <script src="/ji_js/confirmLogout.js"></script>
     <!--<script src="../Formal Project/bootstrap-3.3.5-dist/js/bootstrap.js"></script>-->
     <noscript>Your browser does not support JavaScript!</noscript>
-    <link rel="stylesheet" type="text/css" href="../Formal Project/bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/ji_style/ta/common.css">
-    <link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/index.css">
+    <link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/student/index.css">
     <base target="_self">
 </head>
 

@@ -9,7 +9,7 @@
 	<script src="/ji_js/ta/evaluation.js"></script>
 	<noscript>Your browser does not support JavaScript!</noscript>
     <link rel="stylesheet" type="text/css" href="/ji_style/ta/common.css">
-	<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/student/index.css">
+	<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/index.css">
 	<base target="_self">
 </head>
 
