@@ -1,0 +1,40 @@
+/*The Content Body is here*/
+div.body{
+	height:700px;
+	clear:right;
+}
+
+/*The main content part is here*/
+
+div.maincontent{
+	border-radius: 5px;
+	margin-right: 10%;
+    margin-left: 10%;
+	background-color: #E6E5E5;
+	box-shadow: 0 0 5px #002b60;
+    width: 80%;
+	height: 80%;
+	overflow: auto;
+}
+div.announcement {
+    margin: 3% 5% 5% 5%;
+}
+div.announcement h2{
+    padding-bottom: 15px;
+    border-bottom: 2px solid #0055BD;
+    font-weight: 500;
+    font-size: 1.35em;
+}
+div.announcement > ul li{
+    list-style-type: circle;
+}
+div.announcement > ul{
+    margin-top: 2%;
+}
+div.maincontent p{
+	font-size: 1em;
+}
+
+
+
+
