@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/* CSS Document 全局首页*/
+.top { width:960px;}
+.main { min-height:550px; width:960px;}
+.main .title{ width:100%; line-height:50px; height:50px;  background-color:#485b7d; color:#eee;}
+.main .title h1{ width:400px; float:left; text-indent:10px; font-size:20px;}
+.main .title form { width:500px; float:right;}
+.main .title form input{ float:right; margin:10px; border:0px;width:200px; height:30px; line-height:30px; text-indent:10px;}
+.main .title form span{ float:right; width:80px; color:#666; margin:10px 10px 10px 0; height:30px; line-height:30px; text-align:center; background-color:#efefef; border:1px solid #ccc; cursor:pointer;}
+.main .title form span:hover{ background-color:#06C; color:#fff;}
+.main .lab { padding:0; margin:0;}
+.main .lab .category h1 {  clear: both;  float: left;  line-height: 40px;  width: 100px;}
+.main .lab .category a{  float: left;  line-height: 40px;  margin-right: 20px;  color: rgb(47, 102, 165);}
+.main .lab .category a:hover { text-decoration:underline}
+.main .lab .category a span.lm{ width:40px; float:left;}
+#lab-index .equipments { clear:both;}
+#lab-index .equipments div{ float:left; margin:10px; width:300px; height:200px;}
+#lab-index .equipments div img{ width:300px;max-height: 180px;}
+#lab-index .equipments div span{ clear:both; line-height:30px; text-align:center; float:left; width:300px;}
+
+#lab-detail .equipment{ clear:both; background-color:#fff; border-radius:5px; float:left; border:1px solid #ccc;}
+#lab-detail .equipment .img{ width:300px; margin:10px; float:left; min-height:300px;}
+#lab-detail .equipment .img img{ width:300px;}
+#lab-detail .equipment .list { width:620px; margin:10px; float:left; min-height:300px;}
+#lab-detail .equipment .list table tr td{ text-indent:10px;}
+#lab-detail .equipment .list table tr td a span{ float:left; width:100px; height:40px; line-height:40px; text-align:center; background-color:#06C; color:#fff; float:left; border:1px solid #fff; text-indent:0}
+#lab-detail .equipment .function { width:940px; float:left; margin:10px;}
+#lab-detail .equipment .function .h1{ width:100% !important; float:left; height:40px; line-height:40px; text-indent:10px; color:#fff;filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#485b7d',endColorStr='#fff',gradientType='1');
+background: -moz-linear-gradient(left, #485b7d, #fff);
+background: -o-linear-gradient(left,#485b7d, #fff);
+background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#485b7d), to(#fff));}
+#lab-detail .equipment .function div{ line-height:25px; font-size:15px; margin:10px;}
+
+/*列表模式*/
+#lab-category .list{ clear:both; background-color:#fff; border-radius:5px; float:left; border:1px solid #ccc; text-indent:10px; width:100%}
+#lab-category .list div{ width:100%; float:left;}
+#lab-category .list div:hover { background-color:#D0E8FF}
+#lab-category .list a span{ float:left; height:40px; line-height:40px;}
+#lab-category .list .name{ width:400px;}
+#lab-category .list .place{ width:200px;}
+#lab-category .list .total { width:100px;}
+#lab-category .list .head{ background-color: #C9D3DB;  color: #474A4C;  font-weight: bold;}
+#lab-category .list h1 {  clear: both;  float: left;  line-height: 40px;}
+
+/*图片模式*/
+#lab-category .equipments { clear:both; display:none;}
+#lab-category .equipments div{ float:left; margin:10px; width:300px; height:200px;}
+#lab-category .equipments div img{ width:300px;max-height: 180px;}
+#lab-category .equipments div span{ clear:both; line-height:30px; text-align:center; float:left; width:300px;}
+
+

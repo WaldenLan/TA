@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* CSS Document 全局首页*/
+
+#home .main .list-left{ width:400px; min-height:600px; float:left; background-color:#18345C;}
+#home .main .list-left p { padding:0; margin:0; height:40px; line-height:40px; text-indent:10px; color:#fdca00; font-size:18px; background-color:#485b7d}
+#home .main .list-left ol li{ line-height:30px; text-indent:10px; height:30px; overflow:hidden;}
+#home .main .list-left ol li:hover{ background-color:#3B6198}
+#home .main .list-left ol li a{ color:#eee;}
+#home .main .right-nav{ width:570px; float:right;}
+#home .main .right-nav a span{ float:left; height:70px; line-height:70px; text-align:center; font-size:17px; margin:0 2px 2px 2px; border-bottom:2px solid #eee;}
+#home .main .right-nav a span:hover{ border-bottom:2px solid #09C}
+
+
+
+
+
+
+
+
+
+
+
+
