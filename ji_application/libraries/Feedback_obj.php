@@ -9,9 +9,9 @@ class Feedback_obj
 	public $course_id;			// varchar(50) 	课程 ID
 	public $content;			// text        	投诉内容
 	public $anonymous;			// tinyint(1) 	是否匿名
-	public $admin_reply_id;		// int(11)      管理员回复 ID
+	public $manage_reply_id;	// int(11)      管理员回复 ID
 	public $teacher_reply_id;	// int(11)      教师回复 ID
-	public $status;				// int(4) 		投诉状态
+	public $state;				// int(4) 		投诉状态
 	public $CREATE_TIMESTAMP;	// timestamp	创建时间
 	public $UPDATE_TIMESTAMP;	// timestamp 	更新时间
 	

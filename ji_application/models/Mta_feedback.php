@@ -11,7 +11,7 @@ class Mta_feedback extends CI_Model {
 	 * `user_id`          varchar(50) 投诉者 ID
 	 * `content`          text        投诉内容
 	 * `anonymous`        tinyint(1)  是否匿名
-	 * `status`           int(4)      投诉状态（取消:-1,申请:0,老师正在处理:1,已处理:2）
+	 * `state`            int(4)      投诉状态（取消:-1,申请:0,老师正在处理:1,已处理:2）
 	 * `CREATE_TIMESTAMP` timestamp   创建时间
 	 * `UPDATE_TIMESTAMP` timestamp   更新时间
 	 *
@@ -20,7 +20,22 @@ class Mta_feedback extends CI_Model {
     {
         parent::__construct();
 		$this->load->model('Mta_site');
+		$this->load->library('Feedback_obj');
+		$this->load->library('Feedback_reply_obj');
     }
+	
+	public function get_state_str($id)
+	{
+		switch ($id)
+		{
+			case 0 : return 'applying to manager';
+			case 1 : return 'disposed by manager';
+			case 2 : return 'applying to teacher';
+			case 3 : return 'disposed by teacher';
+			case -1: return 'cancelled';
+			default: return 'undefined state';
+		}
+	}
 	
 	/**
      * 检查投诉ID是否存在
@@ -29,15 +44,43 @@ class Mta_feedback extends CI_Model {
      */
 	private function examine_feedback_id($id)
 	{
+		return $id == get_feedback_by_id($id)->id;
+	}
+	
+	/**
+     * 使用 ID 获取投诉
+     * @param   $id   (str) 投诉 ID
+     * @return  Feedback_obj
+     */
+	public function get_feedback_by_id($id)
+	{
 		$query = $this->db->get_where('ji_ta_feedback', 'id='.$id);
 		if ($query->num_rows() == 1)
 		{
-			return true;
+			return $query->row(0, 'Feedback_obj');
+			
 		}
-		else
+		$feedback = new Feedback_obj();
+		$feedback->set_error();
+		return $feedback;
+	}
+	
+	/**
+     * 使用 ID 获取投诉回复
+     * @param   $id   (str) 回复 ID
+     * @return  Feedback_reply_obj
+     */
+	public function get_feedback_reply_by_id($id)
+	{
+		$query = $this->db->get_where('ji_ta_feedback_reply', 'id='.$id);
+		if ($query->num_rows() == 1)
 		{
-			return false;
+			return $query->row(0, 'Feedback_reply_obj');
+			
 		}
+		$reply= new Feedback_reply_obj();
+		$reply->set_error();
+		return $reply;
 	}
 	
 	/**
@@ -84,7 +127,7 @@ class Mta_feedback extends CI_Model {
 		{
 			return false;
 		}
-		$this->db->update('ji_ta_feedback', array('status'=>-1), 'id='.$id);
+		$this->db->update('ji_ta_feedback', array('state'=>-1), 'id='.$id);
 		return true;
 	}
 	
@@ -98,10 +141,10 @@ class Mta_feedback extends CI_Model {
 		$query = $this->db
 			->select('*')
 			->from('ji_ta_feedback')
-			->where('submit_id='.$student_id)
+			->where('user_id='.$student_id)
 			->order_by('UPDATE_TIMESTAMP', 'DESC')
 			->get();
-		return $query->result_array();
+		return $query->result('Feedback_obj');
 	}
 	
 	/**
@@ -133,12 +176,12 @@ class Mta_feedback extends CI_Model {
 		if ($data['manage'] == true)
 		{
 			// 管理员可以处理，回复学生邮件
-			$this->db->update('ji_ta_feedback', array('status'=>1, 'admin_reply'=>$data['content']), 'id='.$data['id']);
+			$this->db->update('ji_ta_feedback', array('state'=>1, 'admin_reply'=>$data['content']), 'id='.$data['id']);
 		}
 		else
 		{
 			// 管理员不能处理，提交给老师处理
-			$this->db->update('ji_ta_feedback', array('status'=>2, 'admin_reply'=>$data['content']), 'id='.$data['id']);
+			$this->db->update('ji_ta_feedback', array('state'=>2, 'admin_reply'=>$data['content']), 'id='.$data['id']);
 		}
 	}
 	
@@ -156,7 +199,7 @@ class Mta_feedback extends CI_Model {
 		}
 		$data['content'] = $this->Mta_site->html_purify($data['content']);
 		$this->load->model('Mta_mail');
-		$this->db->update('ji_ta_feedback', array('status'=>3, 'teacher_reply'=>$data['content']), 'id='.$data['id']);
+		$this->db->update('ji_ta_feedback', array('state'=>3, 'teacher_reply'=>$data['content']), 'id='.$data['id']);
 	}
 	
 	
