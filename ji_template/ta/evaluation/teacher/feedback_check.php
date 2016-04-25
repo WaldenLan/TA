@@ -1,5 +1,5 @@
 <?php include 'common_header.php';?>
-<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/student/index.css">
+<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/teacher/index.css">
 
     <!-- The main page content is here -->
     <div class='body'>
@@ -7,7 +7,7 @@
             <div class="announcement">
                 <h2>View</h2>
                 <li>
-                    <a href="/ta/evaluation/student/feedback/check/<?php echo $feedback->id?>"><h4><?php echo $feedback->CREATE_TIMESTAMP;?></h4></a>
+                    <a href="/ta/evaluation/teacher/feedback/check/<?php echo $feedback->id?>"><h4><?php echo $feedback->CREATE_TIMESTAMP;?></h4></a>
                     <p>content: <?php echo base64_decode($feedback->content);?></p>
                     <p>state: <?php echo $state;?></p>
                     

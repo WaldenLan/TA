@@ -11,7 +11,8 @@ class Home extends TA_Controller
 	
 	public function index()
 	{
-		$data['page_name'] = 'TA Evaluation System';
-		$this->load->view('ta/evaluation/index', $data);
+		$data['page_name'] = 'TA Evaluation System: Teacher Homepage';
+		$data['banner_id'] = 1;
+		$this->load->view('ta/evaluation/teacher/index', $data);
 	}
 }

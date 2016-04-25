@@ -6,7 +6,7 @@ class Feedback_obj
 	public $id;					// int(11) 		投诉 ID
 	public $ta_id;				// varchar(50) 	TA ID
 	public $user_id;			// varchar(50) 	投诉者 ID
-	public $course_id;			// varchar(50) 	课程 ID
+	public $BSID;				// varchar(50) 	课程 ID
 	public $content;			// text        	投诉内容
 	public $anonymous;			// tinyint(1) 	是否匿名
 	public $manage_reply_id;	// int(11)      管理员回复 ID

@@ -23,9 +23,9 @@
     </div>
 
     <ul class="nav nav-pills nav-justified">
-        <li class="<?php echo $banner_id!=1?'non-':'';?>active"><a href="/ta/evaluation/student">Homepage</a></li>
-        <li class="<?php echo $banner_id!=2?'non-':'';?>active"><a href="/ta/evaluation/student/evaluation">TA Evaluation</a></li>
-        <li class="<?php echo $banner_id!=3?'non-':'';?>active"><a href="/ta/evaluation/student/feedback/view">Feedbacks</a></li>
+        <li class="<?php echo $banner_id!=1?'non-':'';?>active"><a href="/ta/evaluation/teacher">Homepage</a></li>
+        <li class="<?php echo $banner_id!=2?'non-':'';?>active"><a href="/ta/evaluation/teacher/evaluation">TA Evaluation</a></li>
+        <li class="<?php echo $banner_id!=3?'non-':'';?>active"><a href="/ta/evaluation/teacher/feedback/view">Feedbacks</a></li>
     </ul>
     <div class="banner">
         <div>

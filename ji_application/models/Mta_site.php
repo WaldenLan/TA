@@ -5,6 +5,7 @@ class Mta_site extends CI_Model {
     function __construct()
     {
         parent::__construct();
+		$this->load->library('session');
     }
 
     /**
@@ -25,7 +26,7 @@ class Mta_site extends CI_Model {
         foreach ($settings as $setting) {
             $data[$setting['obj']]=$setting['data'];
         }
-		
+		$data['server_time'] = time();
         return $data;
     }
 
@@ -47,7 +48,12 @@ class Mta_site extends CI_Model {
 	
 	public function html_purify($string)
 	{
-		return preg_replace("/<([a-zA-Z]+)[^>]*>/","<\\1>", $string);
+		return preg_replace("/<([a-zA-Z]+)[^>]*>/","", $string);
+	}
+	
+	public function html_base64($string)
+	{
+		return base64_encode($this->html_purify($string));
 	}
 	
 }

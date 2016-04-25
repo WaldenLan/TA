@@ -11,14 +11,15 @@
 <file name="Mlogin.php" server="202.120.46.151" local="131056927939999730" remote="131049818400000000" Dst="0" />
 <file name="Mmanage.php" server="202.120.46.151" local="131056927940620163" remote="131049806400000000" Dst="0" />
 <file name="Mtool.php" server="202.120.46.151" local="131056927942581017" remote="131049806400000000" Dst="0" />
-<file name="Mta_site.php" server="202.120.46.151" local="131056927942081208" remote="131051830800000000" Dst="0" />
+<file name="Mta_site.php" server="202.120.46.151" local="131059600445113720" remote="131059312800000000" Dst="0" />
 <file name="Mtest.php" server="202.120.46.151" local="131056927942361596" remote="131049806400000000" Dst="0" />
 <file name="Mta_mail.php" server="202.120.46.151" local="131056927941530833" remote="131049806400000000" Dst="0" />
-<file name="Mta_course.php" server="202.120.46.151" local="131058120629813908" remote="131057832600000000" Dst="0" />
 <file name="Mapply.php" server="202.120.46.151" local="131056927939449338" remote="131050660800000000" Dst="0" />
 <file name="Medittime.php" server="202.120.46.151" local="131056927940149841" remote="131050630800000000" Dst="0" />
-<file name="Mta_student.php" server="202.120.46.151" local="131056927942091224" remote="131049806400000000" Dst="0" />
 <file name="Meditman.php" server="202.120.46.151" local="131056927939849640" remote="131049806400000000" Dst="0" />
-<file name="Mta_feedback.php" server="202.120.46.151" local="131058078031888319" remote="131057790000000000" Dst="0" />
-<file name="Mstudent.php" server="202.120.46.151" local="131058896835136397" remote="131058609600000000" Dst="0" />
+<file name="Mta_feedback.php" server="202.120.46.151" local="131059892662527162" remote="131059604400000000" Dst="0" />
+<file name="Mstudent.php" server="202.120.46.151" local="131059885784450360" remote="131059597200000000" Dst="0" />
+<file name="Mcourse.php" server="202.120.46.151" local="131059643510305852" remote="131059355400000000" Dst="0" />
+<file name="Mteacher.php" server="202.120.46.151" local="131059891654889384" remote="131059603200000000" Dst="0" />
+<file name="Mta_search.php" server="202.120.46.151" local="131059961337834758" remote="131059672800000000" Dst="0" />
 </dwsync>

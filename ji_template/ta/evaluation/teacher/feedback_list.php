@@ -8,7 +8,7 @@
                 <h2>View</h2>
 				<?php foreach ($list as $feedback):?>
                 <li>
-                    <a href="/ta/evaluation/student/feedback/check/<?php echo $feedback->id?>"><h4><?php echo base64_decode($feedback->content);?></h4></a>
+                    <a href="/ta/evaluation/teacher/feedback/check/<?php echo $feedback->id?>"><h4><?php echo base64_decode($feedback->content);?></h4></a>
                     <p><?php echo $this->Mta_feedback->get_state_str($feedback->state);?></p>
                     <p><?php echo $feedback->UPDATE_TIMESTAMP;?></p>
                 </li>

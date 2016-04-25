@@ -7,7 +7,6 @@ class Home extends TA_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Mta_complain');
 	}
 	
 	public function index()

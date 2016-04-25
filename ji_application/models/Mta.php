@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Mstudent extends CI_Model {
+class Mta extends CI_Model {
 	
 	function __construct()
     {
@@ -8,19 +8,14 @@ class Mstudent extends CI_Model {
 		$this->load->model('Mta_site');
     }
 	
-	public function get_all_course($id)
+	/*public function get_now_course($id)
 	{
-		$query = $this->db->select('BSID')->from('ji_course_select')->where(array('USER_ID'=>$id, 'SCBJ'=>'N'))->get();
-		return $query->result();
-	}
-	
-	public function get_now_course($id)
-	{
-		$this->load->library('Course_obj');
 		$site_config = $this->Mta_site->get_site_config();
-				
+		
+		$query = $this->db->select('BSID')->from('ji_course_select')->where(array('USER_ID'=>$id, 'SCBJ'=>'N'))->get();
+		
 		$course_list = array();
-		foreach ($this->get_all_course($id) as $course)
+		foreach ($query->result() as $course)
 		{
 			array_push($course_list, $course->BSID);
 		}
@@ -31,7 +26,7 @@ class Mstudent extends CI_Model {
 		
 		$query = $this->db->select('*')->from('ji_course_open')->where(array('XQ'=>$site_config['ji_academic_term'], 'XN'=>$site_config['ji_academic_year'], 'SCBJ'=>'N'))->where_in('BSID', $course_list)->get();
 
-		return $query->result('Course_obj');
-	}
+		return $query->result();
+	}*/
 	
 }

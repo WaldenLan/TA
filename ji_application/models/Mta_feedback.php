@@ -44,7 +44,7 @@ class Mta_feedback extends CI_Model {
      */
 	private function examine_feedback_id($id)
 	{
-		return $id == get_feedback_by_id($id)->id;
+		return $id == $this->get_feedback_by_id($id)->id;
 	}
 	
 	/**
@@ -85,15 +85,16 @@ class Mta_feedback extends CI_Model {
 	
 	/**
      * 学生创建投诉TA申请
-     * @param   $data ta_id       => (str)  TA ID
-	 *                user_id     => (str)  投诉者 ID
-	 *                content     => (str)  内容
-	 *                anonymous   => (bool) 是否匿名
+     * @param   $data ta_id       	=> (str)  TA ID
+	 *                user_id     	=> (str)  投诉者 ID
+	 *                BSID   		=> (str)  课程 ID
+	 *                content     	=> (str)  内容
+	 *                anonymous   	=> (bool) 是否匿名
      * @return  true/false
      */
 	public function student_create_feedback($data)
 	{
-		$data['content'] = $this->Mta_site->html_purify($data['content']);
+		$data['content'] = $this->Mta_site->html_base64($data['content']);
 		$this->db->insert('ji_ta_feedback', $data);
 		return true;
 	}
@@ -111,7 +112,7 @@ class Mta_feedback extends CI_Model {
 		{
 			return false;
 		}
-		$data['content'] = $this->Mta_site->html_purify($data['content']);
+		$data['content'] = $this->Mta_site->html_base64($data['content']);
 		$this->db->update('ji_ta_feedback', $data, 'id='.$data['id']);
 		return true;
 	}
@@ -148,6 +149,36 @@ class Mta_feedback extends CI_Model {
 	}
 	
 	/**
+     * 老师显示投诉TA申请列表
+     * @param   $teacher_id   (str) 老师 ID
+     *          $state   	  (int) 状态（2：未处理 3：已处理）
+     * @return  array[][]
+     */
+	public function teacher_show_feedback_list($teacher_id, $state)
+	{
+		$this->load->model('Mteacher');
+		$this->load->library('Course_obj');
+		$course_list = array();
+		foreach ($this->Mteacher->get_now_course($teacher_id) as $course)
+		{
+			array_push($course_list, $course->BSID);
+		}
+		if (count($course_list) == 0)
+		{
+			return array();
+		}
+		
+		$query = $this->db
+			->select('*')
+			->from('ji_ta_feedback')
+			->where('state='.$state)
+			->where_in('BSID', $course_list)
+			->order_by('UPDATE_TIMESTAMP', 'DESC')
+			->get();
+		return $query->result('Feedback_obj');
+	}
+	
+	/**
      * 管理员或老师查看投诉TA申请
      * @param   $id   (str) 投诉 ID
      * @return  array[][]
@@ -161,45 +192,53 @@ class Mta_feedback extends CI_Model {
 	/**
      * 管理员处理投诉TA申请
      * @param   $data id          => (str)  投诉 ID
+	 				  user_id     => (str)  管理员 ID
 	 *                manage      => (bool) 管理员是否可以处理
 	 *                content     => (str)  管理员处理意见
      * @return  true/false
      */
-	public function admin_manage_feedback($data)
+	public function manage_add_feedback($data)
 	{
 		if (!$this->examine_feedback_id($data['id']))
 		{
 			return false;
 		}
-		$data['content'] = $this->Mta_site->html_purify($data['content']);
+		$data['content'] = $this->Mta_site->html_base64($data['content']);
+		echo $data['content'];
 		$this->load->model('Mta_mail');
+		$this->db->insert('ji_ta_feedback_reply', array('user_id'=>$data['user_id'], 'content'=>$data['content']));
+				
 		if ($data['manage'] == true)
 		{
 			// 管理员可以处理，回复学生邮件
-			$this->db->update('ji_ta_feedback', array('state'=>1, 'admin_reply'=>$data['content']), 'id='.$data['id']);
+			$this->db->update('ji_ta_feedback', array('state'=>1, 'manage_reply_id'=>$this->db->insert_id()), 'id='.$data['id']);
+			
 		}
 		else
 		{
 			// 管理员不能处理，提交给老师处理
-			$this->db->update('ji_ta_feedback', array('state'=>2, 'admin_reply'=>$data['content']), 'id='.$data['id']);
+			$this->db->update('ji_ta_feedback', array('state'=>2, 'manage_reply_id'=>$this->db->insert_id()), 'id='.$data['id']);
+			
 		}
 	}
 	
 	/**
      * 老师处理投诉TA申请
      * @param   $data id          => (str)  投诉 ID
+	 				  user_id     => (str)  老师 ID
 	 *                content     => (str)  老师处理意见
      * @return  true/false
      */
-	public function teacher_manage_feedback($data)
+	public function teacher_add_feedback($data)
 	{
 		if (!$this->examine_feedback_id($data['id']))
 		{
 			return false;
 		}
-		$data['content'] = $this->Mta_site->html_purify($data['content']);
+		$data['content'] = $this->Mta_site->html_base64($data['content']);
 		$this->load->model('Mta_mail');
-		$this->db->update('ji_ta_feedback', array('state'=>3, 'teacher_reply'=>$data['content']), 'id='.$data['id']);
+		$this->db->insert('ji_ta_feedback_reply', array('user_id'=>$data['user_id'], 'content'=>$data['content']));
+		$this->db->update('ji_ta_feedback', array('state'=>3, 'teacher_reply_id'=>$this->db->insert_id()), 'id='.$data['id']);
 	}
 	
 	
