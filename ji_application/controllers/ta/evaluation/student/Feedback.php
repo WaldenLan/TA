@@ -40,6 +40,13 @@ class Feedback extends TA_Controller
 		}
 		$data['list'] = array_slice($data['list'], ($current_page - 1) * $config['per_page'], $config['per_page']);
 		
+		foreach ($data['list'] as $feedback)
+		{
+			$feedback->set_ta();
+			$feedback->set_course();
+		}
+		
+		
 		$this->load->view('ta/evaluation/student/feedback_list', $data);
 
 	}
@@ -70,8 +77,62 @@ class Feedback extends TA_Controller
 		$data['teacher_reply'] = $this->Mta_feedback->get_feedback_reply_by_id($data['feedback']->teacher_reply_id);
 		
 		$data['state'] = $this->Mta_feedback->get_state_str($data['feedback']->state);
-		
+		$data['feedback']->set_ta();
+		$data['feedback']->set_course();
 		$this->load->view('ta/evaluation/student/feedback_check', $data);
+	}
+	
+	public function submit()
+	{
+		$this->load->model('Mstudent');
+		$this->load->library('Course_obj');
+		$this->load->model('Mcourse');
+
+		$data['course_list'] = $this->Mstudent->get_now_course($_SESSION['userid']);
+		foreach ($data['course_list'] as $course)
+		{
+			$course->set_ta();
+		}
+		
+		$form_data = array
+		(
+			'BSID'		=> $this->input->post('BSID'),
+			'ta_id'		=> $this->input->post('ta_id'),
+			'title'		=> $this->input->post('title'),
+			'content'	=> $this->input->post('content'),
+			'anonymous'	=> $this->input->post('anonymous')
+		);
+				
+		foreach ($data['course_list'] as $course)
+		{
+			if ($course->BSID == $form_data['BSID'])
+			{
+				foreach ($course->ta_list as $ta)
+				{
+					if ($ta->USER_ID == $form_data['ta_id'])
+					{
+						if (strlen($form_data['content']) >= 10 && strlen($form_data['title']) >= 5 && strlen($form_data['title']) <= 20)
+						{
+							if ($form_data['anonymous'] == true)
+							{
+								$form_data['anonymous'] = 1;
+							}
+							else
+							{
+								$form_data['anonymous'] = 0;
+							}
+							$form_data['user_id'] = $_SESSION['userid'];
+							echo $this->Mta_feedback->student_create_feedback($form_data);
+							exit();
+						}
+						break;
+					}
+				}
+				break;
+			}
+		}
+		echo json_encode($form_data);
+		exit();
 	}
 	
 	// 学生创建投诉
@@ -86,41 +147,7 @@ class Feedback extends TA_Controller
 		{
 			$course->set_ta();
 		}
-	
-		// 验证表单
-		$form_data = array
-		(
-			'BSID'		=> $this->input->get('course_id'),
-			'ta_id'		=> $this->input->get('ta_id'),
-			'content'	=> $this->input->get('content'),
-			'anonymous'	=> $this->input->get('anonymous')
-		);
-				
-		foreach ($data['course_list'] as $course)
-		{
-			if ($course->BSID == $form_data['BSID'])
-			{
-				foreach ($course->ta_list as $ta)
-				{
-					if ($ta->USER_ID == $form_data['ta_id'])
-					{
-						if (strlen($form_data['content']) >= 10)
-						{
-							if ($form_data['anonymous'] != true)
-							{
-								$form_data['anonymous'] = false;
-							}
-							$form_data['user_id'] = $_SESSION['userid'];
-							$this->Mta_feedback->student_create_feedback($form_data);
-							redirect(base_url('ta/evaluation/student/feedback/view/'));
-						}
-						break;
-					}
-				}
-				break;
-			}
-		}
-		
+
 		$data['page_name'] = 'TA Evaluation System: Feedbacks';
 		$data['banner_id'] = 3;
 		$data['form_data'] = $form_data;

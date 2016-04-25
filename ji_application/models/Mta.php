@@ -6,27 +6,19 @@ class Mta extends CI_Model {
     {
         parent::__construct();
 		$this->load->model('Mta_site');
+		$this->load->library('Ta_obj');
     }
 	
-	/*public function get_now_course($id)
+	public function get_ta_by_id($id)
 	{
-		$site_config = $this->Mta_site->get_site_config();
-		
-		$query = $this->db->select('BSID')->from('ji_course_select')->where(array('USER_ID'=>$id, 'SCBJ'=>'N'))->get();
-		
-		$course_list = array();
-		foreach ($query->result() as $course)
+		$query = $this->db->get_where('ji_ta_info', 'USER_ID='.$id);
+		if ($query->num_rows() == 1)
 		{
-			array_push($course_list, $course->BSID);
+			return $query->row(0, 'Ta_obj');
 		}
-		if (count($course_list) == 0)
-		{
-			return array();
-		}
-		
-		$query = $this->db->select('*')->from('ji_course_open')->where(array('XQ'=>$site_config['ji_academic_term'], 'XN'=>$site_config['ji_academic_year'], 'SCBJ'=>'N'))->where_in('BSID', $course_list)->get();
-
-		return $query->result();
-	}*/
+		$ta = new Ta_obj();
+		$ta->set_error();
+		return $ta;
+	}
 	
 }

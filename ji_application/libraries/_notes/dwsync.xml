@@ -9,7 +9,8 @@
 <file name="Smtp.php" server="202.120.46.151" local="131056927939309423" remote="131049806400000000" Dst="0" />
 <file name="Phpmailer.php" server="202.120.46.151" local="131056927928709718" remote="131049806400000000" Dst="0" />
 <file name="Pop3.php" server="202.120.46.151" local="131020570800000000" remote="131020570800000000" Dst="0" />
-<file name="Feedback_obj.php" server="202.120.46.151" local="131059729562033926" remote="131059441200000000" Dst="0" />
+<file name="Feedback_obj.php" server="202.120.46.151" local="131060593671359070" remote="131060305200000000" Dst="0" />
 <file name="Feedback_reply_obj.php" server="202.120.46.151" local="131058052404043168" remote="131057783400000000" Dst="0" />
 <file name="Course_obj.php" server="202.120.46.151" local="131059651469890189" remote="131059363200000000" Dst="0" />
+<file name="Ta_obj.php" server="202.120.46.151" local="131060588948954675" remote="131060301000000000" Dst="0" />
 </dwsync>

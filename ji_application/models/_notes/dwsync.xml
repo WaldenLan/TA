@@ -17,9 +17,10 @@
 <file name="Mapply.php" server="202.120.46.151" local="131056927939449338" remote="131050660800000000" Dst="0" />
 <file name="Medittime.php" server="202.120.46.151" local="131056927940149841" remote="131050630800000000" Dst="0" />
 <file name="Meditman.php" server="202.120.46.151" local="131056927939849640" remote="131049806400000000" Dst="0" />
-<file name="Mta_feedback.php" server="202.120.46.151" local="131059892662527162" remote="131059604400000000" Dst="0" />
+<file name="Mta_feedback.php" server="202.120.46.151" local="131060691343395172" remote="131060403000000000" Dst="0" />
 <file name="Mstudent.php" server="202.120.46.151" local="131059885784450360" remote="131059597200000000" Dst="0" />
 <file name="Mcourse.php" server="202.120.46.151" local="131059643510305852" remote="131059355400000000" Dst="0" />
 <file name="Mteacher.php" server="202.120.46.151" local="131059891654889384" remote="131059603200000000" Dst="0" />
 <file name="Mta_search.php" server="202.120.46.151" local="131059961337834758" remote="131059672800000000" Dst="0" />
+<file name="Mta.php" server="202.120.46.151" local="131060592666196109" remote="131060304600000000" Dst="0" />
 </dwsync>

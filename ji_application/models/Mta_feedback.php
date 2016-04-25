@@ -90,13 +90,14 @@ class Mta_feedback extends CI_Model {
 	 *                BSID   		=> (str)  课程 ID
 	 *                content     	=> (str)  内容
 	 *                anonymous   	=> (bool) 是否匿名
-     * @return  true/false
+     * @return  投诉 ID
      */
 	public function student_create_feedback($data)
 	{
+		$data['title'] = $this->Mta_site->html_base64($data['title']);
 		$data['content'] = $this->Mta_site->html_base64($data['content']);
 		$this->db->insert('ji_ta_feedback', $data);
-		return true;
+		return $this->db->insert_id();
 	}
 	
 	/**
