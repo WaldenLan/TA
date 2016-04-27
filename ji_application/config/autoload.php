@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-session_start();
 /*
 | -------------------------------------------------------------------
 | AUTO-LOADER
@@ -60,7 +59,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 
-$autoload['libraries'] = array('database','mylib');
+$autoload['libraries'] = array('database','mylib','session');
 
 
 /*

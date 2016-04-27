@@ -20,6 +20,41 @@ h1{
 	font-size: 1.75em;
 }
 
+h2>a.navig{
+	color:#333;
+	text-decoration: none;
+}
+h2>a.navig:hover{
+	opacity: 0.75;
+}
+
+h2#semester{
+	text-decoration: none;
+}
+
+h4.schema{
+    display: inline;
+    margin-right: 5%;
+    font-weight: 500;
+}
+
+h4.schema._1{
+    margin-right:0;
+}
+
+h4.col-sm-2._1, h4.col-sm-1._1{
+    display: inline;
+}
+
+h5.submit_time{
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+li.list-group-item._1{
+    color:#002b60;
+}
+
 ._top{
 	margin: 0 10%;
 	overflow: auto;
@@ -101,7 +136,7 @@ div.banner > div{
 /*The end bar is here*/
 
 div.endbar{
-	margin: 0;
+	margin: 5% 0 0 0;
 	background-color: #002b60;
 }
 
@@ -145,7 +180,7 @@ div.maincontent{
 	background-color: #E6E5E5;
 	box-shadow: 0 0 5px #002b60;
     width: 80%;
-	height: 80%;
+	height: 100%;
 	overflow: auto;
 }
 div.announcement {

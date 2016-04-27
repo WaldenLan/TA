@@ -9,18 +9,18 @@
 <file name="index.html" server="202.120.46.151" local="131056927942591015" remote="131049806400000000" Dst="0" />
 <file name="Mcn.php" server="202.120.46.151" local="131056927939439348" remote="131049806400000000" Dst="0" />
 <file name="Mlogin.php" server="202.120.46.151" local="131056927939999730" remote="131049818400000000" Dst="0" />
-<file name="Mmanage.php" server="202.120.46.151" local="131056927940620163" remote="131049806400000000" Dst="0" />
+<file name="Mmanage.php" server="202.120.46.151" local="131062421627523691" remote="131062133400000000" Dst="0" />
 <file name="Mtool.php" server="202.120.46.151" local="131056927942581017" remote="131049806400000000" Dst="0" />
-<file name="Mta_site.php" server="202.120.46.151" local="131059600445113720" remote="131059312800000000" Dst="0" />
+<file name="Mta_site.php" server="202.120.46.151" local="131062385968866475" remote="131062098000000000" Dst="0" />
 <file name="Mtest.php" server="202.120.46.151" local="131056927942361596" remote="131049806400000000" Dst="0" />
 <file name="Mta_mail.php" server="202.120.46.151" local="131056927941530833" remote="131049806400000000" Dst="0" />
 <file name="Mapply.php" server="202.120.46.151" local="131056927939449338" remote="131050660800000000" Dst="0" />
 <file name="Medittime.php" server="202.120.46.151" local="131056927940149841" remote="131050630800000000" Dst="0" />
 <file name="Meditman.php" server="202.120.46.151" local="131056927939849640" remote="131049806400000000" Dst="0" />
-<file name="Mta_feedback.php" server="202.120.46.151" local="131060691343395172" remote="131060403000000000" Dst="0" />
-<file name="Mstudent.php" server="202.120.46.151" local="131059885784450360" remote="131059597200000000" Dst="0" />
-<file name="Mcourse.php" server="202.120.46.151" local="131059643510305852" remote="131059355400000000" Dst="0" />
-<file name="Mteacher.php" server="202.120.46.151" local="131059891654889384" remote="131059603200000000" Dst="0" />
-<file name="Mta_search.php" server="202.120.46.151" local="131059961337834758" remote="131059672800000000" Dst="0" />
-<file name="Mta.php" server="202.120.46.151" local="131060592666196109" remote="131060304600000000" Dst="0" />
+<file name="Mta_feedback.php" server="202.120.46.151" local="131062441742692156" remote="131062153800000000" Dst="0" />
+<file name="Mstudent.php" server="202.120.46.151" local="131062218792160177" remote="131059597200000000" Dst="0" />
+<file name="Mcourse.php" server="202.120.46.151" local="131062218791311815" remote="131059355400000000" Dst="0" />
+<file name="Mteacher.php" server="202.120.46.151" local="131062218792858565" remote="131059603200000000" Dst="0" />
+<file name="Mta_search.php" server="202.120.46.151" local="131062218792528329" remote="131059672800000000" Dst="0" />
+<file name="Mta.php" server="202.120.46.151" local="131062398662000739" remote="131062110600000000" Dst="0" />
 </dwsync>

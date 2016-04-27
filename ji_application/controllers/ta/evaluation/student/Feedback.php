@@ -30,7 +30,7 @@ class Feedback extends TA_Controller
 		$config['prefix'] = 'ta/evaluation/student/feedback/view/';
 		$config['first_url'] = '1';
 		$config['total_rows'] = count($data['list']);
-		$config['per_page'] = 2;
+		$config['per_page'] = 20;
 		$this->pagination->initialize($config);
 		
 		$current_page = floor(min(max($this->uri->segment(6), 1), ($config['total_rows'] - 1) / $config['per_page'] + 1));
@@ -39,6 +39,7 @@ class Feedback extends TA_Controller
 			redirect(base_url('ta/evaluation/student/feedback/view/'.$current_page));
 		}
 		$data['list'] = array_slice($data['list'], ($current_page - 1) * $config['per_page'], $config['per_page']);
+		$data['page_id'] = $current_page;
 		
 		foreach ($data['list'] as $feedback)
 		{
@@ -58,6 +59,8 @@ class Feedback extends TA_Controller
 		{
 			redirect(base_url('ta/evaluation/student/feedback/view/'));
 		}
+		
+		$data['page_id'] = $this->input->get('page');
 		
 		$data['page_name'] = 'TA Evaluation System: Feedbacks';
 		$data['banner_id'] = 3;
@@ -79,6 +82,7 @@ class Feedback extends TA_Controller
 		$data['state'] = $this->Mta_feedback->get_state_str($data['feedback']->state);
 		$data['feedback']->set_ta();
 		$data['feedback']->set_course();
+		
 		$this->load->view('ta/evaluation/student/feedback_check', $data);
 	}
 	
@@ -113,13 +117,13 @@ class Feedback extends TA_Controller
 					{
 						if (strlen($form_data['content']) >= 10 && strlen($form_data['title']) >= 5 && strlen($form_data['title']) <= 20)
 						{
-							if ($form_data['anonymous'] == true)
+							if ($form_data['anonymous'] == 'false')
 							{
-								$form_data['anonymous'] = 1;
+								$form_data['anonymous'] = 0;
 							}
 							else
 							{
-								$form_data['anonymous'] = 0;
+								$form_data['anonymous'] = 1;
 							}
 							$form_data['user_id'] = $_SESSION['userid'];
 							echo $this->Mta_feedback->student_create_feedback($form_data);

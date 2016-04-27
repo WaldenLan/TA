@@ -1,5 +1,5 @@
 <?php include 'common_header.php';?>
-<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/student/index.css">
+<?php include 'student_header.php';?>
 
     <!-- The main page content is here -->
     <div class='body'>
@@ -13,13 +13,13 @@
                     <h4 class="col-sm-3">Time</h4>
                     <h4 class="col-sm-3">Progress</h4>
                 </div>
-                <br/>
+                
 				<?php foreach ($list as $feedback):?>
                 <div class="row">
-                    <a class="col-sm-2" href="/ta/evaluation/student/feedback/check/<?php echo $feedback->id;?>"><h5><?php echo base64_decode($feedback->title);?></h5></a>
+                    <a class="col-sm-2" href="/ta/evaluation/student/feedback/check/<?php echo $feedback->id.'?page='.$page_id;?>"><h5><?php echo base64_decode($feedback->title);?></h5></a>
                     <h5 class="col-sm-2"><?php echo $feedback->course->KCDM;?></h5>
                     <h5 class="col-sm-2"><?php echo $feedback->ta->name_en;?></h5>
-                    <h5 class="col-sm-3"><?php echo $feedback->UPDATE_TIMESTAMP;?></h5>
+                    <h5 class="col-sm-3"><?php echo $feedback->CREATE_TIMESTAMP;?></h5>
                     <h5 class="col-sm-3"><?php echo $this->Mta_feedback->get_state_str($feedback->state);?></h5>
                 </div>
                 <?php endforeach;?>
@@ -31,4 +31,4 @@
 
 
 
-<?php include '../common_footer.php';?>
+<?php include 'common_footer.php';?>

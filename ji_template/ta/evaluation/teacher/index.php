@@ -1,5 +1,5 @@
 <?php include 'common_header.php';?>
-<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/teacher/index.css">
+<?php include 'teacher_header.php';?>
 
 
     <!-- The main page content is here -->
@@ -22,5 +22,5 @@
     </div>
 
 
-<?php include '../common_footer.php';?>
+<?php include 'common_footer.php';?>
 

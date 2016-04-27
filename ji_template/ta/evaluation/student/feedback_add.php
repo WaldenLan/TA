@@ -1,5 +1,5 @@
 <?php include 'common_header.php';?>
-<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/student/index.css">
+<?php include 'student_header.php';?>
 	
     <script type="text/javascript">
 		$(document).ready(function()
@@ -101,7 +101,8 @@
                 </div>
                	
                	<input id="input-title" type="text" class="form-control" placeholder="Title" aria-describedby="title">
-                <textarea id="input-content" rows="15" style="resize:none;width:100%"></textarea>
+				
+				<textarea id="input-content" rows="15" style="resize:none;width:100%"></textarea>
                 
                 <input id="input-anonymous" type="checkbox"><span>Anonymous</span>
                 
@@ -113,4 +114,4 @@
         </div>
     </div>
 
-<?php include '../common_footer.php';?>
+<?php include 'common_footer.php';?>

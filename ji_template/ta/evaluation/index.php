@@ -72,4 +72,4 @@
 
 
 
-<?php include 'common_footer.php';?>
+<?php include 'student/common_footer.php';?>

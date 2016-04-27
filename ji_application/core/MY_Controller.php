@@ -8,10 +8,7 @@ class TA_Controller extends CI_Controller
     {
         parent::__construct();
         $this->load->database();
-        $this->load->library('session');
-		
-		$_SESSION['userid'] = 5060109016;
-		$_SESSION['username'] = '隔壁老王';
+        
 		
         $this->output->enable_profiler(TRUE);
 		
