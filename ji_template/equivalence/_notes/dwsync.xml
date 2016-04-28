@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.php" server="202.120.46.151//" local="130915914956904332" remote="130915615200000000" Dst="-1" />
-<file name="university.php" server="202.120.46.151//" local="131008512850488640" remote="131008224000000000" Dst="-1" />
-<file name="university_courses.php" server="202.120.46.151//" local="131002346142871746" remote="131002056600000000" Dst="-1" />
-<file name="search.php" server="202.120.46.151//" local="130947041707764613" remote="130946752200000000" Dst="-1" />
-<file name="footer.php" server="202.120.46.151//" local="130921359386752668" remote="130921059000000000" Dst="-1" />
-<file name="top.php" server="202.120.46.151//" local="130953162772034418" remote="130952873400000000" Dst="-1" />
-<file name="footer.php" server="202.120.46.151" local="131012668653517379" remote="131014364400000000" Dst="0" />
-<file name="index.php" server="202.120.46.151" local="131012668653667379" remote="131014364400000000" Dst="0" />
-<file name="search.php" server="202.120.46.151" local="131012668653817379" remote="131014364400000000" Dst="0" />
-<file name="top.php" server="202.120.46.151" local="131012668653837379" remote="131014364400000000" Dst="0" />
-<file name="university.php" server="202.120.46.151" local="131012668654037379" remote="131014364400000000" Dst="0" />
-<file name="university_courses.php" server="202.120.46.151" local="131012668654107379" remote="131014364400000000" Dst="0" />
+    <file name="index.php" server="202.120.46.151//" local="130915914956904332" remote="130915615200000000" Dst="-1"/>
+    <file name="university.php" server="202.120.46.151//" local="131008512850488640" remote="131008224000000000"
+          Dst="-1"/>
+    <file name="university_courses.php" server="202.120.46.151//" local="131002346142871746" remote="131002056600000000"
+          Dst="-1"/>
+    <file name="search.php" server="202.120.46.151//" local="130947041707764613" remote="130946752200000000" Dst="-1"/>
+    <file name="footer.php" server="202.120.46.151//" local="130921359386752668" remote="130921059000000000" Dst="-1"/>
+    <file name="top.php" server="202.120.46.151//" local="130953162772034418" remote="130952873400000000" Dst="-1"/>
+    <file name="footer.php" server="202.120.46.151" local="131012668653517379" remote="131014364400000000" Dst="0"/>
+    <file name="index.php" server="202.120.46.151" local="131012668653667379" remote="131014364400000000" Dst="0"/>
+    <file name="search.php" server="202.120.46.151" local="131012668653817379" remote="131014364400000000" Dst="0"/>
+    <file name="top.php" server="202.120.46.151" local="131012668653837379" remote="131014364400000000" Dst="0"/>
+    <file name="university.php" server="202.120.46.151" local="131012668654037379" remote="131014364400000000" Dst="0"/>
+    <file name="university_courses.php" server="202.120.46.151" local="131012668654107379" remote="131014364400000000"
+          Dst="0"/>
 </dwsync>

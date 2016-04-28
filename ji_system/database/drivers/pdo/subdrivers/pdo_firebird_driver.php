@@ -26,13 +26,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	http://codeigniter.com
- * @since	Version 3.0.0
+ * @package      CodeIgniter
+ * @author       EllisLab Dev Team
+ * @copyright    Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
+ * @copyright    Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license      http://opensource.org/licenses/MIT	MIT License
+ * @link         http://codeigniter.com
+ * @since        Version 3.0.0
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -44,111 +44,114 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * creates dynamically based on whether the query builder
  * class is being used or not.
  *
- * @package		CodeIgniter
- * @subpackage	Drivers
- * @category	Database
- * @author		EllisLab Dev Team
- * @link		http://codeigniter.com/user_guide/database/
+ * @package        CodeIgniter
+ * @subpackage     Drivers
+ * @category       Database
+ * @author         EllisLab Dev Team
+ * @link           http://codeigniter.com/user_guide/database/
  */
-class CI_DB_pdo_firebird_driver extends CI_DB_pdo_driver {
-
+class CI_DB_pdo_firebird_driver extends CI_DB_pdo_driver
+{
+	
 	/**
 	 * Sub-driver
 	 *
-	 * @var	string
+	 * @var    string
 	 */
 	public $subdriver = 'firebird';
-
+	
 	// --------------------------------------------------------------------
-
+	
 	/**
 	 * ORDER BY random keyword
 	 *
-	 * @var	array
+	 * @var    array
 	 */
 	protected $_random_keyword = array('RAND()', 'RAND()');
-
+	
 	// --------------------------------------------------------------------
-
+	
 	/**
 	 * Class constructor
 	 *
 	 * Builds the DSN if not already set.
 	 *
-	 * @param	array	$params
-	 * @return	void
+	 * @param    array $params
+	 * @return    void
 	 */
 	public function __construct($params)
 	{
 		parent::__construct($params);
-
+		
 		if (empty($this->dsn))
 		{
 			$this->dsn = 'firebird:';
-
-			if ( ! empty($this->database))
+			
+			if (!empty($this->database))
 			{
-				$this->dsn .= 'dbname='.$this->database;
+				$this->dsn .= 'dbname=' . $this->database;
 			}
-			elseif ( ! empty($this->hostname))
+			elseif (!empty($this->hostname))
 			{
-				$this->dsn .= 'dbname='.$this->hostname;
+				$this->dsn .= 'dbname=' . $this->hostname;
 			}
-
-			empty($this->char_set) OR $this->dsn .= ';charset='.$this->char_set;
-			empty($this->role) OR $this->dsn .= ';role='.$this->role;
+			
+			empty($this->char_set) OR $this->dsn .= ';charset=' . $this->char_set;
+			empty($this->role) OR $this->dsn .= ';role=' . $this->role;
 		}
-		elseif ( ! empty($this->char_set) && strpos($this->dsn, 'charset=', 9) === FALSE)
+		elseif (!empty($this->char_set) && strpos($this->dsn, 'charset=', 9) === false)
 		{
-			$this->dsn .= ';charset='.$this->char_set;
+			$this->dsn .= ';charset=' . $this->char_set;
 		}
 	}
-
+	
 	// --------------------------------------------------------------------
-
+	
 	/**
 	 * Show table query
 	 *
 	 * Generates a platform-specific query string so that the table names can be fetched
 	 *
-	 * @param	bool	$prefix_limit
-	 * @return	string
+	 * @param    bool $prefix_limit
+	 * @return    string
 	 */
-	protected function _list_tables($prefix_limit = FALSE)
+	protected function _list_tables($prefix_limit = false)
 	{
-		$sql = 'SELECT "RDB$RELATION_NAME" FROM "RDB$RELATIONS" WHERE "RDB$RELATION_NAME" NOT LIKE \'RDB$%\' AND "RDB$RELATION_NAME" NOT LIKE \'MON$%\'';
-
-		if ($prefix_limit === TRUE && $this->dbprefix !== '')
+		$sql =
+			'SELECT "RDB$RELATION_NAME" FROM "RDB$RELATIONS" WHERE "RDB$RELATION_NAME" NOT LIKE \'RDB$%\' AND "RDB$RELATION_NAME" NOT LIKE \'MON$%\'';
+		
+		if ($prefix_limit === true && $this->dbprefix !== '')
 		{
-			return $sql.' AND "RDB$RELATION_NAME" LIKE \''.$this->escape_like_str($this->dbprefix)."%' "
-				.sprintf($this->_like_escape_str, $this->_like_escape_chr);
+			return $sql . ' AND "RDB$RELATION_NAME" LIKE \'' . $this->escape_like_str($this->dbprefix) . "%' "
+			       . sprintf($this->_like_escape_str, $this->_like_escape_chr);
 		}
-
+		
 		return $sql;
 	}
-
+	
 	// --------------------------------------------------------------------
-
+	
 	/**
 	 * Show column query
 	 *
 	 * Generates a platform-specific query string so that the column names can be fetched
 	 *
-	 * @param	string	$table
-	 * @return	string
+	 * @param    string $table
+	 * @return    string
 	 */
 	protected function _list_columns($table = '')
 	{
-		return 'SELECT "RDB$FIELD_NAME" FROM "RDB$RELATION_FIELDS" WHERE "RDB$RELATION_NAME" = '.$this->escape($table);
+		return 'SELECT "RDB$FIELD_NAME" FROM "RDB$RELATION_FIELDS" WHERE "RDB$RELATION_NAME" = ' .
+		       $this->escape($table);
 	}
-
+	
 	// --------------------------------------------------------------------
-
+	
 	/**
 	 * Returns an object with field data
 	 *
-	 * @param	string	$table
-	 * @return	array
+	 * @param    string $table
+	 * @return    array
 	 */
 	public function field_data($table)
 	{
@@ -174,33 +177,33 @@ class CI_DB_pdo_firebird_driver extends CI_DB_pdo_driver {
 				"rfields"."RDB$DEFAULT_VALUE" AS "default"
 			FROM "RDB$RELATION_FIELDS" "rfields"
 				JOIN "RDB$FIELDS" "fields" ON "rfields"."RDB$FIELD_SOURCE" = "fields"."RDB$FIELD_NAME"
-			WHERE "rfields"."RDB$RELATION_NAME" = '.$this->escape($table).'
+			WHERE "rfields"."RDB$RELATION_NAME" = ' . $this->escape($table) . '
 			ORDER BY "rfields"."RDB$FIELD_POSITION"';
-
-		return (($query = $this->query($sql)) !== FALSE)
+		
+		return (($query = $this->query($sql)) !== false)
 			? $query->result_object()
-			: FALSE;
+			: false;
 	}
-
+	
 	// --------------------------------------------------------------------
-
+	
 	/**
 	 * Update statement
 	 *
 	 * Generates a platform-specific update string from the supplied data
 	 *
-	 * @param	string	$table
-	 * @param	array	$values
-	 * @return	string
+	 * @param    string $table
+	 * @param    array  $values
+	 * @return    string
 	 */
 	protected function _update($table, $values)
 	{
-		$this->qb_limit = FALSE;
+		$this->qb_limit = false;
 		return parent::_update($table, $values);
 	}
-
+	
 	// --------------------------------------------------------------------
-
+	
 	/**
 	 * Truncate statement
 	 *
@@ -209,55 +212,56 @@ class CI_DB_pdo_firebird_driver extends CI_DB_pdo_driver {
 	 * If the database does not support the TRUNCATE statement,
 	 * then this method maps to 'DELETE FROM table'
 	 *
-	 * @param	string	$table
-	 * @return	string
-         */
+	 * @param    string $table
+	 * @return    string
+	 */
 	protected function _truncate($table)
 	{
-		return 'DELETE FROM '.$table;
+		return 'DELETE FROM ' . $table;
 	}
-
+	
 	// --------------------------------------------------------------------
-
+	
 	/**
 	 * Delete statement
 	 *
 	 * Generates a platform-specific delete string from the supplied data
 	 *
-	 * @param	string	$table
-	 * @return	string
+	 * @param    string $table
+	 * @return    string
 	 */
 	protected function _delete($table)
 	{
-		$this->qb_limit = FALSE;
+		$this->qb_limit = false;
 		return parent::_delete($table);
 	}
-
+	
 	// --------------------------------------------------------------------
-
+	
 	/**
 	 * LIMIT
 	 *
 	 * Generates a platform-specific LIMIT clause
 	 *
-	 * @param	string	$sql	SQL Query
-	 * @return	string
+	 * @param    string $sql SQL Query
+	 * @return    string
 	 */
 	protected function _limit($sql)
 	{
 		// Limit clause depends on if Interbase or Firebird
-		if (stripos($this->version(), 'firebird') !== FALSE)
+		if (stripos($this->version(), 'firebird') !== false)
 		{
-			$select = 'FIRST '.$this->qb_limit
-				.($this->qb_offset > 0 ? ' SKIP '.$this->qb_offset : '');
+			$select = 'FIRST ' . $this->qb_limit
+			          . ($this->qb_offset > 0 ? ' SKIP ' . $this->qb_offset : '');
 		}
 		else
 		{
 			$select = 'ROWS '
-				.($this->qb_offset > 0 ? $this->qb_offset.' TO '.($this->qb_limit + $this->qb_offset) : $this->qb_limit);
+			          . ($this->qb_offset > 0 ? $this->qb_offset . ' TO ' .
+			                                    ($this->qb_limit + $this->qb_offset) : $this->qb_limit);
 		}
-
-		return preg_replace('`SELECT`i', 'SELECT '.$select, $sql);
+		
+		return preg_replace('`SELECT`i', 'SELECT ' . $select, $sql);
 	}
-
+	
 }

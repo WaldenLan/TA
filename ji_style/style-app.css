@@ -1,140 +1,140 @@
 body {
-    background-image: url(../images/back.jpg);
-    min-width: 500px;
+	background-image: url(../images/back.jpg);
+	min-width:        500px;
 }
 
 .title {
-    color: rgb(0, 47, 92);
-    font-size: 29px;
-    font-weight: bold;
+	color:       rgb(0, 47, 92);
+	font-size:   29px;
+	font-weight: bold;
 }
 
 .logo {
-    min-width: 200px;
+	min-width: 200px;
 }
 
 table.navbar tr {
-    border: solid;
-    background-color: white;
-    height: 50px;
+	border:           solid;
+	background-color: white;
+	height:           50px;
 }
 
 table.navbar tr.strip {
-    height: 10px;
-    background-color: rgb(245, 245, 245);
+	height:           10px;
+	background-color: rgb(245, 245, 245);
 }
 
 table.navbar td {
-    text-align: center;
+	text-align: center;
 }
 
 table.navbar a {
-    text-decoration: none;
-    color: rgb(98, 98, 98);
+	text-decoration: none;
+	color:           rgb(98, 98, 98);
 }
 
 tr.strip td.current {
-    background-color: rgb(255, 205, 0);
+	background-color: rgb(255, 205, 0);
 }
 
 tr.button td.current {
-    background-color: rgb(245, 245, 245);
+	background-color: rgb(245, 245, 245);
 }
 
 table.navbar {
-    border-bottom: 4px solid rgb(145, 145, 145);
+	border-bottom: 4px solid rgb(145, 145, 145);
 }
 
 .apply {
-    width: 71%;
-    border-top: 10px solid rgb(245, 245, 245);
-    background: #fff;
-    margin: 20px auto 20px auto;
-    border-bottom: 4px solid rgb(145, 145, 145);
+	width:         71%;
+	border-top:    10px solid rgb(245, 245, 245);
+	background:    #fff;
+	margin:        20px auto 20px auto;
+	border-bottom: 4px solid rgb(145, 145, 145);
 }
 
 .apply p.apply-title {
-    margin: 20px 0px 7px 5.5%;
-    font-size: 25px;
+	margin:    20px 0px 7px 5.5%;
+	font-size: 25px;
 }
 
 .apply span.apply-title {
-    margin-right: 5px;
-    vertical-align: top;
+	margin-right:   5px;
+	vertical-align: top;
 }
 
 #personal-information {
-    border: solid;
-    border-color: rgb(255, 205, 0);
-    border-radius: 10px;
-    margin: 0 4% 15px 4%;
-    padding: 10px 35px 10px 35px;
+	border:        solid;
+	border-color:  rgb(255, 205, 0);
+	border-radius: 10px;
+	margin:        0 4% 15px 4%;
+	padding:       10px 35px 10px 35px;
 }
 
 #personal-information li {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 #personal-information li.last {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 #personal-information li span {
-    color: rgb(98, 98, 98);
+	color: rgb(98, 98, 98);
 }
 
 .apply .text-container {
-    margin: 20px 4% 0 4%;
-    padding: 0 7px 5px 5px;
-    font-size: 25px;
-    border: solid;
-    border-color: rgb(255, 205, 0);
-    border-radius: 10px;
+	margin:        20px 4% 0 4%;
+	padding:       0 7px 5px 5px;
+	font-size:     25px;
+	border:        solid;
+	border-color:  rgb(255, 205, 0);
+	border-radius: 10px;
 }
 
 .apply .text-container legend {
-    margin: 0 0 0 9px;
+	margin: 0 0 0 9px;
 }
 
 .apply .text {
-    resize: none;
-    display: block;
-    border: none;
-    width: 99%;
-    padding: 0.5%;
-    margin: 0;
-    overflow: auto;
+	resize:   none;
+	display:  block;
+	border:   none;
+	width:    99%;
+	padding:  0.5%;
+	margin:   0;
+	overflow: auto;
 }
 
 #submit {
-    display: block;
-    margin: 25px auto 20px auto;
-    border: solid;
-    border-width: 4px;
-    border-color: rgb(255, 205, 0);
-    border-radius: 10px;
-    width: 100px;
-    height: 40px;
-    font-size: 20px;
+	display:       block;
+	margin:        25px auto 20px auto;
+	border:        solid;
+	border-width:  4px;
+	border-color:  rgb(255, 205, 0);
+	border-radius: 10px;
+	width:         100px;
+	height:        40px;
+	font-size:     20px;
 }
 
 .btn-default {
-    background-color: white;
+	background-color: white;
 }
 
 .btn-default:hover {
-    color: rgb(255, 205, 0);
-    background: rgb(0, 47, 92);
-    background: -moz-linear-gradient(top, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(50%, #fff), color-stop(77%, rgb(245, 245, 245)));
-    background: -webkit-linear-gradient(top, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
-    background: -o-linear-gradient(top, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
-    background: -ms-linear-gradient(top, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
-    background: linear-gradient(to bottom, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
-    transition: 0.5s all;
-    -webkit-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -o-transition: 0.5s all;
-    -ms-transition: 0.5s all;
-    cursor: pointer;
+	color:              rgb(255, 205, 0);
+	background:         rgb(0, 47, 92);
+	background:         -moz-linear-gradient(top, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
+	background:         -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(50%, #fff), color-stop(77%, rgb(245, 245, 245)));
+	background:         -webkit-linear-gradient(top, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
+	background:         -o-linear-gradient(top, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
+	background:         -ms-linear-gradient(top, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
+	background:         linear-gradient(to bottom, #fff 0%, #fff 50%, rgb(245, 245, 245) 77%);
+	transition:         0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition:    0.5s all;
+	-o-transition:      0.5s all;
+	-ms-transition:     0.5s all;
+	cursor:             pointer;
 }

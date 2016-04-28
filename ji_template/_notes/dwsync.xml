@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="login.php" server="202.120.46.151//" local="130935986700146438" remote="130935686400000000" Dst="-1" />
-<file name="index.html" server="202.120.46.151" local="131012668654527379" remote="131014364400000000" Dst="0" />
-<file name="login.php" server="202.120.46.151" local="131060616826422476" remote="131060328600000000" Dst="0" />
-<file name="welcome_message.php" server="202.120.46.151" local="131012668663787379" remote="131014364400000000" Dst="0" />
-<file name="top.php" server="202.120.46.151" local="131012668662987379" remote="131014364400000000" Dst="0" />
-<file name="apply.php" server="202.120.46.151" local="131020453200000000" remote="131020453200000000" Dst="0" />
-<file name="applydetail.php" server="202.120.46.151" local="131020461000000000" remote="131020461000000000" Dst="0" />
-<file name="applysuccess.php" server="202.120.46.151" local="131019624600000000" remote="131019624600000000" Dst="0" />
-<file name="editsuccess.php" server="202.120.46.151" local="131025454800000000" remote="131025454800000000" Dst="0" />
-<file name="edittime.php" server="202.120.46.151" local="131025815400000000" remote="131025815400000000" Dst="0" />
-<file name="edittime_detail.php" server="202.120.46.151" local="131025453600000000" remote="131025453600000000" Dst="0" />
-<file name="showapptime.php" server="202.120.46.151" local="131056928039953612" remote="131050630200000000" Dst="0" />
-<file name="showmyapp.php" server="202.120.46.151" local="131056928039963611" remote="131050638000000000" Dst="0" />
-<file name="stu_app_head.php" server="202.120.46.151" local="131056928042952213" remote="131050656600000000" Dst="0" />
-<file name="deletesuccess.php" server="202.120.46.151" local="131020455600000000" remote="131020455600000000" Dst="0" />
-<file name="manager_app_edititem.php" server="202.120.46.151" local="131026468800000000" remote="131026468800000000" Dst="0" />
-<file name="manager_app_editxqxn.php" server="202.120.46.151" local="131026420800000000" remote="131026420800000000" Dst="0" />
-<file name="manager_app_header.php" server="202.120.46.151" local="131026473600000000" remote="131026473600000000" Dst="0" />
-<file name="manager_app_showcourse.php" server="202.120.46.151" local="131056928036967255" remote="131026500000000000" Dst="0" />
-<file name="stu_app_apply.php" server="202.120.46.151" local="131056928040623456" remote="131050642200000000" Dst="0" />
-<file name="stu_app_applysuccess.php" server="202.120.46.151" local="131056928041028659" remote="131050653000000000" Dst="0" />
-<file name="stu_app_applydetail.php" server="202.120.46.151" local="131056928041388937" remote="131050653000000000" Dst="0" />
-<file name="stu_app_deletesuccess.php" server="202.120.46.151" local="131056928041398932" remote="131050653600000000" Dst="0" />
-<file name="stu_app_showapptime.php" server="202.120.46.151" local="131056928042099606" remote="131050641000000000" Dst="0" />
-<file name="stu_app_showmyapp.php" server="202.120.46.151" local="131056928042249533" remote="131050641600000000" Dst="0" />
+    <file name="login.php" server="202.120.46.151//" local="130935986700146438" remote="130935686400000000" Dst="-1"/>
+    <file name="index.html" server="202.120.46.151" local="131012668654527379" remote="131014364400000000" Dst="0"/>
+    <file name="login.php" server="202.120.46.151" local="131060616826422476" remote="131060328600000000" Dst="0"/>
+    <file name="welcome_message.php" server="202.120.46.151" local="131012668663787379" remote="131014364400000000"
+          Dst="0"/>
+    <file name="top.php" server="202.120.46.151" local="131012668662987379" remote="131014364400000000" Dst="0"/>
+    <file name="apply.php" server="202.120.46.151" local="131020453200000000" remote="131020453200000000" Dst="0"/>
+    <file name="applydetail.php" server="202.120.46.151" local="131020461000000000" remote="131020461000000000"
+          Dst="0"/>
+    <file name="applysuccess.php" server="202.120.46.151" local="131019624600000000" remote="131019624600000000"
+          Dst="0"/>
+    <file name="editsuccess.php" server="202.120.46.151" local="131025454800000000" remote="131025454800000000"
+          Dst="0"/>
+    <file name="edittime.php" server="202.120.46.151" local="131025815400000000" remote="131025815400000000" Dst="0"/>
+    <file name="edittime_detail.php" server="202.120.46.151" local="131025453600000000" remote="131025453600000000"
+          Dst="0"/>
+    <file name="showapptime.php" server="202.120.46.151" local="131056928039953612" remote="131050630200000000"
+          Dst="0"/>
+    <file name="showmyapp.php" server="202.120.46.151" local="131056928039963611" remote="131050638000000000" Dst="0"/>
+    <file name="stu_app_head.php" server="202.120.46.151" local="131056928042952213" remote="131050656600000000"
+          Dst="0"/>
+    <file name="deletesuccess.php" server="202.120.46.151" local="131020455600000000" remote="131020455600000000"
+          Dst="0"/>
+    <file name="manager_app_edititem.php" server="202.120.46.151" local="131026468800000000" remote="131026468800000000"
+          Dst="0"/>
+    <file name="manager_app_editxqxn.php" server="202.120.46.151" local="131026420800000000" remote="131026420800000000"
+          Dst="0"/>
+    <file name="manager_app_header.php" server="202.120.46.151" local="131026473600000000" remote="131026473600000000"
+          Dst="0"/>
+    <file name="manager_app_showcourse.php" server="202.120.46.151" local="131056928036967255"
+          remote="131026500000000000" Dst="0"/>
+    <file name="stu_app_apply.php" server="202.120.46.151" local="131056928040623456" remote="131050642200000000"
+          Dst="0"/>
+    <file name="stu_app_applysuccess.php" server="202.120.46.151" local="131056928041028659" remote="131050653000000000"
+          Dst="0"/>
+    <file name="stu_app_applydetail.php" server="202.120.46.151" local="131056928041388937" remote="131050653000000000"
+          Dst="0"/>
+    <file name="stu_app_deletesuccess.php" server="202.120.46.151" local="131056928041398932"
+          remote="131050653600000000" Dst="0"/>
+    <file name="stu_app_showapptime.php" server="202.120.46.151" local="131056928042099606" remote="131050641000000000"
+          Dst="0"/>
+    <file name="stu_app_showmyapp.php" server="202.120.46.151" local="131056928042249533" remote="131050641600000000"
+          Dst="0"/>
 </dwsync>

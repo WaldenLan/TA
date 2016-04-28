@@ -1,150 +1,716 @@
 /* CSS Document */
-body,li,ul,ol,b,div,p,span,img,table,tr,td,h1,h2,h3,h4,h5{ margin:0; padding:0; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; font-size:14px; list-style:none; list-style-type:none;}
-body{ background-color:#F0F0F0; min-width:1200px;}
-a{ text-decoration:none; color:#666666}
-.hide{ display:none}
-#mhead{ width:100%; height:80px; background-color:#336699}
-#mhead .logo { width:500px; float:left; height:80px; line-height:80px; }
-#mhead .logo span{color:#FFFFFF; padding-left:30px; font-size:32px;}
-#mhead .userinfo { height:30px; margin-right:30px; margin-top:50px; float:right; line-height:30px;}
-#mhead .userinfo li{ float:right; margin-left:10px; background-color:#F0F0F0; text-align:center;}
-#mhead .userinfo li:hover { background-color:#9BCDFF;}
-#mhead .userinfo li a{ height:30px; line-height:30px; padding:0 15px;}
-#mhead .userinfo li a:hover{color:#FFFFFF}
-#control {width:100%; height:auto;}
-#control .mleft{ width:150px; height:300px; float:left; margin-top:10px;}
-#control .mleft li{ width:150px; height:32px; line-height:32px; background-color:#D5D5D5; margin-bottom:10px;}
-#control .mleft li:hover{ background-color:#E4E4E4}
-#control .mleft li a{ width:150px; height:32px; cursor:pointer; float:left; text-align:center}
-#control .mleft li a span{ width:150px; height:32px; cursor:pointer; float:left; color:#000000; text-align:center;}
-#control .mmain{ padding:20px; float:left; position:absolute; left:160px;}
-#control .mmain h2{ font-weight:normal;}
-#control .mmain input[type="text"] { width:500px; height:24px; line-height:24px; padding-left:10px;}
-#control .mmain input[type="password"] { width:500px; height:24px; line-height:24px; padding-left:10px;}
-#control .mmain input[name="s"] { width:200px; height:24px; line-height:24px; padding-left:10px; margin-left:40px; margin-right:5px;}
-#control .mmain input[type="submit"] { width:100px; height:30px; background-color:#3366CC; border:0; cursor:pointer; line-height:30px; color:#FFFFFF}
-#control .mmain textarea { width:500px; line-height:24px; padding-left:10px;}
-#control .mmain input[type="submit"]:hover{ background-color:#3399FF}
-#mmain h2 { font-size:18px; float:left;}
-#mmain .maina{ float:left; margin-left:30px;}
-#mmain .maina span{ padding:0px 20px; color:#FFFFFF; font-size:15px; text-align:center; line-height:26px; height:26px; float:left; background-color:#3366CC}
-#mmain table{ margin-top:20px; float:left; clear:both}
-#mmain .slide tr td a{ float:right; height:30px; line-height:30px; margin-right:5px;}
-#mmain .slide tr td a span{ padding:0 5px; height:30px; line-height:30px; float:left}
-#mmain .slide tr td a:hover { background-color:#FFFFFF}
-#mmain .slide tr td h2 { height:30px; font-size:14px; line-height:30px; float:left; margin-left:10px;}
-#mmain .slide tr td p{ line-height:20px; padding:5px;}
-#mmain table tr td{ padding:5px;}
-#mmain table tr td select { height:30px; min-width:100px;}
-#mmain .page { width:1000px; clear:both; margin-top:20px; padding-top:20px; border-top:2px #666666 solid; float:left;}
-#mmain .page li{ width:100%; padding:5px 0; float:left; border-bottom:1px dashed #D4D4D4; line-height:30px;}
-#mmain .page li span{ float:left;}
-#mmain .page li a.act{ float:right; line-height:30px; height:30px;}
-#mmain .page li a.act:hover{ background-color:#FFFFFF}
-#mmain .page li a.act span{ height:30px; padding:0 5px; float:left;}
-#mmain .page li a.title{ float:left; }
-#mmain .page li a.title:hover{ text-decoration:underline}
-#mmain .page_add tr td{ padding:5px;}
-#mmain .activity { width:1000px; clear:both; margin-top:20px; padding-top:20px; border-top:2px #666666 solid; float:left;}
-#mmain .activity li{ width:100%; padding:5px 0; border-bottom:1px dashed #D4D4D4; height:30px; line-height:30px;}
-#mmain .activity li span{ float:left}
-#mmain .activity li a.act{ float:right; line-height:30px; height:30px;}
-#mmain .activity li a.act:hover{ background-color:#FFFFFF}
-#mmain .activity li a.act span{ height:30px; padding:0 5px; float:left;}
-#mmain .activity li a.title{ float:left; margin-left:20px;}
-#mmain .activity li a.title:hover{ text-decoration:underline}
-#mmain .article { width:1000px; clear:both; margin-top:20px; padding-top:20px; border-top:2px #666666 solid; float:left;}
-#mmain .article li{ width:100%; padding:5px 0; border-bottom:1px dashed #D4D4D4; height:30px; line-height:30px;}
-#mmain .article li span{ float:left}
-#mmain .article li a.art{ float:right; line-height:30px; height:30px;}
-#mmain .article li a.art:hover{ background-color:#FFFFFF}
-#mmain .article li a.art span{ height:30px; padding:0 5px; float:left;}
-#mmain .article li a.title{ float:left; margin-left:20px;}
-#mmain .article li a.title:hover{ text-decoration:underline}
-#mmain .article_add tr td{ padding:5px;}
-#mmain .article_add tr td .inputs { width:250px;}
-#mmain .lanmu { width:1000px; clear:both; margin-top:20px; padding-top:20px; border-top:2px #666666 solid; float:left;}
-#mmain .lanmu li ol { height:30px; line-height:30px; margin-left:40px; display:list-item; float:left; clear:both;}
-#mmain .lanmu li{ width:100%; clear:both; float:left; padding:5px 0; border-bottom:1px dashed #D4D4D4; line-height:30px;}
-#mmain .lanmu li span{ float:left}
-#mmain .lanmu li a.lm{ float:right; line-height:30px; height:30px;}
-#mmain .lanmu li a.lm:hover{ background-color:#FFFFFF}
-#mmain .lanmu li a.lm span{ height:30px; padding:0 5px; float:left;}
-#mmain .lanmu li a.title{ float:left; margin-left:20px;}
-#mmain .lanmu li a.title:hover{ text-decoration:underline}
-#mmain .faculty table tr td span{ margin-left:10px; color:#666666}
-#mmain .faculty table tr td a span{ padding:5px; float:left; margin-left:30px;}
-#mmain .faculty table tr td a span:hover { background-color:#0066CC; color:#FFFFFF}
-#mmain .file_add tr td{ padding:5px;}
+body, li, ul, ol, b, div, p, span, img, table, tr, td, h1, h2, h3, h4, h5 {
+	margin:          0;
+	padding:         0;
+	font-family:     "Microsoft Yahei", Arial, Helvetica, sans-serif;
+	font-size:       14px;
+	list-style:      none;
+	list-style-type: none;
+}
 
-#mmain .video tr td a{ float:right; height:30px; line-height:30px; margin-right:5px;}
-#mmain .video tr td a span{ padding:0 5px; height:30px; line-height:30px; float:left}
-#mmain .video tr td a:hover { background-color:#FFFFFF}
-#mmain .video tr td h2 { height:30px; font-size:14px; line-height:30px; float:left; margin-left:10px;}
-#mmain .video tr td p{ line-height:20px; padding:5px;}
-.pages{ width:750px; height:40px; line-height:40px; text-align:center; margin:10px 0px 10px 20px;}
-.pages a{ padding:5px 10px; float:left; height:30px; line-height:30px;}
-.pages a:hover{ background-color:#F56F6C; color:#fff}
+body {
+	background-color: #F0F0F0;
+	min-width:        1200px;
+}
+
+a {
+	text-decoration: none;
+	color:           #666666
+}
+
+.hide {
+	display: none
+}
+
+#mhead {
+	width:            100%;
+	height:           80px;
+	background-color: #336699
+}
+
+#mhead .logo {
+	width:       500px;
+	float:       left;
+	height:      80px;
+	line-height: 80px;
+}
+
+#mhead .logo span {
+	color:        #FFFFFF;
+	padding-left: 30px;
+	font-size:    32px;
+}
+
+#mhead .userinfo {
+	height:       30px;
+	margin-right: 30px;
+	margin-top:   50px;
+	float:        right;
+	line-height:  30px;
+}
+
+#mhead .userinfo li {
+	float:            right;
+	margin-left:      10px;
+	background-color: #F0F0F0;
+	text-align:       center;
+}
+
+#mhead .userinfo li:hover {
+	background-color: #9BCDFF;
+}
+
+#mhead .userinfo li a {
+	height:      30px;
+	line-height: 30px;
+	padding:     0 15px;
+}
+
+#mhead .userinfo li a:hover {
+	color: #FFFFFF
+}
+
+#control {
+	width:  100%;
+	height: auto;
+}
+
+#control .mleft {
+	width:      150px;
+	height:     300px;
+	float:      left;
+	margin-top: 10px;
+}
+
+#control .mleft li {
+	width:            150px;
+	height:           32px;
+	line-height:      32px;
+	background-color: #D5D5D5;
+	margin-bottom:    10px;
+}
+
+#control .mleft li:hover {
+	background-color: #E4E4E4
+}
+
+#control .mleft li a {
+	width:      150px;
+	height:     32px;
+	cursor:     pointer;
+	float:      left;
+	text-align: center
+}
+
+#control .mleft li a span {
+	width:      150px;
+	height:     32px;
+	cursor:     pointer;
+	float:      left;
+	color:      #000000;
+	text-align: center;
+}
+
+#control .mmain {
+	padding:  20px;
+	float:    left;
+	position: absolute;
+	left:     160px;
+}
+
+#control .mmain h2 {
+	font-weight: normal;
+}
+
+#control .mmain input[type="text"] {
+	width:        500px;
+	height:       24px;
+	line-height:  24px;
+	padding-left: 10px;
+}
+
+#control .mmain input[type="password"] {
+	width:        500px;
+	height:       24px;
+	line-height:  24px;
+	padding-left: 10px;
+}
+
+#control .mmain input[name="s"] {
+	width:        200px;
+	height:       24px;
+	line-height:  24px;
+	padding-left: 10px;
+	margin-left:  40px;
+	margin-right: 5px;
+}
+
+#control .mmain input[type="submit"] {
+	width:            100px;
+	height:           30px;
+	background-color: #3366CC;
+	border:           0;
+	cursor:           pointer;
+	line-height:      30px;
+	color:            #FFFFFF
+}
+
+#control .mmain textarea {
+	width:        500px;
+	line-height:  24px;
+	padding-left: 10px;
+}
+
+#control .mmain input[type="submit"]:hover {
+	background-color: #3399FF
+}
+
+#mmain h2 {
+	font-size: 18px;
+	float:     left;
+}
+
+#mmain .maina {
+	float:       left;
+	margin-left: 30px;
+}
+
+#mmain .maina span {
+	padding:          0px 20px;
+	color:            #FFFFFF;
+	font-size:        15px;
+	text-align:       center;
+	line-height:      26px;
+	height:           26px;
+	float:            left;
+	background-color: #3366CC
+}
+
+#mmain table {
+	margin-top: 20px;
+	float:      left;
+	clear:      both
+}
+
+#mmain .slide tr td a {
+	float:        right;
+	height:       30px;
+	line-height:  30px;
+	margin-right: 5px;
+}
+
+#mmain .slide tr td a span {
+	padding:     0 5px;
+	height:      30px;
+	line-height: 30px;
+	float:       left
+}
+
+#mmain .slide tr td a:hover {
+	background-color: #FFFFFF
+}
+
+#mmain .slide tr td h2 {
+	height:      30px;
+	font-size:   14px;
+	line-height: 30px;
+	float:       left;
+	margin-left: 10px;
+}
+
+#mmain .slide tr td p {
+	line-height: 20px;
+	padding:     5px;
+}
+
+#mmain table tr td {
+	padding: 5px;
+}
+
+#mmain table tr td select {
+	height:    30px;
+	min-width: 100px;
+}
+
+#mmain .page {
+	width:       1000px;
+	clear:       both;
+	margin-top:  20px;
+	padding-top: 20px;
+	border-top:  2px #666666 solid;
+	float:       left;
+}
+
+#mmain .page li {
+	width:         100%;
+	padding:       5px 0;
+	float:         left;
+	border-bottom: 1px dashed #D4D4D4;
+	line-height:   30px;
+}
+
+#mmain .page li span {
+	float: left;
+}
+
+#mmain .page li a.act {
+	float:       right;
+	line-height: 30px;
+	height:      30px;
+}
+
+#mmain .page li a.act:hover {
+	background-color: #FFFFFF
+}
+
+#mmain .page li a.act span {
+	height:  30px;
+	padding: 0 5px;
+	float:   left;
+}
+
+#mmain .page li a.title {
+	float: left;
+}
+
+#mmain .page li a.title:hover {
+	text-decoration: underline
+}
+
+#mmain .page_add tr td {
+	padding: 5px;
+}
+
+#mmain .activity {
+	width:       1000px;
+	clear:       both;
+	margin-top:  20px;
+	padding-top: 20px;
+	border-top:  2px #666666 solid;
+	float:       left;
+}
+
+#mmain .activity li {
+	width:         100%;
+	padding:       5px 0;
+	border-bottom: 1px dashed #D4D4D4;
+	height:        30px;
+	line-height:   30px;
+}
+
+#mmain .activity li span {
+	float: left
+}
+
+#mmain .activity li a.act {
+	float:       right;
+	line-height: 30px;
+	height:      30px;
+}
+
+#mmain .activity li a.act:hover {
+	background-color: #FFFFFF
+}
+
+#mmain .activity li a.act span {
+	height:  30px;
+	padding: 0 5px;
+	float:   left;
+}
+
+#mmain .activity li a.title {
+	float:       left;
+	margin-left: 20px;
+}
+
+#mmain .activity li a.title:hover {
+	text-decoration: underline
+}
+
+#mmain .article {
+	width:       1000px;
+	clear:       both;
+	margin-top:  20px;
+	padding-top: 20px;
+	border-top:  2px #666666 solid;
+	float:       left;
+}
+
+#mmain .article li {
+	width:         100%;
+	padding:       5px 0;
+	border-bottom: 1px dashed #D4D4D4;
+	height:        30px;
+	line-height:   30px;
+}
+
+#mmain .article li span {
+	float: left
+}
+
+#mmain .article li a.art {
+	float:       right;
+	line-height: 30px;
+	height:      30px;
+}
+
+#mmain .article li a.art:hover {
+	background-color: #FFFFFF
+}
+
+#mmain .article li a.art span {
+	height:  30px;
+	padding: 0 5px;
+	float:   left;
+}
+
+#mmain .article li a.title {
+	float:       left;
+	margin-left: 20px;
+}
+
+#mmain .article li a.title:hover {
+	text-decoration: underline
+}
+
+#mmain .article_add tr td {
+	padding: 5px;
+}
+
+#mmain .article_add tr td .inputs {
+	width: 250px;
+}
+
+#mmain .lanmu {
+	width:       1000px;
+	clear:       both;
+	margin-top:  20px;
+	padding-top: 20px;
+	border-top:  2px #666666 solid;
+	float:       left;
+}
+
+#mmain .lanmu li ol {
+	height:      30px;
+	line-height: 30px;
+	margin-left: 40px;
+	display:     list-item;
+	float:       left;
+	clear:       both;
+}
+
+#mmain .lanmu li {
+	width:         100%;
+	clear:         both;
+	float:         left;
+	padding:       5px 0;
+	border-bottom: 1px dashed #D4D4D4;
+	line-height:   30px;
+}
+
+#mmain .lanmu li span {
+	float: left
+}
+
+#mmain .lanmu li a.lm {
+	float:       right;
+	line-height: 30px;
+	height:      30px;
+}
+
+#mmain .lanmu li a.lm:hover {
+	background-color: #FFFFFF
+}
+
+#mmain .lanmu li a.lm span {
+	height:  30px;
+	padding: 0 5px;
+	float:   left;
+}
+
+#mmain .lanmu li a.title {
+	float:       left;
+	margin-left: 20px;
+}
+
+#mmain .lanmu li a.title:hover {
+	text-decoration: underline
+}
+
+#mmain .faculty table tr td span {
+	margin-left: 10px;
+	color:       #666666
+}
+
+#mmain .faculty table tr td a span {
+	padding:     5px;
+	float:       left;
+	margin-left: 30px;
+}
+
+#mmain .faculty table tr td a span:hover {
+	background-color: #0066CC;
+	color:            #FFFFFF
+}
+
+#mmain .file_add tr td {
+	padding: 5px;
+}
+
+#mmain .video tr td a {
+	float:        right;
+	height:       30px;
+	line-height:  30px;
+	margin-right: 5px;
+}
+
+#mmain .video tr td a span {
+	padding:     0 5px;
+	height:      30px;
+	line-height: 30px;
+	float:       left
+}
+
+#mmain .video tr td a:hover {
+	background-color: #FFFFFF
+}
+
+#mmain .video tr td h2 {
+	height:      30px;
+	font-size:   14px;
+	line-height: 30px;
+	float:       left;
+	margin-left: 10px;
+}
+
+#mmain .video tr td p {
+	line-height: 20px;
+	padding:     5px;
+}
+
+.pages {
+	width:       750px;
+	height:      40px;
+	line-height: 40px;
+	text-align:  center;
+	margin:      10px 0px 10px 20px;
+}
+
+.pages a {
+	padding:     5px 10px;
+	float:       left;
+	height:      30px;
+	line-height: 30px;
+}
+
+.pages a:hover {
+	background-color: #F56F6C;
+	color:            #fff
+}
 
 /*用户信息*/
-.page .user span.permission{ width:600px; float:left; margin-left:50px; font-size:12px; color:#C60;}
-.page .user span.permission small{ margin-right:20px;}
-.page .user .title { width:100px;}
+.page .user span.permission {
+	width:       600px;
+	float:       left;
+	margin-left: 50px;
+	font-size:   12px;
+	color:       #C60;
+}
+
+.page .user span.permission small {
+	margin-right: 20px;
+}
+
+.page .user .title {
+	width: 100px;
+}
 
 /*大学里的课程信息*/
-.courses { width:1300px !important;}
-.courses li { height:30px; overflow:hidden;}
-.courses li div span{ float:left; height:30px; overflow:hidden;}
+.courses {
+	width: 1300px !important;
+}
+
+.courses li {
+	height:   30px;
+	overflow: hidden;
+}
+
+.courses li div span {
+	float:    left;
+	height:   30px;
+	overflow: hidden;
+}
 
 /*增加大学课程*/
-.course_add td label input[type=text]{ width:270px !important;}
-.course_add td { padding:5px;}
-.course_add select { height:30px; width:285px;}
-.course_add label input[type=submit]{ width:285px !important;}
+.course_add td label input[type=text] {
+	width: 270px !important;
+}
+
+.course_add td {
+	padding: 5px;
+}
+
+.course_add select {
+	height: 30px;
+	width:  285px;
+}
+
+.course_add label input[type=submit] {
+	width: 285px !important;
+}
 
 /*错误提示*/
-.fixed{ position:fixed; top:0px; width:100%; height:40px;}
-.error { width:400px; margin-left:400px; line-height:100px; text-align:center; background-color:#09C; }
-.error span{font-size:30px; color:#fff; margin:50px;}
+.fixed {
+	position: fixed;
+	top:      0px;
+	width:    100%;
+	height:   40px;
+}
+
+.error {
+	width:            400px;
+	margin-left:      400px;
+	line-height:      100px;
+	text-align:       center;
+	background-color: #09C;
+}
+
+.error span {
+	font-size: 30px;
+	color:     #fff;
+	margin:    50px;
+}
 
 /*通讯录*/
-#mmain .contactlist { width:1400px; clear:both; margin-top:20px; padding-top:20px; border-top:2px #666666 solid; float:left;}
-#mmain .contactlist li{ width:100%; padding:5px 0; float:left; border-bottom:1px dashed #D4D4D4; line-height:30px;}
-#mmain .contactlist li span{ float:left;}
-#mmain .contactlist_add select{ width:510px; height:30px; line-height:30px;}
+#mmain .contactlist {
+	width:       1400px;
+	clear:       both;
+	margin-top:  20px;
+	padding-top: 20px;
+	border-top:  2px #666666 solid;
+	float:       left;
+}
 
+#mmain .contactlist li {
+	width:         100%;
+	padding:       5px 0;
+	float:         left;
+	border-bottom: 1px dashed #D4D4D4;
+	line-height:   30px;
+}
+
+#mmain .contactlist li span {
+	float: left;
+}
+
+#mmain .contactlist_add select {
+	width:       510px;
+	height:      30px;
+	line-height: 30px;
+}
 
 #mmain .gpa {
-  width: 1000px;
-  clear: both;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 2px #666666 solid;
-  float: left;
+	width:       1000px;
+	clear:       both;
+	margin-top:  20px;
+	padding-top: 20px;
+	border-top:  2px #666666 solid;
+	float:       left;
 }
-#mmain .gpa select { height:30px;}
-#mmain .gpa .info { line-height:25px;}
-#mmain .gpa .create span{ width:400px; float:left; height:30px; line-height:30px; text-align:center; float:left; background-color:#069; color:#fff; margin:10px;}
-#mmain .gpa .create span:hover{ background-color:#060}
-#mmain .gpa .order-nav label span{ margin-left:30px;}
+
+#mmain .gpa select {
+	height: 30px;
+}
+
+#mmain .gpa .info {
+	line-height: 25px;
+}
+
+#mmain .gpa .create span {
+	width:            400px;
+	float:            left;
+	height:           30px;
+	line-height:      30px;
+	text-align:       center;
+	float:            left;
+	background-color: #069;
+	color:            #fff;
+	margin:           10px;
+}
+
+#mmain .gpa .create span:hover {
+	background-color: #060
+}
+
+#mmain .gpa .order-nav label span {
+	margin-left: 30px;
+}
+
 #mmain .gpa .order-nav input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  margin: 5px;
+	width:    20px;
+	height:   20px;
+	position: absolute;
+	margin:   5px;
 }
-#mmain .gpa .gpa_list{ height:600px; overflow:auto;}
-#mmain .equipment select{ width:510px; height:30px; line-height:30px;}
-#mmain .equipment { width:1000px; clear:both; margin-top:20px; padding-top:20px; border-top:2px #666666 solid; float:left;}
-#mmain .equipment li{ width:100%; padding:5px 0; border-bottom:1px dashed #D4D4D4; height:30px; line-height:30px;}
-#mmain .equipment li span{ float:left}
-#mmain .equipment li a.act{ float:right; line-height:30px; height:30px;}
-#mmain .equipment li a.act:hover{ background-color:#FFFFFF}
-#mmain .equipment li a.act span{ height:30px; padding:0 5px; float:left;}
-#mmain .equipment li a.title{ float:left; margin-left:20px;}
-#mmain .equipment li a.title:hover{ text-decoration:underline}
+
+#mmain .gpa .gpa_list {
+	height:   600px;
+	overflow: auto;
+}
+
+#mmain .equipment select {
+	width:       510px;
+	height:      30px;
+	line-height: 30px;
+}
+
+#mmain .equipment {
+	width:       1000px;
+	clear:       both;
+	margin-top:  20px;
+	padding-top: 20px;
+	border-top:  2px #666666 solid;
+	float:       left;
+}
+
+#mmain .equipment li {
+	width:         100%;
+	padding:       5px 0;
+	border-bottom: 1px dashed #D4D4D4;
+	height:        30px;
+	line-height:   30px;
+}
+
+#mmain .equipment li span {
+	float: left
+}
+
+#mmain .equipment li a.act {
+	float:       right;
+	line-height: 30px;
+	height:      30px;
+}
+
+#mmain .equipment li a.act:hover {
+	background-color: #FFFFFF
+}
+
+#mmain .equipment li a.act span {
+	height:  30px;
+	padding: 0 5px;
+	float:   left;
+}
+
+#mmain .equipment li a.title {
+	float:       left;
+	margin-left: 20px;
+}
+
+#mmain .equipment li a.title:hover {
+	text-decoration: underline
+}
 
 #mmain .equipment input[readonly='readonly'] {
-  background-color: #DBD9D9;
-  border: 0px;
+	background-color: #DBD9D9;
+	border:           0px;
 }

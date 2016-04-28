@@ -1,17 +1,21 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH'))
+{
+	exit('No direct script access allowed');
+}
 
-class Mta extends CI_Model {
+class Mta extends CI_Model
+{
 	
 	function __construct()
-    {
-        parent::__construct();
+	{
+		parent::__construct();
 		$this->load->model('Mta_site');
 		$this->load->library('Ta_obj');
-    }
+	}
 	
 	public function get_ta_by_id($id)
 	{
-		$query = $this->db->get_where('ji_ta_info', array('USER_ID'=>$id));
+		$query = $this->db->get_where('ji_ta_info', array('USER_ID' => $id));
 		if ($query->num_rows() == 1)
 		{
 			return $query->row(0, 'Ta_obj');

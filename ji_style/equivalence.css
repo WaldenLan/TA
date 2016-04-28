@@ -1,39 +1,224 @@
 @charset "UTF-8";
 /* CSS Document 全局首页*/
-.top { width:1080px;}
+.top {
+	width: 1080px;
+}
 
-.main { min-height:550px; width:1080px;}
-.main .title{ width:100%; line-height:50px; height:50px;  background-color:#485b7d; color:#eee;}
-.main .title h1{ width:300px; float:left; text-indent:10px; font-size:20px;}
-.main .title h1 a { color:#eee;}
-.main .title form { width:500px; float:right;}
-.main .title form input{ float:right; margin:10px; border:0px;width:300px; height:30px; line-height:30px; text-indent:10px;}
-.main .title form span{ float:right; width:80px; color:#666; margin:10px 10px 10px 0; height:30px; line-height:30px; text-align:center; background-color:#efefef; border:1px solid #ccc; cursor:pointer;}
-.main .title form span:hover{ background-color:#06C; color:#fff;}
-.main .universities { padding:0; margin:0;}
-.main .universities li { list-style:none; width:100%; float:left; line-height:40px; text-indent:10px; border-bottom:1px dashed #ccc;}
-.main .universities li:hover{ background-color:#ddd;}
-.main .universities .descript{ border-bottom:3px solid #ccc; font-weight:bold;}
-.main .universities li .right{ text-align:right; margin-right:20px;}
-.main .courses li { list-style:none; width:100%; float:left; line-height:40px; height:30px; padding-left:10px; border-bottom:1px dashed #ccc;overflow:hidden; padding-bottom:10px;}
-.main .courses li span{ float:left; overflow:hidden; line-height:20px; margin-top:16px;}
-.main .courses li span p{display: none; padding:5px; position: absolute;  margin-top: -120px;  border: 1px solid #ccc;  border-radius: 5px;  background-color: #ddd;  width: 200px;}
-.main .courses li:hover{ background-color:#ddd; height:auto}
-.main .courses .descript{ border-bottom:3px solid #ccc; font-weight:bold; height:60px; line-height:60px;}
-.main .courses .descript .left{ width:630px; float:left;}
-.main .courses .descript b{ float:left; font-size:16px;}
-.main .courses .descript i{ margin-left:20px; font-weight:normal; float:left; font-size:12px;}
-.main .courses .descript span{ font-size:16px;}
-.main .courses .descript .right{ float:right; width:350px;}
-.main .courses .nav{ background-color:#E1E9F7; width:1080px; top:0}
-.main .courses .nav span{ cursor:pointer;}
-.footer { width:1080px; margin:0 auto; clear:both; height:320px; border-top:3px solid #ccc;}
-.footer p{ margin:0; padding:0; width:100%; margin-top:10px;}
-.footer p strong { float:left; width:100%; line-height:30px; font-size:15px; color:#485B7D;}
-.footer p span{ width:100%; float:left; line-height:25px;}
-.umji-footer { width:1080px; margin:0 auto; clear:both; bottom:10px; height:80px; background-color:#003366; color:#eee; position:relative; margin-top:30px;}
-.umji-footer span{ width:100%; text-indent:10px; line-height:20px; margin-top:10px; float:left}
-.umji-footer span a{ color:#eee;}
+.main {
+	min-height: 550px;
+	width:      1080px;
+}
+
+.main .title {
+	width:            100%;
+	line-height:      50px;
+	height:           50px;
+	background-color: #485b7d;
+	color:            #eee;
+}
+
+.main .title h1 {
+	width:       300px;
+	float:       left;
+	text-indent: 10px;
+	font-size:   20px;
+}
+
+.main .title h1 a {
+	color: #eee;
+}
+
+.main .title form {
+	width: 500px;
+	float: right;
+}
+
+.main .title form input {
+	float:       right;
+	margin:      10px;
+	border:      0px;
+	width:       300px;
+	height:      30px;
+	line-height: 30px;
+	text-indent: 10px;
+}
+
+.main .title form span {
+	float:            right;
+	width:            80px;
+	color:            #666;
+	margin:           10px 10px 10px 0;
+	height:           30px;
+	line-height:      30px;
+	text-align:       center;
+	background-color: #efefef;
+	border:           1px solid #ccc;
+	cursor:           pointer;
+}
+
+.main .title form span:hover {
+	background-color: #06C;
+	color:            #fff;
+}
+
+.main .universities {
+	padding: 0;
+	margin:  0;
+}
+
+.main .universities li {
+	list-style:    none;
+	width:         100%;
+	float:         left;
+	line-height:   40px;
+	text-indent:   10px;
+	border-bottom: 1px dashed #ccc;
+}
+
+.main .universities li:hover {
+	background-color: #ddd;
+}
+
+.main .universities .descript {
+	border-bottom: 3px solid #ccc;
+	font-weight:   bold;
+}
+
+.main .universities li .right {
+	text-align:   right;
+	margin-right: 20px;
+}
+
+.main .courses li {
+	list-style:     none;
+	width:          100%;
+	float:          left;
+	line-height:    40px;
+	height:         30px;
+	padding-left:   10px;
+	border-bottom:  1px dashed #ccc;
+	overflow:       hidden;
+	padding-bottom: 10px;
+}
+
+.main .courses li span {
+	float:       left;
+	overflow:    hidden;
+	line-height: 20px;
+	margin-top:  16px;
+}
+
+.main .courses li span p {
+	display:          none;
+	padding:          5px;
+	position:         absolute;
+	margin-top:       -120px;
+	border:           1px solid #ccc;
+	border-radius:    5px;
+	background-color: #ddd;
+	width:            200px;
+}
+
+.main .courses li:hover {
+	background-color: #ddd;
+	height:           auto
+}
+
+.main .courses .descript {
+	border-bottom: 3px solid #ccc;
+	font-weight:   bold;
+	height:        60px;
+	line-height:   60px;
+}
+
+.main .courses .descript .left {
+	width: 630px;
+	float: left;
+}
+
+.main .courses .descript b {
+	float:     left;
+	font-size: 16px;
+}
+
+.main .courses .descript i {
+	margin-left: 20px;
+	font-weight: normal;
+	float:       left;
+	font-size:   12px;
+}
+
+.main .courses .descript span {
+	font-size: 16px;
+}
+
+.main .courses .descript .right {
+	float: right;
+	width: 350px;
+}
+
+.main .courses .nav {
+	background-color: #E1E9F7;
+	width:            1080px;
+	top:              0
+}
+
+.main .courses .nav span {
+	cursor: pointer;
+}
+
+.footer {
+	width:      1080px;
+	margin:     0 auto;
+	clear:      both;
+	height:     320px;
+	border-top: 3px solid #ccc;
+}
+
+.footer p {
+	margin:     0;
+	padding:    0;
+	width:      100%;
+	margin-top: 10px;
+}
+
+.footer p strong {
+	float:       left;
+	width:       100%;
+	line-height: 30px;
+	font-size:   15px;
+	color:       #485B7D;
+}
+
+.footer p span {
+	width:       100%;
+	float:       left;
+	line-height: 25px;
+}
+
+.umji-footer {
+	width:            1080px;
+	margin:           0 auto;
+	clear:            both;
+	bottom:           10px;
+	height:           80px;
+	background-color: #003366;
+	color:            #eee;
+	position:         relative;
+	margin-top:       30px;
+}
+
+.umji-footer span {
+	width:       100%;
+	text-indent: 10px;
+	line-height: 20px;
+	margin-top:  10px;
+	float:       left
+}
+
+.umji-footer span a {
+	color: #eee;
+}
 
 
 

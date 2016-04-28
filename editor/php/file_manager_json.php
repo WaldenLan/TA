@@ -21,25 +21,31 @@ $ext_arr = array('gif', 'jpg', 'jpeg', 'png', 'bmp');
 
 //目录名
 $dir_name = empty($_GET['dir']) ? '' : trim($_GET['dir']);
-if (!in_array($dir_name, array('', 'image', 'flash', 'media', 'file'))) {
+if (!in_array($dir_name, array('', 'image', 'flash', 'media', 'file')))
+{
 	echo "Invalid Directory name.";
 	exit;
 }
-if ($dir_name !== '') {
+if ($dir_name !== '')
+{
 	$root_path .= $dir_name . "/";
 	$root_url .= $dir_name . "/";
-	if (!file_exists($root_path)) {
+	if (!file_exists($root_path))
+	{
 		mkdir($root_path);
 	}
 }
 
 //根据path参数，设置各路径和URL
-if (empty($_GET['path'])) {
+if (empty($_GET['path']))
+{
 	$current_path = realpath($root_path) . '/';
 	$current_url = $root_url;
 	$current_dir_path = '';
 	$moveup_dir_path = '';
-} else {
+}
+else
+{
 	$current_path = realpath($root_path) . '/' . $_GET['path'];
 	$current_url = $root_url . $_GET['path'];
 	$current_dir_path = $_GET['path'];
@@ -50,35 +56,46 @@ if (empty($_GET['path'])) {
 $order = empty($_GET['order']) ? 'name' : strtolower($_GET['order']);
 
 //不允许使用..移动到上一级目录
-if (preg_match('/\.\./', $current_path)) {
+if (preg_match('/\.\./', $current_path))
+{
 	echo 'Access is not allowed.';
 	exit;
 }
 //最后一个字符不是/
-if (!preg_match('/\/$/', $current_path)) {
+if (!preg_match('/\/$/', $current_path))
+{
 	echo 'Parameter is not valid.';
 	exit;
 }
 //目录不存在或不是目录
-if (!file_exists($current_path) || !is_dir($current_path)) {
+if (!file_exists($current_path) || !is_dir($current_path))
+{
 	echo 'Directory does not exist.';
 	exit;
 }
 
 //遍历目录取得文件信息
 $file_list = array();
-if ($handle = opendir($current_path)) {
+if ($handle = opendir($current_path))
+{
 	$i = 0;
-	while (false !== ($filename = readdir($handle))) {
-		if ($filename{0} == '.') continue;
+	while (false !== ($filename = readdir($handle)))
+	{
+		if ($filename{0} == '.')
+		{
+			continue;
+		}
 		$file = $current_path . $filename;
-		if (is_dir($file)) {
+		if (is_dir($file))
+		{
 			$file_list[$i]['is_dir'] = true; //是否文件夹
 			$file_list[$i]['has_file'] = (count(scandir($file)) > 2); //文件夹是否包含文件
 			$file_list[$i]['filesize'] = 0; //文件大小
 			$file_list[$i]['is_photo'] = false; //是否图片
 			$file_list[$i]['filetype'] = ''; //文件类别，用扩展名判断
-		} else {
+		}
+		else
+		{
 			$file_list[$i]['is_dir'] = false;
 			$file_list[$i]['has_file'] = false;
 			$file_list[$i]['filesize'] = filesize($file);
@@ -95,28 +112,45 @@ if ($handle = opendir($current_path)) {
 }
 
 //排序
-function cmp_func($a, $b) {
+function cmp_func($a, $b)
+{
 	global $order;
-	if ($a['is_dir'] && !$b['is_dir']) {
+	if ($a['is_dir'] && !$b['is_dir'])
+	{
 		return -1;
-	} else if (!$a['is_dir'] && $b['is_dir']) {
+	}
+	else if (!$a['is_dir'] && $b['is_dir'])
+	{
 		return 1;
-	} else {
-		if ($order == 'size') {
-			if ($a['filesize'] > $b['filesize']) {
+	}
+	else
+	{
+		if ($order == 'size')
+		{
+			if ($a['filesize'] > $b['filesize'])
+			{
 				return 1;
-			} else if ($a['filesize'] < $b['filesize']) {
+			}
+			else if ($a['filesize'] < $b['filesize'])
+			{
 				return -1;
-			} else {
+			}
+			else
+			{
 				return 0;
 			}
-		} else if ($order == 'type') {
+		}
+		else if ($order == 'type')
+		{
 			return strcmp($a['filetype'], $b['filetype']);
-		} else {
+		}
+		else
+		{
 			return strcmp($a['filename'], $b['filename']);
 		}
 	}
 }
+
 usort($file_list, 'cmp_func');
 
 $result = array();

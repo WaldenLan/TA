@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="manage.css" server="202.120.46.151//" local="130966193260482900" remote="130965903600000000" Dst="-1" />
-<file name="common.css" server="202.120.46.151//" local="130927146867238415" remote="130926846600000000" Dst="-1" />
-<file name="home.css" server="202.120.46.151//" local="130894485761540561" remote="130894186200000000" Dst="-1" />
-<file name="equivalence.css" server="202.120.46.151//" local="130924648470140261" remote="130924348200000000" Dst="-1" />
-<file name="lab.css" server="202.120.46.151//" local="130979038456112917" remote="130978748400000000" Dst="-1" />
-<file name="wlan.css" server="202.120.46.151//" local="130929138304751411" remote="130928838000000000" Dst="-1" />
-<file name="advising.css" server="202.120.46.151//" local="130930855406063582" remote="130930555200000000" Dst="-1" />
-<file name="tool.css" server="202.120.46.151//" local="130948137010000000" remote="130947847800000000" Dst="-1" />
-<file name="advising.css" server="202.120.46.151" local="131012668624057379" remote="131014364400000000" Dst="0" />
-<file name="common.css" server="202.120.46.151" local="131012668624227379" remote="131014364400000000" Dst="0" />
-<file name="equivalence.css" server="202.120.46.151" local="131012668624337379" remote="131014364400000000" Dst="0" />
-<file name="home.css" server="202.120.46.151" local="131012668624407379" remote="131014364400000000" Dst="0" />
-<file name="lab.css" server="202.120.46.151" local="131012668624577379" remote="131014364400000000" Dst="0" />
-<file name="manage.css" server="202.120.46.151" local="131012668625977379" remote="131014364400000000" Dst="0" />
-<file name="wlan.css" server="202.120.46.151" local="131012668626157379" remote="131014364400000000" Dst="0" />
-<file name="tool.css" server="202.120.46.151" local="131012668626107379" remote="131014364400000000" Dst="0" />
-<file name="style-app.css" server="202.120.46.151" local="131020375200000000" remote="131020375200000000" Dst="0" />
-<file name="login.css" server="202.120.46.151" local="131060615182876656" remote="131060328600000000" Dst="0" />
+    <file name="manage.css" server="202.120.46.151//" local="130966193260482900" remote="130965903600000000" Dst="-1"/>
+    <file name="common.css" server="202.120.46.151//" local="130927146867238415" remote="130926846600000000" Dst="-1"/>
+    <file name="home.css" server="202.120.46.151//" local="130894485761540561" remote="130894186200000000" Dst="-1"/>
+    <file name="equivalence.css" server="202.120.46.151//" local="130924648470140261" remote="130924348200000000"
+          Dst="-1"/>
+    <file name="lab.css" server="202.120.46.151//" local="130979038456112917" remote="130978748400000000" Dst="-1"/>
+    <file name="wlan.css" server="202.120.46.151//" local="130929138304751411" remote="130928838000000000" Dst="-1"/>
+    <file name="advising.css" server="202.120.46.151//" local="130930855406063582" remote="130930555200000000"
+          Dst="-1"/>
+    <file name="tool.css" server="202.120.46.151//" local="130948137010000000" remote="130947847800000000" Dst="-1"/>
+    <file name="advising.css" server="202.120.46.151" local="131012668624057379" remote="131014364400000000" Dst="0"/>
+    <file name="common.css" server="202.120.46.151" local="131012668624227379" remote="131014364400000000" Dst="0"/>
+    <file name="equivalence.css" server="202.120.46.151" local="131012668624337379" remote="131014364400000000"
+          Dst="0"/>
+    <file name="home.css" server="202.120.46.151" local="131012668624407379" remote="131014364400000000" Dst="0"/>
+    <file name="lab.css" server="202.120.46.151" local="131012668624577379" remote="131014364400000000" Dst="0"/>
+    <file name="manage.css" server="202.120.46.151" local="131012668625977379" remote="131014364400000000" Dst="0"/>
+    <file name="wlan.css" server="202.120.46.151" local="131012668626157379" remote="131014364400000000" Dst="0"/>
+    <file name="tool.css" server="202.120.46.151" local="131012668626107379" remote="131014364400000000" Dst="0"/>
+    <file name="style-app.css" server="202.120.46.151" local="131020375200000000" remote="131020375200000000" Dst="0"/>
+    <file name="login.css" server="202.120.46.151" local="131060615182876656" remote="131060328600000000" Dst="0"/>
 </dwsync>

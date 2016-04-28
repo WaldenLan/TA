@@ -1,24 +1,28 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH'))
+{
+	exit('No direct script access allowed');
+}
 
-class Mta_mail extends CI_Model {
+class Mta_mail extends CI_Model
+{
 	
 	private $site_config;
 	
 	function __construct()
-    {
-        parent::__construct();
+	{
+		parent::__construct();
 		$this->load->library('smtp');
 		$this->load->library('phpmailer');
 		$this->load->model('mta_site');
-        $this->site_config = $this->mta_site->get_site_config();
+		$this->site_config = $this->mta_site->get_site_config();
 	}
 	
 	
 	/**
-     * 向TA或老师发送Email
+	 * 向TA或老师发送Email
 	 * @param   $data 关联数组
-     * @return  boolean
-     */
+	 * @return  boolean
+	 */
 	
 	
 	public function send($to, $title, $body) //eg, send('840737618@qq.com', 'hi', 'hi')
@@ -43,7 +47,7 @@ class Mta_mail extends CI_Model {
 	{
 		
 		$mail = new PHPMailer;
-
+		
 		//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 		
 		$mail->isSMTP();                                      // Set mailer to use SMTP
@@ -62,16 +66,16 @@ class Mta_mail extends CI_Model {
 		$mail->isHTML(true);                                  // Set email format to HTML
 		
 		$mail->Subject = $title;
-		$mail->Body    = $body;
+		$mail->Body = $body;
 		//$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 		
-		if(!$mail->send()) 
+		if (!$mail->send())
 		{
 			echo 'Message could not be sent.';
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
 			return false;
-		} 
-		else 
+		}
+		else
 		{
 			echo 'Message has been sent';
 			return true;

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.php" server="202.120.46.151" local="131062291849122739" remote="131060547600000000" Dst="0" />
-<file name="common_footer.php" server="202.120.46.151" local="131062291848542316" remote="131060544600000000" Dst="0" />
-<file name="common_header.php" server="202.120.46.151" local="131062291848752479" remote="131061922800000000" Dst="0" />
+    <file name="index.php" server="202.120.46.151" local="131062291849122739" remote="131060547600000000" Dst="0"/>
+    <file name="common_footer.php" server="202.120.46.151" local="131062291848542316" remote="131060544600000000"
+          Dst="0"/>
+    <file name="common_header.php" server="202.120.46.151" local="131062291848752479" remote="131061922800000000"
+          Dst="0"/>
 </dwsync>
