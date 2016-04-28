@@ -188,4 +188,10 @@ class CI_Model
 	} // This default returns construct as set
 }
 
+
+
+
+
+
+
 /* End of file PHPStorm_CI_CC.php */
