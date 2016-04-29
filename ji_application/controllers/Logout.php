@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Logout extends CI_Controller
+class Logout extends CI_Controller 
 {
 	public function __construct()
 	{
@@ -11,8 +11,8 @@ class Logout extends CI_Controller
 	
 	public function index()
 	{
-		$_SESSION['userid'] = '';
-		$_SESSION['username'] = '';
+		unset($_SESSION['userid']);
+		unset($_SESSION['username']);
 		$url = base64_decode($this->input->get('url'));
 		redirect(base_url($url));
 	}

@@ -26,13 +26,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package      CodeIgniter
- * @author       EllisLab Dev Team
- * @copyright    Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
- * @copyright    Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
- * @license      http://opensource.org/licenses/MIT	MIT License
- * @link         http://codeigniter.com
- * @since        Version 3.0.0
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link	http://codeigniter.com
+ * @since	Version 3.0.0
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -40,109 +40,105 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * PDO DBLIB Forge Class
  *
- * @category      Database
- * @author        EllisLab Dev Team
- * @link          http://codeigniter.com/user_guide/database/
+ * @category	Database
+ * @author		EllisLab Dev Team
+ * @link		http://codeigniter.com/user_guide/database/
  */
-class CI_DB_pdo_dblib_forge extends CI_DB_pdo_forge
-{
-	
+class CI_DB_pdo_dblib_forge extends CI_DB_pdo_forge {
+
 	/**
 	 * CREATE TABLE IF statement
 	 *
-	 * @var    string
+	 * @var	string
 	 */
-	protected $_create_table_if = "IF NOT EXISTS (SELECT * FROM sysobjects WHERE ID = object_id(N'%s') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)\nCREATE TABLE";
-	
+	protected $_create_table_if	= "IF NOT EXISTS (SELECT * FROM sysobjects WHERE ID = object_id(N'%s') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)\nCREATE TABLE";
+
 	/**
 	 * DROP TABLE IF statement
 	 *
-	 * @var    string
+	 * @var	string
 	 */
-	protected $_drop_table_if = "IF EXISTS (SELECT * FROM sysobjects WHERE ID = object_id(N'%s') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)\nDROP TABLE";
-	
+	protected $_drop_table_if	= "IF EXISTS (SELECT * FROM sysobjects WHERE ID = object_id(N'%s') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)\nDROP TABLE";
+
 	/**
 	 * UNSIGNED support
 	 *
-	 * @var    array
+	 * @var	array
 	 */
-	protected $_unsigned = array(
-		'TINYINT'  => 'SMALLINT',
-		'SMALLINT' => 'INT',
-		'INT'      => 'BIGINT',
-		'REAL'     => 'FLOAT'
+	protected $_unsigned		= array(
+		'TINYINT'	=> 'SMALLINT',
+		'SMALLINT'	=> 'INT',
+		'INT'		=> 'BIGINT',
+		'REAL'		=> 'FLOAT'
 	);
-	
+
 	// --------------------------------------------------------------------
-	
+
 	/**
 	 * ALTER TABLE
 	 *
-	 * @param    string $alter_type ALTER type
-	 * @param    string $table      Table name
-	 * @param    mixed  $field      Column definition
-	 * @return    string|string[]
+	 * @param	string	$alter_type	ALTER type
+	 * @param	string	$table		Table name
+	 * @param	mixed	$field		Column definition
+	 * @return	string|string[]
 	 */
 	protected function _alter_table($alter_type, $table, $field)
 	{
-		if (in_array($alter_type, array('ADD', 'DROP'), true))
+		if (in_array($alter_type, array('ADD', 'DROP'), TRUE))
 		{
 			return parent::_alter_table($alter_type, $table, $field);
 		}
-		
-		$sql = 'ALTER TABLE ' . $this->db->escape_identifiers($table) . ' ALTER COLUMN ';
+
+		$sql = 'ALTER TABLE '.$this->db->escape_identifiers($table).' ALTER COLUMN ';
 		$sqls = array();
 		for ($i = 0, $c = count($field); $i < $c; $i++)
 		{
-			$sqls[] = $sql . $this->_process_column($field[$i]);
+			$sqls[] = $sql.$this->_process_column($field[$i]);
 		}
-		
+
 		return $sqls;
 	}
-	
+
 	// --------------------------------------------------------------------
-	
+
 	/**
 	 * Field attribute TYPE
 	 *
 	 * Performs a data type mapping between different databases.
 	 *
-	 * @param    array &$attributes
-	 * @return    void
+	 * @param	array	&$attributes
+	 * @return	void
 	 */
 	protected function _attr_type(&$attributes)
 	{
 		switch (strtoupper($attributes['TYPE']))
 		{
-		case 'MEDIUMINT':
-			$attributes['TYPE'] = 'INTEGER';
-			$attributes['UNSIGNED'] = false;
-			return;
-		case 'INTEGER':
-			$attributes['TYPE'] = 'INT';
-			return;
-		default:
-			return;
+			case 'MEDIUMINT':
+				$attributes['TYPE'] = 'INTEGER';
+				$attributes['UNSIGNED'] = FALSE;
+				return;
+			case 'INTEGER':
+				$attributes['TYPE'] = 'INT';
+				return;
+			default: return;
 		}
 	}
-	
+
 	// --------------------------------------------------------------------
-	
+
 	/**
 	 * Field attribute AUTO_INCREMENT
 	 *
-	 * @param    array &$attributes
-	 * @param    array &$field
-	 * @return    void
+	 * @param	array	&$attributes
+	 * @param	array	&$field
+	 * @return	void
 	 */
 	protected function _attr_auto_increment(&$attributes, &$field)
 	{
-		if (!empty($attributes['AUTO_INCREMENT']) && $attributes['AUTO_INCREMENT'] === true &&
-		    stripos($field['type'], 'int') !== false
-		)
+		if ( ! empty($attributes['AUTO_INCREMENT']) && $attributes['AUTO_INCREMENT'] === TRUE && stripos($field['type'], 'int') !== FALSE)
 		{
 			$field['auto_increment'] = ' IDENTITY(1,1)';
 		}
 	}
-	
+
 }

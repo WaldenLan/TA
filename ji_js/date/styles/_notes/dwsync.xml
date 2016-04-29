@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-    <file name="glDatePicker.darkneon.css" server="202.120.46.151//" local="130015406450000000"
-          remote="130905420000000000" Dst="-1"/>
-    <file name="glDatePicker.default.css" server="202.120.46.151//" local="130015406590000000"
-          remote="130905420000000000" Dst="-1"/>
-    <file name="glDatePicker.flatwhite.css" server="202.120.46.151//" local="130015406850000000"
-          remote="130905420000000000" Dst="-1"/>
-    <file name="glDatePicker.darkneon.css" server="202.120.46.151" local="131012668622357379"
-          remote="131014364400000000" Dst="0"/>
-    <file name="glDatePicker.default.css" server="202.120.46.151" local="131012668622557379" remote="131014364400000000"
-          Dst="0"/>
-    <file name="glDatePicker.flatwhite.css" server="202.120.46.151" local="131012668622617379"
-          remote="131014364400000000" Dst="0"/>
+<file name="glDatePicker.darkneon.css" server="202.120.46.151//" local="130015406450000000" remote="130905420000000000" />
+<file name="glDatePicker.default.css" server="202.120.46.151//" local="130015406590000000" remote="130905420000000000" />
+<file name="glDatePicker.flatwhite.css" server="202.120.46.151//" local="130015406850000000" remote="130905420000000000" />
 </dwsync>

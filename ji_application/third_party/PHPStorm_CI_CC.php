@@ -189,9 +189,4 @@ class CI_Model
 }
 
 
-
-
-
-
-
 /* End of file PHPStorm_CI_CC.php */

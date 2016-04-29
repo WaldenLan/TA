@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-    <file name="kindeditor.js" server="202.120.46.151//" local="130959098110402776" remote="130958808600000000"
-          Dst="-1"/>
-    <file name="kindeditor-all-min.js" server="202.120.46.151" local="131012668594877379" remote="131014363800000000"
-          Dst="0"/>
-    <file name="kindeditor-min.js" server="202.120.46.151" local="131012668595457379" remote="131014363800000000"
-          Dst="0"/>
-    <file name="kindeditor-all.js" server="202.120.46.151" local="131012668595617379" remote="131014363800000000"
-          Dst="0"/>
-    <file name="kindeditor.js" server="202.120.46.151" local="131012668596217379" remote="131014363800000000" Dst="0"/>
-    <file name="license.txt" server="202.120.46.151" local="131012668596957379" remote="131014363800000000" Dst="0"/>
+<file name="kindeditor.js" server="202.120.46.151//" local="130959098110402776" remote="130958808600000000" />
 </dwsync>

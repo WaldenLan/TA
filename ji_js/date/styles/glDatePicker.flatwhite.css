@@ -1,22 +1,22 @@
 .gldp-flatwhite {
-	position:    absolute;
+	position: absolute;
 	font-family: 'helvetica';
 }
 
 /* Core style for every cell */
 .gldp-flatwhite .core {
-	box-sizing:         border-box;
+	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing:    border-box;
-	position:           relative;
-	float:              left;
-	padding:            0;
-	margin:             0;
-	font-size:          14px;
-	text-align:         center;
-	cursor:             pointer;
-	color:              #222;
-	background:         #ffffff;
+	-moz-box-sizing: border-box;
+	position: relative;
+	float: left;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer;
+	color: #222;
+	background: #ffffff;
 }
 
 /* Cell border */
@@ -29,9 +29,9 @@
 /* Month/Year text and select */
 .gldp-flatwhite .monyear,
 .gldp-flatwhite .monyear select {
-	font-size:   16px !important;
+	font-size: 16px !important;
 	font-weight: bold;
-	background:  #eee;
+	background: #eee;
 }
 
 /* Month/Year text */
@@ -42,7 +42,7 @@
 /* Prev/Next arrows */
 .gldp-flatwhite .prev-arrow,
 .gldp-flatwhite .next-arrow {
-	color:       #666;
+	color: #666;
 	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.75);
 }
 
@@ -53,16 +53,16 @@
 
 .gldp-flatwhite .prev-arrow-off,
 .gldp-flatwhite .next-arrow-off {
-	color:   #000;
+	color: #000;
 	opacity: 0.15;
 }
 
 /* Days of the week */
 .gldp-flatwhite .dow {
-	color:       #222;
+	color: #222;
 	font-weight: bold;
-	cursor:      wait !important;
-	background:  #eee;
+	cursor: wait !important;
+	background: #eee;
 }
 
 /* Weekdays */
@@ -77,7 +77,7 @@
 /* Weekend days */
 .gldp-flatwhite .sat,
 .gldp-flatwhite .sun {
-	color:       #888;
+	color: #888;
 	font-weight: bold;
 }
 
@@ -99,32 +99,32 @@
 
 /* Non-Selectable days */
 .gldp-flatwhite .noday {
-	color:       #bbb;
+	color: #bbb;
 	font-weight: normal;
-	cursor:      wait !important;
-	background:  #ddd;
+	cursor: wait !important;
+	background: #ddd;
 }
 
 /* Currently selected day */
 .gldp-flatwhite .selected {
-	color:        #fff;
-	font-weight:  bold;
+	color: #fff;
+	font-weight: bold;
 	border-color: #888;
-	background:   #aaa;
+	background: #aaa;
 }
 
 /* Today */
 .gldp-flatwhite .today {
-	color:        #fff;
-	font-weight:  bold;
+	color: #fff;
+	font-weight: bold;
 	border-color: #000;
-	background:   #222;
+	background: #222;
 }
 
 /* Special */
 .gldp-flatwhite .special {
-	color:        #fff;
-	font-weight:  bold;
+	color: #fff;
+	font-weight: bold;
 	border-color: #444;
-	background:   #666;
+	background: #666;
 }

@@ -26,13 +26,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package      CodeIgniter
- * @author       EllisLab Dev Team
- * @copyright    Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
- * @copyright    Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
- * @license      http://opensource.org/licenses/MIT	MIT License
- * @link         http://codeigniter.com
- * @since        Version 1.0.0
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link	http://codeigniter.com
+ * @since	Version 1.0.0
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -40,29 +40,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * CodeIgniter Number Helpers
  *
- * @package        CodeIgniter
- * @subpackage     Helpers
- * @category       Helpers
- * @author         EllisLab Dev Team
- * @link           http://codeigniter.com/user_guide/helpers/number_helper.html
+ * @package		CodeIgniter
+ * @subpackage	Helpers
+ * @category	Helpers
+ * @author		EllisLab Dev Team
+ * @link		http://codeigniter.com/user_guide/helpers/number_helper.html
  */
 
 // ------------------------------------------------------------------------
 
-if (!function_exists('byte_format'))
+if ( ! function_exists('byte_format'))
 {
 	/**
 	 * Formats a numbers as bytes, based on size, and adds the appropriate suffix
 	 *
-	 * @param    mixed    will be cast as int
-	 * @param    int
-	 * @return    string
+	 * @param	mixed	will be cast as int
+	 * @param	int
+	 * @return	string
 	 */
 	function byte_format($num, $precision = 1)
 	{
 		$CI =& get_instance();
 		$CI->lang->load('number');
-		
+
 		if ($num >= 1000000000000)
 		{
 			$num = round($num / 1099511627776, $precision);
@@ -86,9 +86,9 @@ if (!function_exists('byte_format'))
 		else
 		{
 			$unit = $CI->lang->line('bytes');
-			return number_format($num) . ' ' . $unit;
+			return number_format($num).' '.$unit;
 		}
-		
-		return number_format($num, $precision) . ' ' . $unit;
+
+		return number_format($num, $precision).' '.$unit;
 	}
 }

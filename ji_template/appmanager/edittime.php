@@ -5,18 +5,18 @@
 	<title>Edit TA Recruitment Time</title>
 </head>
 <body>
-<br>
-<table>
-	<tr>
-		<td>Object</td>
-		<td>Data</td>
-	</tr>
-	<?php foreach ($list as $item): ?>
+	<br>
+	<table>
 		<tr>
-			<td><?= $item->obj ?></td>
-			<td><?= $item->data ?></td>
+			<td>Object</td>
+			<td>Data</td>
 		</tr>
-	<?php endforeach; ?>
-</table>
+		<?php foreach($list as $item): ?>
+		<tr>
+			<td><?=$item->obj?></td>
+			<td><?=$item->data?></td>
+		</tr>
+		<?php endforeach;?>
+	</table>
 </body>
 </html>

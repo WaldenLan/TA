@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-    <file name="countdown.php" server="202.120.46.151//" local="130953160905347768" remote="130952872200000000"
-          Dst="-1"/>
-    <file name="countup.php" server="202.120.46.151//" local="130953160838851119" remote="130952872200000000" Dst="-1"/>
-    <file name="lucky.php" server="202.120.46.151//" local="130953160685745810" remote="130952871600000000" Dst="-1"/>
-    <file name="index.php" server="202.120.46.151//" local="130948986513996868" remote="130948697400000000" Dst="-1"/>
-    <file name="top.php" server="202.120.46.151//" local="130948129674458780" remote="130947840600000000" Dst="-1"/>
-    <file name="countdown.html" server="202.120.46.151" local="131012668663127379" remote="131014364400000000" Dst="0"/>
-    <file name="countdown.php" server="202.120.46.151" local="131012668663277379" remote="131014364400000000" Dst="0"/>
-    <file name="index.php" server="202.120.46.151" local="131012668663457379" remote="131014364400000000" Dst="0"/>
-    <file name="lucky.php" server="202.120.46.151" local="131012668663627379" remote="131014364400000000" Dst="0"/>
-    <file name="top.php" server="202.120.46.151" local="131012668663767379" remote="131014364400000000" Dst="0"/>
-    <file name="countup.php" server="202.120.46.151" local="131012668663337379" remote="131014364400000000" Dst="0"/>
+<file name="countdown.php" server="202.120.46.151//" local="130953160905347768" remote="130952872200000000" />
+<file name="countup.php" server="202.120.46.151//" local="130953160838851119" remote="130952872200000000" />
+<file name="lucky.php" server="202.120.46.151//" local="130953160685745810" remote="130952871600000000" />
+<file name="index.php" server="202.120.46.151//" local="130948986513996868" remote="130948697400000000" />
+<file name="top.php" server="202.120.46.151//" local="130948129674458780" remote="130947840600000000" />
 </dwsync>

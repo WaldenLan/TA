@@ -11,20 +11,18 @@ html {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-	color:            #eee;
-	background-color: #002b60;
-	border-bottom:    2.5px solid #fdca00;
+    color: #eee;
+    background-color: #002b60;
+    border-bottom: 2.5px solid #fdca00;
 }
-
-.nav-pills > li.non-active > a {
-	color:            #002b60;
+.nav-pills > li.non-active >a{
+	color: #002b60;
 	background-color: #E6E5E5;
 }
-
-.nav-pills > li.non-active > a:hover {
+.nav-pills > li.non-active > a:hover{
 	border-bottom: 2.5px solid #fdca00;
-}
 
+}
 .nav > li > a {
-	font-size: 1.2em;
+   font-size: 1.2em;
 }

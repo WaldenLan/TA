@@ -60,29 +60,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $active_group = 'default';
-$query_builder = true;
+$query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'          => '',
-	'hostname'     => 'localhost',
-	'username'     => 'prp_ta',
-	'password'     => 'prp@ta',
-	'database'     => 'prp_ta',
-	'dbdriver'     => 'mysql',
-	'dbprefix'     => '',
-	'pconnect'     => false,
-	'db_debug'     => false,
-	'cache_on'     => false,
-	'cachedir'     => '',
-	'char_set'     => 'utf8',
-	'dbcollat'     => 'utf8_general_ci',
-	'swap_pre'     => '',
-	'encrypt'      => false,
-	'compress'     => false,
-	'stricton'     => false,
-	'failover'     => array(),
-	'save_queries' => true
+	'dsn'	=> '',
+	'hostname' => 'localhost',
+	'username' => 'prp_ta',
+	'password' => 'prp@ta',
+	'database' => 'prp_ta',
+	'dbdriver' => 'mysql',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => FALSE,
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
 );
 //if($_SESSION['user']==master){//屏蔽数据库报错
-$db['default']['db_debug'] = true;
+	$db['default']['db_debug'] = TRUE;
 //}

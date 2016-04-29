@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-    <file name="registration.php" server="202.120.46.151//" local="130953162560753292" remote="130952873400000000"
-          Dst="-1"/>
-    <file name="success.php" server="202.120.46.151//" local="130927415648162129" remote="130927115400000000" Dst="-1"/>
-    <file name="forget.php" server="202.120.46.151//" local="130953162496436861" remote="130952873400000000" Dst="-1"/>
-    <file name="forget.php" server="202.120.46.151" local="131012668664207379" remote="131014364400000000" Dst="0"/>
-    <file name="registration.php" server="202.120.46.151" local="131012668664377379" remote="131014364400000000"
-          Dst="0"/>
-    <file name="success.php" server="202.120.46.151" local="131012668664447379" remote="131014364400000000" Dst="0"/>
+<file name="registration.php" server="202.120.46.151//" local="130953162560753292" remote="130952873400000000" />
+<file name="success.php" server="202.120.46.151//" local="130927415648162129" remote="130927115400000000" />
+<file name="forget.php" server="202.120.46.151//" local="130953162496436861" remote="130952873400000000" />
 </dwsync>

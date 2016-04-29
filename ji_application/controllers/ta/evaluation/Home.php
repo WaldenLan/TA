@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends TA_Controller
+class Home extends TA_Controller 
 {
-	
+
 	public function __construct()
 	{
 		parent::__construct();

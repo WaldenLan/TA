@@ -1,16 +1,12 @@
-<?php if (!defined('BASEPATH'))
-{
-	exit('No direct script access allowed');
-}
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Mta_search extends CI_Model
-{
+class Mta_search extends CI_Model {
 	
 	function __construct()
-	{
-		parent::__construct();
+    {
+        parent::__construct();
 		//$this->load->model('Mta_site');
-	}
+    }
 	
 	public function search_ta($data)
 	{
