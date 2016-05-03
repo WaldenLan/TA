@@ -13,7 +13,11 @@ class Mstudent extends CI_Model {
 		$query = $this->db->select('BSID')->from('ji_course_select')->where(array('USER_ID'=>$id, 'SCBJ'=>'N'))->get();
 		return $query->result();
 	}
-	
+
+	/**
+	 * @param $id
+	 * @return array
+	 */
 	public function get_now_course($id)
 	{
 		$this->load->library('Course_obj');

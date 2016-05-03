@@ -55,7 +55,7 @@ class Feedback extends TA_Controller
 			$feedback->set_course();
 		}
 		
-		//print_r($data['list']);
+		print_r($data['list']);
 		
 		$this->load->view('ta/evaluation/manage/feedback_list', $data);
 

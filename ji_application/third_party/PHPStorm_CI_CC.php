@@ -74,13 +74,7 @@
  * @property CI_Encrypt          $encrypt              Provides two-way keyed encoding using Mcrypt
  * @property CI_Javascript       $javascript           Javascript Class
  ***************** YOUR LIBRARIES *****************
- * @property Course_obj          $Course_obj
- * @property Feedback_obj        $Feedback_obj
- * @property Feedback_reply_obj  $Feedback_reply_obj
- * @property Mylib               $Mylib
- * @property PHPMailer           $PHPMailer
- * @property SMTP                $SMTP
- * @property Ta_obj              $Ta_obj
+
  ***************** YOUR MODELS *****************
  * @property Mapply              $Mapply
  * @property Mcn                 $Ncn
@@ -156,13 +150,7 @@ class CI_Controller
  * @property CI_Encrypt          $encrypt              Provides two-way keyed encoding using Mcrypt
  * @property CI_Javascript       $javascript           Javascript Class
  ***************** YOUR LIBRARIES *****************
- * @property Course_obj          $Course_obj
- * @property Feedback_obj        $Feedback_obj
- * @property Feedback_reply_obj  $Feedback_reply_obj
- * @property Mylib               $Mylib
- * @property PHPMailer           $PHPMailer
- * @property SMTP                $SMTP
- * @property Ta_obj              $Ta_obj
+
  ***************** YOUR MODELS *****************
  * @property Mapply              $Mapply
  * @property Mcn                 $Ncn

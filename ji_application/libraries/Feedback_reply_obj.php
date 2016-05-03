@@ -1,26 +1,69 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Feedback_reply_obj
+ *
+ * @category   ta
+ * @package    ta/evaluation
+ * @author     tc-imba
+ * @copyright  2016 umji-sjtu
+ */
 class Feedback_reply_obj
 {
-	// Table structure for table `ji_ta_feedback_reply`
-	public $id;					// int(11) 		回复 ID
-	public $user_id;			// varchar(50) 	回复者 ID
-	public $content;			// text        	回复内容
-	public $CREATE_TIMESTAMP;	// timestamp	创建时间
-	public $UPDATE_TIMESTAMP;	// timestamp 	更新时间
-	
-	public function __construct() 
+	/** -- The vars in the table `ji_ta_feedback_reply` -- */
+
+	/** @var int    int(11)     回复 ID*/
+	protected $id;
+	/** @var int    varchar(50) 回复者 ID*/
+	protected $user_id;
+	/** @var string text        回复内容*/
+	protected $content;
+	/** @var int    int(4)      回复状态 */
+	protected $state;
+	/** @var string timestamp   创建时间*/
+	protected $CREATE_TIMESTAMP;
+	/** @var string timestamp   更新时间*/
+	protected $UPDATE_TIMESTAMP;
+
+	private $error_flag = false;
+
+	/**
+	 * Feedback_reply_obj constructor.
+	 * @param array $data
+	 */
+	public function __construct($data = array())
 	{
-		
+		foreach ($data as $key => $value)
+		{
+			$this->$key = $value;
+		}
+		if (!isset($this->id))
+		{
+			$this->id = 0;
+			$this->error_flag = true;
+		}
+		else
+		{
+			$this->content = base64_decode($this->content);
+		}
 	}
 
-	public function set_error()
+	/**
+	 * Return whether the object is error
+	 * @return bool
+	 */
+	public function is_error()
 	{
-		$this->id = 0;
+		return $this->error_flag;
 	}
-	
-	
-	
-	
+
+	/**
+	 * @param $key
+	 * @return mixed
+	 */
+	public function __get($key)
+	{
+		return isset($this->$key) ? $this->$key : NULL;
+	}
 	
 }

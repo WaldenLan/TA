@@ -1,6 +1,15 @@
 <?php include 'common_header.php';?>
 <?php include 'manage_header.php';?>
-
+    <script>
+        function confirmClose(url) {
+            if (confirm("是否确认关闭反馈?")==true){
+                location.href="/logout?url="+Base64.encodeURI(url);
+            }
+            else {
+                location.href="#";
+            }
+        }
+    </script>
     <!-- The main page content is here -->
     <div class='body'>
         <div class="maincontent">
@@ -13,6 +22,7 @@
                     <a class="btn btn-primary <?php echo $state_id==2?'btn active':'';?>" href="/ta/evaluation/manage/feedback/view/2">老师正在受理</a>
                     &nbsp;&nbsp;
                     <a class="btn btn-primary <?php echo $state_id==3?'btn active':'';?>" href="/ta/evaluation/manage/feedback/view/3">老师已回复</a>
+                    <button type="button" class="btn btn-warning" onclick="confirmClose()">关闭投诉</button>
                 </h2>
                 <h2 id="semester">当前学期: <?php echo $this->Mta_site->print_semester();?></h2>
                 <div class="row">

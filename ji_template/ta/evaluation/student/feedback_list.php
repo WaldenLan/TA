@@ -16,12 +16,13 @@
                 </div>
                 
 				<?php foreach ($list as $feedback):?>
+				<?php /** @var $feedback Feedback_obj */?>
                 <div class="row">
-                    <a class="col-sm-2" href="/ta/evaluation/student/feedback/check/<?php echo $feedback->id.'?page='.$page_id;?>"><h5><?php echo base64_decode($feedback->title);?></h5></a>
+                    <a class="col-sm-2" href="/ta/evaluation/student/feedback/check/<?php echo $feedback->id.'?page='.$page_id;?>"><h5><?php echo $feedback->title;?></h5></a>
                     <h5 class="col-sm-2"><?php echo $feedback->course->KCDM;?></h5>
                     <h5 class="col-sm-2"><?php echo $feedback->ta->name_en;?></h5>
                     <h5 class="col-sm-3"><?php echo $feedback->CREATE_TIMESTAMP;?></h5>
-                    <h5 class="col-sm-3"><?php echo $this->Mta_feedback->get_state_str($feedback->state);?></h5>
+                    <h5 class="col-sm-3"><?php echo $feedback->get_state_str();?></h5>
                 </div>
                 <?php endforeach;?>
 				<?php echo '<center><h2>'.$this->pagination->create_links().'</h2></center>';?>

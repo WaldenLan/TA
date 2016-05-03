@@ -8,7 +8,7 @@
                     // <!--
                     updateFooterTime = (function() {
                         var serverTzDisplay='CST';
-                        var serverServerDateAndGMTOffset = new Date(<?php echo $server_time;?>)
+                        var serverServerDateAndGMTOffset = new Date(<?php echo $server_time+28800000;?>);
                         var serverLocalOffset = serverServerDateAndGMTOffset.getTime() - (new Date()).getTime();
 
                         return function() {
