@@ -11,10 +11,12 @@ class SearchInfo extends CI_Controller {
 		$xqxn=$this->Meditman->getxqxn();
 		$xq=$xqxn[0]->data;
 		$xn=$xqxn[1]->data;
+//		echo $xq." ".$xn;
 		$list=$this->Meditman->getcourseinfo($xq,$xn);
-		var_dump($list);
+//		var_dump($list);
+		$data['list']=$list;
 		$this->load->view('manager_app_header');
-		$this->load->view('manager_app_edititem');
+		$this->load->view('manager_app_editcourse',$data);
 	}
 
 	

@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TA Recruitment System</title>
-    <link href="/ji_style/style-app.css" rel="stylesheet" type="text/css" media="all" />
-</head>
-<body>
-<div class="header">
-
-</div>
 <table width="71%" align="center">
     <tr>
         <td width="30%" align="left" class="logo"><img src="/ji_style/images/JI-logo.png" width="100%"></td>
@@ -17,7 +6,7 @@
 </table>
 <table class="navbar" width="71%" align="center" border="0" cellpadding="0" cellspacing="0">
     <tr class="strip">
-        <td width="17%" id="strip-1" class="notspace current"></td>
+        <td width="17%" id="strip-1" class="notspace"></td>
         <td width="1%"></td>
         <td width="17%" id="strip-2" class="notspace"></td>
         <td width="1%"></td>
@@ -26,16 +15,12 @@
         <td width="17%" id="strip-4" class="notspace"></td>
     </tr>
     <tr class="button">
-        <td id="button-1" class="notspace current"><a href="/ApplyTA/home"><img src="/ji_style/images/home.png"> Home</a></td>
+        <td id="button-1" class="notspace"><a href="/ta/application/Student/home"><img src="/ji_style/images/home.png"> Home</a></td>
         <td></td>
-        <td id="button-2" class="notspace"><a href="/ApplyTA/apply"><img src="/ji_style/images/apply.png" height="15"> Apply for TA</a></td>
+        <td id="button-2" class="notspace"><a href="/ta/application/Student/apply"><img src="/ji_style/images/apply.png" height="15"> Apply for TA</a></td>
         <td></td>
-        <td id="button-3" class="notspace"><a href="/ApplyTA/myapplication"><img src="/ji_style/images/application.png" height="16"> My Application</a></td>
+        <td id="button-3" class="notspace"><a href="/ta/application/Student/myapplication"><img src="/ji_style/images/application.png" height="16"> My Application</a></td>
         <td></td>
-        <td id="button-4" class="notspace"><a href=""><img src="/ji_style/images/exit.png" height="14"> Workshop</a></td>
+        <td id="button-4" class="notspace"><a href="/ta/application/Student/home"><img src="/ji_style/images/exit.png" height="14"> Exit</a></td>
     </tr>
 </table>
-<script src="/ji_js/jquery-app.js"></script>
-<script src="/ji_js/script-app.js"></script>
-</body>
-</html>

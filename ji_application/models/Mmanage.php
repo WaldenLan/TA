@@ -30,5 +30,14 @@ class Mmanage extends CI_Model{
 	function get_user_permissions(){//获取当前用户的所有权限
 		return $this->db->query("select * from ji_user_permission where user_id='".$_SESSION['user']."'")->result();	
 	}
+	public function get_manage_by_id($id)
+	{
+		$query = $this->db->get_where('ji_user', array('user_id'=>$id));
+		if ($query->num_rows() == 1)
+		{
+			return $query->row(0);
+		}
+		return array();
+	}
 }
 ?>

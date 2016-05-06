@@ -42,13 +42,24 @@
 		}
 		
 		public function getcourseinfo($xq,$xn){
-//			$sql='SELECT * FROM ji_course_info WHERE xq= ? and xn = ? ';
-			$res=$this->db->select('*')
+			$sql='SELECT * FROM ji_course_info NATURAL JOIN ji_course_open WHERE xq= ? and xn = ? ';
+/*			$res=$this->db->select('*')
 				->from('ji_course_info')
 				->where('xq',$xq)
 				->where('xn',$xn)
-				->get();
-//			$res=$this->db->query($sql, array($xq,$xn));
+				->get();*/
+			$res=$this->db->query($sql, array($xq,$xn));
+			return $res->result();
+		}
+		
+		public function searchcourseinfo($xq,$xn,$cid){
+			$sql='SELECT * FROM ji_course_info NATURAL JOIN ji_course_open WHERE xq= ? and xn = ? and KCDM = ?';
+/*			$res=$this->db->select('*')
+				->from('ji_course_info')
+				->where('xq',$xq)
+				->where('xn',$xn)
+				->get();*/
+			$res=$this->db->query($sql, array($xq,$xn,$cid));
 			return $res->result();
 		}
 		

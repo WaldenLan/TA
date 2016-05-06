@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.html" server="202.120.46.151" local="131056927748457957" remote="131049806400000000" Dst="0" />
-<file name="MY_Controller.php" server="202.120.46.151" local="131020797751818022" remote="131056655400000000" Dst="0" />
+<file name="MY_Controller.php" server="202.120.46.151" local="131020509600000000" remote="131020509600000000" />
+<file name="index.html" server="202.120.46.151" local="131014364400000000" remote="131014364400000000" />
+<file name="MY_Model.php" server="202.120.46.151" local="131026498200000000" remote="131026498200000000" />
+<file name="MY_TA_Controller.php" server="202.120.46.151" local="131026498200000000" remote="131026498200000000" />
 </dwsync>

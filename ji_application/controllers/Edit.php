@@ -5,15 +5,13 @@ class Edit extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 	}
-	
+
 	public function home(){
 		$this->load->view('manager_app_header');
 		$this->load->view('manager_app_edititem');
 	}
 	
 	public function editxqxn(){
-		$this->load->database();
-		$this->load->helper('url');
 		$this->load->model('Meditman');
 		$list=$this->Meditman->getxqxn();
 		$data['list']=$list;
@@ -44,11 +42,25 @@ class Edit extends CI_Controller {
 		}
 	}
 	
-	public function editcourse(){
+	public function editcourse(){//��δ���
 		$this->load->database();
 		$this->load->helper('url');
 		$this->load->model('Meditman');
+		$xqxn=$this->Meditman->getxqxn();
+		$xq=$xqxn[0]->data;
+		$xn=$xqxn[1]->data;
+		$cid=$this->input->get('cid');
+		$list=$this->Meditman->searchcourseinfo($xq,$xn,$cid);
+		$data['list']=$list[0];
+//		print_r($list);
 		$this->load->view('manager_app_header');
+		$this->load->view('manager_app_editcourse',$data);
+	}
+	
+	public function modifycourse(){
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->model('Meditman');
 	}
 	
 	public function edittime()

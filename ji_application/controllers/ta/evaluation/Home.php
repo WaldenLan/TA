@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller 
+class Home extends TA_Controller 
 {
 
 	public function __construct()
@@ -11,7 +11,7 @@ class Home extends CI_Controller
 	
 	public function index()
 	{
-		$data['server_time'] = time();
+		$data['page_name'] = 'TA Evaluation System';
 		$this->load->view('ta/evaluation/index', $data);
 	}
 }

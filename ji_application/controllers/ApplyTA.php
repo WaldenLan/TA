@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /* 
-* Öì¿­´È
+* ï¿½ì¿­ï¿½ï¿½
 * 2016/4/14
-* Ñ§Éú¶ËËùÓĞ·½·¨
+* Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ·ï¿½ï¿½ï¿½
 */
 class ApplyTA extends CI_Controller {
 	public function __construct(){
@@ -11,8 +11,6 @@ class ApplyTA extends CI_Controller {
 	}
 	
 	public function home(){
-		$this->load->database();
-		$this->load->helper('url');
 		$this->load->model('Medittime');
 		$list=$this->Medittime->getAll();
 		$data['list']=$list;
@@ -21,9 +19,7 @@ class ApplyTA extends CI_Controller {
 	}
 	
 	public function apply()
-	{	
-		$this->load->database();
-		$this->load->helper('url');			
+	{				
 		$this->load->model('Mapply');
 		$list=$this->Mapply->getAll();
 		$data['list']=$list;
@@ -35,7 +31,7 @@ class ApplyTA extends CI_Controller {
 	{
 		$courseid=$_GET['courseid'];
 //		echo $courseid;
-//´Ë´¦Ó¦¸Ã´Ósession¶ÁÈ¡ÉêÇëÕßÊı¾İ£¬ÏÖÔÚÓÃji_ta_appinfoµÄĞÅÏ¢´úÌæ²âÊÔ
+//ï¿½Ë´ï¿½Ó¦ï¿½Ã´ï¿½sessionï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ji_ta_appinfoï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		$sql="SELECT * FROM ji_ta_appinfo LIMIT 1;";
 		$res = $this->db->query($sql);
 		$list=$res->result();
@@ -58,7 +54,7 @@ class ApplyTA extends CI_Controller {
 		if ($this->form_validation->run() == FALSE){
             $courseid=$_GET['courseid'];
 //			echo $courseid;
-//´Ë´¦Ó¦¸Ã´Ósession¶ÁÈ¡ÉêÇëÕßÊı¾İ£¬ÏÖÔÚÓÃji_ta_appinfoµÄĞÅÏ¢´úÌæ²âÊÔ
+//ï¿½Ë´ï¿½Ó¦ï¿½Ã´ï¿½sessionï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ji_ta_appinfoï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			$sql="SELECT * FROM ji_ta_appinfo LIMIT 1;";
 			$res = $this->db->query($sql);
 			$list=$res->result();

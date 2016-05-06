@@ -26,13 +26,13 @@
         <td width="17%" id="strip-4" class="notspace"></td>
     </tr>
     <tr class="button">
-        <td id="button-1" class="notspace current"><a href="/Edit/home"><img src="/ji_style/images/home.png"> 修改页面</a></td>
+        <td id="button-1" class="notspace current"><a href="/SearchInfo/home"><img src="/ji_style/images/home.png"> 搜索页面</a></td>
         <td></td>
-        <td id="button-2" class="notspace"><a href="/SearchInfo/home"><img src="/ji_style/images/apply.png" height="15"> 搜索页面</a></td>
+        <td id="button-2" class="notspace"><a href="/Edit/home"><img src="/ji_style/images/apply.png" height="15"> 修改页面</a></td>
         <td></td>
-        <td id="button-3" class="notspace"><a href="/ApplyTA/myapplication"><img src="/ji_style/images/application.png" height="16"> My Application</a></td>
+        <td id="button-3" class="notspace"><a href=""><img src="/ji_style/images/application.png" height="16"> 服务</a></td>
         <td></td>
-        <td id="button-4" class="notspace"><a href=""><img src="/ji_style/images/exit.png" height="14"> Exit</a></td>
+        <td id="button-4" class="notspace"><a href=""><img src="/ji_style/images/exit.png" height="14"> 退出</a></td>
     </tr>
 </table>
 <script src="/ji_js/jquery-app.js"></script>

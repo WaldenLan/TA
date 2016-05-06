@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="Manage.php" server="202.120.46.151//" local="130807915230401345" remote="130807618200000000" Dst="-1" />
-<file name="Login.php" server="202.120.46.151//" local="130940978540749985" remote="130940689200000000" Dst="-1" />
-<file name="Home.php" server="202.120.46.151//" local="130971291779639315" remote="130971002400000000" Dst="-1" />
-<file name="Login.php" server="G:/Downloads/TA/" local="131012668618157379" remote="131012668610000000" Dst="0" />
-<file name="Home.php" server="202.120.46.151" local="131056927745950907" remote="131049806400000000" Dst="0" />
-<file name="index.html" server="202.120.46.151" local="131056927747742371" remote="131049806400000000" Dst="0" />
-<file name="Login.php" server="202.120.46.151" local="131056927746431249" remote="131049820200000000" Dst="0" />
-<file name="Manage.php" server="202.120.46.151" local="131056927747241989" remote="131049806400000000" Dst="0" />
-<file name="Test.php" server="202.120.46.151" local="131056927747411931" remote="131049807600000000" Dst="0" />
-<file name="ApplyTA.php" server="202.120.46.151" local="131056927745500574" remote="131050684200000000" Dst="0" />
-<file name="Edittime.php" server="202.120.46.151" local="131056927745830805" remote="131049806400000000" Dst="0" />
-<file name="EdittimeDetail.php" server="202.120.46.151" local="131056927745980942" remote="131049806400000000" Dst="0" />
-<file name="Mailtest.php" server="202.120.46.151" local="131056940182599072" remote="131056655400000000" Dst="0" />
-<file name="Edit.php" server="202.120.46.151" local="131056927745480555" remote="131050621800000000" Dst="0" />
-<file name="SearchInfo.php" server="202.120.46.151" local="131056927747261824" remote="131049806400000000" Dst="0" />
-<file name="Feedback.php" server="202.120.46.151" local="131056940269523853" remote="131056655400000000" Dst="0" />
+<file name="Manage.php" server="202.120.46.151//" local="130807915230401345" remote="130807618200000000" />
+<file name="Login.php" server="202.120.46.151//" local="130940978540749985" remote="130940689200000000" />
+<file name="Home.php" server="202.120.46.151//" local="130971291779639315" remote="130971002400000000" />
+<file name="Test.php" server="202.120.46.151" local="131012622600000000" remote="131012622600000000" />
+<file name="ApplyTA.php" server="202.120.46.151" local="131020453200000000" remote="131020453200000000" />
+<file name="Edittime.php" server="202.120.46.151" local="131020386600000000" remote="131020386600000000" />
+<file name="EdittimeDetail.php" server="202.120.46.151" local="131020465800000000" remote="131020465800000000" />
+<file name="Home.php" server="202.120.46.151" local="131015089200000000" remote="131015089200000000" />
+<file name="Login.php" server="202.120.46.151" local="131014659000000000" remote="131014659000000000" />
+<file name="Mailtest.php" server="202.120.46.151" local="131026498200000000" remote="131026498200000000" />
+<file name="Manage.php" server="202.120.46.151" local="131014364400000000" remote="131014364400000000" />
+<file name="index.html" server="202.120.46.151" local="131014364400000000" remote="131014364400000000" />
+<file name="Edit.php" server="202.120.46.151" local="131049682800000000" remote="131049682800000000" />
+<file name="SearchInfo.php" server="202.120.46.151" local="131026500600000000" remote="131026500600000000" />
 </dwsync>

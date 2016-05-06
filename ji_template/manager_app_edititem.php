@@ -22,7 +22,7 @@
 		</tr>
 		<tr>
 		<td>修改各科TA信息</td>
-		<td><input type="button" name="xqxn" value="修改" onclick="location='/Edit/editcourse'"/></td>
+		<td><input type="button" name="xqxn" value="修改" onclick="location='/Edit/editallcourse'"/></td>
 		</tr>
 	</table>
 </body>

@@ -4,9 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<!-- To be revised -->
-	<title>TA Evaluation System</title>
+	<title><?php echo $page_name?></title>
     <script src="/ji_js/jquery-1.8.3.min.js"></script>
 	<script src="/ji_js/ta/evaluation.js"></script>
+    <script src="/ji_js/base64.js"></script>
+    <script src="/ji_js/confirmLogout.js"></script>
 	<noscript>Your browser does not support JavaScript!</noscript>
     <link rel="stylesheet" type="text/css" href="/ji_style/ta/common.css">
 	<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/index.css">
@@ -24,7 +26,7 @@
     <div class="banner">
         <div>
             <div class="jAccount_login"><a href="student/SignIn_jAccount.html">jAccount Login</a></div>
-            <div class="regular_login"><a href="student/SignIn_regular.html">TAES Login</a></div>
+            <div class="regular_login"><a href="/login?url=<?php echo base64_encode($_SERVER["REQUEST_URI"]);?>">TAES Login</a></div>
         </div>
     </div>
 
@@ -35,7 +37,7 @@
             <table>
                 <tbody>
                     <tr>
-                        <td id="tag1"><a href="index.php">Welcome <?php echo $server_time;?></a></td>
+                        <td id="tag1"><a href="index.php">Welcome</a></td>
                     </tr>
                     <tr>
                         <td id="tag2"><a href="student/About.html">About</a></td>
@@ -57,7 +59,7 @@
             <div class="announcement">
                 <h2>Homepage: Announcement</h2>
                 <p>Dear student:<br/><br/>
-                    If you got any problem regarding Teaching Assistant Evaluation System, please dial hotline at 021-3420 6765 Ext 3182. You can also send mail to <span href="">dengpan.huang@sjtu.edu.cn</span>. Thanks.
+                    If you got any problem regarding Teaching Assistant Evaluation System, please dial hotline at 021-3420 6765 Ext 3182. You can also send mail to <a href="mailto:dengpan.huang@sjtu.edu.cn?subject=Report problems: ">dengpan.huang@sjtu.edu.cn</a>. Thanks.
                 </p>
             </div>
             <div class="welcome">
@@ -71,20 +73,4 @@
 
 
 
-<!-- The end bar is here -->
-    <div class="endbar">
-        <div class="_content">
-            <p>Address: 800 Dong Chuan Road,Shanghai, 200240, China</p>
-            <p><a href="http://umji.sjtu.edu.cn/cn/">© 2015 University of Michigan – Shanghai Jiao Tong University Joint Institute</a></p>
-            <p>Server Time: &nbsp<span id="serverTime"></span>
-                <script type="text/javascript">
-                // <!--
-                updateFooterTime();
-                // <!--// &ndash;&gt;-->
-                </script></p>
-        </div>
-    </div>
-
-</div>
-</body>
-</html>
+<?php include 'student/common_footer.php';?>

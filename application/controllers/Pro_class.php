@@ -16,7 +16,6 @@ class Pro_class extends CI_Controller{
         $this->load->view('viewproclass',$data);
 		#需要教授的信息 ID		
 		//example
-		$this->load->view('viewproclass',$data);
     }
 	
 	public function viewmyapp()
@@ -27,10 +26,27 @@ class Pro_class extends CI_Controller{
         $this->load->helper('url');
         $this->load->model('MPro_class');	
 	    $list=$this->MPro_class->getta($id,$course_id);
-		$data['list']=$list;
-		$this->load->view('stu_app_head');
-        $this->load->view('myapp',$data);	
+		for ($i=0;i<count($list);$i++)
+			{
+				for ($j=0;i<count($list);$j++)
+				{
+					if ($list[$j]['app-time']>$list[$j+1]['app-time'])
+					{
+						$t=$list[$j]['app-time'];
+						$list[$j]['app-time']==$list[$j+1]['app-time'];
+						$list[$j+1]['app-time']=$t;
+					}	
+				}
+			}
+		$data['application']=$list;
+		if ($data['application']==0)
+        $this->load->view('application',$data);
+		if ($data['application']!=0)
+		 $this->load->view('application2',$data);
 	}
+	
+	
+	
 	public function allowordeny()
 	{
 		$id=$_POST['id'];
