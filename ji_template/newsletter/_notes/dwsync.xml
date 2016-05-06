@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.php" server="202.120.46.151//" local="130958259785903424" remote="130957969800000000" Dst="-1" />
-<file name="issue.php" server="202.120.46.151//" local="130960189109160088" remote="130959899400000000" Dst="-1" />
-<file name="view.php" server="202.120.46.151//" local="130960228097928575" remote="130959938400000000" Dst="-1" />
-<file name="slide.html" server="202.120.46.151//" local="130960191809650110" remote="130959901800000000" Dst="-1" />
-<file name="index.php" server="202.120.46.151" local="131012668661817379" remote="131014364400000000" Dst="0" />
-<file name="issue.php" server="202.120.46.151" local="131012668661947379" remote="131014364400000000" Dst="0" />
-<file name="slide.html" server="202.120.46.151" local="131012668662087379" remote="131014364400000000" Dst="0" />
-<file name="view.php" server="202.120.46.151" local="131012668662127379" remote="131014364400000000" Dst="0" />
+<file name="index.php" server="202.120.46.151//" local="130958259785903424" remote="130957969800000000" />
+<file name="issue.php" server="202.120.46.151//" local="130960189109160088" remote="130959899400000000" />
+<file name="view.php" server="202.120.46.151//" local="130960228097928575" remote="130959938400000000" />
+<file name="slide.html" server="202.120.46.151//" local="130960191809650110" remote="130959901800000000" />
 </dwsync>

@@ -2,9 +2,12 @@
 
 class Mta_site extends CI_Model {
 
+	public $site_config;
+
     function __construct()
     {
         parent::__construct();
+		
     }
 
     /**
@@ -25,7 +28,10 @@ class Mta_site extends CI_Model {
         foreach ($settings as $setting) {
             $data[$setting['obj']]=$setting['data'];
         }
-		
+		$mtime=explode(' ',microtime());
+		$startTime = floor(($mtime[1] + $mtime[0]) * 1000);        
+		$data['server_time'] = $startTime;
+		$this->site_config = $data;
         return $data;
     }
 
@@ -47,7 +53,22 @@ class Mta_site extends CI_Model {
 	
 	public function html_purify($string)
 	{
-		return preg_replace("/<([a-zA-Z]+)[^>]*>/","<\\1>", $string);
+		return preg_replace("/<([a-zA-Z]+)[^>]*>/","", $string);
 	}
 	
+	public function html_base64($string)
+	{
+		return base64_encode($this->html_purify($string));
+	}
+	
+	public function print_semester()
+	{
+		$semester_name = array
+		(
+			'1' => 'Fall',
+			'2' => 'Spring',
+			'3' => 'Summer'
+		);
+		return substr($this->site_config['ji_academic_year'], 0, 4).' '.$semester_name[$this->site_config['ji_um_term']];
+	}
 }

@@ -4,6 +4,8 @@ class Login extends CI_Controller{
 		parent::__construct();
 		//session_start();
 		$this->load->model('Mlogin');
+		$this->load->helper('form');
+		
 	}
 	public function index(){
 		if(isset($_SESSION['jaccount'])){//sjtu账户认证
@@ -19,6 +21,7 @@ class Login extends CI_Controller{
 		$this->load->library('form_validation');//验证数据格式
 		$this->form_validation->set_rules('username','username','required');
 		$this->form_validation->set_rules('password','password','required');
+		$data['url'] = $this->input->get('url');
 		$this->load->view('login',$data);
 		
 	}
@@ -36,6 +39,16 @@ class Login extends CI_Controller{
 			echo "账户或密码错误，请重新<a href='/login'>登录</a>";	
 		}
 	}
+	
+	function test()
+	{
+		$username = $this->input->post('username');
+		$url = $this->input->get('url');
+		$_SESSION['userid'] = $username;
+		redirect(base_url(base64_decode($url)));
+		
+	}
+	
 	function logout(){
 		session_destroy();
 		header('Location:/jaccount_logout.php');

@@ -9,11 +9,12 @@ class TA_Controller extends CI_Controller
         parent::__construct();
         $this->load->database();
         
+		
         $this->output->enable_profiler(TRUE);
 		
         //全局传递网站设置数据
-        $this->load->model('mta_site');
-        $this->site_config = $this->mta_site->get_site_config();
+        $this->load->model('Mta_site');
+        $this->site_config = $this->Mta_site->get_site_config();
         $this->load->vars($this->site_config);
 		
     }
