@@ -1,4 +1,4 @@
-<?php include 'common_header.php';?>
+<?php include dirname(dirname(__FILE__)) . '/common_header.php'; ?>
 <?php include 'student_header.php';?>
 
 
@@ -22,4 +22,4 @@
     </div>
 
 
-<?php include 'common_footer.php';?>
+<?php include dirname(dirname(__FILE__)) . '/common_footer.php'; ?>

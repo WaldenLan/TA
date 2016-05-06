@@ -60,6 +60,8 @@ class Feedback_obj
 	const STATE_MANAGE        = 0x02;
 	const STATE_STUDENT       = 0x00;
 	const STATE_TEACHER       = 0x04;
+	const STATE_NOT_PROCESSED = 0x00;
+	const STATE_PROCESSED     = 0x08;
 
 	/**
 	 * Feedback_obj constructor.
@@ -155,6 +157,11 @@ class Feedback_obj
 	 * @param int $state
 	 * @return bool
 	 */
+	public function is_processed($state = NULL)
+	{
+		$state == NULL ? $state = $this->state : NULL;
+		return $state == ($state | $this::STATE_PROCESSED);
+	}
 	
 	/**
 	 * Return the string describing the state of the feedback
@@ -258,7 +265,7 @@ class Feedback_obj
 	 */
 	public function add_reply($id)
 	{
-		if (isset($this->reply_list) || $this->reply_list == NULL || $this->reply_list == '')
+		if (!isset($this->reply_list) || $this->reply_list == NULL || $this->reply_list == '')
 		{
 			$this->reply_list = (string)$id;
 		}

@@ -21,7 +21,8 @@ class Feedback extends TA_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		//$this->load->language('ta_feedback');
+		$this->config->set_item('language', 'english');
+		$this->load->language('ta_feedback');
 		$this->load->model('Mta_feedback');
 		$this->load->library('Feedback_obj');
 	}
@@ -44,10 +45,11 @@ class Feedback extends TA_Controller
 	{
 		/** initialize */
 		$data['page_name'] = 'TA Evaluation System: Feedbacks';
+		$data['type'] = 'student';
 		$data['banner_id'] = 3;
 		$data['list'] =
 			$this->Mta_feedback->show_list($_SESSION['userid'], Feedback_obj::STATE_STUDENT);
-		
+
 		/** pagination */
 		$this->load->library('pagination');
 		$config['use_page_numbers'] = true;
@@ -74,46 +76,16 @@ class Feedback extends TA_Controller
 			$feedback->set_ta()->set_course();
 		}
 		
-		$this->load->view('ta/evaluation/student/feedback_list', $data);
+		$this->load->view('ta/evaluation/feedback/list', $data);
 		
 	}
 
-	public function reply()
-	{
-		$id = $this->input->post('id');
-		$user_id = $_SESSION['userid'];
-		$content = $this->input->post('content');
-		$feedback = $this->Mta_feedback->get_feedback_by_id($id);
-		if ($feedback->is_error())
-		{
-			echo 'error feedback id';
-		}
-		else if ($feedback->user_id != $user_id)
-		{
-			echo 'error user id';
-		}
-		else if (!$feedback->is_student())
-		{
-			echo "can't reply when applying to teacher";
-		}
-		else if (strlen($content) < $this->Mta_site->site_config['ta_feedback_content_min'] ||
-		         strlen($content) > $this->Mta_site->site_config['ta_feedback_content_max']
-		)
-		{
-			echo "the content is too short (less than 10 letters)";
-		}
-		else
-		{
-			$this->Mta_feedback->reply($id, Feedback_obj::STATE_STUDENT, $user_id, $content);
-			echo 'success';
-		}
-		exit();
-	}
+
 
 	/**
 	 * Student check one feedback
+	 *
 	 * @param int $id feedback_id
-	 * @get int $page
 	 */
 	public function check($id)
 	{
@@ -125,6 +97,7 @@ class Feedback extends TA_Controller
 		/** initialize */
 		$data['page_id'] = $this->input->get('page');
 		$data['page_name'] = 'TA Evaluation System: Feedbacks';
+		$data['type'] = 'student';
 		$data['banner_id'] = 3;
 		
 		try
@@ -144,11 +117,36 @@ class Feedback extends TA_Controller
 		$data['state'] = $data['feedback']->get_state_str();
 		$data['feedback']->set_ta()->set_course()->set_replys(Feedback_obj::STATE_STUDENT);
 		
-		$this->load->view('ta/evaluation/student/feedback_check', $data);
+		$this->load->view('ta/evaluation/feedback/check', $data);
 		print_r($data['feedback']->replys);
-
 	}
 	
+	/**
+	 * Student create feedback
+	 *
+	 * @uses Mstudent
+	 * @uses Mcourse
+	 * @uses Course_obj
+	 */
+	public function add()
+	{
+		$this->load->model('Mstudent');
+		$this->load->library('Course_obj');
+		$this->load->model('Mcourse');
+		
+		$data['course_list'] = $this->Mstudent->get_now_course($_SESSION['userid']);
+		foreach ($data['course_list'] as $course)
+		{
+			/** @var $course Course_obj */
+			$course->set_ta();
+		}
+		
+		$data['page_name'] = 'TA Evaluation System: Feedbacks';
+		$data['banner_id'] = 3;
+		$data['type'] = 'student';
+		$this->load->view('ta/evaluation/feedback/add', $data);
+	}
+
 	/**
 	 * submit a feedback through ajax
 	 *
@@ -169,14 +167,14 @@ class Feedback extends TA_Controller
 			/** @var $course Course_obj */
 			$course->set_ta();
 		}
-		
+
 		$form_data = array(
 			'BSID'      => $this->input->post('BSID'),
 			'ta_id'     => $this->input->post('ta_id'),
 			'title'     => $this->input->post('title'),
 			'content'   => $this->input->post('content'),
 			'anonymous' => $this->input->post('anonymous'));
-		
+
 		foreach ($data['course_list'] as $course)
 		{
 			if ($course->BSID == $form_data['BSID'])
@@ -211,30 +209,42 @@ class Feedback extends TA_Controller
 		echo json_encode($form_data);
 		exit();
 	}
-	
+
 	/**
-	 * Student create feedback
+	 * reply a feddback
 	 *
-	 * @uses Mstudent
-	 * @uses Mcourse
-	 * @uses Course_obj
+	 * @echo string result
 	 */
-	public function add()
+	public function reply()
 	{
-		$this->load->model('Mstudent');
-		$this->load->library('Course_obj');
-		$this->load->model('Mcourse');
-		
-		$data['course_list'] = $this->Mstudent->get_now_course($_SESSION['userid']);
-		foreach ($data['course_list'] as $course)
+		$id = $this->input->post('id');
+		$user_id = $_SESSION['userid'];
+		$content = $this->input->post('content');
+		$feedback = $this->Mta_feedback->get_feedback_by_id($id);
+		if ($feedback->is_error())
 		{
-			/** @var $course Course_obj */
-			$course->set_ta();
+			echo 'error feedback id';
 		}
-		
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['banner_id'] = 3;
-		$this->load->view('ta/evaluation/student/feedback_add', $data);
+		else if ($feedback->user_id != $user_id)
+		{
+			echo 'error user id';
+		}
+		else if (!$feedback->is_student())
+		{
+			echo "can't reply when applying to teacher";
+		}
+		else if (strlen($content) < $this->Mta_site->site_config['ta_feedback_content_min'] ||
+		         strlen($content) > $this->Mta_site->site_config['ta_feedback_content_max']
+		)
+		{
+			echo "the content is too short or too long";
+		}
+		else
+		{
+			$this->Mta_feedback->reply($id, Feedback_obj::STATE_STUDENT, $user_id, $content);
+			echo 'success';
+		}
+		exit();
 	}
 
 	/**
@@ -265,7 +275,6 @@ class Feedback extends TA_Controller
 		}
 		exit();
 	}
-
 
 	public function test()
 	{

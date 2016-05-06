@@ -51,12 +51,12 @@ class Mta_feedback extends CI_Model
 	
 	/**
 	 * 显示投诉列表
-	 * @param int $user_id
-	 * @param int $identity
-	 * @param int $state
+	 * @param int   $user_id
+	 * @param int   $identity
+	 * @param array $state
 	 * @return array
 	 */
-	public function show_list($user_id, $identity, $state = Feedback_obj::STATE_CLOSED)
+	public function show_list($user_id, $identity, $state = array(Feedback_obj::STATE_CLOSED))
 	{
 		switch ($identity)
 		{
@@ -76,7 +76,7 @@ class Mta_feedback extends CI_Model
 			{
 				return array();
 			}
-			$this->db->select('*')->from('ji_ta_feedback')->where('state', $state)
+			$this->db->select('*')->from('ji_ta_feedback')->where_in('state', $state)
 			         ->where_in('BSID', $course_list)->order_by('BSID', 'ASC')
 			         ->order_by('CREATE_TIMESTAMP', 'DESC');
 			break;
@@ -86,7 +86,7 @@ class Mta_feedback extends CI_Model
 			{
 				return array();
 			}
-			$this->db->select('*')->from('ji_ta_feedback')->where('state', $state)
+			$this->db->select('*')->from('ji_ta_feedback')->where_in('state', $state)
 			         ->order_by('CREATE_TIMESTAMP', 'DESC');
 			break;
 		}
@@ -126,7 +126,8 @@ class Mta_feedback extends CI_Model
 		unset($data['content']);
 		$data['reply_list'] = $this->db->insert_id();
 		$data['state'] =
-			Feedback_obj::STATE_OPEN | Feedback_obj::STATE_NOT_MANAGE | Feedback_obj::STATE_STUDENT;
+			Feedback_obj::STATE_OPEN | Feedback_obj::STATE_NOT_MANAGE | Feedback_obj::STATE_STUDENT |
+			Feedback_obj::STATE_PROCESSED;
 		$this->db->insert('ji_ta_feedback', $data);
 		return $this->db->insert_id();
 	}
@@ -134,7 +135,6 @@ class Mta_feedback extends CI_Model
 	/**
 	 * 关闭投诉
 	 * @param int $id
-	 * @param int $state
 	 * @return bool
 	 */
 	public function close($id)
@@ -145,7 +145,7 @@ class Mta_feedback extends CI_Model
 			return false;
 		}
 		$feedback->set_state(Feedback_obj::STATE_CLOSED,
-		                     Feedback_obj::STATE_MANAGE | Feedback_obj::STATE_TEACHER);
+		                     Feedback_obj::STATE_MANAGE | Feedback_obj::STATE_TEACHER | Feedback_obj::STATE_PROCESSED);
 		$this->db->update('ji_ta_feedback', array('state' => $feedback->state), array('id' => $id));
 		return true;
 	}
@@ -178,8 +178,8 @@ class Mta_feedback extends CI_Model
 		case Feedback_obj::STATE_TEACHER:
 			$reply_data['state'] =
 				Feedback_obj::STATE_CLOSED | Feedback_obj::STATE_NOT_MANAGE | $identity;
-			$feedback->set_state(Feedback_obj::STATE_OPEN | Feedback_obj::STATE_NOT_MANAGE | 
-			                     $identity);
+			$feedback->set_state(Feedback_obj::STATE_OPEN | Feedback_obj::STATE_NOT_MANAGE |
+			                     $identity, Feedback_obj::STATE_PROCESSED);
 			break;
 		case Feedback_obj::STATE_MANAGE:
 
@@ -188,8 +188,8 @@ class Mta_feedback extends CI_Model
 				$reply_data['state'] = Feedback_obj::STATE_OPEN | Feedback_obj::STATE_MANAGE |
 				                       $feedback->is_student() ? Feedback_obj::STATE_STUDENT :
 					Feedback_obj::STATE_TEACHER;
-				$feedback->set_state(Feedback_obj::STATE_CLOSED | Feedback_obj::STATE_MANAGE,
-				                     Feedback_obj::STATE_TEACHER);
+				$feedback->set_state(Feedback_obj::STATE_OPEN | Feedback_obj::STATE_MANAGE,
+				                     Feedback_obj::STATE_TEACHER, Feedback_obj::STATE_PROCESSED);
 				break;
 			}
 
@@ -197,7 +197,7 @@ class Mta_feedback extends CI_Model
 			$reply_data['state'] =
 				Feedback_obj::STATE_OPEN | Feedback_obj::STATE_MANAGE | $feedback->is_student() ?
 					Feedback_obj::STATE_TEACHER : Feedback_obj::STATE_STUDENT;
-			$feedback->set_state(Feedback_obj::STATE_OPEN | Feedback_obj::STATE_MANAGE |
+			$feedback->set_state(Feedback_obj::STATE_OPEN | Feedback_obj::STATE_MANAGE | Feedback_obj::STATE_PROCESSED |
 			                     $feedback->is_student() ? Feedback_obj::STATE_TEACHER :
 				                     Feedback_obj::STATE_STUDENT);
 			$feedback->set_replys(Feedback_obj::STATE_MANAGE);

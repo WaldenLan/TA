@@ -15,12 +15,12 @@
         <td width="17%" id="strip-4" class="notspace"></td>
     </tr>
     <tr class="button">
-        <td id="button-1" class="notspace"><a href="login.php"><img src="/ji_style/images/home.png"> Home</a></td>
+        <td id="button-1" class="notspace"><a href="/ta/application/Student/home"><img src="/ji_style/images/home.png"> Home</a></td>
         <td></td>
-        <td id="button-2" class="notspace"><a href="stu_app_apply.php"><img src="/ji_style/images/apply.png" height="15"> Apply for TA</a></td>
+        <td id="button-2" class="notspace"><a href="/ta/application/Student/apply"><img src="/ji_style/images/apply.png" height="15"> Apply for TA</a></td>
         <td></td>
-        <td id="button-3" class="notspace"><a href="stu_app_showmyapp.php"><img src="/ji_style/images/application.png" height="16"> My Application</a></td>
+        <td id="button-3" class="notspace"><a href="/ta/application/Student/myapplication"><img src="/ji_style/images/application.png" height="16"> My Application</a></td>
         <td></td>
-        <td id="button-4" class="notspace"><a href="login.php"><img src="/ji_style/images/exit.png" height="14"> Exit</a></td>
+        <td id="button-4" class="notspace"><a href="/ta/application/Student/home"><img src="/ji_style/images/exit.png" height="14"> Exit</a></td>
     </tr>
 </table>

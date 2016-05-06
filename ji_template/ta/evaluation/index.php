@@ -59,7 +59,7 @@
             <div class="announcement">
                 <h2>Homepage: Announcement</h2>
                 <p>Dear student:<br/><br/>
-                    If you got any problem regarding Teaching Assistant Evaluation System, please dial hotline at 021-3420 6765 Ext 3182. You can also send mail to <span href="">dengpan.huang@sjtu.edu.cn</span>. Thanks.
+                    If you got any problem regarding Teaching Assistant Evaluation System, please dial hotline at 021-3420 6765 Ext 3182. You can also send mail to <a href="mailto:dengpan.huang@sjtu.edu.cn?subject=Report problems: ">dengpan.huang@sjtu.edu.cn</a>. Thanks.
                 </p>
             </div>
             <div class="welcome">
