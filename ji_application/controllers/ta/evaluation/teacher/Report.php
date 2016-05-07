@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends TA_Controller 
+class Report extends TA_Controller
 {
 
 	public function __construct()
@@ -11,9 +11,9 @@ class Home extends TA_Controller
 	
 	public function index()
 	{
-		$data['page_name'] = 'TA Evaluation System: Teacher Homepage';
+		$data['page_name'] = 'TA Evaluation System: TA Report';
 		$data['type'] = 'teacher';
-		$data['banner_id'] = 1;
-		$this->load->view('ta/evaluation/homepage', $data);
+		$data['banner_id'] = 4;
+		$this->load->view('ta/evaluation/report/teacher', $data);
 	}
 }

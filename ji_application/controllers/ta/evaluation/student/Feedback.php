@@ -80,8 +80,6 @@ class Feedback extends TA_Controller
 		
 	}
 
-
-
 	/**
 	 * Student check one feedback
 	 *
@@ -118,7 +116,6 @@ class Feedback extends TA_Controller
 		$data['feedback']->set_ta()->set_course()->set_replys(Feedback_obj::STATE_STUDENT);
 		
 		$this->load->view('ta/evaluation/feedback/check', $data);
-		print_r($data['feedback']->replys);
 	}
 	
 	/**
@@ -211,7 +208,7 @@ class Feedback extends TA_Controller
 	}
 
 	/**
-	 * reply a feddback
+	 * reply a feddback through ajax
 	 *
 	 * @echo string result
 	 */

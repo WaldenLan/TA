@@ -153,7 +153,7 @@
         global.Base64 = _Base64;
         return Base64;
     };
-    // export Base64
+    // report Base64
     global.Base64 = {
         VERSION: version,
         atob: atob,
@@ -189,6 +189,6 @@
     }
     // that's it!
     if (global['Meteor']) {
-       Base64 = global.Base64; // for normal export in Meteor.js
+       Base64 = global.Base64; // for normal report in Meteor.js
     }
 })(this);

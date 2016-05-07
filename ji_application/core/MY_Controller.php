@@ -3,11 +3,11 @@
 class TA_Controller extends CI_Controller
 {
 	public $site_config;
+	public $data;
 	
     public function __construct()
     {
         parent::__construct();
-        $this->load->database();
         
 		
         $this->output->enable_profiler(TRUE);
@@ -16,6 +16,8 @@ class TA_Controller extends CI_Controller
         $this->load->model('Mta_site');
         $this->site_config = $this->Mta_site->get_site_config();
         $this->load->vars($this->site_config);
+
+	    $this->data = array();
 		
     }
 	

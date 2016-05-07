@@ -9,14 +9,26 @@
 					<?php if ($type == 'teacher'): ?>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<a class="btn btn-primary <?php echo $state_id == 1 ? 'btn active' : ''; ?>"
-						   href="/ta/evaluation/teacher/feedback/view/<?php echo $state_id; ?>">Applying</a>
+						   href="/ta/evaluation/teacher/feedback/view/1">Applying</a>
 						&nbsp;&nbsp;
 						<a class="btn btn-primary <?php echo $state_id == 2 ? 'btn active' : ''; ?>"
-						   href="/ta/evaluation/teacher/feedback/view/<?php echo $state_id; ?>">Checking</a>
+						   href="/ta/evaluation/teacher/feedback/view/2">Checking</a>
 						&nbsp;&nbsp;
 						<a class="btn btn-primary <?php echo $state_id == 3 ? 'btn active' : ''; ?>"
-						   href="/ta/evaluation/teacher/feedback/view/<?php echo $state_id; ?>">Disposed</a>
+						   href="/ta/evaluation/teacher/feedback/view/3">Disposed</a>
 					<?php elseif ($type == 'manage'): ?>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<a class="btn btn-primary <?php echo $state_id == 1 ? 'btn active' : ''; ?>"
+						   href="/ta/evaluation/manage/feedback/view/1">学生申请</a>
+						&nbsp;&nbsp;
+						<a class="btn btn-primary <?php echo $state_id == 2 ? 'btn active' : ''; ?>"
+						   href="/ta/evaluation/manage/feedback/view/2">老师申请</a>
+						&nbsp;&nbsp;
+						<a class="btn btn-primary <?php echo $state_id == 3 ? 'btn active' : ''; ?>"
+						   href="/ta/evaluation/manage/feedback/view/3">已通过</a>
+						&nbsp;&nbsp;
+						<a class="btn btn-primary <?php echo $state_id == 4 ? 'btn active' : ''; ?>"
+						   href="/ta/evaluation/manage/feedback/view/4">已关闭</a>
 					<?php endif; ?>
 				</h2>
 				<h2 id="semester">Current Semester: <?php echo $this->Mta_site->print_semester(); ?></h2>
@@ -32,7 +44,8 @@
 					<?php /** @var $feedback Feedback_obj */ ?>
 					<div class="row">
 						<a class="col-sm-2"
-						   href="/ta/evaluation/student/feedback/check/<?php echo $feedback->id . '?page=' .
+						   href="/ta/evaluation/<?php echo $type;?>/feedback/check/<?php echo
+								   $feedback->id . '?page=' .
 						                                                          $page_id; ?>">
 							<h5><?php echo $feedback->title; ?></h5></a>
 						<h5 class="col-sm-2"><?php echo $feedback->course->KCDM; ?></h5>

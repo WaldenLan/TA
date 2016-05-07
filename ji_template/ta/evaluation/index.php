@@ -73,4 +73,4 @@
 
 
 
-<?php include 'student/common_footer.php';?>
+<?php include dirname(dirname(__FILE__)) . '/common_footer.php'; ?>

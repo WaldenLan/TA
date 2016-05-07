@@ -19,11 +19,12 @@
 				</h2>
 
 				<div class="row">
-					<h5 class="col-sm-1">Info: </h5>
+					<h5 class="col-sm-1"><?php echo lang('ta_feedback_info');?>: </h5>
 					<h5 class="col-sm-2 _1"><?php echo $feedback->course->KCDM; ?>
-						- <?php echo $feedback->ta->name_en; ?></h5>
+						- <?php echo $type == 'manage' ? $feedback->ta->name_ch :
+								$feedback->ta->name_en; ?></h5>
 					<br><br>
-					<h5 class="col-sm-1 _1">State: </h5>
+					<h5 class="col-sm-1 _1"><?php echo lang('ta_feedback_state');?>: </h5>
 					<h5 class="col-sm-3 _1"><?php echo $state; ?></h5>
 					<br><br>
 				</div>
@@ -34,31 +35,33 @@
 					<div class="panel-body">
 						<?php echo $feedback->replys[0]->content; ?>
 						<br/><br/>
-						Submit Time: <h5
+						<?php echo lang('ta_feedback_submit_time');?>: <h5
 								class="submit_time"><?php echo $feedback->CREATE_TIMESTAMP; ?></h5>
 					</div>
 				</div>
 
-				<p>Communication:</p>
+				<p><?php echo lang('ta_feedback_communication');?>:</p>
 
 				<?php if (count($feedback->replys) <= 1): ?>
-					<div>No communication till now.</div>
+					<div><?php echo lang('ta_feedback_empty');?></div>
 				<?php endif; ?>
 
 				<?php foreach (array_slice($feedback->replys, 1) as $reply): ?>
 					<?php /** @var $reply Feedback_reply_obj */ ?>
 					<ul class="list-group">
-						<li class="list-group-item _1"><?php echo $reply->user_id; ?> Reply</li>
+						<li class="list-group-item _1"><?php echo $this->Mta_feedback->get_reply_title($reply->state); ?></li>
 						<li class="list-group-item">
 							<h5><?php echo $reply->content; ?></h5>
-							<h5 class="submit_time">Reply Time: <?php echo $reply->CREATE_TIMESTAMP; ?></h5>
+							<h5 class="submit_time"><?php echo lang('ta_feedback_reply_time');?>: <?php echo $reply->CREATE_TIMESTAMP; ?></h5>
 						</li>
 					</ul>
 				<?php endforeach; ?>
 
-				<?php if (($feedback->is_student() && $type == 'student') ||
-				          (!$feedback->is_manage() && $type == 'manage') ||
-				          ($feedback->is_teacher() && $type == 'teacher')
+				<?php if ($feedback->is_open() &&
+				          (($feedback->is_student() && $type == 'student') ||
+				           (!$feedback->is_manage() && $type == 'manage') ||
+				           ($feedback->is_teacher() && !$feedback->is_manage() &&
+				            $type == 'teacher'))
 				): ?>
 					<br>
 					<p>Reply/Addition:</p>

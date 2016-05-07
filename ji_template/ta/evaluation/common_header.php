@@ -61,7 +61,7 @@
 				<a href="/ta/evaluation/manage">首页</a>
 			</li>
 			<li class="<?php echo $banner_id != 2 ? 'non-' : ''; ?>active">
-				<a href="">评教设置</a>
+				<a href="/ta/evaluation/manage/evaluation">评教设置</a>
 			</li>
 			<li class="<?php echo $banner_id != 3 ? 'non-' : ''; ?>active">
 				<a href="/ta/evaluation/manage/search">搜索</a>
@@ -70,7 +70,7 @@
 				<a href="/ta/evaluation/manage/feedback/view">投诉处理</a>
 			</li>
 			<li class="<?php echo $banner_id != 5 ? 'non-' : ''; ?>active">
-				<a href="">导出到Excel</a>
+				<a href="/ta/evaluation/manage/export">导出到Excel</a>
 			</li>
 		<?php endif ?>
 	</ul>
