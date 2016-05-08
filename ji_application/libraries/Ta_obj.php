@@ -13,18 +13,35 @@ class Ta_obj
 	public $qq;					// varchar(15)	投诉状态
 	public $CREATE_TIMESTAMP;	// timestamp	创建时间
 	public $UPDATE_TIMESTAMP;	// timestamp 	更新时间
-	
-	public $ta;
-	public $course;
-	
-	public function __construct() 
+
+	private $error_flag = false;
+
+
+	public function __construct($data = array())
 	{
-		
+		foreach ($data as $key => $value)
+		{
+			$this->$key = $value;
+		}
+		if (!isset($this->id))
+		{
+			$this->BSID = 0;
+			$this->error_flag = true;
+		}
+	}
+
+	/**
+	 * Return whether the object is error
+	 * @return bool
+	 */
+	public function is_error()
+	{
+		return $this->error_flag;
 	}
 
 	public function set_error()
 	{
-		$this->id = 0;
+		$this->USER_ID = 0;
 	}
 	
 	

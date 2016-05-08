@@ -83,6 +83,21 @@ class Mta_site extends CI_Model
 		{
 			redirect(base_url('login?url=' . base64_encode($_SERVER["REQUEST_URI"])));
 		}
+		if ($type != $_SESSION['usertype'])
+		{
+			switch ($_SESSION['usertype'])
+			{
+			case 'student':
+			case 'teacher':
+			case 'manage':
+				redirect(base_url('ta/evaluation/' . $_SESSION['usertype']));
+				break;
+			default:
+				redirect(base_url('ta/evaluation/'));
+				break;
+			}
+
+		}
 	}
 }
 

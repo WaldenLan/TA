@@ -17,12 +17,31 @@ class Course_obj
 	public $UPDATE_TIMESTAMP;	// timestamp 	更新时间
 	
 	public $ta_list;
-	
-	public function __construct() 
-	{
-		//$this->ta = $this->Mcourse->get_course_ta($this->BSID);
-	}
+	private $error_flag = false;
 
+	
+	public function __construct($data = array())
+	{
+		foreach ($data as $key => $value)
+		{
+			$this->$key = $value;
+		}
+		if (!isset($this->id))
+		{
+			$this->BSID = 0;
+			$this->error_flag = true;
+		}
+	}
+	
+	/**
+	 * Return whether the object is error
+	 * @return bool
+	 */
+	public function is_error()
+	{
+		return $this->error_flag;
+	}
+	
 	public function set_error()
 	{
 		$this->BSID = 0;

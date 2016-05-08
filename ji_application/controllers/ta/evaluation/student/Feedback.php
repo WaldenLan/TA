@@ -21,7 +21,8 @@ class Feedback extends TA_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->config->set_item('language', 'english');
+		$data['type'] = 'student';
+		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->language('ta_feedback');
 		$this->load->model('Mta_feedback');
 		$this->load->library('Feedback_obj');
@@ -44,8 +45,8 @@ class Feedback extends TA_Controller
 	public function view()
 	{
 		/** initialize */
+		$data = $this->data;
 		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['type'] = 'student';
 		$data['banner_id'] = 3;
 		$data['list'] =
 			$this->Mta_feedback->show_list($_SESSION['userid'], Feedback_obj::STATE_STUDENT);
@@ -93,9 +94,9 @@ class Feedback extends TA_Controller
 		}
 		
 		/** initialize */
+		$data = $this->data;
 		$data['page_id'] = $this->input->get('page');
 		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['type'] = 'student';
 		$data['banner_id'] = 3;
 		
 		try
@@ -137,10 +138,10 @@ class Feedback extends TA_Controller
 			/** @var $course Course_obj */
 			$course->set_ta();
 		}
-		
+
+		$data = $this->data;
 		$data['page_name'] = 'TA Evaluation System: Feedbacks';
 		$data['banner_id'] = 3;
-		$data['type'] = 'student';
 		$this->load->view('ta/evaluation/feedback/add', $data);
 	}
 
