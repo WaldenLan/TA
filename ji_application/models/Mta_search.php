@@ -1,7 +1,4 @@
-<?php if (!defined('BASEPATH'))
-{
-	exit('No direct script access allowed');
-}
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mta_search extends CI_Model
 {
@@ -39,7 +36,7 @@ class Mta_search extends CI_Model
 		{
 			$this->db->group_start()->or_like('XN', $key)->or_like('XQ', $key)
 			         ->or_like('KCDM', $key)->or_like('KCZWMC', $key)->or_like('XM', $key)
-			         ->group_end();
+			         ->or_like('BSID', $key)->group_end();
 		}
 		$query = $this->db->limit($length, $begin)->order_by('KCDM', 'ASC')->order_by('XM', 'ASC')
 		                  ->order_by('CREATE_TIMESTAMP', 'DESC')->get();

@@ -22,6 +22,7 @@ class TA_Controller extends CI_Controller
 	    $this->output->enable_profiler(TRUE);
 		
         $this->load->model('Mta_site');
+	    $this->load->library('My_obj');
         $this->site_config = $this->Mta_site->get_site_config();
         $this->load->vars($this->site_config);
 

@@ -6,8 +6,16 @@ class Mstudent extends CI_Model {
     {
         parent::__construct();
 		$this->load->model('Mta_site');
+	    $this->load->library('Student_obj');
     }
-	
+
+	public function get_student_by_id($id)
+	{
+		$query = $this->db->get_where('ji_students', array('student_id'=>$id));
+		$student = new Student_obj($query->row(0));
+		return $student;
+	}
+
 	public function get_all_course($id)
 	{
 		$query = $this->db->select('BSID')->from('ji_course_select')->where(array('USER_ID'=>$id, 'SCBJ'=>'N'))->get();
@@ -37,5 +45,6 @@ class Mstudent extends CI_Model {
 
 		return $query->result('Course_obj');
 	}
-	
+
+
 }

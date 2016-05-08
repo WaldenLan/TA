@@ -14,7 +14,7 @@
  * @uses       Mta
  * @uses       Feedback_reply_obj
  */
-class Feedback_obj
+class Feedback_obj extends My_obj
 {
 	/** -- The vars in the table `ji_ta_feedback` -- */
 	
@@ -40,17 +40,13 @@ class Feedback_obj
 	protected $UPDATE_TIMESTAMP;
 	
 	/** -- The vars defined for other uses -- */
-	
-	/** @var bool */
-	private $error_flag = false;
+
 	/** @var Ta_obj */
 	protected $ta;
 	/** @var Course_obj */
 	protected $course;
 	/** @var array */
 	protected $replys;
-	/** @var object */
-	private $CI;
 	
 	/** -- The constants of $state, processed in binary -- */
 	
@@ -69,22 +65,8 @@ class Feedback_obj
 	 */
 	public function __construct($data = array())
 	{
-		$this->CI = &get_instance();
-		$this->CI->load->language('ta_feedback');
-		$this->CI->load->model('Mta_feedback');
-		$this->CI->load->model('Mcourse');
-		$this->CI->load->model('Mta');
-		$this->CI->load->library('Feedback_reply_obj');
-		foreach ($data as $key => $value)
-		{
-			$this->$key = $value;
-		}
-		if (!isset($this->id))
-		{
-			$this->id = 0;
-			$this->error_flag = true;
-		}
-		else
+		parent::__construct($data, 'id');
+		if(!$this->is_error())
 		{
 			$this->title = base64_decode($this->title);
 		}
@@ -169,6 +151,7 @@ class Feedback_obj
 	 */
 	public function get_state_str()
 	{
+		$this->CI->load->language('ta_feedback');
 		if (!$this->is_open())
 		{
 			return lang('ta_feedback_state_closed');
@@ -191,6 +174,7 @@ class Feedback_obj
 	 */
 	public function set_ta()
 	{
+		$this->CI->load->model('Mta');
 		$this->ta = $this->CI->Mta->get_ta_by_id($this->ta_id);
 		return $this;
 	}
@@ -201,6 +185,7 @@ class Feedback_obj
 	 */
 	public function set_course()
 	{
+		$this->CI->load->model('Mcourse');
 		$this->course = $this->CI->Mcourse->get_course_by_id($this->BSID);
 		return $this;
 	}
@@ -212,10 +197,12 @@ class Feedback_obj
 	 */
 	public function set_replys($state)
 	{
+		$this->CI->load->model('Mta_feedback');
+		$this->CI->load->library('Feedback_reply_obj');
 		$this->replys = array();
 		foreach (explode(',', $this->reply_list) as $reply_id)
 		{
-			array_push($this->replys, $this->CI->Mta_feedback->get_feedback_reply_by_id($reply_id));
+			$this->replys[] = $this->CI->Mta_feedback->get_feedback_reply_by_id($reply_id);
 		}
 		foreach ($this->replys as $key => $reply)
 		{

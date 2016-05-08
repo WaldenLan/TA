@@ -8,7 +8,7 @@
  * @author     tc-imba
  * @copyright  2016 umji-sjtu
  */
-class Feedback_reply_obj
+class Feedback_reply_obj extends My_obj
 {
 	/** -- The vars in the table `ji_ta_feedback_reply` -- */
 
@@ -25,24 +25,14 @@ class Feedback_reply_obj
 	/** @var string timestamp   更新时间*/
 	protected $UPDATE_TIMESTAMP;
 
-	private $error_flag = false;
-
 	/**
 	 * Feedback_reply_obj constructor.
 	 * @param array $data
 	 */
 	public function __construct($data = array())
 	{
-		foreach ($data as $key => $value)
-		{
-			$this->$key = $value;
-		}
-		if (!isset($this->id))
-		{
-			$this->id = 0;
-			$this->error_flag = true;
-		}
-		else
+		parent::__construct($data, 'id');
+		if(!$this->is_error())
 		{
 			$this->content = base64_decode($this->content);
 		}
