@@ -39,14 +39,14 @@ class Mta_feedback extends CI_Model
 	{
 		$feedback = new Feedback_obj();
 		$from = $to = '';
-		$feedback->is_manage($state) ? $from = lang('ta_feedback_manage') : $to = lang('ta_feedback_manage');
+		$feedback->is_manage($state) ? $from = lang('ta_main_manage') : $to = lang('ta_main_manage');
 		if ($feedback->is_student($state))
 		{
-			$from == '' ? $from = lang('ta_feedback_student') : $to = lang('ta_feedback_student');
+			$from == '' ? $from = lang('ta_main_student') : $to = lang('ta_main_student');
 		}
 		else if ($feedback->is_teacher($state))
 		{
-			$from == '' ? $from = lang('ta_feedback_teacher') : $to = lang('ta_feedback_teacher');
+			$from == '' ? $from = lang('ta_main_teacher') : $to = lang('ta_main_teacher');
 		}
 		return str_replace(array('{from}', '{to}'), array($from, $to),
 		                   lang('ta_feedback_reply_title'));

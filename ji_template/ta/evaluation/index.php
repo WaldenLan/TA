@@ -11,7 +11,7 @@
     <script src="/ji_js/confirmLogout.js"></script>
 	<noscript>Your browser does not support JavaScript!</noscript>
     <link rel="stylesheet" type="text/css" href="/ji_style/ta/common.css">
-	<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/index.css">
+	<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation.css">
 	<base target="_self">
 </head>
 
@@ -72,4 +72,4 @@
     </div>
 
 
-<?php include dirname(dirname(__FILE__)) . '/common_footer.php'; ?>
+<?php include 'common_footer.php'; ?>

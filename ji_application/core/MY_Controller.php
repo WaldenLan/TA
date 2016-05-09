@@ -25,7 +25,7 @@ class TA_Controller extends CI_Controller
 	    $this->load->library('My_obj');
         $this->site_config = $this->Mta_site->get_site_config();
         $this->load->vars($this->site_config);
-
+	    $this->load->language('ta_main');
 	    $this->data = array();
     }
 	

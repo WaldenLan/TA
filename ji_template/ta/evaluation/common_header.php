@@ -28,7 +28,7 @@
 	<div class='_top'><a href="http://umji.sjtu.edu.cn/cn/"><img
 					src="/ji_style/ta/images/JI logo-01.png" height="110"
 					alt="Logo of Joint Institute" title="上海交大密西根学院"></a>
-		<h1 title="Teaching Assistant Evaluation System">Teaching Assistant Evaluation System</h1>
+		<h1 title="Teaching Assistant Evaluation System"><?php echo lang('ta_main_topic');?></h1>
 
 		<?php if ($_SESSION['language'] == 'zh-cn'): ?>
 			<h5><span><a href="/settings/language?lang=english&url=<?php echo base64_encode($_SERVER["REQUEST_URI"]); ?>">English</a></span>/<span>中文</span
@@ -43,42 +43,42 @@
 	<ul class="nav nav-pills nav-justified">
 		<?php if ($type == 'student'): ?>
 			<li class="<?php echo $banner_id != 1 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/student">Homepage</a>
+				<a href="/ta/evaluation/student"><?php echo lang('ta_main_homepage');?></a>
 			</li>
 			<li class="<?php echo $banner_id != 2 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/student/evaluation">TA Evaluation</a>
+				<a href="/ta/evaluation/student/evaluation"><?php echo lang('ta_main_evaluation');?></a>
 			</li>
 			<li class="<?php echo $banner_id != 3 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/student/feedback/view">Feedbacks</a>
+				<a href="/ta/evaluation/student/feedback/view"><?php echo lang('ta_main_feedback_apply');?></a>
 			</li>
 		<?php elseif ($type == 'teacher'): ?>
 			<li class="<?php echo $banner_id != 1 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/teacher">Homepage</a>
+				<a href="/ta/evaluation/teacher"><?php echo lang('ta_main_homepage');?></a>
 			</li>
 			<li class="<?php echo $banner_id != 2 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/teacher/evaluation">Evaluation Setup</a>
+				<a href="/ta/evaluation/teacher/evaluation"><?php echo lang('ta_main_evaluation_setup');?></a>
 			</li>
 			<li class="<?php echo $banner_id != 3 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/teacher/feedback/view">Feedbacks Process</a>
+				<a href="/ta/evaluation/teacher/feedback/view"><?php echo lang('ta_main_feedback_process');?></a>
 			</li>
 			<li class="<?php echo $banner_id != 4 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/teacher/report">TA Report</a>
+				<a href="/ta/evaluation/teacher/report"><?php echo lang('ta_main_report');?></a>
 			</li>
 		<?php elseif ($type == 'manage'): ?>
 			<li class="<?php echo $banner_id != 1 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage">首页</a>
+				<a href="/ta/evaluation/manage"><?php echo lang('ta_main_homepage');?></a>
 			</li>
 			<li class="<?php echo $banner_id != 2 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage/evaluation">评教设置</a>
+				<a href="/ta/evaluation/manage/evaluation"><?php echo lang('ta_main_evaluation_setup');?></a>
 			</li>
 			<li class="<?php echo $banner_id != 3 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage/search">搜索</a>
+				<a href="/ta/evaluation/manage/search"><?php echo lang('ta_main_search');?></a>
 			</li>
 			<li class="<?php echo $banner_id != 4 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage/feedback/view">投诉处理</a>
+				<a href="/ta/evaluation/manage/feedback/view"><?php echo lang('ta_main_feedback_process');?></a>
 			</li>
 			<li class="<?php echo $banner_id != 5 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage/export">导出到Excel</a>
+				<a href="/ta/evaluation/manage/export"><?php echo lang('ta_main_export');?></a>
 			</li>
 		<?php endif ?>
 	</ul>
@@ -98,7 +98,7 @@
 				<a onclick="confirmLogout('/ta/evaluation')">Sign out</a>
 				<span id="SID"><?php echo $_SESSION['userid']; ?></span>
 				<span id="department">Joint Institute</span>
-				<span id="name"><?php echo $_SESSION['username']; ?></span>
+				<span id="name"><?php echo $_SESSION['usertype']; ?></span>
 			</div>
 		<?php endif ?>
 	</div>

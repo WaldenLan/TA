@@ -12,7 +12,6 @@ class Feedback extends TA_Controller
 		parent::__construct();
 		$this->data['type'] = 'manage';
 		$this->Mta_site->redirect_login($this->data['type']);
-		$this->load->language('ta_feedback');
 		$this->load->model('Mta_feedback');
 		$this->load->library('Feedback_obj');
 	}

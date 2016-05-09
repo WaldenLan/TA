@@ -151,7 +151,7 @@ class Feedback_obj extends My_obj
 	 */
 	public function get_state_str()
 	{
-		$this->CI->load->language('ta_feedback');
+		$this->CI->load->language('ta_main');
 		if (!$this->is_open())
 		{
 			return lang('ta_feedback_state_closed');

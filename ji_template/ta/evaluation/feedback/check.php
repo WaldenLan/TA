@@ -20,12 +20,12 @@
 				</h2>
 
 				<div class="row">
-					<h5 class="col-sm-1"><?php echo lang('ta_feedback_info'); ?>: </h5>
+					<h5 class="col-sm-1"><?php echo lang('ta_main_info'); ?>: </h5>
 					<h5 class="col-sm-2 _1"><?php echo $feedback->course->KCDM; ?>
 						- <?php echo $type == 'manage' ? $feedback->ta->name_ch :
 								$feedback->ta->name_en; ?></h5>
 					<br><br>
-					<h5 class="col-sm-1 _1"><?php echo lang('ta_feedback_state'); ?>: </h5>
+					<h5 class="col-sm-1 _1"><?php echo lang('ta_main_state'); ?>: </h5>
 					<h5 class="col-sm-3 _1"><?php echo $state; ?></h5>
 					<br><br>
 				</div>
@@ -36,7 +36,7 @@
 					<div class="panel-body">
 						<?php echo $feedback->replys[0]->content; ?>
 						<br/><br/>
-						<?php echo lang('ta_feedback_submit_time'); ?>: <h5
+						<?php echo lang('ta_main_time_submit'); ?>: <h5
 								class="submit_time"><?php echo $feedback->CREATE_TIMESTAMP; ?></h5>
 					</div>
 				</div>
@@ -53,7 +53,7 @@
 						<li class="list-group-item _1"><?php echo $this->Mta_feedback->get_reply_title($reply->state); ?></li>
 						<li class="list-group-item">
 							<h5><?php echo $reply->content; ?></h5>
-							<h5 class="submit_time"><?php echo lang('ta_feedback_reply_time'); ?>
+							<h5 class="submit_time"><?php echo lang('ta_main_time_reply'); ?>
 								: <?php echo $reply->CREATE_TIMESTAMP; ?></h5>
 						</li>
 					</ul>
