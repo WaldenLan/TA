@@ -5,7 +5,8 @@ class Mteacher extends CI_Model {
 	function __construct()
     {
         parent::__construct();
-		$this->load->model('Mta_site');
+	    $this->load->model('Mta_site');
+	    $this->load->library('Teacher_obj');
     }
 	
 	

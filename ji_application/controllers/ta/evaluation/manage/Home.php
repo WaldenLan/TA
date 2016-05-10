@@ -1,5 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends TA_Controller 
 {
@@ -17,6 +16,6 @@ class Home extends TA_Controller
 		$data = $this->data;
 		$data['page_name'] = 'TA Evaluation System: Manage Homepage';
 		$data['banner_id'] = 1;
-		$this->load->view('ta/evaluation/homepage', $data);
+		$this->load->view('ta/evaluation/homepage/manage', $data);
 	}
 }
