@@ -66,3 +66,5 @@ $lang['ta_feedback_reply_title'] = '{from} 发给 {to}';
 $lang['ta_feedback_communication'] = '交流';
 $lang['ta_feedback_empty'] = '目前还没有交流。';
 
+$lang['ta_evaluation_time_start'] = '评教开始时间';
+$lang['ta_evaluation_time_end'] = '评教结束时间';

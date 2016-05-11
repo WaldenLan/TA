@@ -64,3 +64,6 @@ $lang['ta_feedback_list_check'] = 'Checking by Manage';
 $lang['ta_feedback_reply_title'] = 'From {from} to {to}';
 $lang['ta_feedback_communication'] = 'Communication';
 $lang['ta_feedback_empty'] = 'No communication till now.';
+
+$lang['ta_evaluation_time_start'] = 'Start time of the TA evaluation';
+$lang['ta_evaluation_time_end'] = 'End time of the TA evaluation';
