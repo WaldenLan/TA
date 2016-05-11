@@ -7,7 +7,7 @@ class Report extends TA_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$data['type'] = 'teacher';
+		$this->data['type'] = 'teacher';
 		$this->Mta_site->redirect_login($this->data['type']);
 	}
 	

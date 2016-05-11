@@ -7,7 +7,7 @@ class Evaluation extends TA_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$data['type'] = 'student';
+		$this->data['type'] = 'student';
 		$this->Mta_site->redirect_login($this->data['type']);
 	}
 	

@@ -9,7 +9,8 @@ class Feedback extends TA_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$data['type'] = 'teacher';
+		$this->data['type'] = 'teacher';
+		$this->Mta_site->redirect_login($this->data['type']);
 		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mta_feedback');
 		$this->load->library('Feedback_obj');
