@@ -38,6 +38,7 @@ $lang['ta_main_time'] = "Time";
 $lang['ta_main_time_submit'] = "Submit Time";
 $lang['ta_main_time_reply'] = "Reply Time";
 
+$lang['ta_main_submit'] = 'Submit';
 $lang['ta_main_state'] = 'State';
 $lang['ta_main_info'] = 'Info';
 $lang['ta_main_check'] = "Check";

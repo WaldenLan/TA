@@ -1,6 +1,6 @@
 <?php include dirname(dirname(__FILE__)) . '/common_header.php'; ?>
 
-<script src="/ji_js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="/ji_js/datetimepicker/bootstrap-datetimepicker.js"></script>
 <script src="/ji_js/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
 <link rel="stylesheet" type="text/css" href="/ji_style/datetimepicker/bootstrap-datetimepicker.min.css">
 <link href="http://cdn.bootcss.com/prettify/r224/prettify.css" rel="stylesheet">
@@ -39,6 +39,8 @@
 						</div>
 					</div>
 				</li>
+				<br>
+				<a class="btn btn-primary" href="/ta/evaluation/manage/settime"><?php echo lang('ta_main_submit');?></a>
 			</ul>
 
 			<script type="text/javascript">
@@ -46,38 +48,21 @@
 				{
 					$(".form_datetime").datetimepicker({
 						<?php if ($_SESSION['language'] == 'zh-cn'): ?>
-						format: "yyyy 年 m 月 d 日",
 						language: 'zh-CN',
-						<?php else: ?>
-						format: "MM d, yyyy",
 						<?php endif;?>
+						format: "yyyy-mm-dd",
 						autoclose: true,
 						todayBtn: true,
 						todayHighlight: true,
+						forceParse: true,
 						minView: 'month',
 						pickerPosition: "bottom-right"
 					});
-
-					$.extend
-					 ({
-						 set_datetime_place: function ($datetime)
-						 {
-							 //var $datetime = $(this);
-							 $(".datetimepicker").each(function ()
-							 {
-								 var $icon = $datetime.children(".input-group-addon");
-								 $(this).css('left', $icon.offset().left);
-								 $(this).css('top', $icon.offset().top + $icon.outerHeight());
-							 });
-						 }
-					 });
-
-
-					$(".form_datetime").datetimepicker().on('show', function (e)
-					{
-						$.set_datetime_place($(this));
-					});
 				});
+				$("#datetime-start").children("input").val("<?php echo $ta_evaluation_start?>");
+				$("#datetime-end").children("input").val("<?php echo $ta_evaluation_end?>");
+				//$('.form_datetime').datetimepicker('show');
+				//$('.form_datetime').datetimepicker('hide');
 			</script>
 
 		</div>

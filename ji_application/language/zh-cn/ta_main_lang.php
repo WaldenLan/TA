@@ -38,6 +38,7 @@ $lang['ta_main_time'] = "时间";
 $lang['ta_main_time_submit'] = "申请时间";
 $lang['ta_main_time_reply'] = "回复时间";
 
+$lang['ta_main_submit'] = '提交';
 $lang['ta_main_state'] = '状态';
 $lang['ta_main_info'] = '信息';
 $lang['ta_main_check'] = "查看";

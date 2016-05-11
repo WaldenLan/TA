@@ -24,7 +24,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================= */
-!function ($) {
+
+(function(factory){
+    if (typeof define === 'function' && define.amd)
+      define(['jquery'], factory);
+    else if (typeof exports === 'object')
+      factory(require('jquery'));
+    else
+      factory(jQuery);
+
+}(function($, undefined){
 
   // Add ECMA262-5 Array methods if not supported natively (IE8)
   if (!('indexOf' in Array.prototype)) {
@@ -86,7 +95,7 @@
 
     this.bootcssVer = options.bootcssVer || (this.isInput ? (this.element.is('.form-control') ? 3 : 2) : ( this.bootcssVer = this.element.is('.input-group') ? 3 : 2 ));
 
-    this.component = this.element.is('.date') ? ( this.bootcssVer == 3 ? this.element.find('.input-group-addon .glyphicon-th, .input-group-addon .glyphicon-time, .input-group-addon .glyphicon-calendar, .input-group-addon .glyphicon-calendar, .input-group-addon .fa-calendar, .input-group-addon .fa-clock-o').parent() : this.element.find('.add-on .icon-th, .add-on .icon-time, .add-on .icon-calendar, .add-on .fa-calendar, .add-on .fa-clock-o').parent()) : false;
+    this.component = this.element.is('.date') ? ( this.bootcssVer == 3 ? this.element.find('.input-group-addon .glyphicon-th, .input-group-addon .glyphicon-time, .input-group-addon .glyphicon-remove, .input-group-addon .glyphicon-calendar, .input-group-addon .fa-calendar, .input-group-addon .fa-clock-o').parent() : this.element.find('.add-on .icon-th, .add-on .icon-time, .add-on .icon-calendar, .add-on .fa-calendar, .add-on .fa-clock-o').parent()) : false;
     this.componentReset = this.element.is('.date') ? ( this.bootcssVer == 3 ? this.element.find('.input-group-addon .glyphicon-remove, .input-group-addon .fa-times').parent():this.element.find('.add-on .icon-remove, .add-on .fa-times').parent()) : false;
     this.hasInput = this.component && this.element.find('input').length;
     if (this.component && this.component.length === 0) {
@@ -237,6 +246,7 @@
     }
 
     this.todayBtn = (options.todayBtn || this.element.data('date-today-btn') || false);
+    this.clearBtn = (options.clearBtn || this.element.data('date-clear-btn') || false);
     this.todayHighlight = (options.todayHighlight || this.element.data('date-today-highlight') || false);
 
     this.weekStart = ((options.weekStart || this.element.data('date-weekstart') || dates[this.language].weekStart || 0) % 7);
@@ -381,6 +391,14 @@
 
     getUTCDate: function () {
       return this.date;
+    },
+
+    getInitialDate: function () {
+      return this.initialDate
+    },
+
+    setInitialDate: function (initialDate) {
+      this.initialDate = initialDate;
     },
 
     setDate: function (d) {
@@ -548,16 +566,14 @@
         left = bodyWidth - 220;
       }
 
-      if (this.component) {
-        top = top - containerOffset.top + 169;
-        left = left - containerOffset.left + 210;
+      if (this.pickerPosition == 'top-left' || this.pickerPosition == 'top-right') {
+        top = offset.top - this.picker.outerHeight();
       } else {
-        if (this.pickerPosition == 'top-left' || this.pickerPosition == 'top-right') {
-          top = offset.top - this.picker.outerHeight();
-        } else {
-          top = offset.top + this.height;
-        }
+        top = offset.top + this.height;
       }
+
+      top = top - containerOffset.top;
+      left = left - containerOffset.left;
 
       this.picker.css({
         top:    top,
@@ -642,8 +658,11 @@
         this.setTitle('.datetimepicker-minutes', dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);
       }
       this.picker.find('tfoot th.today')
-        .text(dates[this.language].today)
+        .text(dates[this.language].today || dates['en'].today)
         .toggle(this.todayBtn !== false);
+      this.picker.find('tfoot th.clear')
+        .text(dates[this.language].clear || dates['en'].clear)
+        .toggle(this.clearBtn !== false);
       this.updateNavArrows();
       this.fillMonths();
       /*var prevMonth = UTCDate(year, month, 0,0,0,0,0);
@@ -765,8 +784,8 @@
         .find('span').removeClass('active');
       if (currentYear == year) {
         // getUTCMonths() returns 0 based, and we need to select the next one
-                // To cater bootstrap 2 we don't need to select the next one
-                var offset = months.length - 12;
+        // To cater bootstrap 2 we don't need to select the next one
+        var offset = months.length - 12;
         months.eq(this.date.getUTCMonth() + offset).addClass('active');
       }
       if (year < startYear || year > endYear) {
@@ -943,6 +962,12 @@
                   startDate: this.startDate,
                   endDate:   this.endDate
                 });
+                break;
+              case 'clear':
+                this.reset();
+                if (this.autoclose) {
+                  this.hide();
+                }
                 break;
               case 'today':
                 var date = new Date();
@@ -1397,7 +1422,8 @@
       monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       meridiem:    ['am', 'pm'],
       suffix:      ['st', 'nd', 'rd', 'th'],
-      today:       'Today'
+      today:       'Today',
+      clear:       'Clear'
     }
   };
 
@@ -1739,7 +1765,10 @@
                 '</tr>' +
       '</thead>',
     contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
-    footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
+    footTemplate: '<tfoot>' + 
+                    '<tr><th colspan="7" class="today"></th></tr>' +
+                    '<tr><th colspan="7" class="clear"></th></tr>' +
+                  '</tfoot>'
   };
   DPGlobal.template = '<div class="datetimepicker">' +
     '<div class="datetimepicker-minutes">' +
@@ -1843,4 +1872,4 @@
     $('[data-provide="datetimepicker-inline"]').datetimepicker();
   });
 
-}(window.jQuery);
+}));
