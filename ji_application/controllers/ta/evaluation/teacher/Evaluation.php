@@ -40,34 +40,34 @@ class Evaluation extends TA_Controller
 
 	public function receive()
 	{
+		$content = $this->input->get('content');
+		$type = $this->input->get('type');
+		if ($type != 'choice' && $type != 'blank')
+		{
+			echo 'error question type';
+			exit();
+		}
 		$BSID = $this->input->get('BSID');
-		if (!$this->Mteacher->is_now_course($_SESSION['userid'],$BSID))
+		if (!$this->Mteacher->is_now_course($_SESSION['userid'], $BSID))
 		{
 			echo 'error';
 			exit();
 		}
 		$evaluation = $this->Mta_evaluation->get_evaluation_by_id($BSID);
-		$content = $this->input->get('content');
-		$type = $this->input->get('type');
-		if ($type != '0' && $type != '1')
+		if ($evaluation->is_error())
 		{
-			echo 'error';
-			exit();
-		}
-		if($evaluation->is_error())
-		{
-			$this->Mta_evaluation->create($BSID,array('type'=>$type, 'content'=>$content));
+			$this->Mta_evaluation->create($BSID, array('type' => $type, 'content' => $content));
 			echo 'success';
 			exit();
 		}
-		$question = json_decode(base64_decode($evaluation->question));
-		if(count($question) >= 2)
+		$question = $evaluation->question;
+		if (count($question) >= 2)
 		{
 			echo 'You have added two question!';
 			exit();
 		}
-		array_push($question,array('type'=>$type, 'content'=>$content));
-		$this->Mta_evaluation->modify_question($BSID,$question);
+		array_push($question, array('type' => $type, 'content' => $content));
+		$this->Mta_evaluation->modify_question($BSID, $question);
 		echo 'success';
 		exit();
 	}

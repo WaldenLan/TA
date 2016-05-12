@@ -48,5 +48,14 @@ class My_obj
 	{
 		return $this->error_flag;
 	}
-
+	
+	/**
+	 * Magic method __get()
+	 * @param $key
+	 * @return mixed
+	 */
+	public function __get($key)
+	{
+		return isset($this->$key) && !$this->is_error() ? $this->$key : NULL;
+	}
 }
