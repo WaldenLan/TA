@@ -130,7 +130,8 @@ class Feedback extends TA_Controller
 		$this->load->model('Mstudent');
 		$this->load->library('Course_obj');
 		$this->load->model('Mcourse');
-		
+
+		$data = $this->data;
 		$data['course_list'] = $this->Mstudent->get_now_course($_SESSION['userid']);
 		foreach ($data['course_list'] as $course)
 		{
@@ -138,7 +139,7 @@ class Feedback extends TA_Controller
 			$course->set_ta();
 		}
 
-		$data = $this->data;
+
 		$data['page_name'] = 'TA Evaluation System: Feedbacks';
 		$data['banner_id'] = 3;
 		$this->load->view('ta/evaluation/feedback/add', $data);

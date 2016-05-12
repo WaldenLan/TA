@@ -1,4 +1,4 @@
-homepage.php<?php include 'common_header.php'; ?>
+<?php include dirname(dirname(__FILE__)) . '/common_header.php'; ?>
 
     <!-- The main page content is here -->
     <div class='body'>
@@ -19,6 +19,5 @@ homepage.php<?php include 'common_header.php'; ?>
         </div>
     </div>
 
-
-<?php include 'common_footer.php'; ?>
+<?php include dirname(dirname(__FILE__)) . '/common_footer.php'; ?>
 

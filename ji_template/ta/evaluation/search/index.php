@@ -10,16 +10,6 @@
 			var search_lock = new Date().getTime();
 			var lang_check = '<?php echo lang('ta_main_check');?>';
 
-			$(".btn.btn-info").click(function ()
-			{
-//                Test part..
-				var search_content = $("#search").val();
-				if (search_content == "515370910206")
-				{
-					$("div").children("h5.col-sm-2.sub.user_id")
-					        .css("background-color", "yellow");
-				}
-			});
 			$(document).keydown(function (e)
 			{
 				var event = document.all ? window.event : e;
@@ -56,7 +46,7 @@
 						course_append: function (data, key)
 						{
 							var course_list = JSON.parse(data);
-							$("#search_content_course").html('');
+							$(".search_content_course.list_container").html('');
 							for (var index in course_list)
 							{
 								var course = Object.create(course_list[index]);
@@ -85,13 +75,13 @@
 									'#student-list">', lang_check, '</a></h5>',
 									'<br /><br /><br />'
 								].join('');
-								$("#search_content_course").append(html);
+								$(".search_content_course.list_container").append(html);
 							}
 						},
 						ta_append: function (data, key)
 						{
 							var ta_list = JSON.parse(data);
-							$("#search_content_ta").html('');
+							$(".search_content_ta.list_container").html('');
 							for (var index in ta_list)
 							{
 								var ta = Object.create(ta_list[index]);
@@ -121,7 +111,7 @@
 									'#report-list">', lang_check, '</a></h5>',
 									'<br /><br /><br />'
 								].join('');
-								$("#search_content_ta").append(html);
+								$(".search_content_ta.list_container").append(html);
 							}
 						},
 						ajax_search: function (item, page_id, callback)
@@ -240,7 +230,7 @@
 						<h5 class="col-sm-1"><?php echo lang('ta_main_ta_list'); ?></h5>
 						<h5 class="col-sm-1"><?php echo lang('ta_main_student_list'); ?></h5>
 					</div>
-					<div id="search_content_course">
+					<div class="search_content_course list_container">
 
 					</div>
 				</div>
@@ -256,7 +246,7 @@
 						<h5 class="col-sm-1"><?php echo lang('ta_main_course_list'); ?></h5>
 						<h5 class="col-sm-1"><?php echo lang('ta_main_report_list'); ?></h5>
 					</div>
-					<div id="search_content_ta">
+					<div class="search_content_ta list_container">
 
 					</div>
 				</div>

@@ -4,7 +4,11 @@
     <div class='body'>
         <div class="maincontent">
             <div class="announcement">
-                <h2 id="semester">Current Semester: <?php echo $this->Mta_site->print_semester(); ?></h2>
+                <h2 id="semester">
+                    <span class="label label-info">
+                        Current Semester: <?php echo $this->Mta_site->print_semester(); ?>
+                    </span>
+                </h2>
                 <div class="attention">
                     <h2>Attention</h2>
                     <ul>
@@ -12,7 +16,6 @@
                         <li>2. Attention tips attention tips attention tips attention tips</li>
                         <li>3. Attention tips attention tips attention tips</li>
                     </ul>
-                    </p>
                 </div>
                 <div class="talist">
                     <div class="row talist schema">
@@ -24,7 +27,7 @@
                         <h5 class="col-sm-1">State</h5>
                         <h5 class="col-sm-2">Process</h5>
                     </div>
-                    <div class="row talist main">
+                    <div class="row talist main list_container">
                         <h5 class="col-sm-1">VV233</h5>
                         <h5 class="col-sm-2">Hamade</h5>
                         <h5 class="col-sm-2">5143709233</h5>

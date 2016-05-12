@@ -4,7 +4,11 @@
     <div class='body'>
         <div class="maincontent">
             <div class="announcement">
-                <h2 id="semester"><?php echo $this->Mta_site->print_semester(); ?> > Course ID > TA name</h2>
+                <h2 id="semester">
+                    <span class="label label-info">
+                        <?php echo $this->Mta_site->print_semester(); ?> > Course ID > TA name
+                    </span>
+                </h2>
 
                 <div class="evaluation_question">
                     <h2>Evaluation Questions for 2016</h2>

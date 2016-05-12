@@ -106,6 +106,7 @@ class Feedback extends TA_Controller
 
 		$data['feedback']->set_ta()->set_course()->set_replys(Feedback_obj::STATE_TEACHER);
 
+
 		foreach ($this->Mteacher->get_now_course($_SESSION['userid']) as $course)
 		{
 			if ($course->BSID == $data['feedback']->BSID)

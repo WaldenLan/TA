@@ -16,6 +16,9 @@ class Home extends TA_Controller
 		$data = $this->data;
 		$data['page_name'] = 'TA Evaluation System: Manage Homepage';
 		$data['banner_id'] = 1;
+		$this->load->helper('form');
 		$this->load->view('ta/evaluation/homepage/manage', $data);
 	}
+
+
 }

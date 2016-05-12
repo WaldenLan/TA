@@ -6,35 +6,125 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62c3a79e-8b2e-4bbb-b68c-172fe0bfd1c4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/evaluation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/setup.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/export/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/export/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/homepage.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/student.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/teacher.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/report/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/search/course.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/search/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/search/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TA.iml" afterPath="$PROJECT_DIR$/.idea/TA.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/arrow2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/down2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/minus - 副本.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/modify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/myapplication.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/plus - 副本.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/processed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/unprocessed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/images/up2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/ta/images/top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Pro_login.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/editor/php/evaluation.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/controllers/Pro_class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/application/Edit.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/application/Edittime.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/application/EdittimeDetail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/application/SearchInfo.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/application/Service.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/application/Student.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/application/Teacher.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Search.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/_notes/dwsync.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/calendar_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/date_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/db_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/email_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/form_validation_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/ftp_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/imglib_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/migration_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/number_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/pagination_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/profiler_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/unit_test_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/upload_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/libraries/Evaluation_obj.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/models/MPro_class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_application/models/Mta_evaluation.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/jquery.simple-dtpicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/prof_app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/prof_app_applications.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/prof_app_applications2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/prof_app_courselist.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/prof_app_index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/stu_app_apply.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/stu_app_applydetail.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/stu_app_common.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/stu_app_courseinfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_js/stu_app_showmyapp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/jquery.simple-dtpicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/prof_app.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/stu_app_apply.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/stu_app_applydetail.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/stu_app_common.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/stu_app_courseinfo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/stu_app_head.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/stu_app_showmyapp.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_style/ta/evaluation/common.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/manager_app_editcourse.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/manager_app_editsuccess1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/manager_app_workshop.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/prof_app_applications.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/prof_app_applications2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/prof_app_courselist.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/prof_app_head.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/prof_app_index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/prof_app_modifysuccess.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/prof_app_processsuccess.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/stu_app_courseinfo.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/test.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ji_template/test2.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Evaluation.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Evaluation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editor/plugins/code/prettify.js" afterPath="$PROJECT_DIR$/editor/plugins/code/prettify.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ApplyTA.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ApplyTA.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/Home.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/Home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Export.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Export.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Home.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Feedback.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Feedback.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Home.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Evaluation.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Evaluation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Feedback.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Feedback.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Home.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Report.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Report.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/language/english/ta_main_lang.php" afterPath="$PROJECT_DIR$/ji_application/language/english/ta_main_lang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/language/zh-cn/ta_main_lang.php" afterPath="$PROJECT_DIR$/ji_application/language/zh-cn/ta_main_lang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/models/Mapply.php" afterPath="$PROJECT_DIR$/ji_application/models/Mapply.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/models/Meditman.php" afterPath="$PROJECT_DIR$/ji_application/models/Meditman.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/models/Mta_feedback.php" afterPath="$PROJECT_DIR$/ji_application/models/Mta_feedback.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/models/Mta_site.php" afterPath="$PROJECT_DIR$/ji_application/models/Mta_site.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/models/Mteacher.php" afterPath="$PROJECT_DIR$/ji_application/models/Mteacher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/third_party/PHPStorm_CI_CC.php" afterPath="$PROJECT_DIR$/ji_application/third_party/PHPStorm_CI_CC.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_js/base64.js" afterPath="$PROJECT_DIR$/ji_js/base64.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_style/ta/evaluation/manage/index.css" afterPath="$PROJECT_DIR$/ji_style/ta/evaluation/manage/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_style/ta/evaluation/student/index.css" afterPath="$PROJECT_DIR$/ji_style/ta/evaluation/student/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_style/ta/evaluation/teacher/index.css" afterPath="$PROJECT_DIR$/ji_style/ta/evaluation/teacher/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_system/core/CodeIgniter.php" afterPath="$PROJECT_DIR$/ji_system/core/CodeIgniter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_system/helpers/string_helper.php" afterPath="$PROJECT_DIR$/ji_system/helpers/string_helper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/advising/check.php" afterPath="$PROJECT_DIR$/ji_template/advising/check.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/manager_app_edititem.php" afterPath="$PROJECT_DIR$/ji_template/manager_app_edititem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/manager_app_editxqxn.php" afterPath="$PROJECT_DIR$/ji_template/manager_app_editxqxn.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/manager_app_header.php" afterPath="$PROJECT_DIR$/ji_template/manager_app_header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/manager_app_showcourse.php" afterPath="$PROJECT_DIR$/ji_template/manager_app_showcourse.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/common_footer.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/common_footer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/common_header.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/common_header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/evaluation.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/evaluation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/manage.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/manage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/setup.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/setup.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/student.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/student.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/report/export.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/report/export.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/report/teacher.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/report/teacher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/feedback/button_event.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/feedback/button_event.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/feedback/check.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/feedback/check.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/feedback/list.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/feedback/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/manage.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/manage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/student.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/student.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/teacher.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/teacher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/search/course.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/search/course.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/search/index.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/search/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/search/ta.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/search/ta.php" />
     </list>
     <ignored path="TA.iws" />
@@ -63,7 +153,7 @@
     <favorites_list name="TA" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
@@ -72,7 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Home.php" />
         <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Feedback.php" />
         <option value="$PROJECT_DIR$/ji_application/third_party/PHPStorm_CI_CC.php" />
         <option value="$PROJECT_DIR$/ji_application/models/Mta_feedback.php" />
@@ -81,10 +170,17 @@
         <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Evaluation.php" />
         <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Report.php" />
         <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Evaluation.php" />
-        <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Feedback.php" />
-        <option value="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/student.php" />
         <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Home.php" />
         <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Home.php" />
+        <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Home.php" />
+        <option value="$PROJECT_DIR$/ji_application/language/english/ta_main_lang.php" />
+        <option value="$PROJECT_DIR$/ji_application/language/zh-cn/ta_main_lang.php" />
+        <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Export.php" />
+        <option value="$PROJECT_DIR$/ji_application/models/Mta_site.php" />
+        <option value="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/manage.php" />
+        <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Feedback.php" />
+        <option value="$PROJECT_DIR$/ji_template/ta/evaluation/feedback/check.php" />
+        <option value="$PROJECT_DIR$/ji_template/ta/evaluation/homepage/student.php" />
       </list>
     </option>
   </component>
@@ -197,7 +293,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -216,270 +312,14 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="third_party" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libraries" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evaluation" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evaluation" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="teacher" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evaluation" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ji_application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ta" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evaluation" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manage" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/ji_application/third_party" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -569,37 +409,48 @@
       <workItem from="1462981565767" duration="47000" />
       <workItem from="1462981643293" duration="92000" />
       <workItem from="1462981747947" duration="615000" />
-      <workItem from="1462982371180" duration="1443000" />
+      <workItem from="1462982371180" duration="2527000" />
+      <workItem from="1462985387153" duration="4644000" />
+      <workItem from="1463072141642" duration="293000" />
     </task>
+    <task id="LOCAL-00001" summary="student/teacher fix">
+      <created>1462984311830</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1462984311830</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10078000" />
+    <option name="totallyTimeSpent" value="16099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19488817" sideWeight="0.4955654" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18330671" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19473264" sideWeight="0.4955654" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18316041" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298722" sideWeight="0.5044346" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19608626" sideWeight="0.48669624" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19408946" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16520351" sideWeight="0.48669624" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19393456" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="92" y="92" width="2376" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48060346" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -613,6 +464,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="student/teacher fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="student/teacher fix" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="1" />
@@ -624,7 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3380">
           <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -639,67 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7202">
           <caret line="277" column="16" selection-start-line="277" selection-start-column="16" selection-end-line="277" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_system/database/drivers/mysql/mysql_driver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/third_party/PHPStorm_CI_CC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3380">
-          <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/models/Mta_feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7202">
-          <caret line="277" column="16" selection-start-line="277" selection-start-column="16" selection-end-line="277" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_system/database/drivers/mysql/mysql_driver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/third_party/PHPStorm_CI_CC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3380">
-          <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/models/Mta_feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7202">
-          <caret line="277" column="16" selection-start-line="277" selection-start-column="16" selection-end-line="277" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,7 +507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,7 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,13 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ji_application/libraries/pop3.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -847,18 +629,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="834">
-          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ji_application/third_party/PHPStorm_CI_CC.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
           <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -866,7 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="781">
           <caret line="277" column="16" selection-start-line="277" selection-start-column="16" selection-end-line="277" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -881,7 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -889,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,7 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -905,7 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-312">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -913,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -921,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -929,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -937,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -945,15 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_template/ta/evaluation/homepage/manage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -961,15 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,15 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_template/ta/evaluation/homepage/student.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,7 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,6 +738,120 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/8c64527f/8030bce4-18f7-49ca-8b95-c55151736bb6/prp_ta.ji_ta_config">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Feedback.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="121" column="31" selection-start-line="121" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_template/ta/evaluation/feedback/button_event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="31" column="16" selection-start-line="6" selection-start-column="12" selection-end-line="31" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_application/language/zh-cn/ta_main_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_application/language/english/ta_main_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_application/models/Mta_site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1378">
+          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Export.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/manage/Home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_template/ta/evaluation/feedback/check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding>
+            <marker date="1463063465000" expanded="true" signature="825:868" placeholder="..." />
+            <marker date="1463063465000" expanded="true" signature="924:991" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_template/ta/evaluation/homepage/student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_template/ta/evaluation/homepage/manage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="29" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/8c64527f/8030bce4-18f7-49ca-8b95-c55151736bb6/prp_ta.ji_course_select">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="USER_ID='515370910219'" />
+          </filtering>
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Feedback.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="142" column="23" selection-start-line="142" selection-start-column="23" selection-end-line="142" selection-end-column="23" />
           <folding />
         </state>
       </provider>

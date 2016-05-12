@@ -1,0 +1,315 @@
+/*bootstrap common part*/
+
+html {
+	font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+}
+
+.nav-justified {
+	width: 80%;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    color: #eee;
+    background-color: #002b60;
+    border-bottom: 2.5px solid #fdca00;
+}
+.nav-pills > li.non-active >a{
+	color: #002b60;
+	background-color: #E6E5E5;
+}
+.nav-pills > li.non-active > a:hover{
+	border-bottom: 2.5px solid #fdca00;
+
+}
+.nav > li > a {
+   font-size: 1.2em;
+}
+
+
+/*Main common part*/
+
+body{
+    background-color: #eee;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+div.wholeBody{
+    width: 1349px;
+    margin: auto;
+    padding: 0;
+}
+h1{
+    font-size: 1.75em;
+}
+h2>a.navig{
+    color:#333;
+    text-decoration: none;
+}
+h2>a.navig:hover{
+    opacity: 0.75;
+}
+h4.schema{
+    display: inline;
+    margin-right: 5%;
+    font-weight: 500;
+}
+h4.schema._1{
+    margin-right:0;
+}
+h4.col-sm-2._1, h4.col-sm-1._1{
+    display: inline;
+}
+h5.submit_time{
+    display: inline-block;
+    margin-bottom: 0;
+}
+li.list-group-item._1{
+    color:#002b60;
+}
+._top{
+    margin: 0 10%;
+    overflow: auto;
+}
+._top h1{
+    color: #002b60;
+    padding: 22px 0;
+    float: right;
+}
+._top img{
+    vertical-align: bottom;
+}
+._top img, h1{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/*Logo of returning to the top*/
+div#To_Top{
+    position: fixed;
+    bottom: 0;
+    right: 5%;
+    font-size: 300%;
+    color: #0055BD;
+    padding: 0;
+    background-color: transparent;
+    display: none;
+}
+div#To_Top > span{
+    padding: 0;
+    margin:0;
+}
+div#To_Top > span:hover{
+    color: #002b60;
+    cursor: pointer;
+}
+
+
+
+/*The navigator is here*/
+
+ul.nav.nav-pills.nav.nav-justified{
+    margin: 0 10% 0 10%;
+}
+
+
+/*The banner part is here*/
+
+div.banner{
+    background-color: inherit;
+    width: 100%;
+    margin-bottom: 0.25%;
+    overflow: hidden;
+}
+div.banner a.hyperbutton{
+    margin: 0.75% 0;
+    padding: 0.15% 1%;
+    color: #002b60;
+    text-align: right;
+    float: right;
+    border: 1px solid #002b60;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+}
+div.banner span{
+    display: inline-block;
+    text-decoration: none;
+    float: right;
+    padding: 0.2% 1%;
+    margin: 0.75% 0;
+}
+div.banner a.hyperbutton:hover{
+    cursor: pointer;
+    color: #0055BD;
+    border: 1px solid #0055BD;
+}
+div.banner > div{
+    margin-right: 10%;
+}
+
+/*Language change*/
+div.lang_change{
+    margin-left: 10%;
+}
+h5.lang{
+    display: inline;
+    float: left;
+    padding-top: 0.4%;
+}
+a.lang_info{
+    text-decoration: none;
+    color: dimgrey;
+}
+
+
+/*The end bar is here*/
+
+div.endbar{
+    margin: 5% 10% 0 10%;
+    background-color: #002b60;
+}
+div.endbar div._content{
+    padding: 18px 22px 5px 22px;
+}
+div.endbar div._content p{
+    font-size: 1em;
+    color: #E6E5E5;
+}
+div.endbar div._content p:last-child{
+    text-align: right;
+    font-size: 1em;
+    color: #E6E5E5;
+}
+div.endbar div._content span#serverTime{
+    font-weight: bold;
+}
+div.endbar a#dept:link, a#dept:visited{
+    text-decoration: none;
+    font-size: 1em;
+    color: #E6E5E5;
+}
+div.endbar a#dept:hover{
+    color: #fdca00;
+}
+
+
+/*The Content Body is here*/
+
+div.body{
+    height: auto;
+    min-height: 700px;
+    /*max-height:1400px;*/
+    clear:right;
+}
+
+
+/*The main content part is here*/
+
+div.maincontent{
+    border-radius: 5px;
+    margin-right: 10%;
+    margin-left: 10%;
+    background-color: #E6E5E5;
+    box-shadow: 0 0 5px #002b60;
+    width: 80%;
+    height: auto;
+    min-height: inherit;
+    max-height: inherit;
+    overflow: auto;
+}
+div.announcement {
+    margin: 3% 5% 5% 5%;
+}
+div.announcement h2{
+    padding-bottom: 15px;
+    border-bottom: 2px solid #0055BD;
+    font-weight: 500;
+    font-size: 1.35em;
+}
+div.announcement > ul li{
+    list-style-type: circle;
+}
+div.announcement > ul{
+    margin-top: 2%;
+}
+div.maincontent p{
+    font-size: 1em;
+}
+
+
+/*feedback part*/
+
+div.announcement h2#semester{
+    border-bottom: none;
+}
+div.announcement h2#semester > span{
+    padding-bottom: 0.4em;
+    font-size: 1em;
+    font-weight: normal;
+    background-color: #eee;
+    color: #002b60;
+    box-shadow: 0 0 2px #002b60;
+}
+div.announcement h2#page_num{
+    border-bottom: none;
+}
+div.row.feedback_schema{
+    border-bottom: 2px solid #0055BD;
+    border-top: 2px solid #0055BD;
+    margin: 0;
+}
+div.row.feedback_schema > h4{
+    font-size: 1.1em;
+}
+div.row.feedback_content{
+    margin: 0;
+}
+div.row.feedback_content h4{
+    font-size: 0.9em;
+}
+
+
+/*attention part*/
+
+div.attention{
+    margin: 3% 5% 3% 5%;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #0055BD;
+    background-color: #eee;
+    padding-bottom: 1%;
+}
+div.attention > h2{
+    padding: 1% 0 0 0;
+    border-bottom: none;
+    text-align: center;
+}
+div.attention.teacher_setup{
+    margin: 0 0 2% 0;
+}
+
+
+
+/*Return button*/
+
+div#return{
+    display: inline-block;
+    float: right;
+    font-size: 95%;
+}
+div#return a:hover{
+    cursor: pointer;
+}
+
+
+/*Null part*/
+div.list_container{
+    min-height: 500px;
+    height: auto;
+    border-bottom: 2px solid #0055BD;
+}

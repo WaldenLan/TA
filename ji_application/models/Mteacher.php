@@ -19,5 +19,21 @@ class Mteacher extends CI_Model {
 
 		return $query->result('Course_obj');
 	}
-	
+
+	/**
+	 * @param $user_id
+	 * @param $BSID
+	 * @return bool
+	 */
+	public function is_now_course($user_id, $BSID)
+	{
+		foreach ($this->get_now_course($user_id) as $course)
+		{
+			if ($course->BSID == $BSID)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

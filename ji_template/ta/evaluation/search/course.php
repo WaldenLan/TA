@@ -5,7 +5,13 @@
 <div class='body'>
 	<div class="maincontent">
 		<div class="announcement">
-			<h2 id="title">Course Description > <?php echo $course->KCDM; ?></h2>
+			<h2 id="title">
+				Course Description >
+				<?php echo $course->KCDM; ?>
+				<div id="return">
+					<a><span class="glyphicon glyphicon-repeat" aria-hidden="true" title="Return"></span></a>
+				</div>
+			</h2>
 
 			<!--			Course information-->
 			<h4 class="title_course">
@@ -55,6 +61,7 @@
 				<?php endforeach; ?>
 			</div>
 
+            <br>
 			<!--			TA list part-->
 			<h4 class="title_course">
 				<?php echo lang('ta_main_ta_list'); ?>
@@ -66,6 +73,7 @@
 				<?php endforeach; ?>
 			</div>
 
+            <br>
 			<!--			Student list taking this course-->
 			<h4 class="title_course">
 				<?php echo lang('ta_main_student_list'); ?>
@@ -73,7 +81,7 @@
 			<div id="student-list" class="student_list">
 				<?php foreach ($course->student_list as $student): ?>
 					<?php /** @var $student Student_obj */ ?>
-					<?php echo $student->student_name; ?>
+					<?php echo '<h4 class="col-sm-2">'.$student->student_name.'</h4>'; ?>
 				<?php endforeach; ?>
 			</div>
 

@@ -37,6 +37,9 @@
                 $('body,html').animate({scrollTop: 0}, 200);
             });
         });
+		$("#return").click(function () {
+			window.history.back(-1);
+		})
     });
 </script>
 <!--Button for turning to the top-->
@@ -47,7 +50,7 @@
 
 <div class="wholeBody">
 	<!-- Top Banner -->
-	<div class='_top' id="Top"><a href="http://umji.sjtu.edu.cn/cn/"><img
+	<div class='_top' id="Top"><a href="http://umji.sjtu.edu.cn/cn/" target="_blank"><img
 					src="/ji_style/ta/images/JI logo-01.png" height="90"
 					alt="Logo of Joint Institute" title="上海交大密西根学院"></a>
 		<h1 title="Teaching Assistant Evaluation System"><?php echo lang('ta_main_topic');?></h1>
