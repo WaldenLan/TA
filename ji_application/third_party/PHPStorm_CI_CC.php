@@ -85,6 +85,7 @@
  * @property Mmanage             $Mmanage
  * @property Mstudent            $Mstudent
  * @property Mta                 $Mta
+ * @property Mta_evaluation      $Mta_evaluation
  * @property Mta_feedback        $Mta_feedback
  * @property Mta_mail            $Mta_mail
  * @property Mta_search          $Mta_search
@@ -161,6 +162,7 @@ class CI_Controller
  * @property Mmanage             $Mmanage
  * @property Mstudent            $Mstudent
  * @property Mta                 $Mta
+ * @property Mta_evaluation      $Mta_evaluation
  * @property Mta_feedback        $Mta_feedback
  * @property Mta_mail            $Mta_mail
  * @property Mta_search          $Mta_search

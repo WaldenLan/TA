@@ -31,31 +31,35 @@
 						   href="/ta/evaluation/manage/feedback/view/4"><?php echo lang('ta_feedback_list_closed'); ?></a>
 					<?php endif; ?>
 				</h2>
-				<h2 id="semester">Current Semester: <?php echo $this->Mta_site->print_semester(); ?></h2>
-				<div class="row">
-					<h4 class="col-sm-2"><?php echo lang('ta_main_title'); ?></h4>
+				<h2 id="semester">
+					<span class="label label-info">
+						Current Semester: <?php echo $this->Mta_site->print_semester(); ?>
+					</span>
+				</h2>
+				<div class="row feedback_schema">
+					<h4 class="col-sm-3"><?php echo lang('ta_main_title'); ?></h4>
 					<h4 class="col-sm-2"><?php echo lang('ta_main_course_code'); ?></h4>
 					<h4 class="col-sm-2"><?php echo lang('ta_main_ta_name'); ?></h4>
 					<h4 class="col-sm-3"><?php echo lang('ta_main_time_submit'); ?></h4>
-					<h4 class="col-sm-3"><?php echo lang('ta_main_progress'); ?></h4>
+					<h4 class="col-sm-2"><?php echo lang('ta_main_progress'); ?></h4>
 				</div>
 
-				<?php foreach ($list as $feedback): ?>
+                <div class="row feedback_content list_container">
+                <?php foreach ($list as $feedback): ?>
 					<?php /** @var $feedback Feedback_obj */ ?>
-					<div class="row">
-						<a class="col-sm-2"
+						<a class="col-sm-3"
 						   href="/ta/evaluation/<?php echo $type; ?>/feedback/check/<?php echo
 								   $feedback->id . '?page=' .
 								   $page_id; ?>">
-							<h5><?php echo $feedback->title; ?></h5></a>
-						<h5 class="col-sm-2"><?php echo $feedback->course->KCDM; ?></h5>
-						<h5 class="col-sm-2"><?php echo $feedback->ta->name_en; ?></h5>
-						<h5 class="col-sm-3"><?php echo $feedback->CREATE_TIMESTAMP; ?></h5>
-						<h5 class="col-sm-3"><?php echo $feedback->get_state_str(); ?></h5>
-					</div>
+							<h4><?php echo $feedback->title; ?></h4></a>
+						<h4 class="col-sm-2"><?php echo $feedback->course->KCDM; ?></h4>
+						<h4 class="col-sm-2"><?php echo $feedback->ta->name_en; ?></h4>
+						<h4 class="col-sm-3"><?php echo $feedback->CREATE_TIMESTAMP; ?></h4>
+						<h4 class="col-sm-2"><?php echo $feedback->get_state_str(); ?></h4>
 				<?php endforeach; ?>
-				<?php echo '<center><h2>' . $this->pagination->create_links() . '</h2></center>'; ?>
-
+                <?php echo '<center><h2 id="page_num">' . $this->pagination->create_links() . '</h2></center>'; ?>
+                </div>
+                <br>
 				<?php if ($type == 'student'): ?>
 					<a class="btn btn-primary" href="/ta/evaluation/student/feedback/add">Add new feedback</a>
 				<?php endif ?>

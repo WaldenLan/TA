@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - prp_ta@202.120.46.151" uuid="58d86763-b4df-489e-a9a5-d769345c4fe0">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="MySQL - sync@202.120.46.228" uuid="0348f104-6f79-4522-a7ed-b38d4f3ba921">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

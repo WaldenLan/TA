@@ -14,9 +14,12 @@ class My_obj
 	 */
 	public function __construct($data = array(), $main = array())
 	{
-		foreach ($data as $key => $value)
+		if (isset($data))
 		{
-			$this->$key = $value;
+			foreach ($data as $key => $value)
+			{
+				$this->$key = $value;
+			}
 		}
 		if (!is_array($main))
 		{
@@ -48,5 +51,14 @@ class My_obj
 	{
 		return $this->error_flag;
 	}
-
+	
+	/**
+	 * Magic method __get()
+	 * @param $key
+	 * @return mixed
+	 */
+	public function __get($key)
+	{
+		return isset($this->$key) && !$this->is_error() ? $this->$key : NULL;
+	}
 }

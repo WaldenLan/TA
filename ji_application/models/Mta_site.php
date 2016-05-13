@@ -11,7 +11,7 @@ class Mta_site extends CI_Model
 	function __construct()
 	{
 		parent::__construct();
-		
+
 	}
 
 	/**
@@ -43,8 +43,8 @@ class Mta_site extends CI_Model
 
 	/**
 	 * 更新网站设置
-	 * @param   $data 关联数组
-	 * @return        操作结果
+	 * @param   array $data
+	 * @return  bool
 	 */
 	public function update_site_config($data)
 	{
@@ -56,17 +56,17 @@ class Mta_site extends CI_Model
 		}
 		return $this->db->update_batch('ji_ta_config', $updatedata, 'obj');
 	}
-	
+
 	public function html_purify($string)
 	{
 		return preg_replace("/<([a-zA-Z]+)[^>]*>/", "", $string);
 	}
-	
+
 	public function html_base64($string)
 	{
 		return base64_encode($this->html_purify($string));
 	}
-	
+
 	public function print_semester()
 	{
 		$semester_name = array(
@@ -79,8 +79,12 @@ class Mta_site extends CI_Model
 
 	public function redirect_login($type)
 	{
-		if ($_SESSION['userid'] == '' || !isset($_SESSION['userid']))
+		if (!isset($_SESSION['userid']) || $_SESSION['userid'] == '' )
 		{
+			if ($type == '')
+			{
+				return;
+			}
 			redirect(base_url('login?url=' . base64_encode($_SERVER["REQUEST_URI"])));
 		}
 		if ($type != $_SESSION['usertype'])
@@ -93,6 +97,7 @@ class Mta_site extends CI_Model
 				redirect(base_url('ta/evaluation/' . $_SESSION['usertype']));
 				break;
 			default:
+				unset($_SESSION['userid']);
 				redirect(base_url('ta/evaluation/'));
 				break;
 			}

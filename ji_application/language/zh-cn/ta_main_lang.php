@@ -66,6 +66,8 @@ $lang['ta_feedback_list_check'] = '管理员审核中';
 $lang['ta_feedback_reply_title'] = '{from} 发给 {to}';
 $lang['ta_feedback_communication'] = '交流';
 $lang['ta_feedback_empty'] = '目前还没有交流。';
+$lang['ta_feedback_confirm_close'] = '是否确认关闭投诉?';
 
 $lang['ta_evaluation_time_start'] = '评教开始时间';
 $lang['ta_evaluation_time_end'] = '评教结束时间';
+$lang['ta_evaluation_time_error'] = '结束时间必须在开始时间之后！';

@@ -9,7 +9,7 @@ class Feedback extends TA_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$data['type'] = 'teacher';
+		$this->data['type'] = 'teacher';
 		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mta_feedback');
 		$this->load->library('Feedback_obj');
@@ -104,6 +104,7 @@ class Feedback extends TA_Controller
 		$this->load->library('Course_obj');
 
 		$data['feedback']->set_ta()->set_course()->set_replys(Feedback_obj::STATE_TEACHER);
+
 
 		foreach ($this->Mteacher->get_now_course($_SESSION['userid']) as $course)
 		{

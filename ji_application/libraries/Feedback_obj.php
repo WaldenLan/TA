@@ -19,34 +19,34 @@ class Feedback_obj extends My_obj
 	/** -- The vars in the table `ji_ta_feedback` -- */
 	
 	/** @var int    int(11)     投诉 ID */
-	protected $id;
+	public $id;
 	/** @var int    varchar(50) TA ID */
-	protected $ta_id;
+	public $ta_id;
 	/** @var int    varchar(50) 投诉者 ID */
-	protected $user_id;
+	public $user_id;
 	/** @var int    varchar(50) 课程 ID */
-	protected $BSID;
+	public $BSID;
 	/** @var string text        投诉标题 */
-	protected $title;
+	public $title;
 	/** @var string text        回复列表 */
-	protected $reply_list;
+	public $reply_list;
 	/** @var bool   tinyint(1)  是否匿名 */
-	protected $anonymous;
+	public $anonymous;
 	/** @var int    int(4)      投诉状态 */
-	protected $state;
+	public $state;
 	/** @var string timestamp   创建时间 */
-	protected $CREATE_TIMESTAMP;
+	public $CREATE_TIMESTAMP;
 	/** @var string timestamp   更新时间 */
-	protected $UPDATE_TIMESTAMP;
+	public $UPDATE_TIMESTAMP;
 	
 	/** -- The vars defined for other uses -- */
 
 	/** @var Ta_obj */
-	protected $ta;
+	public $ta;
 	/** @var Course_obj */
-	protected $course;
+	public $course;
 	/** @var array */
-	protected $replys;
+	public $replys;
 	
 	/** -- The constants of $state, processed in binary -- */
 	
@@ -66,28 +66,10 @@ class Feedback_obj extends My_obj
 	public function __construct($data = array())
 	{
 		parent::__construct($data, 'id');
-		if(!$this->is_error())
+		if (!$this->is_error())
 		{
 			$this->title = base64_decode($this->title);
 		}
-	}
-	
-	/**
-	 * @param $key
-	 * @return mixed
-	 */
-	public function __get($key)
-	{
-		return isset($this->$key) && !$this->is_error() ? $this->$key : NULL;
-	}
-	
-	/**
-	 * Return whether the object is error
-	 * @return bool
-	 */
-	public function is_error()
-	{
-		return $this->error_flag;
 	}
 	
 	/**

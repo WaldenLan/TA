@@ -186,7 +186,7 @@ class Mta_feedback extends CI_Model
 		unset($data['content']);
 		$data['reply_list'] = $this->db->insert_id();
 		$data['state'] = Feedback_obj::STATE_OPEN | Feedback_obj::STATE_NOT_MANAGE |
-		                 Feedback_obj::STATE_STUDENT | Feedback_obj::STATE_PROCESSED;
+		                 Feedback_obj::STATE_STUDENT | Feedback_obj::STATE_NOT_PROCESSED;
 		$this->db->insert('ji_ta_feedback', $data);
 		return $this->db->insert_id();
 	}
@@ -254,7 +254,7 @@ class Mta_feedback extends CI_Model
 				                       ($feedback->is_student() ? Feedback_obj::STATE_STUDENT :
 					                       Feedback_obj::STATE_TEACHER);
 				$feedback->set_state(Feedback_obj::STATE_OPEN | Feedback_obj::STATE_MANAGE,
-				                     Feedback_obj::STATE_TEACHER, Feedback_obj::STATE_PROCESSED);
+				                     Feedback_obj::STATE_TEACHER | Feedback_obj::STATE_PROCESSED);
 				break;
 			}
 			

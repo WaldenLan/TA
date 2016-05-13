@@ -3,7 +3,7 @@
 	{
 		$("#reply-button").click(function (e)
 		{
-			var flag = 'true';
+			var flag = $("input[name='request']:checked").val();
 			$.ajax
 			 ({
 				 type: 'POST',

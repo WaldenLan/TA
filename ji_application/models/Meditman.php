@@ -7,17 +7,12 @@
 				->where('obj','ta_recruitment_start')
 				->or_where('obj','ta_recruitment_end')
 				->get();
-//			$res=$this->db->get('ji_ta_config');
 			return $res->result();
 		}
 		
 		public function searchtime($obj){
 			$sql='select * from ji_ta_config where obj = ?';
 			$res=$this->db->query($sql,array($obj));
-//			$res=$this->db->select('data')
-//				->from('ji_ta_config')
-//				->where('obj',$obj)
-//				->get();
 			return $res->result();
 		}
 		
@@ -42,26 +37,44 @@
 		}
 		
 		public function getcourseinfo($xq,$xn){
-			$sql='SELECT * FROM ji_course_info NATURAL JOIN ji_course_open WHERE xq= ? and xn = ? ';
-/*			$res=$this->db->select('*')
-				->from('ji_course_info')
-				->where('xq',$xq)
-				->where('xn',$xn)
-				->get();*/
+			$sql='SELECT * 
+FROM ji_course_info
+RIGHT JOIN ji_course_open ON ji_course_info.BSID = ji_course_open.BSID WHERE xq= ? and xn = ? ';
 			$res=$this->db->query($sql, array($xq,$xn));
 			return $res->result();
 		}
 		
 		public function searchcourseinfo($xq,$xn,$cid){
-			$sql='SELECT * FROM ji_course_info NATURAL JOIN ji_course_open WHERE xq= ? and xn = ? and KCDM = ?';
-/*			$res=$this->db->select('*')
-				->from('ji_course_info')
-				->where('xq',$xq)
-				->where('xn',$xn)
-				->get();*/
-			$res=$this->db->query($sql, array($xq,$xn,$cid));
+			if ($xq == 0){
+				if ($xn == 0){
+					$sql='SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE ji_course_open.KCDM = ?';
+					$res=$this->db->query($sql, array($cid));
+				} else {
+					$sql='SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xn = ? and ji_course_open.KCDM = ?';
+					$res=$this->db->query($sql, array($xn,$cid));
+				}
+			} else {
+				if ($xn == 0){
+					$sql='SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xq = ? and ji_course_open.KCDM = ?';
+					$res=$this->db->query($sql, array($xq,$cid));
+				} else {
+					$sql='SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xq = ? and xn = ? and ji_course_open.KCDM = ?';
+					$res=$this->db->query($sql, array($xq,$xn,$cid));
+				}
+			}
 			return $res->result();
 		}
-		
+
+		public function showstuapp($type,$id){
+			if ($type == 0){
+				$sql='SELECT * FROM ji_ta_appinfo WHERE student_id = ?';
+			} else if ($type == 1){
+				$sql='SELECT * FROM ji_ta_appinfo WHERE name = ?';
+			} else {
+				$sql='SELECT * FROM ji_ta_appinfo WHERE name = ?';
+			}
+			$res=$this->db->query($sql,array($id));
+			return $res->result();
+		}
 	}
 ?>

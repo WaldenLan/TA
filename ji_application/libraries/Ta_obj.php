@@ -7,7 +7,7 @@ class Ta_obj extends My_obj
 	public $name_ch;            // varchar(20) 	中文名
 	public $name_en;            // varchar(20)	英文名
 	public $gender;                // char(1) 		性别
-	public $faculty;            // varchar(50) 	学院
+	public $department;            // varchar(50) 	学院
 	public $email;                // varchar(50)  管理员回复 ID
 	public $phone;                // varchar(20)  教师回复 ID
 	public $qq;                    // varchar(15)	投诉状态

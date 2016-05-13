@@ -9,7 +9,10 @@ class Mteacher extends CI_Model {
 	    $this->load->library('Teacher_obj');
     }
 	
-	
+	/**
+	 * @param $id
+	 * @return array
+	 */
 	public function get_now_course($id)
 	{
 		$this->load->library('Course_obj');
@@ -17,7 +20,28 @@ class Mteacher extends CI_Model {
 		
 		$query = $this->db->select('*')->from('ji_course_open')->where(array('USER_ID'=>$id, 'XQ'=>$site_config['ji_academic_term'], 'XN'=>$site_config['ji_academic_year'], 'SCBJ'=>'N'))->get();
 
-		return $query->result('Course_obj');
+		$course_list = array();
+		foreach ($query->result('Course_obj') as $row)
+		{
+			$course_list[] = new Course_obj($row);
+		}
+		return $course_list;
 	}
-	
+
+	/**
+	 * @param $user_id
+	 * @param $BSID
+	 * @return bool
+	 */
+	public function is_now_course($user_id, $BSID)
+	{
+		foreach ($this->get_now_course($user_id) as $course)
+		{
+			if ($course->BSID == $BSID)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

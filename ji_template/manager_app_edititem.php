@@ -14,15 +14,15 @@
 	<table border="1">
 		<tr>
 		<td>修改学期和学年</td>
-		<td><input type="button" name="xqxn" value="修改" onclick="location='/Edit/editxqxn'"/></td>
+		<td><input type="button" name="xqxn" value="修改" onclick="location='/ta/application/Edit/editxqxn'"/></td>
 		</tr>
 		<tr>
 		<td>修改TA申请开放结束时间</td>
-		<td><input type="button" name="xqxn" value="修改" onclick="location='/Edit/edittime'"/></td>
+		<td><input type="button" name="xqxn" value="修改" onclick="location='/ta/application/Edit/edittime'"/></td>
 		</tr>
 		<tr>
 		<td>修改各科TA信息</td>
-		<td><input type="button" name="xqxn" value="修改" onclick="location='/Edit/editallcourse'"/></td>
+		<td><input type="button" name="xqxn" value="修改" onclick="location='/ta/application/Edit/editallcourse'"/></td>
 		</tr>
 	</table>
 </body>
