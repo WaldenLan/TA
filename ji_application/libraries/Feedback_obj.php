@@ -28,8 +28,6 @@ class Feedback_obj extends My_obj
 	public $BSID;
 	/** @var string text        投诉标题 */
 	public $title;
-	/** @var string text        回复列表 */
-	public $reply_list;
 	/** @var bool   tinyint(1)  是否匿名 */
 	public $anonymous;
 	/** @var int    int(4)      投诉状态 */
@@ -181,19 +179,10 @@ class Feedback_obj extends My_obj
 	{
 		$this->CI->load->model('Mta_feedback');
 		$this->CI->load->library('Feedback_reply_obj');
-		$this->replys = array();
-		foreach (explode(',', $this->reply_list) as $reply_id)
-		{
-			$this->replys[] = $this->CI->Mta_feedback->get_feedback_reply_by_id($reply_id);
-		}
+		$this->replys = $this->CI->Mta_feedback->get_feedback_replys($this->id);
 		foreach ($this->replys as $key => $reply)
 		{
 			/** @var Feedback_reply_obj $reply */
-			if ($reply->is_error())
-			{
-				unset($this->replys[$key]);
-				continue;
-			}
 			switch ($state)
 			{
 			case $this::STATE_STUDENT:
@@ -227,21 +216,5 @@ class Feedback_obj extends My_obj
 		$this->state |= $alter;
 		return $this;
 	}
-	
-	/**
-	 * @param int $id
-	 * @return $this
-	 */
-	public function add_reply($id)
-	{
-		if (!isset($this->reply_list) || $this->reply_list == NULL || $this->reply_list == '')
-		{
-			$this->reply_list = (string)$id;
-		}
-		else
-		{
-			$this->reply_list .= ',' . (string)$id;
-		}
-		return $this;
-	}
+
 }

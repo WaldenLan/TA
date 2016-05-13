@@ -14,6 +14,8 @@ class Feedback_reply_obj extends My_obj
 
 	/** @var int    int(11)     回复 ID */
 	public $id;
+	/** @var int    int(11)     投诉 ID */
+	public $feedback_id;
 	/** @var int    varchar(50) 回复者 ID */
 	public $user_id;
 	/** @var string text        回复内容 */
@@ -22,8 +24,6 @@ class Feedback_reply_obj extends My_obj
 	public $state;
 	/** @var string timestamp   创建时间 */
 	public $CREATE_TIMESTAMP;
-	/** @var string timestamp   更新时间 */
-	public $UPDATE_TIMESTAMP;
 
 	/**
 	 * Feedback_reply_obj constructor.

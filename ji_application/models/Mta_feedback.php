@@ -23,7 +23,52 @@ class Mta_feedback extends CI_Model
 		$this->load->library('Feedback_obj');
 		$this->load->library('Feedback_reply_obj');
 	}
-	
+
+	/**
+	 * 使用 ID 获取投诉
+	 * @param   int $id 投诉 ID
+	 * @return  Feedback_obj
+	 * @throws  Exception
+	 */
+	public function get_feedback_by_id($id)
+	{
+		$query = $this->db->get_where('ji_ta_feedback', array('id' => $id));
+		$feedback = new Feedback_obj($query->row(0));
+		return $feedback;
+	}
+
+	/**
+	 * 使用 ID 获取投诉回复
+	 * @param   int $id 回复 ID
+	 * @return  Feedback_reply_obj
+	 */
+	public function get_feedback_reply_by_id($id)
+	{
+		$query = $this->db->get_where('ji_ta_feedback_reply', array('id' => $id));
+		$reply = new Feedback_reply_obj($query->row(0));
+		return $reply;
+	}
+
+	/**
+	 * @param int $id
+	 * @return array
+	 */
+	public function get_feedback_replys($id)
+	{
+		$query = $this->db->get_where('ji_ta_feedback_reply', array('feedback_id' => $id));
+		$replys = array();
+		foreach ($query->result() as $row)
+		{
+			$reply = new Feedback_reply_obj($row);
+			if (!$reply->is_error())
+			{
+				$replys[] = $reply;
+			}
+		}
+		return $replys;
+	}
+
+
 	/**
 	 * 检查内容是否符合字数规定
 	 * @param $content
@@ -39,7 +84,8 @@ class Mta_feedback extends CI_Model
 	{
 		$feedback = new Feedback_obj();
 		$from = $to = '';
-		$feedback->is_manage($state) ? $from = lang('ta_main_manage') : $to = lang('ta_main_manage');
+		$feedback->is_manage($state) ? $from = lang('ta_main_manage') :
+			$to = lang('ta_main_manage');
 		if ($feedback->is_student($state))
 		{
 			$from == '' ? $from = lang('ta_main_student') : $to = lang('ta_main_student');
@@ -82,31 +128,6 @@ class Mta_feedback extends CI_Model
 			break;
 		}
 		return NULL;
-	}
-	
-	/**
-	 * 使用 ID 获取投诉
-	 * @param   int $id 投诉 ID
-	 * @return  Feedback_obj
-	 * @throws  Exception
-	 */
-	public function get_feedback_by_id($id)
-	{
-		$query = $this->db->get_where('ji_ta_feedback', array('id' => $id));
-		$feedback = new Feedback_obj($query->row(0));
-		return $feedback;
-	}
-	
-	/**
-	 * 使用 ID 获取投诉回复
-	 * @param   int $id 回复 ID
-	 * @return  Feedback_reply_obj
-	 */
-	public function get_feedback_reply_by_id($id)
-	{
-		$query = $this->db->get_where('ji_ta_feedback_reply', array('id' => $id));
-		$reply = new Feedback_reply_obj($query->row(0));
-		return $reply;
 	}
 	
 	/**
@@ -182,13 +203,13 @@ class Mta_feedback extends CI_Model
 			'content' => $data['content'],
 			'state'   => Feedback_obj::STATE_CLOSED | Feedback_obj::STATE_NOT_MANAGE |
 			             Feedback_obj::STATE_STUDENT);
-		$this->db->insert('ji_ta_feedback_reply', $reply_data);
 		unset($data['content']);
-		$data['reply_list'] = $this->db->insert_id();
 		$data['state'] = Feedback_obj::STATE_OPEN | Feedback_obj::STATE_NOT_MANAGE |
 		                 Feedback_obj::STATE_STUDENT | Feedback_obj::STATE_NOT_PROCESSED;
 		$this->db->insert('ji_ta_feedback', $data);
-		return $this->db->insert_id();
+		$reply_data['feedback_id'] = $this->db->insert_id();
+		$this->db->insert('ji_ta_feedback_reply', $reply_data);
+		return $reply_data['feedback_id'];
 	}
 	
 	/**
@@ -228,8 +249,9 @@ class Mta_feedback extends CI_Model
 			return false;
 		}
 		$reply_data = array(
-			'user_id' => $user_id,
-			'content' => $this->Mta_site->html_base64($content));
+			'feedback_id' => $id,
+			'user_id'     => $user_id,
+			'content'     => $this->Mta_site->html_base64($content));
 		
 		switch ($identity)
 		{
@@ -305,11 +327,7 @@ class Mta_feedback extends CI_Model
 		
 		/** finalize */
 		$this->db->insert('ji_ta_feedback_reply', $reply_data);
-		$feedback->add_reply($this->db->insert_id());
-		$data = array(
-			'reply_list' => $feedback->reply_list,
-			'state'      => $feedback->state);
-		$this->db->update('ji_ta_feedback', $data, array('id' => $id));
+		$this->db->update('ji_ta_feedback', array('state' => $feedback->state), array('id' => $id));
 	}
 	
 }
