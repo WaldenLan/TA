@@ -1,85 +1,121 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Evaluation extends TA_Controller
 {
-
+	/**
+	 * Evaluation constructor.
+	 */
 	public function __construct()
 	{
 		parent::__construct();
 		$this->data['type'] = 'teacher';
+		$this->data['page_name'] = 'TA Evaluation System: Evaluation Setup';
+		$this->data['banner_id'] = 2;
 		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mta_evaluation');
 		$this->load->model('Mteacher');
-		$this->load->library('Evaluation_obj');
+		$this->load->library('Evaluation_question_obj');
+		$this->load->library('Evaluation_answer_obj');
 	}
-	
-	public function index()
+
+
+	/**
+	 * @param int $BSID
+	 * Evaluation homepage
+	 */
+	public function index($BSID = 0)
+	{
+		if ($BSID == 0)
+		{
+			redirect(base_url('ta/evaluation/teacher/evaluation/view'));
+		}
+		else
+		{
+			redirect(base_url('ta/evaluation/teacher/evaluation/check/' . $BSID));
+		}
+	}
+
+	/**
+	 * @param int $BSID
+	 * @return Course_obj
+	 */
+	private function validate_course($BSID)
+	{
+		$this->load->model('Mcourse');
+		if (!$this->Mteacher->is_now_course($_SESSION['userid'], $BSID))
+		{
+			$this->index();
+		}
+		$course = $this->Mcourse->get_course_by_id($BSID);
+		if ($course->is_error())
+		{
+			$this->index();
+		}
+		return $course;
+	}
+
+	public function view()
 	{
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Evaluation Setup';
-		$data['banner_id'] = 2;
-
 		$this->load->library('Course_obj');
 
 		$data['course_list'] = $this->Mteacher->get_now_course($_SESSION['userid']);
 		foreach ($data['course_list'] as $course)
 		{
 			/** @var $course Course_obj */
-			$course->set_ta();
+			$course->set_ta()->set_question();
 		}
 
-		$this->load->view('ta/evaluation/evaluation/setup', $data);
+		$this->load->view('ta/evaluation/evaluation/list', $data);
 	}
 
-	public function add()
+	public function check($BSID)
 	{
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Evaluation Setup';
-		$data['banner_id'] = 2;
+		$data['course'] = $this->validate_course($BSID);
 
-		$this->load->model('Mcourse');
-
-		$BSID = $this->input->get('BSID');
-		if (!$this->Mteacher->is_now_course($_SESSION['userid'], $BSID))
-		{
-			redirect(base_url('ta/evaluation/teacher/evaluation'));
-		}
-		$data['course'] = $this->Mcourse->get_course_by_id($BSID);
-		if ($data['course']->is_error())
-		{
-			redirect(base_url('ta/evaluation/teacher/evaluation'));
-		}
-		$data['course']->set_ta();
-
-		$this->load->view('ta/evaluation/evaluation/setup', $data);
+		$data['course']->set_ta()->set_question();
+		$this->load->view('ta/evaluation/evaluation/check', $data);
 	}
 
-	public function evaluate()
+	/**
+	 * Add a question
+	 * @param $BSID
+	 */
+	public function add($BSID)
 	{
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Evaluation Setup';
-		$data['banner_id'] = 2;
+		$data['course'] = $this->validate_course($BSID);
 
-		$this->load->model('Mcourse');
+		$data['course']->set_ta()->set_question();
 
-		$BSID = $this->input->get('BSID');
-		if (!$this->Mteacher->is_now_course($_SESSION['userid'], $BSID))
+		if (count($data['course']->question_list) >= 2)
 		{
-			redirect(base_url('ta/evaluation/teacher/evaluation'));
+			$this->index($BSID);
 		}
-		$data['course'] = $this->Mcourse->get_course_by_id($BSID);
-		if ($data['course']->is_error())
-		{
-			redirect(base_url('ta/evaluation/teacher/evaluation'));
-		}
+
+		$this->load->view('ta/evaluation/evaluation/add_question', $data);
+	}
+
+	/**
+	 * Evaluate TA(s)
+	 * @param $BSID
+	 */
+	public function evaluate($BSID)
+	{
+		$data = $this->data;
+		$data['course'] = $this->validate_course($BSID);
+
 		$data['course']->set_ta();
-
-
 		$this->load->view('ta/evaluation/evaluation/setup', $data);
 	}
 
-	public function receive()
+	/**
+	 * Add a question through ajax
+	 *
+	 * @echo string result
+	 */
+	public function question()
 	{
 		$content = $this->input->get('content');
 		$type = $this->input->get('type');
@@ -88,13 +124,19 @@ class Evaluation extends TA_Controller
 			echo 'error question type';
 			exit();
 		}
+		if (!$this->Mta_evaluation->examine_content($content))
+		{
+			echo "the content is too short or too long";
+			exit();
+		}
 		$BSID = $this->input->get('BSID');
 		if (!$this->Mteacher->is_now_course($_SESSION['userid'], $BSID))
 		{
 			echo 'error';
 			exit();
 		}
-		$question_list = $this->Mta_evaluation->get_evaluation_questions($BSID);
+		$this->load->model('Mcourse');
+		$question_list = $this->Mcourse->get_course_question($BSID);
 		if (count($question_list) >= 2)
 		{
 			echo 'You have added two question!';

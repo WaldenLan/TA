@@ -24,27 +24,12 @@
 
 <body>
 <script>
-    $(document).ready(function () {
-        $(function() {
-            $(window).scroll(function() {
-                if ($(window).scrollTop() > 100) {
-                    $("#To_Top").fadeIn(300);
-                } else {
-                    $("#To_Top").fadeOut(300);
-                }
-            });
-            $("#To_Top").click(function() {
-                $('body,html').animate({scrollTop: 0}, 200);
-            });
-        });
-		$("#return").click(function () {
-			window.history.back(-1);
-		})
-    });
+
 </script>
 <!--Button for turning to the top-->
 <div id="To_Top">
-    <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true" title="Turning to the top"></span>
+	<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"
+	      title="Turning to the top"></span>
 </div>
 <!--End Button-->
 
@@ -53,7 +38,7 @@
 	<div class='_top' id="Top"><a href="http://umji.sjtu.edu.cn/cn/" target="_blank"><img
 					src="/ji_style/ta/images/JI logo-01.png" height="90"
 					alt="Logo of Joint Institute" title="上海交大密西根学院"></a>
-		<h1 title="Teaching Assistant Evaluation System"><?php echo lang('ta_main_topic');?></h1>
+		<h1 title="Teaching Assistant Evaluation System"><?php echo lang('ta_main_topic'); ?></h1>
 	</div>
 
 	<!-- Nav Bar -->
@@ -61,64 +46,69 @@
 	<ul class="nav nav-pills nav-justified">
 		<?php if ($type == 'student'): ?>
 			<li class="<?php echo $banner_id != 1 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/student"><?php echo lang('ta_main_homepage');?></a>
+				<a href="/ta/evaluation/student"><?php echo lang('ta_main_homepage'); ?></a>
 			</li>
 			<li class="<?php echo $banner_id != 2 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/student/evaluation"><?php echo lang('ta_main_evaluation');?></a>
+				<a href="/ta/evaluation/student/evaluation"><?php echo lang('ta_main_evaluation'); ?></a>
 			</li>
 			<li class="<?php echo $banner_id != 3 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/student/feedback/view"><?php echo lang('ta_main_feedback_apply');?></a>
+				<a href="/ta/evaluation/student/feedback/view"><?php echo lang('ta_main_feedback_apply'); ?></a>
 			</li>
 		<?php elseif ($type == 'teacher'): ?>
 			<li class="<?php echo $banner_id != 1 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/teacher"><?php echo lang('ta_main_homepage');?></a>
+				<a href="/ta/evaluation/teacher"><?php echo lang('ta_main_homepage'); ?></a>
 			</li>
 			<li class="<?php echo $banner_id != 2 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/teacher/evaluation"><?php echo lang('ta_main_evaluation_setup');?></a>
+				<a href="/ta/evaluation/teacher/evaluation"><?php echo lang('ta_main_evaluation_setup'); ?></a>
 			</li>
 			<li class="<?php echo $banner_id != 3 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/teacher/feedback/view"><?php echo lang('ta_main_feedback_process');?></a>
+				<a href="/ta/evaluation/teacher/feedback/view"><?php echo lang('ta_main_feedback_process'); ?></a>
 			</li>
 			<li class="<?php echo $banner_id != 4 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/teacher/report"><?php echo lang('ta_main_report');?></a>
+				<a href="/ta/evaluation/teacher/report"><?php echo lang('ta_main_report'); ?></a>
 			</li>
 		<?php elseif ($type == 'manage'): ?>
 			<li class="<?php echo $banner_id != 1 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage"><?php echo lang('ta_main_homepage');?></a>
+				<a href="/ta/evaluation/manage"><?php echo lang('ta_main_homepage'); ?></a>
 			</li>
 			<li class="<?php echo $banner_id != 2 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage/evaluation"><?php echo lang('ta_main_evaluation_setup');?></a>
+				<a href="/ta/evaluation/manage/evaluation"><?php echo lang('ta_main_evaluation_setup'); ?></a>
 			</li>
 			<li class="<?php echo $banner_id != 3 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage/search"><?php echo lang('ta_main_search');?></a>
+				<a href="/ta/evaluation/manage/search"><?php echo lang('ta_main_search'); ?></a>
 			</li>
 			<li class="<?php echo $banner_id != 4 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage/feedback/view"><?php echo lang('ta_main_feedback_process');?></a>
+				<a href="/ta/evaluation/manage/feedback/view"><?php echo lang('ta_main_feedback_process'); ?></a>
 			</li>
 			<li class="<?php echo $banner_id != 5 ? 'non-' : ''; ?>active">
-				<a href="/ta/evaluation/manage/export"><?php echo lang('ta_main_export');?></a>
+				<a href="/ta/evaluation/manage/export"><?php echo lang('ta_main_export'); ?></a>
 			</li>
 		<?php endif ?>
 	</ul>
 	
 	<!-- User Info -->
 	<div class="banner">
-<!--		begin语言切换-->
-        <div class="lang_change">
-		    <?php if ($_SESSION['language'] == 'zh-cn'): ?>
-			    <h5 class="lang"><a href="/settings/language?lang=english&url=<?php echo base64_encode($_SERVER["REQUEST_URI"]); ?>">English</a><a class="lang_info">/中文</a></h5>
-		    <?php else: ?>
-			    <h5 class="lang"><a class="lang_info">English/</a><a href="/settings/language?lang=zh-cn&url=<?php echo base64_encode($_SERVER["REQUEST_URI"]); ?>">中文</a></h5>
-		    <?php endif; ?>
-        </div>
-<!--		end语言切换-->
+		<!--		begin语言切换-->
+		<div class="lang_change">
+			<?php if ($_SESSION['language'] == 'zh-cn'): ?>
+				<h5 class="lang"><a
+							href="/settings/language?lang=english&url=<?php echo base64_encode($_SERVER["REQUEST_URI"]); ?>">English</a><a
+							class="lang_info">/中文</a></h5>
+			<?php else: ?>
+				<h5 class="lang"><a class="lang_info">English/</a><a
+							href="/settings/language?lang=zh-cn&url=<?php echo base64_encode($_SERVER["REQUEST_URI"]); ?>">中文</a>
+				</h5>
+			<?php endif; ?>
+		</div>
+		<!--		end语言切换-->
 
 		<?php if ($_SESSION['userid'] == ''): ?>
 			<div class="jAccount_login">
 				<a class="hyperbutton" href="student/SignIn_jAccount.html">jAccount Login</a>
 			</div>
 			<div class="regular_login">
-				<a class="hyperbutton" href="/login?url=<?php echo base64_encode($_SERVER["REQUEST_URI"]); ?>">TAES
+				<a class="hyperbutton"
+				   href="/login?url=<?php echo base64_encode($_SERVER["REQUEST_URI"]); ?>">TAES
 					Login</a>
 			</div>
 		<?php else: ?>

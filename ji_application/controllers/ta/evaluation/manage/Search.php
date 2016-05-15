@@ -7,6 +7,8 @@ class Search extends TA_Controller
 	{
 		parent::__construct();
 		$this->data['type'] = 'manage';
+		$this->data['page_name'] = 'TA Evaluation System: Course';
+		$this->data['banner_id'] = 3;
 		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mta_search');
 	}
@@ -14,8 +16,6 @@ class Search extends TA_Controller
 	public function index()
 	{
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Search';
-		$data['banner_id'] = 3;
 		$this->load->view('ta/evaluation/search/index', $data);
 	}
 	
@@ -26,14 +26,7 @@ class Search extends TA_Controller
 	
 	public function course($id)
 	{
-		if (!is_numeric($id))
-		{
-			$this->redirect();
-		}
-		
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Course';
-		$data['banner_id'] = 3;
 		
 		$this->load->model('Mcourse');
 		$data['course'] = $this->Mcourse->get_course_by_id($id);
@@ -51,14 +44,7 @@ class Search extends TA_Controller
 
 	public function ta($id)
 	{
-		if (!is_numeric($id))
-		{
-			$this->redirect();
-		}
-
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Course';
-		$data['banner_id'] = 3;
 
 		$this->load->model('Mta');
 		$data['ta'] = $this->Mta->get_ta_by_id($id);

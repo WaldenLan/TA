@@ -11,6 +11,8 @@ class Feedback extends TA_Controller
 	{
 		parent::__construct();
 		$this->data['type'] = 'manage';
+		$this->data['page_name'] = 'TA Evaluation System: Feedbacks';
+		$this->data['banner_id'] = 4;
 		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mta_feedback');
 		$this->load->library('Feedback_obj');
@@ -36,8 +38,6 @@ class Feedback extends TA_Controller
 	{
 		/** initialize */
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['banner_id'] = 4;
 
 		$state_array = $this->Mta_feedback->get_state_array(Feedback_obj::STATE_MANAGE, $state);
 		if ($state_array == NULL)
@@ -84,23 +84,17 @@ class Feedback extends TA_Controller
 	 */
 	public function check($id)
 	{
-		if (!is_numeric($id))
+		$data = $this->data;
+		$data['feedback'] = $this->Mta_feedback->get_feedback_by_id($id);
+		if ($data['feedback']->is_error())
 		{
 			$this->index();
 		}
 
-		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['banner_id'] = 4;
-		$data['feedback'] = $this->Mta_feedback->get_feedback_by_id($id);
 		$data['state_id'] = $this->input->get('state');
 		$data['page_id'] = $this->input->get('page');
 		$data['feedback']->set_ta()->set_course()->set_replys(Feedback_obj::STATE_MANAGE);
 
-		if ($data['feedback']->id != $id)
-		{
-			$this->index();
-		}
 
 		$this->load->model('Mmanage');
 		if ($this->Mmanage->get_manage_by_id($_SESSION['userid'])->user_id == NULL)

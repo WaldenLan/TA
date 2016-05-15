@@ -22,6 +22,8 @@ class Feedback extends TA_Controller
 	{
 		parent::__construct();
 		$this->data['type'] = 'student';
+		$this->data['page_name'] = 'TA Evaluation System: Feedbacks';
+		$this->data['banner_id'] = 3;
 		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mta_feedback');
 		$this->load->library('Feedback_obj');
@@ -45,8 +47,6 @@ class Feedback extends TA_Controller
 	{
 		/** initialize */
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['banner_id'] = 3;
 		$data['list'] =
 			$this->Mta_feedback->show_list($_SESSION['userid'], Feedback_obj::STATE_STUDENT);
 
@@ -87,22 +87,12 @@ class Feedback extends TA_Controller
 	 */
 	public function check($id)
 	{
-		if (!is_numeric($id))
-		{
-			$this->index();
-		}
-		
 		/** initialize */
 		$data = $this->data;
 		$data['page_id'] = $this->input->get('page');
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['banner_id'] = 3;
-		
-		try
-		{
-			$data['feedback'] = $this->Mta_feedback->get_feedback_by_id($id);
-		}
-		catch (Exception $e)
+
+		$data['feedback'] = $this->Mta_feedback->get_feedback_by_id($id);
+		if ($data['feedback']->is_error())
 		{
 			$this->index();
 		}
@@ -127,11 +117,12 @@ class Feedback extends TA_Controller
 	 */
 	public function add()
 	{
+		$data = $this->data;
+
 		$this->load->model('Mstudent');
 		$this->load->library('Course_obj');
 		$this->load->model('Mcourse');
 
-		$data = $this->data;
 		$data['course_list'] = $this->Mstudent->get_now_course($_SESSION['userid']);
 		foreach ($data['course_list'] as $course)
 		{
@@ -139,9 +130,6 @@ class Feedback extends TA_Controller
 			$course->set_ta();
 		}
 
-
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['banner_id'] = 3;
 		$this->load->view('ta/evaluation/feedback/add', $data);
 	}
 

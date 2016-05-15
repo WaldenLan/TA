@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(document).ready(function ()
 	{
-		$("#reply-button").click(function (e)
+		$("#reply-button").click(function ()
 		{
 			var flag = $("input[name='request']:checked").val();
 			$.ajax
@@ -32,7 +32,7 @@
 			 });
 		});
 
-		$("#close-button").click(function (e)
+		$("#close-button").click(function ()
 		{
 			if (confirm("<?php echo lang('ta_feedback_confirm_close');?>") == true)
 			{

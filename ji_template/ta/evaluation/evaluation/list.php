@@ -25,7 +25,7 @@
 					<h4 class="col-sm-2">Course ID</h4>
 					<h4 class="col-sm-4">Course Name</h4>
 					<h4 class="col-sm-2">TA Number</h4>
-					<h4 class="col-sm-2">Process</h4>
+					<h4 class="col-sm-4">Process</h4>
 				</div>
 				<div class="list_container">
 					<?php foreach ($course_list as $course): ?>
@@ -34,7 +34,15 @@
 							<h4 class="col-sm-2"><?php echo $course->KCDM; ?></h4>
 							<h4 class="col-sm-4"><?php echo $course->KCZWMC; ?></h4>
 							<h4 class="col-sm-2"><?php echo count($course->ta_list); ?></h4>
-							<h4 class="col-sm-2">add question</h4>
+							<h4 class="col-sm-4">
+								<a href="/ta/evaluation/teacher/evaluation/check/<?php
+								echo $course->BSID; ?>">check</a>
+								<?php if (count($course->question_list) < 2): ?>
+									| <a href="/ta/evaluation/teacher/evaluation/add/<?php
+									echo $course->BSID; ?>">add question</a>
+								<? endif; ?>
+
+							</h4>
 						</div>
 					<?php endforeach; ?>
 				</div>

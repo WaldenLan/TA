@@ -10,6 +10,8 @@ class Feedback extends TA_Controller
 	{
 		parent::__construct();
 		$this->data['type'] = 'teacher';
+		$this->data['page_name'] = 'TA Evaluation System: Feedbacks';
+		$this->data['banner_id'] = 3;
 		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mta_feedback');
 		$this->load->library('Feedback_obj');
@@ -35,9 +37,6 @@ class Feedback extends TA_Controller
 	{
 		/** initialize */
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['banner_id'] = 3;
-
 		$state_array = $this->Mta_feedback->get_state_array(Feedback_obj::STATE_TEACHER, $state);
 		if ($state_array == NULL)
 		{
@@ -83,19 +82,12 @@ class Feedback extends TA_Controller
 	 */
 	public function check($id)
 	{
-		if (!is_numeric($id))
-		{
-			$this->index();
-		}
-
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['banner_id'] = 3;
 		$data['feedback'] = $this->Mta_feedback->get_feedback_by_id($id);
 		$data['state_id'] = $this->input->get('state');
 		$data['page_id'] = $this->input->get('page');
 
-		if ($data['feedback']->id != $id)
+		if ($data['feedback']->is_error())
 		{
 			$this->index();
 		}

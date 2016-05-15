@@ -7,6 +7,8 @@ class Home extends TA_Controller
 	{
 		parent::__construct();
 		$this->data['type'] = 'manage';
+		$this->data['page_name'] = 'TA Evaluation System: Manage Homepage';
+		$this->data['banner_id'] = 1;
 		$this->Mta_site->redirect_login($this->data['type']);
 
 	}
@@ -14,8 +16,6 @@ class Home extends TA_Controller
 	public function index()
 	{
 		$data = $this->data;
-		$data['page_name'] = 'TA Evaluation System: Manage Homepage';
-		$data['banner_id'] = 1;
 		$this->load->helper('form');
 		$this->load->view('ta/evaluation/homepage/manage', $data);
 	}

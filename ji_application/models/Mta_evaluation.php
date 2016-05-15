@@ -23,21 +23,6 @@ class Mta_evaluation extends CI_Model
 		$this->load->library('Evaluation_question_obj');
 		$this->load->library('Evaluation_answer_obj');
 	}
-	
-	public function get_evaluation_questions($BSID)
-	{
-		$query = $this->db->get_where('ji_ta_evaluation_question', array('BSID' => $BSID));
-		$question_list = array();
-		foreach ($query->result() as $row)
-		{
-			$question = new Evaluation_question_obj($row);
-			if (!$question->is_error())
-			{
-				$question_list[] = $question;
-			}
-		}
-		return $question_list;
-	}
 
 	/**
 	 * @param array $data
@@ -47,5 +32,15 @@ class Mta_evaluation extends CI_Model
 		$data['content'] = $this->Mta_site->html_base64($data['content']);
 		$this->db->insert('ji_ta_evaluation_question', $data);
 	}
-	
+
+	/**
+	 * 检查内容是否符合字数规定
+	 * @param $content
+	 * @return bool
+	 */
+	public function examine_content($content)
+	{
+		return strlen($content) >= $this->Mta_site->site_config['ta_evaluation_content_min'] &&
+		       strlen($content) <= $this->Mta_site->site_config['ta_evaluation_content_max'];
+	}
 }
