@@ -105,9 +105,8 @@ class Evaluation extends TA_Controller
 	{
 		$data = $this->data;
 		$data['course'] = $this->validate_course($BSID);
-
 		$data['course']->set_ta();
-		$this->load->view('ta/evaluation/evaluation/setup', $data);
+		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
 
 	/**

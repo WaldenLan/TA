@@ -17,6 +17,8 @@ class Ta_obj extends My_obj
 	public $course_list;
 	public $feedback_list;
 	public $report_list;
+	/** @var $student Student_obj */
+	public $student;
 	
 	public function __construct($data = array())
 	{
@@ -41,6 +43,13 @@ class Ta_obj extends My_obj
 	{
 		$this->CI->load->model('Mta');
 		$this->report_list = $this->CI->Mta->get_ta_report($this->USER_ID);
+		return $this;
+	}
+
+	public function set_student()
+	{
+		$this->CI->load->model('Mstudent');
+		$this->student = $this->CI->Mstudent->get_student_by_id($this->USER_ID);
 		return $this;
 	}
 }

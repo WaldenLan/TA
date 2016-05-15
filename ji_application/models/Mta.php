@@ -19,7 +19,25 @@ class Mta extends CI_Model
 		$ta = new Ta_obj($query->row(0));
 		return $ta;
 	}
-	
+
+	/**
+	 * @return array
+	 */
+	public function get_all_ta()
+	{
+		$query = $this->db->get('ji_ta_info');
+		$ta_list = array();
+		foreach ($query->result() as $row)
+		{
+			$ta = new Ta_obj($row);
+			if(!$ta->is_error())
+			{
+				$ta_list[] = $ta;
+			}
+		}
+		return $ta_list;
+	}
+
 	public function get_ta_course($id)
 	{
 		$this->load->model('Mcourse');
