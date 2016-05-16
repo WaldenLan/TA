@@ -65,7 +65,6 @@ class Evaluation extends TA_Controller
 			/** @var $course Course_obj */
 			$course->set_ta()->set_question();
 		}
-
 		$this->load->view('ta/evaluation/evaluation/list', $data);
 	}
 

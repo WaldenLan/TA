@@ -34,17 +34,41 @@ class Mstudent extends CI_Model {
 		$course_list = array();
 		foreach ($this->get_all_course($id) as $course)
 		{
-			array_push($course_list, $course->BSID);
+			$course_list[] = $course->BSID;
 		}
 		if (count($course_list) == 0)
 		{
 			return array();
 		}
-		
+
 		$query = $this->db->select('*')->from('ji_course_open')->where(array('XQ'=>$site_config['ji_academic_term'], 'XN'=>$site_config['ji_academic_year'], 'SCBJ'=>'N'))->where_in('BSID', $course_list)->get();
 
-		return $query->result('Course_obj');
+		$course_list = array();
+		foreach ($query->result() as $row)
+		{
+			$course = new Course_obj($row);
+			if (!$course->is_error())
+			{
+				$course_list[] = $course;
+			}
+		}
+		return $course_list;
 	}
 
-
+	/**
+	 * @param $user_id
+	 * @param $BSID
+	 * @return bool
+	 */
+	public function is_now_course($user_id, $BSID)
+	{
+		foreach ($this->get_now_course($user_id) as $course)
+		{
+			if ($course->BSID == $BSID)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

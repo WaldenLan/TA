@@ -43,4 +43,23 @@ class Mta_evaluation extends CI_Model
 		return strlen($content) >= $this->Mta_site->site_config['ta_evaluation_content_min'] &&
 		       strlen($content) <= $this->Mta_site->site_config['ta_evaluation_content_max'];
 	}
+
+	public function get_evaluation_state()
+	{
+		$start = strtotime($this->Mta_site->site_config['ta_evaluation_start']);
+		$end = strtotime($this->Mta_site->site_config['ta_evaluation_end']);
+		$now = strtotime(date('Y-m-d'));
+		if ($now < $start)
+		{
+			return -1;
+		}
+		else if ($now > $end)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
 }

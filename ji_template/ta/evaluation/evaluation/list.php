@@ -14,9 +14,17 @@
 				<div class="attention teacher_setup">
 					<h2>Attention</h2>
 					<ul>
-						<li>1. You can add at most two questions to TA evaluation.</li>
-						<li>2. Attention tips attention tips attention tips attention tips.</li>
-						<li>3. Attention tips attention tips attention tips.</li>
+						<?php if ($type == 'teacher'): ?>
+							<li>1. You can add at most two questions to TA evaluation.</li>
+							<li>2. Attention tips attention tips attention tips attention tips.</li>
+							<li>3. Attention tips attention tips attention tips.</li>
+						<?php elseif ($type == 'student'): ?>
+							<?php if ($state == 0): ?>
+								<li>Time for Evaluation</li>
+							<?php else: ?>
+								<li>Not time for evaluation</li>
+							<?php endif; ?>
+						<?php endif; ?>
 					</ul>
 				</div>
 
@@ -35,13 +43,19 @@
 							<h4 class="col-sm-4"><?php echo $course->KCZWMC; ?></h4>
 							<h4 class="col-sm-2"><?php echo count($course->ta_list); ?></h4>
 							<h4 class="col-sm-4">
-								<a href="/ta/evaluation/teacher/evaluation/check/<?php
-								echo $course->BSID; ?>">check</a>
-								<?php if (count($course->question_list) < 2): ?>
-									| <a href="/ta/evaluation/teacher/evaluation/add/<?php
-									echo $course->BSID; ?>">add question</a>
-								<? endif; ?>
-
+								<?php if ($type == 'teacher'): ?>
+									<a href="/ta/evaluation/teacher/evaluation/check/<?php
+									echo $course->BSID; ?>">check</a>
+									<?php if (count($course->question_list) < 2): ?>
+										| <a href="/ta/evaluation/teacher/evaluation/add/<?php
+										echo $course->BSID; ?>">add question</a>
+									<? endif; ?>
+								<?php elseif ($type == 'student'): ?>
+									<?php if ($state == 0): ?>
+										<a href="/ta/evaluation/student/evaluation/evaluate/<?php
+										echo $course->BSID; ?>">evaluate</a>
+									<?php endif; ?>
+								<?php endif; ?>
 							</h4>
 						</div>
 					<?php endforeach; ?>
