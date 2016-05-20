@@ -22,7 +22,7 @@
 						<a><span class="glyphicon glyphicon-repeat" aria-hidden="true" title="Return"></span></a>
 					</div>
 				</h2>
-				<?php echo 'state: '.$feedback->state;?>
+				<?php echo 'state: ' . $feedback->state; ?>
 				<div class="row">
 					<h5 class="col-sm-1"><?php echo lang('ta_main_info'); ?>: </h5>
 					<h5 class="col-sm-2 _1"><?php echo $feedback->course->KCDM; ?>
@@ -44,13 +44,13 @@
 								class="submit_time"><?php echo $feedback->CREATE_TIMESTAMP; ?></h5>
 					</div>
 				</div>
-
+				
 				<p><?php echo lang('ta_feedback_communication'); ?>:</p>
-
+				
 				<?php if (count($feedback->replys) <= 1): ?>
 					<div><?php echo lang('ta_feedback_empty'); ?></div>
 				<?php endif; ?>
-
+				
 				<?php foreach (array_slice($feedback->replys, 1) as $reply): ?>
 					<?php /** @var $reply Feedback_reply_obj */ ?>
 					<ul class="list-group">
@@ -62,7 +62,7 @@
 						</li>
 					</ul>
 				<?php endforeach; ?>
-
+				
 				<?php if ($feedback->is_open() &&
 				          (($feedback->is_student() && $type == 'student') ||
 				           (!$feedback->is_manage() && $type == 'manage') ||
@@ -71,21 +71,20 @@
 				): ?>
 					<br>
 					<p>Reply/Addition:</p>
-					<textarea id="input-content" rows="15"
-					          style="resize:none;width:100%"></textarea>
-					<?php if($type == 'manage' && $feedback->is_student()):?>
-						<input type="radio" name="request" value="true" /> Direct to teacher
-						<br />
-						<input type="radio" name="request" value="false" checked="checked" /> Reject the feedback
-					<?php endif;?>
-					<?php if($type == 'manage' && $feedback->is_teacher()):?>
-						<input type="radio" name="request" value="true" checked="checked" /> Direct to student
-						<br />
-						<input type="radio" name="request" value="false" /> Reject the feedback
-					<?php endif;?>
+					<textarea id="input-content" rows="15" style="resize:none;width:100%"></textarea>
+					<?php if ($type == 'manage' && $feedback->is_student()): ?>
+						<input type="radio" name="request" value="true"/> Direct to teacher
+						<br/>
+						<input type="radio" name="request" value="false" checked="checked"/> Reject the feedback
+					<?php endif; ?>
+					<?php if ($type == 'manage' && $feedback->is_teacher()): ?>
+						<input type="radio" name="request" value="true" checked="checked"/> Direct to student
+						<br/>
+						<input type="radio" name="request" value="false"/> Reject the feedback
+					<?php endif; ?>
 					<br>
 					<button id="reply-button" class="btn btn-primary">Submit</button>
-
+				
 				<?php endif; ?>
 			</div>
 		</div>

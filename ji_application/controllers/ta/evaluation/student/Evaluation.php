@@ -74,7 +74,12 @@ class Evaluation extends TA_Controller
 			$this->index();
 		}
 		$data['course'] = $this->validate_course($BSID);
-		$data['course']->set_ta();
+		$data['course']->set_ta()->set_question();
+		$data['choice_list'] = array();
+		for ($index = 0; $index < 5; $index++)
+		{
+			$data['choice_list'][] = new stdClass();
+		}
 		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
 	

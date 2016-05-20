@@ -46,9 +46,13 @@
 								<?php if ($type == 'teacher'): ?>
 									<a href="/ta/evaluation/teacher/evaluation/check/<?php
 									echo $course->BSID; ?>">check</a>
-									<?php if (count($course->question_list) < 2): ?>
+									<?php if (count($course->question_list) < 2 && $state == -1): ?>
 										| <a href="/ta/evaluation/teacher/evaluation/add/<?php
 										echo $course->BSID; ?>">add question</a>
+									<? endif; ?>
+									<?php if ($state == 0): ?>
+										| <a href="/ta/evaluation/teacher/evaluation/evaluate/<?php
+										echo $course->BSID; ?>">evaluate</a>
 									<? endif; ?>
 								<?php elseif ($type == 'student'): ?>
 									<?php if ($state == 0): ?>
