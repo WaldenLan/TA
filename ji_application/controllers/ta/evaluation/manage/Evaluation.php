@@ -10,6 +10,7 @@ class Evaluation extends TA_Controller
 		$this->data['page_name'] = 'TA Evaluation System: TA Evaluation';
 		$this->data['banner_id'] = 2;
 		$this->Mta_site->redirect_login($this->data['type']);
+		$this->data['state'] = $this->Mta_evaluation->get_evaluation_state();
 
 	}
 	

@@ -16,6 +16,7 @@ class Evaluation extends TA_Controller
 		$this->load->model('Mteacher');
 		$this->load->library('Evaluation_question_obj');
 		$this->load->library('Evaluation_answer_obj');
+		$this->data['state'] = $this->Mta_evaluation->get_evaluation_state();
 	}
 
 
@@ -153,5 +154,9 @@ class Evaluation extends TA_Controller
 		exit();
 	}
 
-
+	public function answer()
+	{
+		echo json_decode($this->input->post('answer'));
+		exit();
+	}
 }

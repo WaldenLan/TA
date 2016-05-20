@@ -45,7 +45,7 @@
 						<br/>
 						<h3>II) Blank Questions: </h3>
 						<br/>
-						<?php foreach ($choice_list as $key => $question): ?>
+						<?php foreach ($blank_list as $key => $question): ?>
 							<h4>
 								&nbsp;&nbsp;<?php echo $key + 1; ?>.&nbsp;
 								<?php echo 'A sample question'; ?>
@@ -61,7 +61,7 @@
 							<br/>
 							<?php foreach ($course->question_list as $key => $question): ?>
 								<?php /** @var $question Evaluation_question_obj */ ?>
-								<div class="addition-<?php echo $question->type; ?>">
+								<div id="a<?php echo $key + 1; ?>" class="addition-<?php echo $question->type; ?>">
 									<h4>
 										&nbsp;&nbsp;<?php echo $key + 1; ?>.&nbsp;
 										<?php echo $question->content; ?>
@@ -86,15 +86,14 @@
 											</label>
 										</div>
 									<?php elseif ($question->type == 'blank'): ?>
-										<textarea id="a<?php echo $key + 1; ?>" rows="5"
-										          style="resize:none;width:100%"></textarea>
+										<textarea rows="5" style="resize:none;width:100%"></textarea>
 									<?php endif; ?>
 									<br/>
 								</div>
 							<?php endforeach; ?>
 						<?php endif; ?>
+						<br/>
 						<button id="submit-button" class="btn btn-primary">Submit</button>
-
 					</div>
 				</div>
 			</div>
@@ -106,7 +105,79 @@
 		{
 			$("#submit-button").click(function ()
 			{
-
+				var answer = [];
+				for (var i = 1; i <= <?php echo count($choice_list); ?>; i++)
+				{
+					var a = $("input[name='c" + i + "']:checked");
+					if (a.val() > 0)
+					{
+						answer.push({type: 'choice', num: i, answer: a.val()});
+						continue;
+					}
+					alert('Choice ' + i + ' not completed!');
+					return;
+				}
+				for (var i = 1; i <= <?php echo count($blank_list); ?>; i++)
+				{
+					var a = $("#b" + i);
+					if (a.val().length > 0)
+					{
+						answer.push({type: 'blank', num: i, answer: a.val()});
+						continue;
+					}
+					alert('Blank ' + i + ' not completed!');
+					return;
+				}
+				for (var i = 1; i <= <?php echo count($course->question_list); ?>; i++)
+				{
+					var type = $("#a" + i).attr('class');
+					type = type.substr(type.indexOf('-') + 1);
+					if (type == 'choice')
+					{
+						var a = $("input[name=a" + i + "]:checked");
+						if (a.val() > 0)
+						{
+							answer.push({type: 'addition', num: i, answer: a.val()});
+							continue;
+						}
+					}
+					else if (type == "blank")
+					{
+						var a = $("#a" + i + " textarea");
+						if (a.val().length > 0)
+						{
+							answer.push({type: 'addition', num: i, answer: a.val()});
+							continue;
+						}
+					}
+					alert('Addition ' + i + ' not completed!');
+					return;
+				}
+				$.ajax
+				 ({
+					 type: 'POST',
+					 url: '/ta/evaluation/<?php echo $type;?>/evaluation/answer/',
+					 data: {
+						 BSID: <?php echo $course->BSID; ?>,
+						 answer: answer
+					 },
+					 dataType: 'text',
+					 success: function (data)
+					 {
+						 if (data == 'success')
+						 {
+							 window.location.href = '/ta/evaluation/<?php echo $type;?>/evaluation/view/';
+						 }
+						 else
+						 {
+							 alert(data);
+						 }
+					 },
+					 error: function ()
+					 {
+						 alert('fail!');
+					 }
+				 });
 			});
 		});
 	</script>

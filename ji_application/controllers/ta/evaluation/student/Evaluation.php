@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Evaluation extends TA_Controller
 {
-
+	
 	public function __construct()
 	{
 		parent::__construct();
@@ -14,7 +14,7 @@ class Evaluation extends TA_Controller
 		$this->load->model('Mstudent');
 		$this->load->model('Mta_evaluation');
 		$this->data['state'] = $this->Mta_evaluation->get_evaluation_state();
-
+		
 	}
 	
 	/**
@@ -62,10 +62,10 @@ class Evaluation extends TA_Controller
 			/** @var $course Course_obj */
 			$course->set_ta()->set_question();
 		}
-
+		
 		$this->load->view('ta/evaluation/evaluation/list', $data);
 	}
-
+	
 	public function evaluate($BSID)
 	{
 		$data = $this->data;
@@ -76,11 +76,30 @@ class Evaluation extends TA_Controller
 		$data['course'] = $this->validate_course($BSID);
 		$data['course']->set_ta()->set_question();
 		$data['choice_list'] = array();
+		$data['blank_list'] = array();
 		for ($index = 0; $index < 5; $index++)
 		{
 			$data['choice_list'][] = new stdClass();
+			$data['blank_list'][] = new stdClass();
 		}
 		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
 	
+	public function answer()
+	{
+		$answer_list = print_r($this->input->post('answer'));
+		foreach ($answer_list as $answer)
+		{
+			switch ($answer['type'])
+			{
+			case 'choice':
+			case 'blank':
+			case 'addition':
+				
+				break;
+			}
+		}
+		//echo json_decode();
+		exit();
+	}
 }
