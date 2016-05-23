@@ -87,19 +87,53 @@ class Evaluation extends TA_Controller
 	
 	public function answer()
 	{
-		$answer_list = print_r($this->input->post('answer'));
+		$BSID = $this->input->post('BSID');
+		$course = $this->validate_course($BSID);
+		$course->set_question();
+		$answer_list = $this->input->post('answer');
+		$data = array('choice' => array(), 'blank' => array(), 'addition' => array());
 		foreach ($answer_list as $answer)
 		{
+			if ($answer['num'] <= 0)
+			{
+				continue;
+			}
 			switch ($answer['type'])
 			{
 			case 'choice':
 			case 'blank':
 			case 'addition':
-				
+				$data[$answer['type']][$answer['num']] = $answer['answer'];
+			}
+		}
+		$config = array(
+			'choice'   => 5,
+			'blank'    => 5,
+			'addition' => count($course->question_list));
+		$validate = true;
+		foreach ($config as $key => $value)
+		{
+			for ($index = 1; $index <= $value; $index++)
+			{
+				if (!isset($data[$key][$index]))
+				{
+					$validate = false;
+					break;
+				}
+			}
+			if (!$validate)
+			{
 				break;
 			}
 		}
-		//echo json_decode();
+		if ($validate)
+		{
+
+		}
+		else
+		{
+			print_r($data);
+		}
 		exit();
 	}
 }
