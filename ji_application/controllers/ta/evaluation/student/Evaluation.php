@@ -99,7 +99,6 @@ class Evaluation extends TA_Controller
 			echo 'You have submitted the answer';
 			exit();
 		}
-		
 		$course->set_question();
 		$answer_list = $this->input->post('answer');
 		$data = array('choice' => array(), 'blank' => array(), 'addition' => array());

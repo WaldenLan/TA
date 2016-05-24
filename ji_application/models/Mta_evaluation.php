@@ -46,7 +46,22 @@ class Mta_evaluation extends CI_Model
 		$config = new Evaluation_config_obj($query->row(0));
 		return $config;
 	}
-	
+
+	public function get_default_question($type)
+	{
+		$data = array('choice' => array(), 'blank' => array());
+		if ($type == 'student' || $type == 'teacher')
+		{
+			$config = $this->get_evaluation_config($type);
+			if (!$config->is_error())
+			{
+				$choice_list = $config->choice_list;
+			}
+		}
+		return $data;
+	}
+
+
 	/**
 	 * @param int    $BSID
 	 * @param string $type
@@ -75,10 +90,10 @@ class Mta_evaluation extends CI_Model
 	public function get_answer($BSID, $USER_ID, $TA_ID = 0)
 	{
 		$this->db->select('*')->from('ji_ta_evaluation_answer')
-		                  ->where(array(
-			                          'BSID'    => $BSID,
-			                          'USER_ID' => $USER_ID,));
-		if(is_array($TA_ID))
+		         ->where(array(
+			                 'BSID'    => $BSID,
+			                 'USER_ID' => $USER_ID,));
+		if (is_array($TA_ID))
 		{
 			$this->db->where_in('TA_ID', $TA_ID);
 		}

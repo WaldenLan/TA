@@ -59,8 +59,8 @@
 										<a href="/ta/evaluation/student/evaluation/review/<?php
 										echo $course->answer_list[0]->id; ?>">review</a>
 									<?php elseif ($state == 0): ?>
-									<a href="/ta/evaluation/student/evaluation/evaluate/<?php
-									echo $course->BSID; ?>">evaluate</a>
+										<a href="/ta/evaluation/student/evaluation/evaluate/<?php
+										echo $course->BSID; ?>">evaluate</a>
 									<?php endif; ?>
 								<?php endif; ?>
 							</h4>

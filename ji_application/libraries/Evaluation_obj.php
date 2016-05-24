@@ -1,5 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Evaluation_obj
+ * virtual class
+ */
 class Evaluation_obj
 {
 }
@@ -120,6 +124,49 @@ class Evaluation_config_obj extends My_obj
 	public $blank_list;
 	/** @var int    int(11)     最大附加问题数量 */
 	public $addition;
+	/** @var string timestamp   创建时间 */
+	public $CREATE_TIMESTAMP;
+	/** @var string timestamp   修改时间 */
+	public $UPDATE_TIMESTAMP;
+
+
+	/** -- The vars defined for other uses -- */
+
+
+	/**
+	 * Evaluation_config_obj constructor.
+	 * @param array $data
+	 */
+	public function __construct($data = array())
+	{
+		parent::__construct($data, 'id');
+	}
+
+}
+
+
+/**
+ * Class Evaluation_default_obj
+ *
+ * The operations of ta evaluation default questions
+ *
+ * @category   ta
+ * @package    ta/evaluation
+ * @author     tc-imba
+ * @copyright  2016 umji-sjtu
+ */
+class Evaluation_default_obj extends My_obj
+{
+	/** -- The vars in the table `ji_ta_evaluation_config` -- */
+
+	/** @var int    int(11)     评教问题 ID */
+	public $id;
+	/** @var string varchar(10) 类型(choice/blank) */
+	public $type;
+	/** @var string TEXT        内容 */
+	public $content;
+	/** @var int    int(4)      状态 */
+	public $state;
 	/** @var string timestamp   创建时间 */
 	public $CREATE_TIMESTAMP;
 	/** @var string timestamp   修改时间 */

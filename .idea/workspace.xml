@@ -6,17 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62c3a79e-8b2e-4bbb-b68c-172fe0bfd1c4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ji_application/libraries/Evaluation_question_obj.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Evaluation.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Evaluation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Evaluation.php" afterPath="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Evaluation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/libraries/Course_obj.php" afterPath="$PROJECT_DIR$/ji_application/libraries/Course_obj.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/models/Mcourse.php" afterPath="$PROJECT_DIR$/ji_application/models/Mcourse.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/libraries/Evaluation_obj.php" afterPath="$PROJECT_DIR$/ji_application/libraries/Evaluation_obj.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_application/models/Mta_evaluation.php" afterPath="$PROJECT_DIR$/ji_application/models/Mta_evaluation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/list.php" afterPath="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/list.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ji_application/libraries/Evaluation_answer_obj.php" afterPath="$PROJECT_DIR$/ji_application/libraries/Evaluation_obj.php" />
     </list>
     <ignored path="TA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,6 +32,22 @@
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - prp_ta@202.120.46.151" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -45,21 +55,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Mta_evaluation.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Mta_evaluation.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ji_application/models/Mta_evaluation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="59" column="57" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
+            <state relative-caret-position="364">
+              <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -68,8 +68,8 @@
       <file leaf-file-name="Evaluation_obj.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ji_application/libraries/Evaluation_obj.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1221">
-              <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+            <state relative-caret-position="79">
+              <caret line="158" column="1" selection-start-line="158" selection-start-column="1" selection-end-line="158" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -78,18 +78,18 @@
       <file leaf-file-name="Evaluation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Evaluation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
+            <state relative-caret-position="339">
+              <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mcourse.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ji_application/models/Mcourse.php">
+      <file leaf-file-name="Course_obj.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ji_application/libraries/Course_obj.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="123" column="45" selection-start-line="123" selection-start-column="45" selection-end-line="123" selection-end-column="45" />
+            <state relative-caret-position="417">
+              <caret line="73" column="64" selection-start-line="73" selection-start-column="64" selection-end-line="73" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -122,12 +122,12 @@
         <option value="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/evaluation.php" />
         <option value="$PROJECT_DIR$/ji_application/libraries/Evaluation_question_obj.php" />
         <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/teacher/Evaluation.php" />
-        <option value="$PROJECT_DIR$/ji_application/libraries/Evaluation_obj.php" />
         <option value="$PROJECT_DIR$/ji_application/libraries/Course_obj.php" />
         <option value="$PROJECT_DIR$/ji_application/models/Mcourse.php" />
-        <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Evaluation.php" />
-        <option value="$PROJECT_DIR$/ji_application/models/Mta_evaluation.php" />
         <option value="$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/list.php" />
+        <option value="$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Evaluation.php" />
+        <option value="$PROJECT_DIR$/ji_application/libraries/Evaluation_obj.php" />
+        <option value="$PROJECT_DIR$/ji_application/models/Mta_evaluation.php" />
       </list>
     </option>
   </component>
@@ -585,7 +585,7 @@
       <workItem from="1463641004393" duration="3674000" />
       <workItem from="1463762025330" duration="4521000" />
       <workItem from="1463991351231" duration="6994000" />
-      <workItem from="1464057144165" duration="7698000" />
+      <workItem from="1464057144165" duration="10037000" />
     </task>
     <task id="LOCAL-00001" summary="excel">
       <created>1463328829911</created>
@@ -608,11 +608,18 @@
       <option name="project" value="LOCAL" />
       <updated>1464019473473</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="student evaluation">
+      <created>1464081099529</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1464081099529</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56868000" />
+    <option name="totallyTimeSpent" value="59207000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -626,7 +633,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18615879" sideWeight="0.49154335" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17167382" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20493563" sideWeight="0.49134198" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20493563" sideWeight="0.49134198" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -833,19 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/9bc79d3d/8030bce4-18f7-49ca-8b95-c55151736bb6/prp_ta.ji_ta_evaluation_default">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ji_application/libraries/PHPExcel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -956,50 +950,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/libraries/Evaluation_obj.php">
+    <entry file="file://$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1221">
-          <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_application/libraries/Course_obj.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+        <state relative-caret-position="468">
+          <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ji_application/models/Mcourse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="123" column="45" selection-start-line="123" selection-start-column="45" selection-end-line="123" selection-end-column="45" />
+        <state relative-caret-position="277">
+          <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/9bc79d3d/8030bce4-18f7-49ca-8b95-c55151736bb6/prp_ta.ji_ta_evaluation_default">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_application/libraries/Course_obj.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="73" column="64" selection-start-line="73" selection-start-column="64" selection-end-line="73" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ji_application/controllers/ta/evaluation/student/Evaluation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
+        <state relative-caret-position="339">
+          <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ji_application/libraries/Evaluation_obj.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="158" column="1" selection-start-line="158" selection-start-column="1" selection-end-line="158" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ji_application/models/Mta_evaluation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ji_template/ta/evaluation/evaluation/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="59" column="57" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
+        <state relative-caret-position="364">
+          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding />
         </state>
       </provider>
