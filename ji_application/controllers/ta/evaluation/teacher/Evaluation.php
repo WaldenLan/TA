@@ -146,10 +146,7 @@ class Evaluation extends TA_Controller
 			echo 'You have added two question!';
 			exit();
 		}
-		$this->Mta_evaluation->create_question(array(
-			                                       'BSID'    => $BSID,
-			                                       'type'    => $type,
-			                                       'content' => $content));
+		$this->Mta_evaluation->create_question($BSID, $type, $content);
 		echo 'success';
 		exit();
 	}

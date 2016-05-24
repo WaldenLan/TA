@@ -55,9 +55,12 @@
 										echo $course->BSID; ?>">evaluate</a>
 									<? endif; ?>
 								<?php elseif ($type == 'student'): ?>
-									<?php if ($state == 0): ?>
-										<a href="/ta/evaluation/student/evaluation/evaluate/<?php
-										echo $course->BSID; ?>">evaluate</a>
+									<?php if (count($course->answer_list) > 0): ?>
+										<a href="/ta/evaluation/student/evaluation/review/<?php
+										echo $course->answer_list[0]->id; ?>">review</a>
+									<?php elseif ($state == 0): ?>
+									<a href="/ta/evaluation/student/evaluation/evaluate/<?php
+									echo $course->BSID; ?>">evaluate</a>
 									<?php endif; ?>
 								<?php endif; ?>
 							</h4>

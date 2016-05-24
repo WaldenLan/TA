@@ -39,6 +39,8 @@ class Course_obj extends My_obj
 	public $feedback_list;
 	/** @var array */
 	public $question_list;
+	/** @var array */
+	public $answer_list;
 
 	public function __construct($data = array())
 	{
@@ -68,8 +70,15 @@ class Course_obj extends My_obj
 
 	public function set_question()
 	{
+		$this->CI->load->model('Mcourse');
 		$this->question_list = $this->CI->Mcourse->get_course_question($this->BSID);
 		return $this;
 	}
 
+	public function set_answer()
+	{
+		$this->CI->load->model('Mcourse');
+		$this->answer_list = $this->CI->Mcourse->get_course_answer($this->BSID);
+		return $this;
+	}
 }

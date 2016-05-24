@@ -105,7 +105,7 @@ class Mcourse extends CI_Model
 	 */
 	public function get_course_question($BSID)
 	{
-		$this->load->library('Evaluation_question_obj');
+		$this->load->library('Evaluation_obj');
 		$query = $this->db->get_where('ji_ta_evaluation_question', array('BSID' => $BSID));
 		$question_list = array();
 		foreach ($query->result() as $row)
@@ -117,6 +117,13 @@ class Mcourse extends CI_Model
 			}
 		}
 		return $question_list;
+	}
+
+	public function get_course_answer($BSID)
+	{
+		$this->load->model('Mta_evaluation');
+		$answer_list = $this->Mta_evaluation->get_answer($BSID, $_SESSION['userid']);
+		return $answer_list;
 	}
 
 }

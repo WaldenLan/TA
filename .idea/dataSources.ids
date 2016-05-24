@@ -1530,11 +1530,11 @@
       <column id="385" parent="39" name="USER_ID">
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="386" parent="39" name="type">
+      <column id="386" parent="39" name="TA_ID">
         <mandatory>1</mandatory>
-        <data-type>varchar(10)</data-type>
+        <data-type>varchar(50)</data-type>
       </column>
-      <column id="387" parent="39" name="answer">
+      <column id="387" parent="39" name="content">
         <data-type>text</data-type>
       </column>
       <column id="388" parent="39" name="CREATE_TIMESTAMP">

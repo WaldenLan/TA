@@ -60,9 +60,8 @@ class Evaluation extends TA_Controller
 		foreach ($data['course_list'] as $course)
 		{
 			/** @var $course Course_obj */
-			$course->set_ta()->set_question();
+			$course->set_ta()->set_question()->set_answer();
 		}
-		
 		$this->load->view('ta/evaluation/evaluation/list', $data);
 	}
 	
@@ -85,10 +84,22 @@ class Evaluation extends TA_Controller
 		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
 	
+	public function review($id)
+	{
+		
+	}
+	
 	public function answer()
 	{
 		$BSID = $this->input->post('BSID');
 		$course = $this->validate_course($BSID);
+		$course->set_answer();
+		if (count($course->answer_list) > 0)
+		{
+			echo 'You have submitted the answer';
+			exit();
+		}
+		
 		$course->set_question();
 		$answer_list = $this->input->post('answer');
 		$data = array('choice' => array(), 'blank' => array(), 'addition' => array());
@@ -106,34 +117,29 @@ class Evaluation extends TA_Controller
 				$data[$answer['type']][$answer['num']] = $answer['answer'];
 			}
 		}
+		$config = $this->Mta_evaluation->get_evaluation_config($this->data['type']);
+		if ($config->is_error())
+		{
+			echo 'config error';
+			exit();
+		}
 		$config = array(
-			'choice'   => 5,
-			'blank'    => 5,
+			'choice'   => $config->choice,
+			'blank'    => $config->blank,
 			'addition' => count($course->question_list));
-		$validate = true;
 		foreach ($config as $key => $value)
 		{
 			for ($index = 1; $index <= $value; $index++)
 			{
 				if (!isset($data[$key][$index]))
 				{
-					$validate = false;
-					break;
+					echo 'validation error';
+					exit();
 				}
 			}
-			if (!$validate)
-			{
-				break;
-			}
 		}
-		if ($validate)
-		{
-
-		}
-		else
-		{
-			print_r($data);
-		}
+		$this->Mta_evaluation->create_answer($BSID, $_SESSION['userid'], 0, $data);
+		echo 'success';
 		exit();
 	}
 }
