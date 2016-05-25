@@ -74,13 +74,9 @@ class Evaluation extends TA_Controller
 		}
 		$data['course'] = $this->validate_course($BSID);
 		$data['course']->set_ta()->set_question();
-		$data['choice_list'] = array();
-		$data['blank_list'] = array();
-		for ($index = 0; $index < 5; $index++)
-		{
-			$data['choice_list'][] = new stdClass();
-			$data['blank_list'][] = new stdClass();
-		}
+		$default = $this->Mta_evaluation->get_default_question($this->data['type']);
+		$data['choice_list'] = $default['choice'];
+		$data['blank_list'] = $default['blank'];
 		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
 	

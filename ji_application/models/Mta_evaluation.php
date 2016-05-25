@@ -55,7 +55,20 @@ class Mta_evaluation extends CI_Model
 			$config = $this->get_evaluation_config($type);
 			if (!$config->is_error())
 			{
-				$choice_list = $config->choice_list;
+				$list = explode(',', $config->choice_list);
+				for ($index = 0; $index < $config->choice; $index++)
+				{
+					$query = $this->db->get_where('ji_ta_evaluation_default', array('id'=>$list[$index]));
+					$question = new Evaluation_default_obj($query->row(0));
+					$data['choice'][$index] = $question;
+				}
+				$list = explode(',', $config->blank_list);
+				for ($index = 0; $index < $config->blank; $index++)
+				{
+					$query = $this->db->get_where('ji_ta_evaluation_default', array('id'=>$list[$index]));
+					$question = new Evaluation_default_obj($query->row(0));
+					$data['blank'][$index] = $question;
+				}
 			}
 		}
 		return $data;
@@ -72,7 +85,8 @@ class Mta_evaluation extends CI_Model
 		$data = array(
 			'BSID'    => $BSID,
 			'type'    => $type,
-			'content' => $this->Mta_site->html_base64($content));
+			'content' => $this->Mta_site->html_base64($content)
+		);
 		$this->db->insert('ji_ta_evaluation_question', $data);
 	}
 	
@@ -92,7 +106,8 @@ class Mta_evaluation extends CI_Model
 		$this->db->select('*')->from('ji_ta_evaluation_answer')
 		         ->where(array(
 			                 'BSID'    => $BSID,
-			                 'USER_ID' => $USER_ID,));
+			                 'USER_ID' => $USER_ID,
+		                 ));
 		if (is_array($TA_ID))
 		{
 			$this->db->where_in('TA_ID', $TA_ID);

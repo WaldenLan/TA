@@ -20,7 +20,7 @@
 						<?php foreach ($choice_list as $key => $question): ?>
 							<h4>
 								&nbsp;&nbsp;<?php echo $key + 1; ?>.&nbsp;
-								<?php echo 'A sample question'; ?>
+								<?php echo $question->content; ?>
 							</h4>
 							<br/>
 							<div class="row">
@@ -48,7 +48,7 @@
 						<?php foreach ($blank_list as $key => $question): ?>
 							<h4>
 								&nbsp;&nbsp;<?php echo $key + 1; ?>.&nbsp;
-								<?php echo 'A sample question'; ?>
+								<?php echo $question->content; ?>
 							</h4>
 							<br/>
 							<textarea id="b<?php echo $key + 1; ?>" rows="5" style="resize:none;width:100%"></textarea>
