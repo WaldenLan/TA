@@ -72,8 +72,10 @@ class Evaluation_answer_obj extends My_obj
 	public $BSID;
 	/** @var int    varchar(50) 用户 ID */
 	public $USER_ID;
-	/** @var string varchar(10) 用户类型(teacher/student) */
+	/** @var string varchar(50) 助教 ID */
 	public $TA_ID;
+	/** @var int    int(11)     配置 ID */
+	public $config_id;
 	/** @var string TEXT        回答 */
 	public $content;
 	/** @var string timestamp   创建时间 */

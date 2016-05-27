@@ -73,6 +73,11 @@ class Evaluation extends TA_Controller
 			$this->index();
 		}
 		$data['course'] = $this->validate_course($BSID);
+		$data['course']->set_answer();
+		if (count($data['course']->answer_list) > 0)
+		{
+			$this->index();
+		}
 		$data['course']->set_ta()->set_question();
 		$default = $this->Mta_evaluation->get_default_question($this->data['type']);
 		$data['choice_list'] = $default['choice'];
@@ -80,9 +85,20 @@ class Evaluation extends TA_Controller
 		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
 	
-	public function review($id)
+	public function review($BSID)
 	{
-		
+		$data = $this->data;
+		$data['course'] = $this->validate_course($BSID);
+		$data['course']->set_answer();
+		if (count($data['course']->answer_list) == 0)
+		{
+			$this->index();
+		}
+		$data['course']->set_ta()->set_question();
+		$default = $this->Mta_evaluation->get_default_question($data['course']->answer_list[0]->config_id);
+		$data['choice_list'] = $default['choice'];
+		$data['blank_list'] = $default['blank'];
+		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
 	
 	public function answer()
@@ -133,7 +149,7 @@ class Evaluation extends TA_Controller
 				}
 			}
 		}
-		$this->Mta_evaluation->create_answer($BSID, $_SESSION['userid'], 0, $data);
+		$this->Mta_evaluation->create_answer($BSID, $_SESSION['userid'], 0, $this->data['type'], $data);
 		echo 'success';
 		exit();
 	}
