@@ -125,7 +125,15 @@ class Evaluation extends TA_Controller
 			case 'choice':
 			case 'blank':
 			case 'addition':
-				$data[$answer['type']][$answer['num']] = $answer['answer'];
+				if ($this->Mta_evaluation->examine_content($answer['answer']))
+				{
+					$data[$answer['type']][$answer['num']] = $answer['answer'];
+				}
+				else
+				{
+					echo 'content error';
+					exit();
+				}
 			}
 		}
 		$config = $this->Mta_evaluation->get_evaluation_config($this->data['type']);
