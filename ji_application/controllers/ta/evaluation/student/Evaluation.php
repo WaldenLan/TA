@@ -68,25 +68,41 @@ class Evaluation extends TA_Controller
 	public function evaluate($BSID)
 	{
 		$data = $this->data;
+		$data['course'] = $this->validate_course($BSID);
+		$data['course']->set_answer();
+		if (count($data['course']->answer_list) > 0)
+		{
+			redirect(base_url('ta/evaluation/student/evaluation/review/' . $BSID));
+		}
 		if ($data['state'] != 0)
 		{
 			$this->index();
 		}
-		$data['course'] = $this->validate_course($BSID);
 		$data['course']->set_ta()->set_question();
-		$data['choice_list'] = array();
-		$data['blank_list'] = array();
-		for ($index = 0; $index < 5; $index++)
-		{
-			$data['choice_list'][] = new stdClass();
-			$data['blank_list'][] = new stdClass();
-		}
+		$default = $this->Mta_evaluation->get_default_question($this->data['type']);
+		$data['choice_list'] = $default['choice'];
+		$data['blank_list'] = $default['blank'];
 		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
 	
-	public function review($id)
+	public function review($BSID)
 	{
-		
+		$data = $this->data;
+		if ($data['state'] == -1)
+		{
+			$this->index();
+		}
+		$data['course'] = $this->validate_course($BSID);
+		$data['course']->set_answer();
+		if (count($data['course']->answer_list) == 0)
+		{
+			$this->index();
+		}
+		$data['course']->set_ta()->set_question();
+		$default = $this->Mta_evaluation->get_default_question($data['course']->answer_list[0]->config_id);
+		$data['choice_list'] = $default['choice'];
+		$data['blank_list'] = $default['blank'];
+		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
 	
 	public function answer()
@@ -99,7 +115,6 @@ class Evaluation extends TA_Controller
 			echo 'You have submitted the answer';
 			exit();
 		}
-		
 		$course->set_question();
 		$answer_list = $this->input->post('answer');
 		$data = array('choice' => array(), 'blank' => array(), 'addition' => array());
@@ -114,7 +129,15 @@ class Evaluation extends TA_Controller
 			case 'choice':
 			case 'blank':
 			case 'addition':
-				$data[$answer['type']][$answer['num']] = $answer['answer'];
+				if ($this->Mta_evaluation->examine_content($answer['answer']))
+				{
+					$data[$answer['type']][$answer['num']] = $answer['answer'];
+				}
+				else
+				{
+					echo 'content error';
+					exit();
+				}
 			}
 		}
 		$config = $this->Mta_evaluation->get_evaluation_config($this->data['type']);
@@ -138,7 +161,7 @@ class Evaluation extends TA_Controller
 				}
 			}
 		}
-		$this->Mta_evaluation->create_answer($BSID, $_SESSION['userid'], 0, $data);
+		$this->Mta_evaluation->create_answer($BSID, $_SESSION['userid'], 0, $this->data['type'], $data);
 		echo 'success';
 		exit();
 	}
