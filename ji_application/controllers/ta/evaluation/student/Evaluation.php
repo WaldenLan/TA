@@ -68,13 +68,13 @@ class Evaluation extends TA_Controller
 	public function evaluate($BSID)
 	{
 		$data = $this->data;
-		if ($data['state'] != 0)
-		{
-			$this->index();
-		}
 		$data['course'] = $this->validate_course($BSID);
 		$data['course']->set_answer();
 		if (count($data['course']->answer_list) > 0)
+		{
+			redirect(base_url('ta/evaluation/student/evaluation/review/' . $BSID));
+		}
+		if ($data['state'] != 0)
 		{
 			$this->index();
 		}
@@ -88,6 +88,10 @@ class Evaluation extends TA_Controller
 	public function review($BSID)
 	{
 		$data = $this->data;
+		if ($data['state'] == -1)
+		{
+			$this->index();
+		}
 		$data['course'] = $this->validate_course($BSID);
 		$data['course']->set_answer();
 		if (count($data['course']->answer_list) == 0)

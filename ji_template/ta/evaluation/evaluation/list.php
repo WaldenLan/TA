@@ -56,11 +56,15 @@
 									<? endif; ?>
 								<?php elseif ($type == 'student'): ?>
 									<?php if (count($course->answer_list) > 0): ?>
-										<a href="/ta/evaluation/student/evaluation/review/<?php
-										echo $course->BSID; ?>">review</a>
+									<a href="/ta/evaluation/student/evaluation/review/<?php
+									echo $course->BSID; ?>">review</a>
 									<?php elseif ($state == 0): ?>
 										<a href="/ta/evaluation/student/evaluation/evaluate/<?php
 										echo $course->BSID; ?>">evaluate</a>
+									<?php elseif ($state == 1): ?>
+										not participated
+									<?php elseif ($state == -1): ?>
+										not opened
 									<?php endif; ?>
 								<?php endif; ?>
 							</h4>

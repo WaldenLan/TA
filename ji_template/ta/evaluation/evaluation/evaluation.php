@@ -103,6 +103,32 @@
 	<script type="text/javascript">
 		$(document).ready(function ()
 		{
+			<?php if (count($course->answer_list) > 0): ?>
+			var answer = JSON.parse('<?php echo json_encode($course->answer_list[0]->content);?>');
+			for (var i = 1; i <= <?php echo count($choice_list); ?>; i++)
+			{
+				$("input[name='c" + i + "'][value=" + answer.choice[i] + "]").attr('checked', true)
+				                                                             .attr('disabled', true);
+			}
+			for (var i = 1; i <= <?php echo count($blank_list); ?>; i++)
+			{
+				$("#b" + i).val(answer.blank[i]).attr('disabled', true);
+			}
+			for (var i = 1; i <= <?php echo count($course->question_list); ?>; i++)
+			{
+				var type = $("#a" + i).attr('class');
+				type = type.substr(type.indexOf('-') + 1);
+				if (type == 'choice')
+				{
+					$("input[name='a" + i + "'][value=" + answer.addition[i] + "]").attr('checked', true)
+					                                                               .attr('disabled', true);
+				}
+				else if (type == "blank")
+				{
+					$("#a" + i + " textarea").val(answer.addition[i]).attr('disabled', true);
+				}
+			}
+			<?php else: ?>
 			$("#submit-button").click(function ()
 			{
 				var answer = [];
@@ -179,6 +205,7 @@
 					 }
 				 });
 			});
+			<?php endif;?>
 		});
 	</script>
 

@@ -58,27 +58,26 @@ class Mta_evaluation extends CI_Model
 	public function get_default_question($type)
 	{
 		$data = array('choice' => array(), 'blank' => array());
-		if ($type == 'student' || $type == 'teacher')
+
+		$config = $this->get_evaluation_config($type);
+		if (!$config->is_error())
 		{
-			$config = $this->get_evaluation_config($type);
-			if (!$config->is_error())
+			$list = explode(',', $config->choice_list);
+			for ($index = 0; $index < $config->choice; $index++)
 			{
-				$list = explode(',', $config->choice_list);
-				for ($index = 0; $index < $config->choice; $index++)
-				{
-					$query = $this->db->get_where('ji_ta_evaluation_default', array('id' => $list[$index]));
-					$question = new Evaluation_default_obj($query->row(0));
-					$data['choice'][$index] = $question;
-				}
-				$list = explode(',', $config->blank_list);
-				for ($index = 0; $index < $config->blank; $index++)
-				{
-					$query = $this->db->get_where('ji_ta_evaluation_default', array('id' => $list[$index]));
-					$question = new Evaluation_default_obj($query->row(0));
-					$data['blank'][$index] = $question;
-				}
+				$query = $this->db->get_where('ji_ta_evaluation_default', array('id' => $list[$index]));
+				$question = new Evaluation_default_obj($query->row(0));
+				$data['choice'][$index] = $question;
+			}
+			$list = explode(',', $config->blank_list);
+			for ($index = 0; $index < $config->blank; $index++)
+			{
+				$query = $this->db->get_where('ji_ta_evaluation_default', array('id' => $list[$index]));
+				$question = new Evaluation_default_obj($query->row(0));
+				$data['blank'][$index] = $question;
 			}
 		}
+
 		return $data;
 	}
 
