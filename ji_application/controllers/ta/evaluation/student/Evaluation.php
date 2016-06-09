@@ -56,11 +56,17 @@ class Evaluation extends TA_Controller
 	{
 		$data = $this->data;
 		$this->load->library('Course_obj');
+		$this->load->library('Ta_obj');
 		$data['course_list'] = $this->Mstudent->get_now_course($_SESSION['userid']);
 		foreach ($data['course_list'] as $course)
 		{
 			/** @var $course Course_obj */
 			$course->set_ta()->set_question()->set_answer();
+			foreach ($course->ta_list as $ta)
+			{
+				/** @var $ta Ta_obj */
+				$ta->set_answer($course->BSID);
+			}
 		}
 		$this->load->view('ta/evaluation/evaluation/list', $data);
 	}

@@ -1,7 +1,7 @@
 <?php include dirname(dirname(__FILE__)) . '/common_header.php'; ?>
 
 <?php /** @var $course Course_obj */ ?>
-
+	
 	<!-- The main page content is here -->
 	<div class='body'>
 		<div class="maincontent">
@@ -11,7 +11,7 @@
                         <?php echo $this->Mta_site->print_semester(); ?> > Course ID > TA name
                     </span>
 				</h2>
-
+				
 				<div class="evaluation_question">
 					<h2>Evaluation Questions for 2016</h2>
 					<div class="main_question">
@@ -24,20 +24,25 @@
 							</h4>
 							<br/>
 							<div class="row">
-								<label class="col-sm-2 col-md-1"><input name="c<?php echo $key + 1; ?>" type="radio"
-								                                        value="1"/>1
+								<label class="col-sm-2 col-md-1"><input
+											name="c<?php echo $key + 1; ?>" type="radio"
+											value="1"/>1
 								</label>
-								<label class="col-sm-2 col-md-1"><input name="c<?php echo $key + 1; ?>" type="radio"
-								                                        value="2"/>2
+								<label class="col-sm-2 col-md-1"><input
+											name="c<?php echo $key + 1; ?>" type="radio"
+											value="2"/>2
 								</label>
-								<label class="col-sm-2 col-md-1"><input name="c<?php echo $key + 1; ?>" type="radio"
-								                                        value="3"/>3
+								<label class="col-sm-2 col-md-1"><input
+											name="c<?php echo $key + 1; ?>" type="radio"
+											value="3"/>3
 								</label>
-								<label class="col-sm-2 col-md-1"><input name="c<?php echo $key + 1; ?>" type="radio"
-								                                        value="4"/>4
+								<label class="col-sm-2 col-md-1"><input
+											name="c<?php echo $key + 1; ?>" type="radio"
+											value="4"/>4
 								</label>
-								<label class="col-sm-2 col-md-1"><input name="c<?php echo $key + 1; ?>" type="radio"
-								                                        value="5"/>5
+								<label class="col-sm-2 col-md-1"><input
+											name="c<?php echo $key + 1; ?>" type="radio"
+											value="5"/>5
 								</label>
 							</div>
 							<br/>
@@ -51,7 +56,8 @@
 								<?php echo $question->content; ?>
 							</h4>
 							<br/>
-							<textarea id="b<?php echo $key + 1; ?>" rows="5" style="resize:none;width:100%"></textarea>
+							<textarea id="b<?php echo $key + 1; ?>" rows="5"
+							          style="resize:none;width:100%"></textarea>
 							<br/>
 						<?php endforeach; ?>
 						<br/>
@@ -61,7 +67,8 @@
 							<br/>
 							<?php foreach ($course->question_list as $key => $question): ?>
 								<?php /** @var $question Evaluation_question_obj */ ?>
-								<div id="a<?php echo $key + 1; ?>" class="addition-<?php echo $question->type; ?>">
+								<div id="a<?php echo $key + 1; ?>"
+								     class="addition-<?php echo $question->type; ?>">
 									<h4>
 										&nbsp;&nbsp;<?php echo $key + 1; ?>.&nbsp;
 										<?php echo $question->content; ?>
@@ -70,23 +77,29 @@
 									<?php if ($question->type == 'choice'): ?>
 										<div class="row">
 											<label class="col-sm-2 col-md-1">
-												<input name="a<?php echo $key + 1; ?>" type="radio" value="1"/>1
+												<input name="a<?php echo $key + 1; ?>" type="radio"
+												       value="1"/>1
 											</label>
 											<label class="col-sm-2 col-md-1">
-												<input name="a<?php echo $key + 1; ?>" type="radio" value="2"/>2
+												<input name="a<?php echo $key + 1; ?>" type="radio"
+												       value="2"/>2
 											</label>
 											<label class="col-sm-2 col-md-1">
-												<input name="a<?php echo $key + 1; ?>" type="radio" value="3"/>3
+												<input name="a<?php echo $key + 1; ?>" type="radio"
+												       value="3"/>3
 											</label>
 											<label class="col-sm-2 col-md-1">
-												<input name="a<?php echo $key + 1; ?>" type="radio" value="4"/>4
+												<input name="a<?php echo $key + 1; ?>" type="radio"
+												       value="4"/>4
 											</label>
 											<label class="col-sm-2 col-md-1">
-												<input name="a<?php echo $key + 1; ?>" type="radio" value="5"/>5
+												<input name="a<?php echo $key + 1; ?>" type="radio"
+												       value="5"/>5
 											</label>
 										</div>
 									<?php elseif ($question->type == 'blank'): ?>
-										<textarea rows="5" style="resize:none;width:100%"></textarea>
+										<textarea rows="5"
+										          style="resize:none;width:100%"></textarea>
 									<?php endif; ?>
 									<br/>
 								</div>
@@ -99,7 +112,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<script type="text/javascript">
 		$(document).ready(function ()
 		{
@@ -107,8 +120,11 @@
 			var answer = JSON.parse('<?php echo json_encode($course->answer_list[0]->content);?>');
 			for (var i = 1; i <= <?php echo count($choice_list); ?>; i++)
 			{
-				$("input[name='c" + i + "'][value=" + answer.choice[i] + "]").attr('checked', true)
-				                                                             .attr('disabled', true);
+				$("input[name='c" + i + "'][value=" + answer.choice[i] + "]").attr('checked', true);
+				$("input[name='c" + i + "']").each(function ()
+				{
+					$(this).attr('disabled', true);
+				});
 			}
 			for (var i = 1; i <= <?php echo count($blank_list); ?>; i++)
 			{
@@ -120,8 +136,9 @@
 				type = type.substr(type.indexOf('-') + 1);
 				if (type == 'choice')
 				{
-					$("input[name='a" + i + "'][value=" + answer.addition[i] + "]").attr('checked', true)
-					                                                               .attr('disabled', true);
+					$("input[name='a" + i + "'][value=" + answer.addition[i] + "]")
+							.attr('checked', true)
+							.attr('disabled', true);
 				}
 				else if (type == "blank")
 				{

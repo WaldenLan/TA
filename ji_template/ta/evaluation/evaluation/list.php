@@ -31,43 +31,65 @@
 				<h4>Course List</h4>
 				<div class="row feedback_schema">
 					<h4 class="col-sm-2">Course ID</h4>
-					<h4 class="col-sm-4">Course Name</h4>
+					<h4 class="col-sm-6">Course Name</h4>
 					<h4 class="col-sm-2">TA Number</h4>
-					<h4 class="col-sm-4">Process</h4>
+					<h4 class="col-sm-2">Process</h4>
 				</div>
 				<div class="list_container">
 					<?php foreach ($course_list as $course): ?>
 						<?php /** @var $course Course_obj */ ?>
-						<div class="row">
-							<h4 class="col-sm-2"><?php echo $course->KCDM; ?></h4>
-							<h4 class="col-sm-4"><?php echo $course->KCZWMC; ?></h4>
-							<h4 class="col-sm-2"><?php echo count($course->ta_list); ?></h4>
-							<h4 class="col-sm-4">
-								<?php if ($type == 'teacher'): ?>
-									<a href="/ta/evaluation/teacher/evaluation/check/<?php
-									echo $course->BSID; ?>">check</a>
-									<?php if (count($course->question_list) < 2 && $state == -1): ?>
-										| <a href="/ta/evaluation/teacher/evaluation/add/<?php
-										echo $course->BSID; ?>">add question</a>
+						<div class="evaluation-list" state="close">
+							<div class="row evaluation-list-course">
+								<h4 class="col-sm-2"><?php echo $course->KCDM; ?></h4>
+								<h4 class="col-sm-6"><?php echo $course->KCZWMC; ?></h4>
+								<h4 class="col-sm-2"><?php echo count($course->ta_list); ?></h4>
+								<h4 class="col-sm-2">
+									<?php if ($type == 'teacher'): ?>
+										<a href="/ta/evaluation/teacher/evaluation/check/<?php
+										echo $course->BSID; ?>">check</a>
+										<?php if (count($course->question_list) < 2 &&
+										          $state == -1
+										): ?>
+											| <a href="/ta/evaluation/teacher/evaluation/add/<?php
+											echo $course->BSID; ?>">add question</a>
+										<? endif; ?>
 									<? endif; ?>
-									<?php if ($state == 0): ?>
-										| <a href="/ta/evaluation/teacher/evaluation/evaluate/<?php
-										echo $course->BSID; ?>">evaluate</a>
-									<? endif; ?>
-								<?php elseif ($type == 'student'): ?>
-									<?php if (count($course->answer_list) > 0): ?>
-									<a href="/ta/evaluation/student/evaluation/review/<?php
-									echo $course->BSID; ?>">review</a>
-									<?php elseif ($state == 0): ?>
-										<a href="/ta/evaluation/student/evaluation/evaluate/<?php
-										echo $course->BSID; ?>">evaluate</a>
-									<?php elseif ($state == 1): ?>
-										not participated
-									<?php elseif ($state == -1): ?>
-										not opened
-									<?php endif; ?>
-								<?php endif; ?>
-							</h4>
+								</h4>
+							</div>
+							<?php foreach ($course->ta_list as $ta): ?>
+								<?php /** @var $ta Ta_obj */ ?>
+								<div class="row evaluation-list-ta" style="display: none">
+									<h5 class="col-sm-2">+</h5>
+									<h5 class="col-sm-6"><?php echo $ta->name_ch . '(' .
+									                                $ta->name_en . ')'; ?></h5>
+									<h5 class="col-sm-2"></h5>
+									<h5 class="col-sm-2">
+										<?php if ($type == 'teacher' || $type == 'student'): ?>
+											<?php if (count($ta->answer_list) >= 2): ?>
+												<a href="/ta/evaluation/<?php
+												echo $type; ?>/evaluation/review/<?php
+												echo $course->BSID; ?>">review</a>
+											<?php elseif ($state == 0): ?>
+												<a href="/ta/evaluation/<?php
+												echo $type; ?>/evaluation/evaluate/<?php
+												echo $course->BSID; ?>?ta_id=<?php echo $ta->USER_ID ?>">
+													<?php if (count($ta->answer_list) == 0): ?>
+														evaluate
+													<?php else: ?>
+														edit(<?php echo 2 -
+														                count($ta->answer_list); ?>
+														times left)
+													<?php endif; ?>
+												</a>
+											<?php elseif ($state == 1): ?>
+												not participated
+											<?php elseif ($state == -1): ?>
+												not opened
+											<?php endif; ?>
+										<?php endif; ?>
+									</h5>
+								</div>
+							<?php endforeach; ?>
 						</div>
 					<?php endforeach; ?>
 				</div>
@@ -76,5 +98,27 @@
 		</div>
 	</div>
 
-
+	<script type="text/javascript">
+		$(document).ready(function ()
+		{
+			$(".evaluation-list").click(function (e)
+			{
+				var $target = $(e.target);
+				while ($target.attr('class') != "evaluation-list")
+				{
+					$target = $target.parent();
+				}
+				if ($target.attr('state') == 'open')
+				{
+					$target.attr('state', 'close');
+					$target.children(".evaluation-list-ta").css('display', 'none');
+				}
+				else
+				{
+					$target.attr('state', 'open');
+					$target.children(".evaluation-list-ta").css('display', 'inline');
+				}
+			});
+		});
+	</script>
 <?php include dirname(dirname(__FILE__)) . '/common_footer.php'; ?>
