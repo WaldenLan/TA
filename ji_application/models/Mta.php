@@ -76,7 +76,14 @@ class Mta extends CI_Model
 		}
 		return $feedback_list;
 	}
-	
+
+	public function get_ta_answer($id, $BSID)
+	{
+		$this->load->model('Mta_evaluation');
+		$answer_list = $this->Mta_evaluation->get_answer($BSID, $_SESSION['userid'], $id);
+		return $answer_list;
+	}
+
 	public function get_ta_report($id)
 	{
 

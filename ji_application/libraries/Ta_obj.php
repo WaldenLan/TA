@@ -16,7 +16,9 @@ class Ta_obj extends My_obj
 	
 	public $course_list;
 	public $feedback_list;
+	public $answer_list;
 	public $report_list;
+	
 	/** @var $student Student_obj */
 	public $student;
 	
@@ -24,7 +26,15 @@ class Ta_obj extends My_obj
 	{
 		parent::__construct($data, 'USER_ID');
 	}
-	
+
+	/**
+	 * @return string
+	 */
+	public function get_name()
+	{
+		return $_SESSION['language'] == 'zh-cn' ? $this->name_ch : $this->name_en;
+	}
+
 	public function set_course()
 	{
 		$this->CI->load->model('Mta');
@@ -50,6 +60,13 @@ class Ta_obj extends My_obj
 	{
 		$this->CI->load->model('Mstudent');
 		$this->student = $this->CI->Mstudent->get_student_by_id($this->USER_ID);
+		return $this;
+	}
+	
+	public function set_answer($BSID)
+	{
+		$this->CI->load->model('Mta');
+		$this->answer_list = $this->CI->Mta->get_ta_answer($BSID, $this->USER_ID);
 		return $this;
 	}
 }
