@@ -23,7 +23,7 @@ class Mta_feedback extends CI_Model
 		$this->load->library('Feedback_obj');
 		$this->load->library('Feedback_reply_obj');
 	}
-
+	
 	/**
 	 * 使用 ID 获取投诉
 	 * @param   int $id 投诉 ID
@@ -36,7 +36,7 @@ class Mta_feedback extends CI_Model
 		$feedback = new Feedback_obj($query->row(0));
 		return $feedback;
 	}
-
+	
 	/**
 	 * 使用 ID 获取投诉回复
 	 * @param   int $id 回复 ID
@@ -48,7 +48,7 @@ class Mta_feedback extends CI_Model
 		$reply = new Feedback_reply_obj($query->row(0));
 		return $reply;
 	}
-
+	
 	/**
 	 * @param int $id
 	 * @return array
@@ -67,8 +67,8 @@ class Mta_feedback extends CI_Model
 		}
 		return $replys;
 	}
-
-
+	
+	
 	/**
 	 * 检查内容是否符合字数规定
 	 * @param $content
@@ -79,7 +79,7 @@ class Mta_feedback extends CI_Model
 		return strlen($content) >= $this->Mta_site->site_config['ta_feedback_content_min'] &&
 		       strlen($content) <= $this->Mta_site->site_config['ta_feedback_content_max'];
 	}
-
+	
 	public function get_reply_title($state)
 	{
 		$feedback = new Feedback_obj();
@@ -97,7 +97,7 @@ class Mta_feedback extends CI_Model
 		return str_replace(array('{from}', '{to}'), array($from, $to),
 		                   lang('ta_feedback_reply_title'));
 	}
-
+	
 	public function get_state_array($identity, $state)
 	{
 		switch ($identity)
@@ -238,9 +238,10 @@ class Mta_feedback extends CI_Model
 	 * @param int    $user_id
 	 * @param string $content
 	 * @param bool   $change_flag
+	 * @param string $picture_name
 	 * @return bool
 	 */
-	public function reply($id, $identity, $user_id, $content, $change_flag = false)
+	public function reply($id, $identity, $user_id, $content, $change_flag = false, $picture_name = '')
 	{
 		/** initialize */
 		$feedback = $this->get_feedback_by_id($id);
@@ -251,7 +252,8 @@ class Mta_feedback extends CI_Model
 		$reply_data = array(
 			'feedback_id' => $id,
 			'user_id'     => $user_id,
-			'content'     => $this->Mta_site->html_base64($content));
+			'content'     => $this->Mta_site->html_base64($content),
+			'picture'     => $picture_name);
 		
 		switch ($identity)
 		{
@@ -273,8 +275,7 @@ class Mta_feedback extends CI_Model
 			if (!$change_flag)
 			{
 				$reply_data['state'] = Feedback_obj::STATE_OPEN | Feedback_obj::STATE_MANAGE |
-				                       ($feedback->is_student() ? Feedback_obj::STATE_STUDENT :
-					                       Feedback_obj::STATE_TEACHER);
+				                       ($feedback->is_student() ? Feedback_obj::STATE_STUDENT : Feedback_obj::STATE_TEACHER);
 				$feedback->set_state(Feedback_obj::STATE_OPEN | Feedback_obj::STATE_MANAGE,
 				                     Feedback_obj::STATE_TEACHER | Feedback_obj::STATE_PROCESSED);
 				break;
@@ -317,11 +318,10 @@ class Mta_feedback extends CI_Model
 			}
 			
 			$reply_data['state'] = Feedback_obj::STATE_CLOSED | Feedback_obj::STATE_MANAGE |
-			                       ($feedback->is_student() ? Feedback_obj::STATE_TEACHER :
-				                       Feedback_obj::STATE_STUDENT);
+			                       ($feedback->is_student() ? Feedback_obj::STATE_TEACHER : Feedback_obj::STATE_STUDENT);
 			$feedback->set_state(Feedback_obj::STATE_OPEN | Feedback_obj::STATE_MANAGE |
-			                     ($feedback->is_student() ? Feedback_obj::STATE_TEACHER :
-				                     Feedback_obj::STATE_STUDENT), Feedback_obj::STATE_PROCESSED);
+			                     ($feedback->is_student() ? Feedback_obj::STATE_TEACHER : Feedback_obj::STATE_STUDENT),
+			                     Feedback_obj::STATE_PROCESSED);
 			break;
 		}
 		

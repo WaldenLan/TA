@@ -15,9 +15,10 @@
 					<h2>Attention</h2>
 					<ul>
 						<?php if ($type == 'teacher'): ?>
-							<li>1. You can add at most two questions to TA evaluation.</li>
-							<li>2. Attention tips attention tips attention tips attention tips.</li>
-							<li>3. Attention tips attention tips attention tips.</li>
+							<li>1. You can add at most <?php echo $config->addition;?> questions to
+								TA evaluation.</li>
+							<li>2. Click on the course and check or evaluate the TAs.</li>
+							<li>3. You must add questions before the evaluation begins.</li>
 						<?php elseif ($type == 'student'): ?>
 							<?php if ($state == 0): ?>
 								<li>Time for Evaluation</li>
@@ -65,26 +66,27 @@
 									<h5 class="col-sm-2"></h5>
 									<h5 class="col-sm-2">
 										<?php if ($type == 'teacher' || $type == 'student'): ?>
-											<?php if (count($ta->answer_list) >= 2): ?>
-												<a href="/ta/evaluation/<?php
-												echo $type; ?>/evaluation/review/<?php
-												echo $course->BSID; ?>">review</a>
-											<?php elseif ($state == 0): ?>
+											<?php if ($state == -1): ?>
+												not opened
+											<?php elseif ($state == 0 ||
+											              count($ta->answer_list) > 0
+											): ?>
 												<a href="/ta/evaluation/<?php
 												echo $type; ?>/evaluation/evaluate/<?php
 												echo $course->BSID; ?>?ta_id=<?php echo $ta->USER_ID ?>">
-													<?php if (count($ta->answer_list) == 0): ?>
+													<?php if (count($ta->answer_list) == $edit_max)
+														: ?>
+														review
+													<?php elseif (count($ta->answer_list) == 0): ?>
 														evaluate
 													<?php else: ?>
-														edit(<?php echo 2 -
+														edit(<?php echo $edit_max -
 														                count($ta->answer_list); ?>
 														times left)
 													<?php endif; ?>
 												</a>
 											<?php elseif ($state == 1): ?>
 												not participated
-											<?php elseif ($state == -1): ?>
-												not opened
 											<?php endif; ?>
 										<?php endif; ?>
 									</h5>
@@ -93,7 +95,6 @@
 						</div>
 					<?php endforeach; ?>
 				</div>
-
 			</div>
 		</div>
 	</div>

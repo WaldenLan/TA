@@ -1,6 +1,7 @@
 <?php include dirname(dirname(__FILE__)) . '/common_header.php'; ?>
 
 <?php /** @var $course Course_obj */ ?>
+<?php /** @var $ta Ta_obj */ ?>
 	
 	<!-- The main page content is here -->
 	<div class='body'>
@@ -13,7 +14,8 @@
 				</h2>
 				
 				<div class="evaluation_question">
-					<h2>Evaluation Questions for 2016</h2>
+					<h2>Evaluation Questions for <?php echo $this->Mta_site->print_semester();
+						?></h2>
 					<div class="main_question">
 						<h3>I) Choice Questions: (max score is 5 points for each questions)</h3>
 						<br/>
@@ -106,7 +108,9 @@
 							<?php endforeach; ?>
 						<?php endif; ?>
 						<br/>
-						<button id="submit-button" class="btn btn-primary">Submit</button>
+						<?php if ($operation == 'edit' || $operation == 'evaluate'): ?>
+							<button id="submit-button" class="btn btn-primary">Submit</button>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
@@ -116,19 +120,22 @@
 	<script type="text/javascript">
 		$(document).ready(function ()
 		{
-			<?php if (count($course->answer_list) > 0): ?>
-			var answer = JSON.parse('<?php echo json_encode($course->answer_list[0]->content);?>');
+			<?php if ($operation == 'edit' || $operation == 'review'): ?>
+			var answer = JSON.parse('<?php echo $answer; ?>');
 			for (var i = 1; i <= <?php echo count($choice_list); ?>; i++)
 			{
 				$("input[name='c" + i + "'][value=" + answer.choice[i] + "]").attr('checked', true);
-				$("input[name='c" + i + "']").each(function ()
-				{
-					$(this).attr('disabled', true);
-				});
+				<?php if ($operation == 'review'): ?>
+				$("input[name='c" + i + "']").attr('disabled', true);
+				<?php endif; ?>
 			}
 			for (var i = 1; i <= <?php echo count($blank_list); ?>; i++)
 			{
-				$("#b" + i).val(answer.blank[i]).attr('disabled', true);
+				var $select = $("#b" + i);
+				$select.val(answer.blank[i]);
+				<?php if ($operation == 'review'): ?>
+				$select.attr('disabled', true);
+				<?php endif; ?>
 			}
 			for (var i = 1; i <= <?php echo count($course->question_list); ?>; i++)
 			{
@@ -137,15 +144,22 @@
 				if (type == 'choice')
 				{
 					$("input[name='a" + i + "'][value=" + answer.addition[i] + "]")
-							.attr('checked', true)
-							.attr('disabled', true);
+							.attr('checked', true);
+					<?php if ($operation == 'review'): ?>
+					$("input[name='a" + i + "']").attr('disabled', true);
+					<?php endif; ?>
 				}
 				else if (type == "blank")
 				{
-					$("#a" + i + " textarea").val(answer.addition[i]).attr('disabled', true);
+					var $select = $("#a" + i + " textarea");
+					$select.val(answer.addition[i]);
+					<?php if ($operation == 'review'): ?>
+					$select.attr('disabled', true);
+					<?php endif; ?>
 				}
 			}
-			<?php else: ?>
+			<?php endif; ?>
+			<?php if ($operation == 'edit' || $operation == 'evaluate'): ?>
 			$("#submit-button").click(function ()
 			{
 				var answer = [];
@@ -202,6 +216,7 @@
 					 url: '/ta/evaluation/<?php echo $type;?>/evaluation/answer/',
 					 data: {
 						 BSID: <?php echo $course->BSID; ?>,
+						 ta_id: <?php echo $ta->USER_ID; ?>,
 						 answer: answer
 					 },
 					 dataType: 'text',
@@ -223,7 +238,8 @@
 				 });
 			});
 			<?php endif;?>
-		});
+		})
+		;
 	</script>
 
 <?php include dirname(dirname(__FILE__)) . '/common_footer.php'; ?>

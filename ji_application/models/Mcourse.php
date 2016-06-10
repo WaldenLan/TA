@@ -23,6 +23,39 @@ class Mcourse extends CI_Model
 	}
 
 	/**
+	 * @param array  $value
+	 * @param string $key
+	 * @return array
+	 */
+	public function get_now_course($value, $key = 'BSID')
+	{
+		$course_list = array();
+		if (!is_array($value))
+		{
+			$value = array($value);
+		}
+		else if (count($value) == 0)
+		{
+			return $course_list;
+		}
+		$query = $this->db->select('*')->from('ji_course_open')->where(array(
+			                                                               'XQ'   => $this->Mta_site->site_config['ji_academic_term'],
+			                                                               'XN'   => $this->Mta_site->site_config['ji_academic_year'],
+			                                                               'SCBJ' => 'N'))
+		                  ->where_in($key, $value)->get();
+
+		foreach ($query->result() as $row)
+		{
+			$course = new Course_obj($row);
+			if (!$course->is_error())
+			{
+				$course_list[] = $course;
+			}
+		}
+		return $course_list;
+	}
+
+	/**
 	 * @param int $BSID
 	 * @return array
 	 */
@@ -38,15 +71,7 @@ class Mcourse extends CI_Model
 		{
 			$user_list[] = $user->USER_ID;
 		}
-		$ta_list = array();
-		foreach ($user_list as $userid)
-		{
-			$ta = $this->Mta->get_ta_by_id($userid);
-			if (!$ta->is_error())
-			{
-				$ta_list[] = $ta;
-			}
-		}
+		$ta_list = $this->Mta->get_ta_by_id($user_list);
 		return $ta_list;
 	}
 

@@ -12,12 +12,34 @@ class Mta extends CI_Model
 		$this->load->model('Mta_site');
 		$this->load->library('Ta_obj');
 	}
-	
+
+	/**
+	 * @param int|array $id
+	 * @return Ta_obj|array
+	 */
 	public function get_ta_by_id($id)
 	{
-		$query = $this->db->get_where('ji_ta_info', array('USER_ID' => $id));
-		$ta = new Ta_obj($query->row(0));
-		return $ta;
+		if (!is_array($id))
+		{
+			$query = $this->db->get_where('ji_ta_info', array('USER_ID' => $id));
+			$ta = new Ta_obj($query->row(0));
+			return $ta;
+		}
+		if (count($id) == 0)
+		{
+			return array();
+		}
+		$query = $this->db->select('*')->from('ji_ta_info')->where_in('USER_ID', $id)->get();
+		$ta_list = array();
+		foreach ($query->result() as $row)
+		{
+			$ta = new Ta_obj($row);
+			if (!$ta->is_error())
+			{
+				$ta_list[] = $ta;
+			}
+		}
+		return $ta_list;
 	}
 
 	/**
@@ -30,7 +52,7 @@ class Mta extends CI_Model
 		foreach ($query->result() as $row)
 		{
 			$ta = new Ta_obj($row);
-			if(!$ta->is_error())
+			if (!$ta->is_error())
 			{
 				$ta_list[] = $ta;
 			}
@@ -63,8 +85,8 @@ class Mta extends CI_Model
 	public function get_ta_feedback($id)
 	{
 		$this->load->library('Feedback_obj');
-		$query = $this->db->select('*')->from('ji_ta_feedback')->where(array('ta_id' => $id))
-			->get();
+		$query =
+			$this->db->select('*')->from('ji_ta_feedback')->where(array('ta_id' => $id))->get();
 		$feedback_list = array();
 		foreach ($query->result() as $result)
 		{

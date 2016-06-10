@@ -13,6 +13,7 @@ class Evaluation extends TA_Controller
 		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mstudent');
 		$this->load->model('Mta_evaluation');
+		$this->load->library('Evaluation_obj');
 		$this->data['state'] = $this->Mta_evaluation->get_evaluation_state();
 		
 	}
@@ -40,11 +41,7 @@ class Evaluation extends TA_Controller
 	private function validate_course($BSID)
 	{
 		$this->load->model('Mcourse');
-		if (!$this->Mstudent->is_now_course($_SESSION['userid'], $BSID))
-		{
-			$this->index();
-		}
-		$course = $this->Mcourse->get_course_by_id($BSID);
+		$course = $this->Mstudent->is_now_course($_SESSION['userid'], $BSID);
 		if ($course->is_error())
 		{
 			$this->index();
@@ -61,64 +58,92 @@ class Evaluation extends TA_Controller
 		foreach ($data['course_list'] as $course)
 		{
 			/** @var $course Course_obj */
-			$course->set_ta()->set_question()->set_answer();
+			$course->set_ta();
 			foreach ($course->ta_list as $ta)
 			{
 				/** @var $ta Ta_obj */
 				$ta->set_answer($course->BSID);
 			}
 		}
+		$data['edit_max'] = $this->Mta_site->site_config['ta_evaluation_edit_max'];
 		$this->load->view('ta/evaluation/evaluation/list', $data);
 	}
 	
 	public function evaluate($BSID)
 	{
 		$data = $this->data;
-		$data['course'] = $this->validate_course($BSID);
-		$data['course']->set_answer();
-		if (count($data['course']->answer_list) > 0)
-		{
-			redirect(base_url('ta/evaluation/student/evaluation/review/' . $BSID));
-		}
-		if ($data['state'] != 0)
+		if ($data['state'] < 0)
 		{
 			$this->index();
 		}
-		$data['course']->set_ta()->set_question();
+		$data['course'] = $this->validate_course($BSID);
+		$data['course']->set_ta();
+		$data['ta'] = NULL;
+		foreach ($data['course']->ta_list as $ta)
+		{
+			/** @var $ta Ta_obj */
+			if ($ta->USER_ID == $this->input->get('ta_id'))
+			{
+				$data['ta'] = $ta;
+				break;
+			}
+		}
+		if ($data['ta'] == NULL)
+		{
+			$this->index();
+		}
+		$data['ta']->set_answer($BSID);
+		$answer_count = count($data['ta']->answer_list);
+		if ($answer_count == 0)
+		{
+			if ($data['state'] == 1)
+			{
+				$this->index();
+			}
+			else
+			{
+				$data['answer'] = json_encode(array());
+				$data['operation'] = 'evaluate';
+			}
+		}
+		else
+		{
+			$data['answer'] = json_encode($data['ta']->answer_list[$answer_count - 1]->content);
+			$data['operation'] = $answer_count >=
+			                     $this->Mta_site->site_config['ta_evaluation_edit_max'] ? 'review' : 'edit';
+		}
+		$data['course']->set_question();
 		$default = $this->Mta_evaluation->get_default_question($this->data['type']);
 		$data['choice_list'] = $default['choice'];
 		$data['blank_list'] = $default['blank'];
 		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
 	}
-	
-	public function review($BSID)
-	{
-		$data = $this->data;
-		if ($data['state'] == -1)
-		{
-			$this->index();
-		}
-		$data['course'] = $this->validate_course($BSID);
-		$data['course']->set_answer();
-		if (count($data['course']->answer_list) == 0)
-		{
-			$this->index();
-		}
-		$data['course']->set_ta()->set_question();
-		$default = $this->Mta_evaluation->get_default_question($data['course']->answer_list[0]->config_id);
-		$data['choice_list'] = $default['choice'];
-		$data['blank_list'] = $default['blank'];
-		$this->load->view('ta/evaluation/evaluation/evaluation', $data);
-	}
-	
+
 	public function answer()
 	{
 		$BSID = $this->input->post('BSID');
+		$ta_id = $this->input->post('ta_id');
 		$course = $this->validate_course($BSID);
-		$course->set_answer();
-		if (count($course->answer_list) > 0)
+		$course->set_ta();
+		$ta = NULL;
+		foreach ($course->ta_list as $_ta)
 		{
-			echo 'You have submitted the answer';
+			/** @var $_ta Ta_obj */
+			if ($_ta->USER_ID == $ta_id)
+			{
+				$ta = $_ta;
+				break;
+			}
+		}
+		if ($ta == NULL)
+		{
+			echo 'TA not found!';
+			exit();
+		}
+		$ta->set_answer($BSID);
+		if (count($course->answer_list) >= $this->Mta_site->site_config['ta_evaluation_edit_max'])
+		{
+			echo 'You have no chance to edit';
 			exit();
 		}
 		$course->set_question();
@@ -167,7 +192,8 @@ class Evaluation extends TA_Controller
 				}
 			}
 		}
-		$this->Mta_evaluation->create_answer($BSID, $_SESSION['userid'], 0, $this->data['type'], $data);
+		$this->Mta_evaluation->create_answer($BSID, $_SESSION['userid'], $ta_id,
+		                                     $this->data['type'], $data);
 		echo 'success';
 		exit();
 	}
