@@ -1,24 +1,31 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH'))
+{
+	exit('No direct script access allowed');
+}
 
-class Mstudent extends CI_Model {
+class Mstudent extends CI_Model
+{
 	
 	function __construct()
-    {
-        parent::__construct();
+	{
+		parent::__construct();
 		$this->load->model('Mta_site');
-	    $this->load->library('Student_obj');
-    }
+		$this->load->library('Student_obj');
+	}
 
 	public function get_student_by_id($id)
 	{
-		$query = $this->db->get_where('ji_students', array('student_id'=>$id));
+		$query = $this->db->get_where('ji_students', array('student_id' => $id));
 		$student = new Student_obj($query->row(0));
 		return $student;
 	}
 
 	public function get_all_course($id)
 	{
-		$query = $this->db->select('BSID')->from('ji_course_select')->where(array('USER_ID'=>$id, 'SCBJ'=>'N'))->get();
+		$query = $this->db->select('BSID')->from('ji_course_select')->where(array(
+			                                                                    'USER_ID' => $id,
+			                                                                    'SCBJ'    => 'N'))
+		                  ->get();
 		return $query->result();
 	}
 
@@ -28,37 +35,20 @@ class Mstudent extends CI_Model {
 	 */
 	public function get_now_course($id)
 	{
+		$this->load->model('Mcourse');
 		$this->load->library('Course_obj');
-		$site_config = $this->Mta_site->get_site_config();
-				
-		$course_list = array();
 		foreach ($this->get_all_course($id) as $course)
 		{
 			$course_list[] = $course->BSID;
 		}
-		if (count($course_list) == 0)
-		{
-			return array();
-		}
-
-		$query = $this->db->select('*')->from('ji_course_open')->where(array('XQ'=>$site_config['ji_academic_term'], 'XN'=>$site_config['ji_academic_year'], 'SCBJ'=>'N'))->where_in('BSID', $course_list)->get();
-
-		$course_list = array();
-		foreach ($query->result() as $row)
-		{
-			$course = new Course_obj($row);
-			if (!$course->is_error())
-			{
-				$course_list[] = $course;
-			}
-		}
+		$course_list = $this->Mcourse->get_now_course($course_list);
 		return $course_list;
 	}
 
 	/**
 	 * @param $user_id
 	 * @param $BSID
-	 * @return bool
+	 * @return Course_obj
 	 */
 	public function is_now_course($user_id, $BSID)
 	{
@@ -66,9 +56,9 @@ class Mstudent extends CI_Model {
 		{
 			if ($course->BSID == $BSID)
 			{
-				return true;
+				return $course;
 			}
 		}
-		return false;
+		return new Course_obj();
 	}
 }

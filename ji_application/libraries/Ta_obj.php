@@ -66,7 +66,7 @@ class Ta_obj extends My_obj
 	public function set_answer($BSID)
 	{
 		$this->CI->load->model('Mta');
-		$this->answer_list = $this->CI->Mta->get_ta_answer($BSID, $this->USER_ID);
+		$this->answer_list = $this->CI->Mta->get_ta_answer($this->USER_ID, $BSID);
 		return $this;
 	}
 }
