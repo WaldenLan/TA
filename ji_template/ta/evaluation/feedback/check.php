@@ -1,6 +1,7 @@
 <?php include dirname(dirname(__FILE__)) . '/common_header.php'; ?>
-
 <?php include 'button_event.php'; ?>
+
+	<link rel="stylesheet" href="/ji_style/swipebox/swipebox.min.css">
 
 <?php /** @var $feedback Feedback_obj */ ?>
 	<!-- The main page content is here -->
@@ -65,9 +66,9 @@
 							</li>
 						</ul>
 						<?php if (strlen($reply->picture) > 0): ?>
-							<div class="col-sm-4 feedback-reply-image">
+							<a href="<?php echo $reply->picture; ?>" class="col-sm-4 swipebox">
 								<img src="<?php echo $reply->picture; ?>" style="width: 100%;">
-							</div>
+							</a>
 						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>
@@ -108,15 +109,11 @@
 			</div>
 		</div>
 	</div>
-
+	<script src="/ji_js/swipebox/jquery.swipebox.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function ()
 		{
-			$(".feedback-reply-image").click(function (e)
-			{
-				var $target = $(e.target);
-				alert("放大还没做");
-			});
+			$(".swipebox").swipebox();
 		});
 	</script>
 <?php include dirname(dirname(__FILE__)) . '/common_footer.php'; ?>
