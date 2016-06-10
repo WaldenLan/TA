@@ -20,6 +20,8 @@ class Feedback_reply_obj extends My_obj
 	public $user_id;
 	/** @var string text        回复内容 */
 	public $content;
+	/** @var string varchar(32) 图片名(32bit md5) */
+	public $picture;
 	/** @var int    int(4)      回复状态 */
 	public $state;
 	/** @var string timestamp   创建时间 */
@@ -35,6 +37,11 @@ class Feedback_reply_obj extends My_obj
 		if (!$this->is_error())
 		{
 			$this->content = base64_decode($this->content);
+			if (strlen($this->picture) > 0)
+			{
+				$this->picture =
+					'/ji_upload/ta/feedback/' . $this->feedback_id . '/' . $this->picture . '.png';
+			}
 		}
 	}
 }

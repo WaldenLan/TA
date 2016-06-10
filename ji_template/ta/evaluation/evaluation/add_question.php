@@ -6,16 +6,40 @@
 	<div class='body'>
 		<div class="maincontent">
 			<div class="announcement">
-				<h2>Add question</h2>
+				<h2>
+					Add question > <?php echo $course->KCDM;?> > <?php echo '#'.(count($course->question_list)+1);?>
+					<div id="return">
+						<a><span class="glyphicon glyphicon-repeat" aria-hidden="true" title="Return"></span></a>
+					</div>
+				</h2>
+                <div class="row">
+                    <h4 class="col-sm-3 question_type">
+                        <span class="label label-info tag">
+                            Question Type:
+                        </span>
+                    </h4>
+                    <div class="form-group col-sm-6 question_content">
+                        <br><br>
+                        <input type="radio" name="type" value="choice" checked="checked"/><span>Choice &nbsp;&nbsp;(Grading Questions: up to 5 points for each question)</span>
+                        <br>
+                        <input type="radio" name="type" value="blank"/><span>Blank &nbsp;&nbsp;&nbsp;&nbsp;(Short Answer Questions)</span>
+                    </div>
+                </div>
 
-				<div class="form-group">
-					<input type="radio" name="type" value="choice" checked="checked"/>Choice
-					<input type="radio" name="type" value="blank"/>Blank
-				</div>
-				<div class="form-group">
-					<input id="input-content" type="text"/>
-				</div>
-				<button id="submit-button" class="btn btn-primary">Submit</button>
+                <div class="row">
+                    <h4 class="col-sm-3">
+                        <span class="label label-info tag">
+                            Question Content:
+                        </span>
+                    </h4>
+                    <div class="form-group col-sm-7">
+                        <br><br>
+                        <textarea id="input-content" rows="15" style="resize:none;width:100%"></textarea>
+                    </div>
+                </div>
+                <div class="submit">
+                    <button id="submit-button" class="btn btn-primary">Submit</button>
+                </div>
 
 			</div>
 		</div>

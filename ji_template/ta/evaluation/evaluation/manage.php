@@ -65,7 +65,7 @@
                     $.ajax
                     ({
                         type: 'GET',
-                        url: '/ta/evaluation/manage/export/settime',
+                        url: '/ta/evaluation/manage/evaluation/settime',
                         data: {
                             start: start,
                             end: end

@@ -13,6 +13,7 @@ class Evaluation extends TA_Controller
 		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mstudent');
 		$this->load->model('Mta_evaluation');
+		$this->load->library('Evaluation_obj');
 		$this->data['state'] = $this->Mta_evaluation->get_evaluation_state();
 		
 	}
