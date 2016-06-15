@@ -70,9 +70,9 @@ class Mta_site extends CI_Model
 	public function print_semester()
 	{
 		$semester_name = array(
-			'1' => 'Fall',
-			'2' => 'Spring',
-			'3' => 'Summer');
+			'FA' => 'Fall',
+			'SP' => 'Spring',
+			'SU' => 'Summer');
 		return substr($this->site_config['ji_academic_year'], 0, 4) . ' ' .
 		       $semester_name[$this->site_config['ji_um_term']];
 	}

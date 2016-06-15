@@ -1,5 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class My_obj
+ *
+ * The basic class of objects
+ *
+ * @category   ji
+ * @package    ji
+ * @author     tc-imba
+ * @copyright  2016 umji-sjtu
+ */
 class My_obj
 {
 	/** @var bool */

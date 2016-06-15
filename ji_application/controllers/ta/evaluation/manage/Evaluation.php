@@ -25,7 +25,20 @@ class Evaluation extends TA_Controller
 		$data = $this->data;
 		$this->load->view('ta/evaluation/evaluation/manage', $data);
 	}
-
+	
+	public function edit()
+	{
+		$data = $this->data;
+		$data['edit_type'] = $this->input->get('type');
+		if ($data['edit_type'] != 'student' || $data['edit_type'] != 'teacher')
+		{
+			$this->index();
+		}
+		$default = $this->Mta_evaluation->get_default_question($data['edit_type']);
+		
+		$this->load->view('ta/evaluation/evaluation/edit_question', $data);
+	}
+	
 	public function settime()
 	{
 		$start = $this->input->get('start');
