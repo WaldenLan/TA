@@ -35,13 +35,24 @@ class Mta_evaluation extends CI_Model
 		$answer = new Evaluation_answer_obj($query->row(0));
 		return $answer;
 	}
-
+	
 	/**
 	 * @param int|string $id
+	 * @param bool       $all
 	 * @return Evaluation_config_obj
 	 */
-	public function get_evaluation_config($id)
+	public function get_evaluation_config($id, $all = false)
 	{
+		if ($all)
+		{
+			$query = $this->db->select('*')->from('ji_ta_evaluation_config')->where(array('type' => $id))->get();
+			$config_list = array();
+			foreach ($query->result() as $row)
+			{
+				(new Evaluation_config_obj($row))->add_array($config_list);
+			}
+			return $config_list;
+		}
 		if ($id == 'student' || $id == 'teacher')
 		{
 			$id = $this->Mta_site->site_config['ta_evaluation_config_' . $id];
@@ -50,7 +61,8 @@ class Mta_evaluation extends CI_Model
 		$config = new Evaluation_config_obj($query->row(0));
 		return $config;
 	}
-
+	
+	
 	/**
 	 * @param string $type
 	 * @return array
@@ -82,8 +94,8 @@ class Mta_evaluation extends CI_Model
 		}
 		return $data;
 	}
-
-
+	
+	
 	/**
 	 * @param int    $BSID
 	 * @param string $type
@@ -97,7 +109,7 @@ class Mta_evaluation extends CI_Model
 			'content' => $this->Mta_site->html_base64($content));
 		$this->db->insert('ji_ta_evaluation_question', $data);
 	}
-
+	
 	/**
 	 * @param int    $BSID
 	 * @param int    $USER_ID
@@ -118,7 +130,7 @@ class Mta_evaluation extends CI_Model
 		}
 		$this->db->insert('ji_ta_evaluation_answer', $data);
 	}
-
+	
 	/**
 	 * @param int $BSID
 	 * @param int $USER_ID
@@ -150,7 +162,7 @@ class Mta_evaluation extends CI_Model
 		}
 		return $answer_list;
 	}
-
+	
 	/**
 	 * 检查内容是否符合字数规定
 	 * @param $content

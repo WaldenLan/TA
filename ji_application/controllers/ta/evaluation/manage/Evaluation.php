@@ -34,8 +34,8 @@ class Evaluation extends TA_Controller
 		{
 			$this->index();
 		}
-		$default = $this->Mta_evaluation->get_default_question($data['edit_type']);
-		
+		$config = $this->Mta_evaluation->get_evaluation_config($data['edit_type']);
+		print_r($config);
 		$this->load->view('ta/evaluation/evaluation/edit_question', $data);
 	}
 	

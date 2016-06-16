@@ -71,4 +71,13 @@ class My_obj
 	{
 		return isset($this->$key) && !$this->is_error() ? $this->$key : NULL;
 	}
+
+	public function add_array(&$array)
+	{
+		if (!$this->is_error())
+		{
+			$array[] = &$this;
+		}
+	}
+
 }

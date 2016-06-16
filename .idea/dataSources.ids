@@ -914,776 +914,780 @@
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="246" parent="22" name="choice">
+      <column id="246" parent="22" name="type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="247" parent="22" name="choice">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;6&apos;</default-expression>
       </column>
-      <column id="247" parent="22" name="choice_list">
+      <column id="248" parent="22" name="choice_list">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="248" parent="22" name="blank">
+      <column id="249" parent="22" name="blank">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;6&apos;</default-expression>
       </column>
-      <column id="249" parent="22" name="blank_list">
+      <column id="250" parent="22" name="blank_list">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="250" parent="22" name="addition">
+      <column id="251" parent="22" name="addition">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;2&apos;</default-expression>
       </column>
-      <column id="251" parent="22" name="lock">
+      <column id="252" parent="22" name="lock">
         <data-type>int(4)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="252" parent="22" name="CREATE_TIMESTAMP">
+      <column id="253" parent="22" name="CREATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <column id="253" parent="22" name="UPDATE_TIMESTAMP">
+      <column id="254" parent="22" name="UPDATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <index id="254" parent="22" name="ji_ta_evaluation_config_id_uindex">
+      <index id="255" parent="22" name="ji_ta_evaluation_config_id_uindex">
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="255" parent="22" name="ji_ta_evaluation_config_id_uindex">
+      <key id="256" parent="22" name="ji_ta_evaluation_config_id_uindex">
         <columns>id</columns>
         <underlying-index>ji_ta_evaluation_config_id_uindex</underlying-index>
       </key>
-      <key id="256" parent="22" name="PRIMARY">
+      <key id="257" parent="22" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="257" parent="23" name="id">
+      <column id="258" parent="23" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="258" parent="23" name="type">
+      <column id="259" parent="23" name="type">
         <mandatory>1</mandatory>
         <data-type>varchar(10)</data-type>
       </column>
-      <column id="259" parent="23" name="content">
+      <column id="260" parent="23" name="content">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="260" parent="23" name="state">
+      <column id="261" parent="23" name="state">
         <mandatory>1</mandatory>
         <data-type>int(4)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="261" parent="23" name="CREATE_TIMESTAMP">
+      <column id="262" parent="23" name="CREATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <column id="262" parent="23" name="UPDATE_TIMESTAMP">
+      <column id="263" parent="23" name="UPDATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <index id="263" parent="23" name="ji_ta_evaluation_question_id_uindex">
+      <index id="264" parent="23" name="ji_ta_evaluation_question_id_uindex">
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="264" parent="23" name="ji_ta_evaluation_question_id_uindex">
+      <key id="265" parent="23" name="ji_ta_evaluation_question_id_uindex">
         <columns>id</columns>
         <underlying-index>ji_ta_evaluation_question_id_uindex</underlying-index>
       </key>
-      <key id="265" parent="23" name="PRIMARY">
+      <key id="266" parent="23" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="266" parent="24" name="id">
+      <column id="267" parent="24" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="267" parent="24" name="BSID">
+      <column id="268" parent="24" name="BSID">
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="268" parent="24" name="type">
+      <column id="269" parent="24" name="type">
         <mandatory>1</mandatory>
         <data-type>varchar(10)</data-type>
       </column>
-      <column id="269" parent="24" name="content">
+      <column id="270" parent="24" name="content">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="270" parent="24" name="CREATE_TIMESTAMP">
+      <column id="271" parent="24" name="CREATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <index id="271" parent="24" name="ji_ta_evaluation_question_id_uindex">
+      <index id="272" parent="24" name="ji_ta_evaluation_question_id_uindex">
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="272" parent="24" name="ji_ta_evaluation_question_id_uindex">
+      <key id="273" parent="24" name="ji_ta_evaluation_question_id_uindex">
         <columns>id</columns>
         <underlying-index>ji_ta_evaluation_question_id_uindex</underlying-index>
       </key>
-      <key id="273" parent="24" name="PRIMARY">
+      <key id="274" parent="24" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="274" parent="25" name="id">
+      <column id="275" parent="25" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="275" parent="25" name="ta_id">
+      <column id="276" parent="25" name="ta_id">
         <comment>助教ID</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="276" parent="25" name="user_id">
+      <column id="277" parent="25" name="user_id">
         <comment>投诉者ID</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="277" parent="25" name="BSID">
+      <column id="278" parent="25" name="BSID">
         <comment>课程ID</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="278" parent="25" name="title">
+      <column id="279" parent="25" name="title">
         <comment>标题</comment>
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="279" parent="25" name="anonymous">
+      <column id="280" parent="25" name="anonymous">
         <comment>是否匿名</comment>
         <mandatory>1</mandatory>
         <data-type>tinyint(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="280" parent="25" name="state">
+      <column id="281" parent="25" name="state">
         <comment>状态</comment>
         <mandatory>1</mandatory>
         <data-type>int(4)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="281" parent="25" name="CREATE_TIMESTAMP">
+      <column id="282" parent="25" name="CREATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <column id="282" parent="25" name="UPDATE_TIMESTAMP">
+      <column id="283" parent="25" name="UPDATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <index id="283" parent="25" name="id">
+      <index id="284" parent="25" name="id">
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="284" parent="25" name="id">
+      <key id="285" parent="25" name="id">
         <columns>id</columns>
         <underlying-index>id</underlying-index>
       </key>
-      <key id="285" parent="25" name="PRIMARY">
+      <key id="286" parent="25" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="286" parent="26" name="id">
+      <column id="287" parent="26" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="287" parent="26" name="feedback_id">
+      <column id="288" parent="26" name="feedback_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="288" parent="26" name="user_id">
+      <column id="289" parent="26" name="user_id">
         <comment>用户ID</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="289" parent="26" name="content">
+      <column id="290" parent="26" name="content">
         <comment>内容</comment>
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="290" parent="26" name="picture">
+      <column id="291" parent="26" name="picture">
         <comment>图片</comment>
         <data-type>varchar(32)</data-type>
       </column>
-      <column id="291" parent="26" name="state">
+      <column id="292" parent="26" name="state">
         <comment>状态</comment>
         <mandatory>1</mandatory>
         <data-type>int(4)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="292" parent="26" name="CREATE_TIMESTAMP">
+      <column id="293" parent="26" name="CREATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <index id="293" parent="26" name="id">
+      <index id="294" parent="26" name="id">
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="294" parent="26" name="id">
+      <key id="295" parent="26" name="id">
         <columns>id</columns>
         <underlying-index>id</underlying-index>
       </key>
-      <key id="295" parent="26" name="PRIMARY">
+      <key id="296" parent="26" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="296" parent="27" name="USER_ID">
+      <column id="297" parent="27" name="USER_ID">
         <comment>用户ID</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="297" parent="27" name="name_ch">
+      <column id="298" parent="27" name="name_ch">
         <comment>中文名</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="298" parent="27" name="name_en">
+      <column id="299" parent="27" name="name_en">
         <comment>英文名</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(40)</data-type>
       </column>
-      <column id="299" parent="27" name="gender">
+      <column id="300" parent="27" name="gender">
         <comment>性别</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
-      <column id="300" parent="27" name="department">
+      <column id="301" parent="27" name="department">
         <comment>学院</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="301" parent="27" name="email">
+      <column id="302" parent="27" name="email">
         <comment>邮箱</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="302" parent="27" name="phone">
+      <column id="303" parent="27" name="phone">
         <comment>手机</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="303" parent="27" name="qq">
+      <column id="304" parent="27" name="qq">
         <comment>QQ</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(15)</data-type>
       </column>
-      <column id="304" parent="27" name="CREATE_TIMESTAMP">
+      <column id="305" parent="27" name="CREATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <column id="305" parent="27" name="UPDATE_TIMESTAMP">
+      <column id="306" parent="27" name="UPDATE_TIMESTAMP">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <index id="306" parent="27" name="USER_ID">
+      <index id="307" parent="27" name="USER_ID">
         <columns>USER_ID</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="307" parent="27" name="PRIMARY">
+      <key id="308" parent="27" name="PRIMARY">
         <columns>USER_ID</columns>
         <primary>1</primary>
       </key>
-      <key id="308" parent="27" name="USER_ID">
+      <key id="309" parent="27" name="USER_ID">
         <columns>USER_ID</columns>
         <underlying-index>USER_ID</underlying-index>
       </key>
-      <column id="309" parent="28" name="id">
+      <column id="310" parent="28" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="310" parent="28" name="topic">
+      <column id="311" parent="28" name="topic">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="311" parent="28" name="date">
+      <column id="312" parent="28" name="date">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="312" parent="28" name="time">
+      <column id="313" parent="28" name="time">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="313" parent="28" name="speaker">
+      <column id="314" parent="28" name="speaker">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="314" parent="28" name="duration">
+      <column id="315" parent="28" name="duration">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="315" parent="28" name="place">
+      <column id="316" parent="28" name="place">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="316" parent="28" name="maxstu">
+      <column id="317" parent="28" name="maxstu">
         <mandatory>1</mandatory>
         <data-type>int(3)</data-type>
       </column>
-      <column id="317" parent="28" name="curstu">
+      <column id="318" parent="28" name="curstu">
         <mandatory>1</mandatory>
         <data-type>int(3)</data-type>
       </column>
-      <column id="318" parent="28" name="status">
+      <column id="319" parent="28" name="status">
         <mandatory>1</mandatory>
         <data-type>int(1)</data-type>
       </column>
-      <key id="319" parent="28" name="PRIMARY">
+      <key id="320" parent="28" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="320" parent="29" name="id">
+      <column id="321" parent="29" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="321" parent="29" name="student_id">
+      <column id="322" parent="29" name="student_id">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="322" parent="29" name="workshopid">
+      <column id="323" parent="29" name="workshopid">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <key id="323" parent="29" name="PRIMARY">
+      <key id="324" parent="29" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="324" parent="30" name="id">
+      <column id="325" parent="30" name="id">
         <comment>ID主键</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="325" parent="30" name="user_name">
+      <column id="326" parent="30" name="user_name">
         <comment>用户的真实名字</comment>
         <data-type>text</data-type>
       </column>
-      <column id="326" parent="30" name="user_id">
+      <column id="327" parent="30" name="user_id">
         <comment>账户，工号或者学号</comment>
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="327" parent="30" name="user_password">
+      <column id="328" parent="30" name="user_password">
         <comment>密码</comment>
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="328" parent="30" name="user_lastlogin">
+      <column id="329" parent="30" name="user_lastlogin">
         <comment>上次登录时间</comment>
         <data-type>text</data-type>
       </column>
-      <column id="329" parent="30" name="user_logintime">
+      <column id="330" parent="30" name="user_logintime">
         <comment>本次登录时间</comment>
         <data-type>text</data-type>
       </column>
-      <column id="330" parent="30" name="user_level">
+      <column id="331" parent="30" name="user_level">
         <comment>级别，1为管理员，2为编辑，3为监查员</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="331" parent="30" name="user_status">
+      <column id="332" parent="30" name="user_status">
         <comment>状态，1为正常，0为封停</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <key id="332" parent="30" name="PRIMARY">
+      <key id="333" parent="30" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="333" parent="31" name="department_id">
+      <column id="334" parent="31" name="department_id">
         <comment>部门ID</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="334" parent="31" name="department_name">
+      <column id="335" parent="31" name="department_name">
         <data-type>text</data-type>
       </column>
-      <column id="335" parent="31" name="department_manager">
+      <column id="336" parent="31" name="department_manager">
         <comment>部门领导USER ID</comment>
         <data-type>int(11)</data-type>
       </column>
-      <column id="336" parent="31" name="department_upline">
+      <column id="337" parent="31" name="department_upline">
         <comment>部门上峰部门ID</comment>
         <data-type>int(11)</data-type>
       </column>
-      <key id="337" parent="31" name="PRIMARY">
+      <key id="338" parent="31" name="PRIMARY">
         <columns>department_id</columns>
         <primary>1</primary>
       </key>
-      <column id="338" parent="32" name="detail_id">
+      <column id="339" parent="32" name="detail_id">
         <comment>自增长ID</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="339" parent="32" name="user_name">
+      <column id="340" parent="32" name="user_name">
         <data-type>text</data-type>
       </column>
-      <column id="340" parent="32" name="user_enname">
+      <column id="341" parent="32" name="user_enname">
         <data-type>text</data-type>
       </column>
-      <column id="341" parent="32" name="user_id">
+      <column id="342" parent="32" name="user_id">
         <comment>学号/工号</comment>
         <data-type>text</data-type>
       </column>
-      <column id="342" parent="32" name="user_qq">
+      <column id="343" parent="32" name="user_qq">
         <comment>QQ</comment>
         <data-type>text</data-type>
       </column>
-      <column id="343" parent="32" name="user_type">
+      <column id="344" parent="32" name="user_type">
         <comment>用户类型，本科，研究，职工，教师，教授</comment>
         <data-type>text</data-type>
       </column>
-      <column id="344" parent="32" name="user_department">
+      <column id="345" parent="32" name="user_department">
         <comment>部门</comment>
         <data-type>text</data-type>
       </column>
-      <column id="345" parent="32" name="user_office">
+      <column id="346" parent="32" name="user_office">
         <comment>办公室</comment>
         <data-type>text</data-type>
       </column>
-      <column id="346" parent="32" name="user_position">
+      <column id="347" parent="32" name="user_position">
         <comment>职位</comment>
         <data-type>text</data-type>
       </column>
-      <column id="347" parent="32" name="user_enposition">
+      <column id="348" parent="32" name="user_enposition">
         <comment>英文职称</comment>
         <data-type>text</data-type>
       </column>
-      <column id="348" parent="32" name="user_country">
+      <column id="349" parent="32" name="user_country">
         <comment>国籍</comment>
         <data-type>text</data-type>
       </column>
-      <column id="349" parent="32" name="user_tel">
+      <column id="350" parent="32" name="user_tel">
         <comment>固定电话</comment>
         <data-type>text</data-type>
       </column>
-      <column id="350" parent="32" name="user_subtel">
+      <column id="351" parent="32" name="user_subtel">
         <comment>分机</comment>
         <data-type>text</data-type>
       </column>
-      <column id="351" parent="32" name="user_mobile">
+      <column id="352" parent="32" name="user_mobile">
         <comment>手机号</comment>
         <data-type>text</data-type>
       </column>
-      <column id="352" parent="32" name="user_short">
+      <column id="353" parent="32" name="user_short">
         <comment>手机号小号</comment>
         <data-type>text</data-type>
       </column>
-      <column id="353" parent="32" name="user_email">
+      <column id="354" parent="32" name="user_email">
         <comment>邮箱</comment>
         <data-type>text</data-type>
       </column>
-      <column id="354" parent="32" name="user_skype">
+      <column id="355" parent="32" name="user_skype">
         <comment>skype账号</comment>
         <data-type>text</data-type>
       </column>
-      <column id="355" parent="32" name="user_room">
+      <column id="356" parent="32" name="user_room">
         <comment>房间号</comment>
         <data-type>text</data-type>
       </column>
-      <column id="356" parent="32" name="user_status">
+      <column id="357" parent="32" name="user_status">
         <comment>用户状态</comment>
         <data-type>text</data-type>
       </column>
-      <key id="357" parent="32" name="PRIMARY">
+      <key id="358" parent="32" name="PRIMARY">
         <columns>detail_id</columns>
         <primary>1</primary>
       </key>
-      <column id="358" parent="33" name="id">
+      <column id="359" parent="33" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="359" parent="33" name="user_name">
+      <column id="360" parent="33" name="user_name">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="360" parent="33" name="user_enname">
+      <column id="361" parent="33" name="user_enname">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="361" parent="33" name="user_id">
+      <column id="362" parent="33" name="user_id">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="362" parent="33" name="user_email">
+      <column id="363" parent="33" name="user_email">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="363" parent="33" name="user_type">
+      <column id="364" parent="33" name="user_type">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="364" parent="33" name="user_qq">
+      <column id="365" parent="33" name="user_qq">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="365" parent="33" name="user_mobile">
+      <column id="366" parent="33" name="user_mobile">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="366" parent="33" name="user_status">
+      <column id="367" parent="33" name="user_status">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <key id="367" parent="33" name="PRIMARY">
+      <key id="368" parent="33" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="368" parent="34" name="log_id">
+      <column id="369" parent="34" name="log_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="369" parent="34" name="log_action">
+      <column id="370" parent="34" name="log_action">
         <comment>操作内容</comment>
         <data-type>text</data-type>
       </column>
-      <column id="370" parent="34" name="log_time">
+      <column id="371" parent="34" name="log_time">
         <comment>操作时间</comment>
         <data-type>text</data-type>
       </column>
-      <column id="371" parent="34" name="user_id">
+      <column id="372" parent="34" name="user_id">
         <comment>操作人ID</comment>
         <data-type>text</data-type>
       </column>
-      <column id="372" parent="34" name="log_model">
+      <column id="373" parent="34" name="log_model">
         <comment>模块</comment>
         <data-type>text</data-type>
       </column>
-      <column id="373" parent="34" name="user_name">
+      <column id="374" parent="34" name="user_name">
         <comment>用户名字</comment>
         <data-type>text</data-type>
       </column>
-      <column id="374" parent="34" name="user_institute">
+      <column id="375" parent="34" name="user_institute">
         <comment>用户学院</comment>
         <data-type>text</data-type>
       </column>
-      <key id="375" parent="34" name="PRIMARY">
+      <key id="376" parent="34" name="PRIMARY">
         <columns>log_id</columns>
         <primary>1</primary>
       </key>
-      <column id="376" parent="35" name="module_id">
+      <column id="377" parent="35" name="module_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="377" parent="35" name="module">
+      <column id="378" parent="35" name="module">
         <comment>模块标记，一般为功能的url字段</comment>
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="378" parent="35" name="module_name">
+      <column id="379" parent="35" name="module_name">
         <comment>模块说明</comment>
         <data-type>text</data-type>
       </column>
-      <column id="379" parent="35" name="module_description">
+      <column id="380" parent="35" name="module_description">
         <comment>该模块的说明</comment>
         <data-type>text</data-type>
       </column>
-      <column id="380" parent="35" name="module_status">
+      <column id="381" parent="35" name="module_status">
         <comment>1表示已经完成，0表示正在开发</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <key id="381" parent="35" name="PRIMARY">
+      <key id="382" parent="35" name="PRIMARY">
         <columns>module_id</columns>
         <primary>1</primary>
       </key>
-      <column id="382" parent="36" name="permission_id">
+      <column id="383" parent="36" name="permission_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="383" parent="36" name="user_id">
+      <column id="384" parent="36" name="user_id">
         <comment>用户账户</comment>
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="384" parent="36" name="module">
+      <column id="385" parent="36" name="module">
         <comment>模块名称</comment>
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="385" parent="36" name="module_name">
+      <column id="386" parent="36" name="module_name">
         <comment>模块中文名称</comment>
         <data-type>text</data-type>
       </column>
-      <key id="386" parent="36" name="PRIMARY">
+      <key id="387" parent="36" name="PRIMARY">
         <columns>permission_id</columns>
         <primary>1</primary>
       </key>
-      <column id="387" parent="37" name="questionnaire_id">
+      <column id="388" parent="37" name="questionnaire_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="388" parent="37" name="qs_id">
+      <column id="389" parent="37" name="qs_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="389" parent="37" name="content">
+      <column id="390" parent="37" name="content">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="390" parent="37" name="user_id">
+      <column id="391" parent="37" name="user_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="391" parent="38" name="questionnaire_id">
+      <column id="392" parent="38" name="questionnaire_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="392" parent="38" name="qs_id">
+      <column id="393" parent="38" name="qs_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="393" parent="38" name="num_1">
+      <column id="394" parent="38" name="num_1">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="394" parent="38" name="num_2">
+      <column id="395" parent="38" name="num_2">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="395" parent="38" name="num_3">
+      <column id="396" parent="38" name="num_3">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="396" parent="38" name="num_4">
+      <column id="397" parent="38" name="num_4">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="397" parent="38" name="num_5">
+      <column id="398" parent="38" name="num_5">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="398" parent="38" name="score">
+      <column id="399" parent="38" name="score">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="399" parent="39" name="id">
+      <column id="400" parent="39" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="400" parent="39" name="course">
+      <column id="401" parent="39" name="course">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="401" parent="39" name="create_user">
+      <column id="402" parent="39" name="create_user">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="402" parent="39" name="create_time">
+      <column id="403" parent="39" name="create_time">
         <mandatory>1</mandatory>
         <data-type>datetime</data-type>
       </column>
-      <column id="403" parent="39" name="open_time">
+      <column id="404" parent="39" name="open_time">
         <mandatory>1</mandatory>
         <data-type>datetime</data-type>
       </column>
-      <column id="404" parent="39" name="close_time">
+      <column id="405" parent="39" name="close_time">
         <mandatory>1</mandatory>
         <data-type>datetime</data-type>
       </column>
-      <column id="405" parent="39" name="state">
+      <column id="406" parent="39" name="state">
         <mandatory>1</mandatory>
         <data-type>tinyint(3)</data-type>
       </column>
-      <column id="406" parent="39" name="password">
+      <column id="407" parent="39" name="password">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="407" parent="39" name="total_num">
+      <column id="408" parent="39" name="total_num">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="408" parent="39" name="submitted_num">
+      <column id="409" parent="39" name="submitted_num">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="409" parent="40" name="questionnaire_id">
+      <column id="410" parent="40" name="questionnaire_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="410" parent="40" name="qs_id">
+      <column id="411" parent="40" name="qs_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="411" parent="40" name="type">
+      <column id="412" parent="40" name="type">
         <mandatory>1</mandatory>
         <data-type>tinyint(4)</data-type>
       </column>
-      <column id="412" parent="40" name="content">
+      <column id="413" parent="40" name="content">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="413" parent="40" name="weight">
+      <column id="414" parent="40" name="weight">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="414" parent="41" name="user_id">
+      <column id="415" parent="41" name="user_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="415" parent="41" name="questionnaire_id">
+      <column id="416" parent="41" name="questionnaire_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="416" parent="41" name="result">
+      <column id="417" parent="41" name="result">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="417" parent="42" name="id">
+      <column id="418" parent="42" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="418" parent="42" name="course_id">
+      <column id="419" parent="42" name="course_id">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="419" parent="42" name="coursename">
+      <column id="420" parent="42" name="coursename">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="420" parent="42" name="professor">
+      <column id="421" parent="42" name="professor">
         <mandatory>1</mandatory>
         <data-type>text</data-type>
       </column>
-      <column id="421" parent="42" name="status">
+      <column id="422" parent="42" name="status">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <key id="422" parent="42" name="PRIMARY">
+      <key id="423" parent="42" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
