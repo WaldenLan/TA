@@ -38,7 +38,8 @@ body{
     height: auto;
 }
 div.wholeBody{
-    width: 1349px;
+    width: 100%;
+    max-width: 1920px;
     margin: auto;
     padding: 0;
 }
@@ -312,4 +313,14 @@ div.list_container{
     min-height: 500px;
     height: auto;
     border-bottom: 2px solid #0055BD;
+}
+
+/*Tag Style*/
+span.tag{
+    padding-bottom: 0.4em;
+    font-size: 1em;
+    font-weight: normal;
+    background-color: #eee;
+    color: #002b60;
+    box-shadow: 0 0 2px #002b60;
 }

@@ -38,10 +38,26 @@ class Mta_evaluation extends CI_Model
 
 	/**
 	 * @param int|string $id
+	 * @param bool       $all
 	 * @return Evaluation_config_obj
 	 */
-	public function get_evaluation_config($id)
+	public function get_evaluation_config($id, $all = false)
 	{
+		if ($all)
+		{
+			$query = $this->db->select('*')->from('ji_ta_evaluation_config')->where(array('type' => $id))->get();
+			$config_list = array();
+			foreach ($query->result() as $row)
+			{
+				$config = new Evaluation_config_obj($row);
+				$config->add_array($config_list);
+				/*if (!$config->is_error())
+				{
+					$config_list[] = $config;
+				}*/
+			}
+			return $config_list;
+		}
 		if ($id == 'student' || $id == 'teacher')
 		{
 			$id = $this->Mta_site->site_config['ta_evaluation_config_' . $id];
@@ -50,6 +66,7 @@ class Mta_evaluation extends CI_Model
 		$config = new Evaluation_config_obj($query->row(0));
 		return $config;
 	}
+
 
 	/**
 	 * @param string $type

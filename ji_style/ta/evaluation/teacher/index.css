@@ -1,1 +1,37 @@
+/*evaluation setup for teacher*/
+div.row.evaluation h4{
+    font-size: 1em;
+}
+div.row.evaluation{
+    margin: 0;
+}
+div.form-group.col-sm-2.question_content > span{
+    font-size: 1.1em;
+}
+div.submit{
+    margin: 0;
+    text-align: center;
+}
+div.question_description{
+    margin-left: 5%;
+}
+div.question_description h4{
+    font-size: 1.2em;
+}
+div.question_description h5{
+    font-size: 1.1em;
+}
+
+/*Evaluation Setup List*/
+div.row.list_container{
+    margin: 0 auto;
+}
+div.row.list_container > h4{
+    font-size: 100%;
+}
+
+/*Teacher Evaluation part*/
+div.main_question > h3{
+    font-size: 130%;
+}
 

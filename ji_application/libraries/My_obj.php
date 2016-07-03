@@ -1,5 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class My_obj
+ *
+ * The basic class of objects
+ *
+ * @category   ji
+ * @package    ji
+ * @author     tc-imba
+ * @copyright  2016 umji-sjtu
+ */
 class My_obj
 {
 	/** @var bool */
@@ -61,4 +71,13 @@ class My_obj
 	{
 		return isset($this->$key) && !$this->is_error() ? $this->$key : NULL;
 	}
+
+	public function add_array(&$array)
+	{
+		if (!$this->is_error())
+		{
+			$array[] = &$this;
+		}
+	}
+
 }

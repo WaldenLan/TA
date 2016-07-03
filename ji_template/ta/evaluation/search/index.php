@@ -62,7 +62,7 @@
 								           course_list[index].BSID;
 								var html = [
 									'<h5 class="col-sm-1 sub xnxq"><a href="', href, '">',
-									course.XN, ': ', course.XQ, '</a></h5>',
+									course.XN, ': ', course.XQ_JI, '</a></h5>',
 									'<h5 class="col-sm-4 sub kczwmc"><a href="', href, '">',
 									course.KCZWMC, '</a></h5>',
 									'<h5 class="col-sm-1 sub kcdm"><a href="', href, '">',

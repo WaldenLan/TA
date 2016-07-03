@@ -26,6 +26,24 @@ class Evaluation extends TA_Controller
 		$this->load->view('ta/evaluation/evaluation/manage', $data);
 	}
 
+	private function redirect()
+	{
+		redirect(base_url('ta/evaluation/manage/evaluation'));
+	}
+	
+
+	public function edit()
+	{
+		$data = $this->data;
+		$data['edit_type'] = $this->input->get('type');
+		if ($data['edit_type'] != 'student' && $data['edit_type'] != 'teacher')
+		{
+			$this->redirect();
+		}
+		$config = $this->Mta_evaluation->get_evaluation_config($data['edit_type']);
+		$this->load->view('ta/evaluation/evaluation/edit_question', $data);
+	}
+
 	public function settime()
 	{
 		$start = $this->input->get('start');
@@ -34,7 +52,9 @@ class Evaluation extends TA_Controller
 		if ($start > 0 && strtotime($end) > strtotime($start))
 		{
 
-			$this->Mta_site->update_site_config(array('ta_evaluation_start' => $start, 'ta_evaluation_end' => $end));
+			$this->Mta_site->update_site_config(array(
+				                                    'ta_evaluation_start' => $start,
+				                                    'ta_evaluation_end'   => $end));
 			echo 'success';
 			exit();
 		}

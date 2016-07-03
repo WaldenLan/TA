@@ -1,8 +1,20 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Ta_obj
+ *
+ * The operations of TAs
+ *
+ * @category   ji
+ * @package    ji
+ * @author     tc-imba
+ * @copyright  2016 umji-sjtu
+ * @uses       Mta
+ * @uses       Mstudent
+ */
 class Ta_obj extends My_obj
 {
-	// Table structure for table `ji_ta_info`
+	/** -- The vars in the table `ji_ta_info` -- */
 	public $USER_ID;            // varchar(20) 	TA ID
 	public $name_ch;            // varchar(20) 	中文名
 	public $name_en;            // varchar(20)	英文名
@@ -22,6 +34,10 @@ class Ta_obj extends My_obj
 	/** @var $student Student_obj */
 	public $student;
 	
+	/**
+	 * Ta_obj constructor.
+	 * @param array $data
+	 */
 	public function __construct($data = array())
 	{
 		parent::__construct($data, 'USER_ID');
@@ -34,7 +50,7 @@ class Ta_obj extends My_obj
 	{
 		return $_SESSION['language'] == 'zh-cn' ? $this->name_ch : $this->name_en;
 	}
-
+	
 	public function set_course()
 	{
 		$this->CI->load->model('Mta');

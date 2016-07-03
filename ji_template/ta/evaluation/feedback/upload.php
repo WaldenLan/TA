@@ -1,5 +1,19 @@
 <link rel="stylesheet" href="/ji_style/cropper/cropper.min.css">
-<link rel="stylesheet" href="/ji_style/ta/upload.css">
+<link rel="stylesheet" href="/ji_style/cropper/css/avatar.css">
+
+<style>
+	.avatar-view {
+		display: block;
+		height: 305px;
+		width: auto;
+		margin-bottom: 15px;
+		border: 3px solid #fff;
+		border-radius: 5px;
+		box-shadow: 0 0 5px rgba(0,0,0,.15);
+		cursor: pointer;
+		overflow: hidden;
+	}
+</style>
 
 <div id="crop-avatar">
 

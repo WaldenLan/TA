@@ -1,5 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Student_obj
+ *
+ * The operations of students
+ *
+ * @category   ji
+ * @package    ji
+ * @author     tc-imba
+ * @copyright  2016 umji-sjtu
+ */
 class Student_obj extends My_obj
 {
 	/** -- The vars in the table `ji_students` -- */

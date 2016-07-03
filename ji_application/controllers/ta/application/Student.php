@@ -138,5 +138,43 @@ class student extends CI_Controller {
 		$data['KCDM'] = $KCDM;
 		$this->load->view('stu_app_courseinfo', $data);
 	}
+
+	public function service(){
+		$this->load->view('stu_app_service');
+	}
+
+	public function searchta(){
+		$this->load->view('stu_app_searchta');
+	}
+
+	public function showtainfo(){
+		$this->load->model('Meditman');
+		$xqxn=$this->Meditman->getxqxn();
+		$xq=$xqxn[0]->data;
+		$xn=$xqxn[1]->data;
+		$courseid=strtoupper($this->input->post('classid'));
+		$this->load->model('Mapply');
+		$list=$this->Mapply->gettainfo($xq,$xn,$courseid);
+		$data['list']=$list;
+		$data['courseid'] = ucfirst(strtolower($courseid));
+		$this->load->view('stu_app_showtainfo',$data);
+	}
+
+	public function showworkshop(){
+		$this->load->model('Mapply');
+		$list=$this->Mapply->showworkshop();
+		$data['list']=$list;
+		$this->load->view('stu_app_workshopinfo',$data);
+	}
+
+	public function saveworkshop(){
+		$id=$this->input->get('id');
+		$this->load->model('Mapply');
+		$student_id='5133709242';
+		$bool=$this->Mapply->applyworkshop($id,$student_id);
+		if ($bool){
+			$this->load->view('stu_app_applyworksuc');
+		}
+	}
 }
 ?>

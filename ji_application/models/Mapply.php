@@ -36,6 +36,22 @@
 			$bool=$this->db->insert('ji_ta_apprecord',$data);
 			return $bool;
 		}
+
+		public function showworkshop(){
+			$query = $this->db->get('ji_ta_workshop');
+			return $query->result();
+		}
 		
+		public function gettainfo($xq,$xn,$courseid){
+			$sql='SELECT * FROM ji_ta_appinfo WHERE xq=? AND xn=? AND app_course=? AND status=1';
+			$query=$this->db->query($sql,array($xq,$xn,$courseid));
+			return $query->result();
+		}
+
+		public function applyworkshop($id,$student_id){
+			$sql='INSERT INTO ji_ta_workshopdetail(student_id,workshopid) VALUES(?,?)';
+			$bool=$this->db->query($sql,array($student_id,$id));
+			return $bool;
+		}
 	}
 ?>

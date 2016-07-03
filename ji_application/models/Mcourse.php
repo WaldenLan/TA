@@ -47,7 +47,7 @@ class Mcourse extends CI_Model
 		foreach ($query->result() as $row)
 		{
 			$course = new Course_obj($row);
-			if (!$course->is_error())
+			if (!$course->is_error() && $course->XQ_JI == $this->Mta_site->site_config['ji_um_term'])
 			{
 				$course_list[] = $course;
 			}

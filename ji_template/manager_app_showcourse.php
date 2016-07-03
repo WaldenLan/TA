@@ -35,6 +35,16 @@
 				function(userid){
 //					alert(userid);
 					$("#show1").html(userid);
+					$("[name='tz']").click(function(){
+						$.post("/ta/application/Edit/editstatus",
+							{
+								'appid':$(this).attr('appid'),
+								'type':$(this).attr('type')
+							},
+							function(userid){
+								alert(userid);
+							});
+					});
 				});
 		});
 	});
@@ -55,6 +65,7 @@
 				<option value ="0">全部</option>
 				<option value ="2014-2015">2014-2015</option>
 				<option value ="2015-2016">2015-2016</option>
+				<option value ="2016-2017">2016-2017</option>
 			</select>
 			课程代码
 			<input type="text" id="kcdm">
@@ -86,8 +97,6 @@
 				<td>已有TA申请人数</td>
 				<td>工资</td>
 				<td></td>
-				<td></td>
-				<td></td>
 			</tr>
 			<?php foreach($list as $item): ?>
 			<tr>
@@ -100,8 +109,6 @@
 				<td><?=$item->curta?></td>
 				<td><?=$item->salary?></td>
 				<td><input type="button" name="modify" value="修改" onclick="location='/ta/application/Edit/editcourse?cid=<?=$item->KCDM?>'"/></td>
-				<td><input type="button" name="start" value="开放申请" onclick="location='/ta/application/Edit/openapp<?php echo "?obj=ta_recruitment_start"?>'"/></td>
-				<td><input type="button" name="close" value="关闭申请" onclick="location='/ta/application/Edit/closeapp<?php echo "?obj=ta_recruitment_start"?>'"/></td>
 			</tr>
 			<?php endforeach;?>
 		</table>

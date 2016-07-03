@@ -11,6 +11,9 @@
         <div class="announcement">
             <h2>Evaluation Setup</h2>
             <ul>
+	            <a class="btn btn-primary" href="/ta/evaluation/manage/evaluation/edit?type=student">Edit the students' questions</a>
+	            <a class="btn btn-primary" href="/ta/evaluation/manage/evaluation/edit?type=teacher">Edit the teachers' questions</a>
+	            <h4>Once you set the time of evaluation, the current question set will be locked so that you can no longer edit them.</h4>
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">

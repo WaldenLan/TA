@@ -21,8 +21,12 @@
 		<td><input type="button" name="xqxn" value="修改" onclick="location='/ta/application/Edit/edittime'"/></td>
 		</tr>
 		<tr>
-		<td>修改各科TA信息</td>
-		<td><input type="button" name="xqxn" value="修改" onclick="location='/ta/application/Edit/editallcourse'"/></td>
+			<td>修改各科TA信息</td>
+			<td><input type="button" name="xqxn" value="修改" onclick="location='/ta/application/Edit/editallcourse'"/></td>
+		</tr>
+		<tr>
+			<td>修改显示信息</td>
+			<td>需要文本编辑器</td>
 		</tr>
 	</table>
 </body>

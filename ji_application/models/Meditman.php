@@ -45,21 +45,41 @@ RIGHT JOIN ji_course_open ON ji_course_info.BSID = ji_course_open.BSID WHERE xq=
 		}
 		
 		public function searchcourseinfo($xq,$xn,$cid){
-			if ($xq == 0){
-				if ($xn == 0){
-					$sql='SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE ji_course_open.KCDM = ?';
-					$res=$this->db->query($sql, array($cid));
+			if ($cid == null){
+				if ($xq == 0) {
+					if ($xn == 0) {
+						$sql = 'SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID';
+						$res = $this->db->query($sql);
+					} else {
+						$sql = 'SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xn = ?';
+						$res = $this->db->query($sql, array($xn));
+					}
 				} else {
-					$sql='SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xn = ? and ji_course_open.KCDM = ?';
-					$res=$this->db->query($sql, array($xn,$cid));
+					if ($xn == 0) {
+						$sql = 'SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xq = ?';
+						$res = $this->db->query($sql, array($xq));
+					} else {
+						$sql = 'SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xq = ? and xn = ?';
+						$res = $this->db->query($sql, array($xq, $xn));
+					}
 				}
 			} else {
-				if ($xn == 0){
-					$sql='SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xq = ? and ji_course_open.KCDM = ?';
-					$res=$this->db->query($sql, array($xq,$cid));
+				if ($xq == 0) {
+					if ($xn == 0) {
+						$sql = 'SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE ji_course_open.KCDM = ?';
+						$res = $this->db->query($sql, array($cid));
+					} else {
+						$sql = 'SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xn = ? and ji_course_open.KCDM = ?';
+						$res = $this->db->query($sql, array($xn, $cid));
+					}
 				} else {
-					$sql='SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xq = ? and xn = ? and ji_course_open.KCDM = ?';
-					$res=$this->db->query($sql, array($xq,$xn,$cid));
+					if ($xn == 0) {
+						$sql = 'SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xq = ? and ji_course_open.KCDM = ?';
+						$res = $this->db->query($sql, array($xq, $cid));
+					} else {
+						$sql = 'SELECT * FROM ji_course_info RIGHT JOIN ji_course_open on ji_course_info.BSID = ji_course_open.BSID WHERE xq = ? and xn = ? and ji_course_open.KCDM = ?';
+						$res = $this->db->query($sql, array($xq, $xn, $cid));
+					}
 				}
 			}
 			return $res->result();
@@ -69,12 +89,41 @@ RIGHT JOIN ji_course_open ON ji_course_info.BSID = ji_course_open.BSID WHERE xq=
 			if ($type == 0){
 				$sql='SELECT * FROM ji_ta_appinfo WHERE student_id = ?';
 			} else if ($type == 1){
-				$sql='SELECT * FROM ji_ta_appinfo WHERE name = ?';
+				$res=$this->db->query('SELECT student_id FROM ji_students WHERE student_name = ?',array($id))->result();
+				$id = $res[0]->student_id;
+				$sql='SELECT * FROM ji_ta_appinfo WHERE student_id = ?';
 			} else {
-				$sql='SELECT * FROM ji_ta_appinfo WHERE name = ?';
+				$sql='SELECT * FROM ji_ta_appinfo WHERE ji_ta_appinfo.name = ?';
 			}
 			$res=$this->db->query($sql,array($id));
 			return $res->result();
+		}
+
+		public function saveworkshop($data){
+			$bool=$this->db->insert('ji_ta_workshop', $data);
+			return $bool;
+		}
+
+		public function showcurrent(){
+			$sql='SELECT * FROM ji_ta_workshop WHERE status=1';
+			$res=$this->db->query($sql);
+			return $res->result();
+		}
+
+		public function showclosed(){
+			$sql='SELECT * FROM ji_ta_workshop WHERE status=0';
+			$res=$this->db->query($sql);
+			return $res->result();
+		}
+
+		public function editstatus($id,$type){
+			if ($type == 'p'){
+				$sql='UPDATE ji_ta_appinfo set status = 1 where id = ?';
+			} else {
+				$sql='UPDATE ji_ta_appinfo set status = -1 where id = ?';
+			}
+			$bool=$this->db->query($sql,array($id));
+			return $bool;
 		}
 	}
 ?>

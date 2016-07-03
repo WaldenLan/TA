@@ -12,6 +12,8 @@ class Course_obj extends My_obj
 	public $XN;
 	/** @var int    int(11)     学期 */
 	public $XQ;
+	/** @var int    varchar(10) JI 学期 */
+	public $XQ_JI;
 	/** @var string varchar(255)课程中文名称 */
 	public $KCZWMC;
 	/** @var string varchar(10) 课程代码 */
@@ -45,6 +47,18 @@ class Course_obj extends My_obj
 	public function __construct($data = array())
 	{
 		parent::__construct($data, 'BSID');
+		if (!$this->is_error())
+		{
+			switch ($this->XQ_JI)
+			{
+			case 'FA':
+			case 'SP':
+			case 'SU':
+				break;
+			default:
+				$this->XQ_JI = $this->XQ == 1 ? 'FA' : 'SU';
+			}
+		}
 	}
 	
 	public function set_ta()

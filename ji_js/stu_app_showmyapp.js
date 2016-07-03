@@ -91,8 +91,16 @@ $(document).ready(function () {
             }
             if (currentStatus != "all") {
                 $('.apply .text-container').each(function () {
-                    if ($(this).find('.status').text().toLowerCase().indexOf(currentStatus) == -1) {
-                        $(this).addClass('hidden');
+                    var thisStatus = $(this).find('.status').text().toLowerCase();
+                    if (currentStatus == "decided") {
+                        if (thisStatus.indexOf("undecided") != -1) {
+                            $(this).addClass('hidden');
+                        }
+                    }
+                    else {
+                        if (thisStatus.indexOf("undecided") == -1) {
+                            $(this).addClass('hidden');
+                        }
                     }
                 });
             }
