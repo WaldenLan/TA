@@ -35,3 +35,15 @@ div.main_question > h3{
     font-size: 130%;
 }
 
+/*Evaluation check list*/
+div.evaluation-list{
+    margin: 0 auto;
+}
+
+div.row.evaluation-list-course > h4{
+    font-size: 120%;
+}
+
+div.row.evaluation-list-ta > h5{
+    font-size: 100%;
+}
