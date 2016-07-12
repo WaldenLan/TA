@@ -2,21 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="refresh" content="5;url=/ta/application/Srevice/home">
     <title>UM-SJTU JI</title>
     <link href="/ji_style/common.css" type="text/css" rel="stylesheet" />
     <link href="/ji_style/home.css" type="text/css" rel="stylesheet" />
 </head>
 <meta charset="utf-8">
-<title>Workshop Service</title>
+<title>Fail to open a workshop</title>
 </head>
-
 <body>
-将本学期所有TA信息导出excel表格
-<br>
-<a href="/ta/application/Service/openworkshop">开设新workshop</a>
-<br>
-<a href="/ta/application/Service/currentworkshop">已开设workshop</a>
-<br>
-<a href="/ta/application/Service/closedworkshop">已结束workshop</a>
+数据库出现了一些错误，请联系管理员或稍后再试！
+5秒后返回首页！
 </body>
-</html>

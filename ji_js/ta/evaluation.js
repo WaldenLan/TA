@@ -22,4 +22,6 @@ $(document).ready(function ()
 	{
 		window.location.href = document.referrer;
 	});
+    var screen_width = window.screen.width;
+	$("body").css('width', 'screen.width');
 });

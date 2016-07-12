@@ -1,16 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * Class Course_obj
- *
- * The operations of courses
- *
- * @category   ji
- * @package    ji
- * @author     tc-imba
- * @copyright  2016 umji-sjtu
- * @uses       Mcourse
- */
 class Course_obj extends My_obj
 {
 	/** -- The vars in the table `ji_course_open` -- */
@@ -23,6 +12,8 @@ class Course_obj extends My_obj
 	public $XN;
 	/** @var int    int(11)     学期 */
 	public $XQ;
+	/** @var int    varchar(10) JI 学期 */
+	public $XQ_JI;
 	/** @var string varchar(255)课程中文名称 */
 	public $KCZWMC;
 	/** @var string varchar(10) 课程代码 */
@@ -42,8 +33,6 @@ class Course_obj extends My_obj
 
 
 	/** -- The vars defined for other uses -- */
-	/** @var int */
-	public $XQ_JI;
 	/** @var array */
 	public $ta_list;
 	/** @var array */
@@ -58,19 +47,16 @@ class Course_obj extends My_obj
 	public function __construct($data = array())
 	{
 		parent::__construct($data, 'BSID');
-		if (!$this->is_error() && $this->XQ_JI == '')
+		if (!$this->is_error())
 		{
-			if ($this->XQ == 1)
+			switch ($this->XQ_JI)
 			{
-				$this->XQ_JI = 'FA';
-			}
-			else if ((int)date('m', strtotime($this->CREATE_TIMESTAMP)) > 3)
-			{
-				$this->XQ_JI = 'SU';
-			}
-			else
-			{
-				$this->XQ_JI = 'SP';
+			case 'FA':
+			case 'SP':
+			case 'SU':
+				break;
+			default:
+				$this->XQ_JI = $this->XQ == 1 ? 'FA' : 'SU';
 			}
 		}
 	}

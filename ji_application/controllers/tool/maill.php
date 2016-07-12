@@ -10,14 +10,8 @@ class Mailtest extends CI_Controller {
 	//发送测试邮件
 	public function index()
 	{
-		$data = array
-		(
-			$to => $this->input->get('email'),
-			$name => 'student_name',
-			$title => 'title',
-			$body => 'body',
-		);
-		echo $this->Mta_mail->send($this->input->get('email'),'hi','hi');
+
+		echo $this->Mta_mail->send('826584853@qq.com','hi','hi');
 
 		
 	}

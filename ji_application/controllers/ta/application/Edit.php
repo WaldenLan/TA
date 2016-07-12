@@ -120,5 +120,20 @@ class Edit extends CI_Controller {
             $this->load->view('editsuccess');			
  		}
 	}
+
+	public function editstatus(){
+		$id=$this->input->post('appid');
+		$type=$this->input->post('type');
+		echo $id." ".$type;
+		/*
+		$this->load->model('Meditman');
+		$bool = $this->Meditman->editstatus($id,$type);
+		if ($bool){
+			echo '修改成功';
+		} else {
+			echo '失败';
+		}
+		*/
+	}
 }
 ?>
