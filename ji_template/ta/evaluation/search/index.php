@@ -221,7 +221,6 @@
 				
 				<!--                Course Search-->
 				<div id="search_content_display_course" style="display: none;">
-                    sss
 					<div class="row search_course">
 						<h5 class="col-sm-1"><?php echo lang('ta_main_year') . '：' . lang('ta_main_term'); ?></h5>
 						<!--                        <h5 class="col-sm-1">学期</h5>-->

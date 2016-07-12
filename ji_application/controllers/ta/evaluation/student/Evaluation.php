@@ -113,7 +113,8 @@ class Evaluation extends TA_Controller
 			                     $this->Mta_site->site_config['ta_evaluation_edit_max'] ? 'review' : 'edit';
 		}
 		$data['course']->set_question();
-		$default = $this->Mta_evaluation->get_default_question($this->data['type']);
+		$config = $this->Mta_evaluation->get_evaluation_config($this->data['type']);
+		$default = $this->Mta_evaluation->get_question($config);
 		$data['choice_list'] = $default['choice'];
 		$data['blank_list'] = $default['blank'];
 		$this->load->view('ta/evaluation/evaluation/evaluation', $data);

@@ -80,7 +80,9 @@ class Evaluation_answer_obj extends My_obj
 	public $content;
 	/** @var string timestamp   创建时间 */
 	public $CREATE_TIMESTAMP;
-	
+	/** @var string timestamp   修改时间 */
+	public $UPDATE_TIMESTAMP;
+
 	
 	/** -- The vars defined for other uses -- */
 	
@@ -116,6 +118,8 @@ class Evaluation_config_obj extends My_obj
 
 	/** @var int    int(11)     评教配置 ID */
 	public $id;
+	/** @var string varchar(10) 配置类型 */
+	public $type;
 	/** @var int    int(11)     选择题数量 */
 	public $choice;
 	/** @var string TEXT        选择题列表 */
@@ -126,6 +130,8 @@ class Evaluation_config_obj extends My_obj
 	public $blank_list;
 	/** @var int    int(11)     最大附加问题数量 */
 	public $addition;
+	/** @var int    int(4)      状态 */
+	public $state;
 	/** @var string timestamp   创建时间 */
 	public $CREATE_TIMESTAMP;
 	/** @var string timestamp   修改时间 */

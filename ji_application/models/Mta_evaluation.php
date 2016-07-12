@@ -51,10 +51,6 @@ class Mta_evaluation extends CI_Model
 			{
 				$config = new Evaluation_config_obj($row);
 				$config->add_array($config_list);
-				/*if (!$config->is_error())
-				{
-					$config_list[] = $config;
-				}*/
 			}
 			return $config_list;
 		}
@@ -69,13 +65,12 @@ class Mta_evaluation extends CI_Model
 
 
 	/**
-	 * @param string $type
+	 * @param $config Evaluation_config_obj
 	 * @return array
 	 */
-	public function get_default_question($type)
+	public function get_question($config)
 	{
 		$data = array('choice' => array(), 'blank' => array());
-		$config = $this->get_evaluation_config($type);
 		if (!$config->is_error())
 		{
 			$choice_list = explode(',', $config->choice_list);
@@ -99,8 +94,8 @@ class Mta_evaluation extends CI_Model
 		}
 		return $data;
 	}
-
-
+	
+	
 	/**
 	 * @param int    $BSID
 	 * @param string $type
