@@ -36,14 +36,18 @@ div.main_question > h3{
 }
 
 /*Evaluation check list*/
-div.evaluation-list{
-    margin: 0 auto;
+div.row.evaluation-list-ta{
+    margin: 0;
 }
 
-div.row.evaluation-list-course > h4{
-    font-size: 120%;
+div.evaluation-list > h4{
+    font-size: 100%;
 }
 
 div.row.evaluation-list-ta > h5{
-    font-size: 100%;
+    font-size: 90%;
+}
+
+div.row.evaluation-list-ta > h5:first-child{
+    text-align: center;
 }
