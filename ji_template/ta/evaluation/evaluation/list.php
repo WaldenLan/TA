@@ -54,6 +54,9 @@
 											echo $course->BSID; ?>">add question</a>
 										<? endif; ?>
 									<? endif; ?>
+									<?php if ($type == 'student'): ?>
+										<span>check</span>
+									<? endif; ?>
 								</h4>
 							<?php foreach ($course->ta_list as $ta): ?>
 								<?php /** @var $ta Ta_obj */ ?>

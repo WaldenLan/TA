@@ -1,7 +1,7 @@
 <?php include dirname(dirname(__FILE__)) . '/common_header.php'; ?>
 <?php include 'button_event.php'; ?>
 
-	<link rel="stylesheet" href="/ji_style/swipebox/swipebox.min.css">
+<!--	<link rel="stylesheet" href="/ji_style/swipebox/swipebox.min.css">-->
 
 <?php /** @var $feedback Feedback_obj */ ?>
 	<!-- The main page content is here -->

@@ -16,6 +16,8 @@
 	<link rel="stylesheet" type="text/css"
 	      href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/ji_style/swipebox/swipebox.min.css">
+<!--    //test-->
 	<link rel="stylesheet" type="text/css" href="/ji_style/ta/evaluation/common.css">
 	<link rel="stylesheet" type="text/css"
 	      href="/ji_style/ta/evaluation/<?php echo $type; ?>/index.css">
