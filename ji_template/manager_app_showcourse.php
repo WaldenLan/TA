@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("[name=submit1]").click(function(){
-			$.post("/SearchInfo/searchcourse",
+			$.post("/ta/application/SearchInfo/searchcourse",
 				{
 					'xq':$("#xq").children('option:selected').val(),
 					'xn':$("#xn").children('option:selected').val(),
@@ -22,7 +22,28 @@
 //					alert(userid);
 					$("#show1").html(userid);
 					$("#tz").click(function(){
-						window.location.href="/Edit/editcourse?cid="+$("#tz").attr('mb');
+						window.location.href="/ta/application/Edit/editcourse?cid="+$("#tz").attr('mb');
+					});
+				});
+		});
+		$("[name=submit2]").click(function(){
+			$.post("/ta/application/SearchInfo/searchstudent",
+				{
+					'type':$("#type").children('option:selected').val(),
+					'content':$("#stuinfo").val()
+				},
+				function(userid){
+//					alert(userid);
+					$("#show1").html(userid);
+					$("[name='tz']").click(function(){
+						$.post("/ta/application/Edit/editstatus",
+							{
+								'appid':$(this).attr('appid'),
+								'type':$(this).attr('type')
+							},
+							function(userid){
+								alert(userid);
+							});
 					});
 				});
 		});
@@ -32,6 +53,7 @@
 <body>
 	<div>
 		<form action="">
+			搜索课程
 			学期
 			<select id="xq">
 				<option value ="0">全部</option>
@@ -43,17 +65,18 @@
 				<option value ="0">全部</option>
 				<option value ="2014-2015">2014-2015</option>
 				<option value ="2015-2016">2015-2016</option>
+				<option value ="2016-2017">2016-2017</option>
 			</select>
 			课程代码
 			<input type="text" id="kcdm">
 			<button type="button" name="submit1">搜索</button>
 		</form>
 		<form action="">
-			搜索TA
+			搜索学生
 			<select id="type">
 				<option value ="0">学号</option>
-				<option value ="1">姓名中文</option>
-				<option value ="2">姓名拼音</option>
+				<option value ="1">姓名</option>
+				<option value ="2">拼音</option>
 			</select>
 			输入
 			<input type="text" id="stuinfo">
@@ -74,8 +97,6 @@
 				<td>已有TA申请人数</td>
 				<td>工资</td>
 				<td></td>
-				<td></td>
-				<td></td>
 			</tr>
 			<?php foreach($list as $item): ?>
 			<tr>
@@ -87,9 +108,7 @@
 				<td><?=$item->maxta?></td>
 				<td><?=$item->curta?></td>
 				<td><?=$item->salary?></td>
-				<td><input type="button" name="modify" value="修改" onclick="location='/Edit/editcourse?cid=<?=$item->KCDM?>'"/></td>
-				<td><input type="button" name="start" value="开放申请" onclick="location='/Edit/editcourse<?php echo "?obj=ta_recruitment_start"?>'"/></td>
-				<td><input type="button" name="close" value="关闭申请" onclick="location='/Edit/editcourse<?php echo "?obj=ta_recruitment_start"?>'"/></td>
+				<td><input type="button" name="modify" value="修改" onclick="location='/ta/application/Edit/editcourse?cid=<?=$item->KCDM?>'"/></td>
 			</tr>
 			<?php endforeach;?>
 		</table>

@@ -21,8 +21,10 @@ class Feedback extends TA_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->config->set_item('language', 'english');
-		$this->load->language('ta_feedback');
+		$this->data['type'] = 'student';
+		$this->data['page_name'] = 'TA Evaluation System: Feedbacks';
+		$this->data['banner_id'] = 3;
+		$this->Mta_site->redirect_login($this->data['type']);
 		$this->load->model('Mta_feedback');
 		$this->load->library('Feedback_obj');
 	}
@@ -44,12 +46,10 @@ class Feedback extends TA_Controller
 	public function view()
 	{
 		/** initialize */
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['type'] = 'student';
-		$data['banner_id'] = 3;
+		$data = $this->data;
 		$data['list'] =
 			$this->Mta_feedback->show_list($_SESSION['userid'], Feedback_obj::STATE_STUDENT);
-
+		
 		/** pagination */
 		$this->load->library('pagination');
 		$config['use_page_numbers'] = true;
@@ -79,9 +79,7 @@ class Feedback extends TA_Controller
 		$this->load->view('ta/evaluation/feedback/list', $data);
 		
 	}
-
-
-
+	
 	/**
 	 * Student check one feedback
 	 *
@@ -89,22 +87,12 @@ class Feedback extends TA_Controller
 	 */
 	public function check($id)
 	{
-		if (!is_numeric($id))
-		{
-			$this->index();
-		}
-		
 		/** initialize */
+		$data = $this->data;
 		$data['page_id'] = $this->input->get('page');
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['type'] = 'student';
-		$data['banner_id'] = 3;
 		
-		try
-		{
-			$data['feedback'] = $this->Mta_feedback->get_feedback_by_id($id);
-		}
-		catch (Exception $e)
+		$data['feedback'] = $this->Mta_feedback->get_feedback_by_id($id);
+		if ($data['feedback']->is_error())
 		{
 			$this->index();
 		}
@@ -118,7 +106,6 @@ class Feedback extends TA_Controller
 		$data['feedback']->set_ta()->set_course()->set_replys(Feedback_obj::STATE_STUDENT);
 		
 		$this->load->view('ta/evaluation/feedback/check', $data);
-		print_r($data['feedback']->replys);
 	}
 	
 	/**
@@ -130,6 +117,8 @@ class Feedback extends TA_Controller
 	 */
 	public function add()
 	{
+		$data = $this->data;
+		
 		$this->load->model('Mstudent');
 		$this->load->library('Course_obj');
 		$this->load->model('Mcourse');
@@ -141,12 +130,9 @@ class Feedback extends TA_Controller
 			$course->set_ta();
 		}
 		
-		$data['page_name'] = 'TA Evaluation System: Feedbacks';
-		$data['banner_id'] = 3;
-		$data['type'] = 'student';
 		$this->load->view('ta/evaluation/feedback/add', $data);
 	}
-
+	
 	/**
 	 * submit a feedback through ajax
 	 *
@@ -160,21 +146,21 @@ class Feedback extends TA_Controller
 		$this->load->model('Mstudent');
 		$this->load->library('Course_obj');
 		$this->load->model('Mcourse');
-
+		
 		$data['course_list'] = $this->Mstudent->get_now_course($_SESSION['userid']);
 		foreach ($data['course_list'] as $course)
 		{
 			/** @var $course Course_obj */
 			$course->set_ta();
 		}
-
+		
 		$form_data = array(
 			'BSID'      => $this->input->post('BSID'),
 			'ta_id'     => $this->input->post('ta_id'),
 			'title'     => $this->input->post('title'),
 			'content'   => $this->input->post('content'),
 			'anonymous' => $this->input->post('anonymous'));
-
+		
 		foreach ($data['course_list'] as $course)
 		{
 			if ($course->BSID == $form_data['BSID'])
@@ -196,7 +182,7 @@ class Feedback extends TA_Controller
 								$form_data['anonymous'] = 1;
 							}
 							$form_data['user_id'] = $_SESSION['userid'];
-
+							
 							echo $this->Mta_feedback->create($form_data);
 							exit();
 						}
@@ -209,9 +195,9 @@ class Feedback extends TA_Controller
 		echo json_encode($form_data);
 		exit();
 	}
-
+	
 	/**
-	 * reply a feddback
+	 * reply a feddback through ajax
 	 *
 	 * @echo string result
 	 */
@@ -220,6 +206,7 @@ class Feedback extends TA_Controller
 		$id = $this->input->post('id');
 		$user_id = $_SESSION['userid'];
 		$content = $this->input->post('content');
+		$picture = $this->input->post('picture');
 		$feedback = $this->Mta_feedback->get_feedback_by_id($id);
 		if ($feedback->is_error())
 		{
@@ -241,12 +228,40 @@ class Feedback extends TA_Controller
 		}
 		else
 		{
-			$this->Mta_feedback->reply($id, Feedback_obj::STATE_STUDENT, $user_id, $content);
+			if ($picture != 'undefined')
+			{
+				$picture = str_replace('data:image/png;base64,', '', $picture);
+				$picture = base64_decode($picture);
+				$picture_name = md5(time());
+				$picture_path = './ji_upload/ta/feedback/' . $id . '/';
+				if (strlen($picture) >= 1000000)
+				{
+					echo "the picture is too large";
+					exit();
+				}
+				if (!file_exists($picture_path))
+				{
+					mkdir($picture_path);
+				}
+				$picture_size = file_put_contents($picture_path . $picture_name . '.png', $picture);
+				if ($picture_size <= 0)
+				{
+					echo "picture update failed";
+					exit();
+				}
+			}
+			else
+			{
+				$picture_name = '';
+			}
+			$this->Mta_feedback->reply($id, Feedback_obj::STATE_STUDENT, $user_id, $content, false,
+			                           $picture_name);
+			//echo $picture_name;
 			echo 'success';
 		}
 		exit();
 	}
-
+	
 	/**
 	 * close a feedback through ajax
 	 *
@@ -275,7 +290,7 @@ class Feedback extends TA_Controller
 		}
 		exit();
 	}
-
+	
 	public function test()
 	{
 		$this->load->model('Mta_search');

@@ -1,199 +1,31 @@
-body{
-	background-color: #eee;
-	font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
-	margin: 0;
-	padding: 0;
-	height: auto;
-}
+/*main content part*/
 
-div.wholeBody{
-	width: 1349px;
-	margin: auto;
-	padding: 0;
-}
 
-h1{
-	font-size: 1.75em;
-}
 
-h2>a.navig{
-    color:#333;
-	text-decoration: none;
-}
-h2>a.navig:hover{
-    opacity: 0.75;
-}
 
-h4.schema{
-	display: inline;
-    margin-right: 5%;
-    font-weight: 500;
-}
-
-h4.schema._1{
-    margin-right:0;
-}
-
-h4.col-sm-2._1, h4.col-sm-1._1{
-    display: inline;
-}
-
-h5.submit_time{
-	display: inline-block;
-	margin-bottom: 0;
-}
-
-li.list-group-item._1{
-    color:#002b60;
-}
-
-._top{
-	margin: 0 10%;
-	overflow: auto;
-}
-
-._top h1{
-	color: #002b60;
-	padding: 22px 0;
-	float: right;
-}
-
-._top img{
-	vertical-align: bottom;
-}
-
-._top img, h1{
-	display: inline-block;
-	text-align: center;
-	vertical-align: middle;
-}
-
-/*The navigator is here*/
-ul.nav.nav-pills.nav.nav-justified{
-    margin: 0 10% 0 10%;
+/*evaluation_ta_list part*/
+div.talist{
+    margin: 0;
 }
 
 
-
-
-/*The banner part is here*/
-
-/*div.banner{*/
-	/*background-color: #E6E5E5;*/
-	/*width: 100%;*/
-	/*box-shadow: 0 0 5px #002b60;*/
-	/*margin-bottom: 1%;*/
-	/*overflow: hidden;*/
-/*}*/
-
-div.banner{
-    background-color: inherit;
-    width: 100%;
-    /*box-shadow: 0 0 5px #002b60;*/
-    margin-bottom: 0.25%;
-    overflow: hidden;
-}
-
-
-div.banner a{
-	margin: 0.75% 0;
-	padding: 0.15% 1%;
-	color: #002b60;
-	text-align: right;
-	float: right;
-	border: 1px solid #002b60;
-	border-radius: 5px;
-    display: inline-block;
-    text-decoration: none;
-}
-
-div.banner span{
-    display: inline-block;
-    text-decoration: none;
-    float: right;
-    padding: 0.2% 1%;
-    margin: 0.75% 0;
-}
-
-div.banner a:hover{
-	cursor: pointer;
-	color: #0055BD;
-	border: 1px solid #0055BD;
-}
-div.banner > div{
-	margin-right: 10%;
-}
-
-
-/*The end bar is here*/
-
-div.endbar{
-	margin: 5% 0 0 0;
-	background-color: #002b60;
-}
-
-div.endbar div._content{
-	margin-left: 10%;
-	margin-right: 10%;
-	padding: 18px 22px 5px 22px;
-}
-
-div.endbar div._content p, p>a{
-	font-size: 1em;
-	color: #E6E5E5;
-}
-
-div.endbar div._content p:last-child{
-	text-align: right;
-	font-size: 1em;
-	color: #E6E5E5;
-}
-div.endbar div._content span#serverTime{
-	font-weight: bold;
-}
-
-/*------------------------------------------*/
-/*The above is the shared style of all pages*/
-/*------------------------------------------*/
-
-
-/*The Content Body is here*/
-div.body{
-	height:700px;
-	clear:right;
-}
-
-/*The main content part is here*/
-
-div.maincontent{
-	border-radius: 5px;
-	margin-right: 10%;
-    margin-left: 10%;
-	background-color: #E6E5E5;
-	box-shadow: 0 0 5px #002b60;
-    width: 80%;
-	height: 100%;
-	overflow: auto;
-}
-div.announcement {
-    margin: 3% 5% 5% 5%;
-}
-div.announcement h2{
-    padding-bottom: 15px;
+/*evaluation_ta_list maincontent part*/
+div.row.talist.schema{
+    border-top: 2px solid #0055BD;
     border-bottom: 2px solid #0055BD;
-    font-weight: 500;
-    font-size: 1.35em;
 }
-div.announcement > ul li{
-    list-style-type: circle;
+div.row.talist.schema > h5{
+    font-size: 110%;
 }
-div.announcement > ul{
-    margin-top: 2%;
-}
-div.maincontent p{
-	font-size: 1em;
+div.row.talist.main > h5.col-sm-1.state{
+    color: forestgreen;
 }
 
+/*ta evaluation part <评教 开启>*/
+
+
+
+/*ta evaluation part <评教 关闭>*/
 
 
 

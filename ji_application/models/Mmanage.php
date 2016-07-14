@@ -37,7 +37,7 @@ class Mmanage extends CI_Model{
 		{
 			return $query->row(0);
 		}
-		return array();
+		return NULL;
 	}
 }
 ?>

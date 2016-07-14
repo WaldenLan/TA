@@ -16,7 +16,7 @@
 			<td>修改学年</td>
 			<td>修改学期</td>
 		</tr>
-		<form action="/Edit/savexqxn" method="post">
+		<form action="/ta/application/Edit/savexqxn" method="post">
 		<tr>
 			<td><input type="text" name="xxn" value="<?=$list[1]->data?>"/></td>
 			<td><input type="text" name="xxq" value="<?=$list[0]->data?>"/></td>
@@ -26,7 +26,7 @@
 		<input type="submit" name="submit" value="提交" />
 		</td>
 		<td>
-		<input type="button" name="modify" value="返回" onclick="location='/Edit/home'"/>
+		<input type="button" name="modify" value="返回" onclick="location='/ta/application/Edit/home'"/>
 		</td>
 		</tr>
 		</form>

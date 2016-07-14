@@ -1,19 +1,26 @@
 <script type="text/javascript">
 	$(document).ready(function ()
 	{
-		$("#reply-button").click(function (e)
+		$("#reply-button").click(function ()
 		{
-			var flag = 'true';
+			var flag = $("input[name='request']:checked").val();
+			var data = new FormData();
+			data.append('id', <?php echo $feedback->id;?>);
+			data.append('content', $("#input-content").val());
+			data.append('picture', $("#avatar-view-img").attr('src'));
+			data.append('change_flag', flag);
 			$.ajax
 			 ({
 				 type: 'POST',
 				 url: '/ta/evaluation/<?php echo $type;?>/feedback/reply/',
-				 data: {
-					 id: <?php echo $feedback->id;?>,
-					 content: $("#input-content").val(),
-					 change_flag: flag
-				 },
+				 data: data,
 				 dataType: 'text',
+				 processData: false,
+				 contentType: false,
+				 beforeSend: function ()
+				 {
+					 $(".loading").fadeIn();
+				 },
 				 success: function (data)
 				 {
 					 if (data == 'success')
@@ -28,11 +35,15 @@
 				 error: function ()
 				 {
 					 alert('fail!');
+				 },
+				 complete: function ()
+				 {
+					 $(".loading").fadeOut();
 				 }
 			 });
 		});
 
-		$("#close-button").click(function (e)
+		$("#close-button").click(function ()
 		{
 			if (confirm("<?php echo lang('ta_feedback_confirm_close');?>") == true)
 			{

@@ -14,43 +14,37 @@
  * @uses       Mta
  * @uses       Feedback_reply_obj
  */
-class Feedback_obj
+class Feedback_obj extends My_obj
 {
 	/** -- The vars in the table `ji_ta_feedback` -- */
 	
 	/** @var int    int(11)     投诉 ID */
-	protected $id;
+	public $id;
 	/** @var int    varchar(50) TA ID */
-	protected $ta_id;
+	public $ta_id;
 	/** @var int    varchar(50) 投诉者 ID */
-	protected $user_id;
+	public $user_id;
 	/** @var int    varchar(50) 课程 ID */
-	protected $BSID;
+	public $BSID;
 	/** @var string text        投诉标题 */
-	protected $title;
-	/** @var string text        回复列表 */
-	protected $reply_list;
+	public $title;
 	/** @var bool   tinyint(1)  是否匿名 */
-	protected $anonymous;
+	public $anonymous;
 	/** @var int    int(4)      投诉状态 */
-	protected $state;
+	public $state;
 	/** @var string timestamp   创建时间 */
-	protected $CREATE_TIMESTAMP;
+	public $CREATE_TIMESTAMP;
 	/** @var string timestamp   更新时间 */
-	protected $UPDATE_TIMESTAMP;
+	public $UPDATE_TIMESTAMP;
 	
 	/** -- The vars defined for other uses -- */
-	
-	/** @var bool */
-	private $error_flag = false;
+
 	/** @var Ta_obj */
-	protected $ta;
+	public $ta;
 	/** @var Course_obj */
-	protected $course;
+	public $course;
 	/** @var array */
-	protected $replys;
-	/** @var object */
-	private $CI;
+	public $replys;
 	
 	/** -- The constants of $state, processed in binary -- */
 	
@@ -69,43 +63,11 @@ class Feedback_obj
 	 */
 	public function __construct($data = array())
 	{
-		$this->CI = &get_instance();
-		$this->CI->load->language('ta_feedback');
-		$this->CI->load->model('Mta_feedback');
-		$this->CI->load->model('Mcourse');
-		$this->CI->load->model('Mta');
-		$this->CI->load->library('Feedback_reply_obj');
-		foreach ($data as $key => $value)
-		{
-			$this->$key = $value;
-		}
-		if (!isset($this->id))
-		{
-			$this->id = 0;
-			$this->error_flag = true;
-		}
-		else
+		parent::__construct($data, 'id');
+		if (!$this->is_error())
 		{
 			$this->title = base64_decode($this->title);
 		}
-	}
-	
-	/**
-	 * @param $key
-	 * @return mixed
-	 */
-	public function __get($key)
-	{
-		return isset($this->$key) && !$this->is_error() ? $this->$key : NULL;
-	}
-	
-	/**
-	 * Return whether the object is error
-	 * @return bool
-	 */
-	public function is_error()
-	{
-		return $this->error_flag;
 	}
 	
 	/**
@@ -169,6 +131,7 @@ class Feedback_obj
 	 */
 	public function get_state_str()
 	{
+		$this->CI->load->language('ta_main');
 		if (!$this->is_open())
 		{
 			return lang('ta_feedback_state_closed');
@@ -191,6 +154,7 @@ class Feedback_obj
 	 */
 	public function set_ta()
 	{
+		$this->CI->load->model('Mta');
 		$this->ta = $this->CI->Mta->get_ta_by_id($this->ta_id);
 		return $this;
 	}
@@ -201,6 +165,7 @@ class Feedback_obj
 	 */
 	public function set_course()
 	{
+		$this->CI->load->model('Mcourse');
 		$this->course = $this->CI->Mcourse->get_course_by_id($this->BSID);
 		return $this;
 	}
@@ -212,19 +177,12 @@ class Feedback_obj
 	 */
 	public function set_replys($state)
 	{
-		$this->replys = array();
-		foreach (explode(',', $this->reply_list) as $reply_id)
-		{
-			array_push($this->replys, $this->CI->Mta_feedback->get_feedback_reply_by_id($reply_id));
-		}
+		$this->CI->load->model('Mta_feedback');
+		$this->CI->load->library('Feedback_reply_obj');
+		$this->replys = $this->CI->Mta_feedback->get_feedback_replys($this->id);
 		foreach ($this->replys as $key => $reply)
 		{
 			/** @var Feedback_reply_obj $reply */
-			if ($reply->is_error())
-			{
-				unset($this->replys[$key]);
-				continue;
-			}
 			switch ($state)
 			{
 			case $this::STATE_STUDENT:
@@ -258,21 +216,5 @@ class Feedback_obj
 		$this->state |= $alter;
 		return $this;
 	}
-	
-	/**
-	 * @param int $id
-	 * @return $this
-	 */
-	public function add_reply($id)
-	{
-		if (!isset($this->reply_list) || $this->reply_list == NULL || $this->reply_list == '')
-		{
-			$this->reply_list = (string)$id;
-		}
-		else
-		{
-			$this->reply_list .= ',' . (string)$id;
-		}
-		return $this;
-	}
+
 }

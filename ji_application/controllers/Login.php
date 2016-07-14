@@ -43,8 +43,10 @@ class Login extends CI_Controller{
 	function test()
 	{
 		$username = $this->input->post('username');
+		$password = $this->input->post('password');
 		$url = $this->input->get('url');
 		$_SESSION['userid'] = $username;
+		$_SESSION['usertype'] = $password;
 		redirect(base_url(base64_decode($url)));
 		
 	}
