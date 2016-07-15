@@ -14,19 +14,19 @@
 				</h2>
 				<h3>Choices:</h3>
 				<div id="choice-list"></div>
-				<button class="btn btn-primary">Add</button>
+				<button class="btn btn-primary btn-add" type_="choice">Add</button>
 				
 				<h3>Blanks:</h3>
 				<div id="blank-list"></div>
-				<button class="btn btn-primary">Add</button>
+				<button class="btn btn-primary btn-add" type_="blank">Add</button>
 				
 				<h3>Number of Addition Questions:</h3>
 				<input type="text" name="addition-question" value="<?php echo $config->addition; ?>">
 			</div>
 			
+			
 			<div class="modal fade" id="avatar-modal" aria-hidden="true"
 			     aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
-			
 			</div>
 		
 		
@@ -77,7 +77,17 @@
 			
 			$(".btn-delete").click(function (e)
 			{
-				
+				var $target = $(e.target);
+				while ($target.attr('class') != "row")
+				{
+					$target = $target.parent();
+				}
+				$target.remove();
+			});
+
+			$(".btn-add").click(function (e)
+			{
+
 			});
 		});
 	</script>
