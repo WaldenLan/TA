@@ -35,11 +35,11 @@ class Mta_evaluation extends CI_Model
 		$answer = new Evaluation_answer_obj($query->row(0));
 		return $answer;
 	}
-
+	
 	/**
 	 * @param int|string $id
 	 * @param bool       $all
-	 * @return Evaluation_config_obj
+	 * @return Evaluation_config_obj|array
 	 */
 	public function get_evaluation_config($id, $all = false)
 	{
@@ -62,8 +62,8 @@ class Mta_evaluation extends CI_Model
 		$config = new Evaluation_config_obj($query->row(0));
 		return $config;
 	}
-
-
+	
+	
 	/**
 	 * @param $config Evaluation_config_obj
 	 * @return array
@@ -95,6 +95,26 @@ class Mta_evaluation extends CI_Model
 		return $data;
 	}
 	
+	/**
+	 * @param $type string
+	 * @param $keys array
+	 * @return array
+	 */
+	public function search_question($type, $keys)
+	{
+		$this->db->select('*')->from('ji_ta_evaluation_default')->where(array('type' => $type));
+		foreach ($keys as $key)
+		{
+			$this->db->like('content', $key);
+		}
+		$query = $this->db->limit(10)->order_by('UPDATE_TIMESTAMP', 'DESC')->get();
+		$question_list = array();
+		foreach ($query->result() as $row)
+		{
+			$question_list[] = new Evaluation_default_obj($row);
+		}
+		return $question_list;
+	}
 	
 	/**
 	 * @param int    $BSID
@@ -106,10 +126,11 @@ class Mta_evaluation extends CI_Model
 		$data = array(
 			'BSID'    => $BSID,
 			'type'    => $type,
-			'content' => $this->Mta_site->html_base64($content));
+			'content' => $this->Mta_site->html_base64($content)
+		);
 		$this->db->insert('ji_ta_evaluation_question', $data);
 	}
-
+	
 	/**
 	 * @param int    $BSID
 	 * @param int    $USER_ID
@@ -123,14 +144,15 @@ class Mta_evaluation extends CI_Model
 			'BSID'    => $BSID,
 			'USER_ID' => $USER_ID,
 			'TA_ID'   => $TA_ID,
-			'content' => $this->Mta_site->html_base64(json_encode($content)));
+			'content' => $this->Mta_site->html_base64(json_encode($content))
+		);
 		if ($type == 'student' || $type == 'teacher')
 		{
 			$data['config_id'] = $this->Mta_site->site_config['ta_evaluation_config_' . $type];
 		}
 		$this->db->insert('ji_ta_evaluation_answer', $data);
 	}
-
+	
 	/**
 	 * @param int $BSID
 	 * @param int $USER_ID
@@ -141,7 +163,8 @@ class Mta_evaluation extends CI_Model
 	{
 		$this->db->select('*')->from('ji_ta_evaluation_answer')->where(array(
 			                                                               'BSID'    => $BSID,
-			                                                               'USER_ID' => $USER_ID,));
+			                                                               'USER_ID' => $USER_ID,
+		                                                               ));
 		if (is_array($TA_ID))
 		{
 			$this->db->where_in('TA_ID', $TA_ID);
@@ -162,7 +185,7 @@ class Mta_evaluation extends CI_Model
 		}
 		return $answer_list;
 	}
-
+	
 	/**
 	 * 检查内容是否符合字数规定
 	 * @param $content

@@ -212,14 +212,14 @@ class Evaluation_default_obj extends Evaluation_obj
 	public function __construct($data = array())
 	{
 		parent::__construct($data, 'id');
-		if (!$this->is_error())
+		/*if (!$this->is_error())
 		{
 			$this->content = base64_decode($this->content);
 		}
 		else
 		{
 			$this->content = '';
-		}
+		}*/
 	}
 	
 }

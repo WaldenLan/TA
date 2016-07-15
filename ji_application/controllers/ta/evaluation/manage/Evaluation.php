@@ -57,6 +57,24 @@ class Evaluation extends TA_Controller
 		$this->load->view('ta/evaluation/evaluation/view_config', $data);
 	}
 	
+	public function search_question()
+	{
+		$type = $this->input->get('type');
+		$key = $this->input->get('key');
+		$keys = explode(' ', $key);
+		foreach ($keys as $index => $value)
+		{
+			if ($value == '')
+			{
+				unset($keys[$index]);
+			}
+		}
+		$data = $this->Mta_evaluation->search_question($type, $keys);
+		echo json_encode($data);
+		exit();
+	}
+	
+	
 	public function settime()
 	{
 		$start = $this->input->get('start');
