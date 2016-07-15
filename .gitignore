@@ -52,3 +52,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+ji_upload/
+ji_file/
