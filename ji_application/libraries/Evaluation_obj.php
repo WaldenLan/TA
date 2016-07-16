@@ -122,7 +122,7 @@ class Evaluation_config_obj extends Evaluation_obj
 	
 	/** @var int    int(11)     评教配置 ID */
 	public $id;
-	public $name;
+	public $description;
 	public $CREATER_ID;
 	public $EDITOR_ID;
 	/** @var string varchar(10) 配置类型 */
